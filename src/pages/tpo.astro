@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+// TPO Team from official report
+const tpoTeam = [
+  { name: "Prof. N. V. Oza",    role: "Convener",     dept: "Mechanical",                    email: "" },
+  { name: "Mr. I. D. Chaudhary", role: "Co-Convener",  dept: "Electrical",                    email: "gpptpo@gmail.com" },
+  { name: "Mr. J. B. Patel",    role: "Co-Convener",  dept: "Mechanical",                    email: "" },
+  { name: "Mr. M. J. Dabagar",   role: "Member",       dept: "Electronics & Communication / ICT", email: "" },
+  { name: "Shri A. N. Patel",   role: "Member",       dept: "Civil",                         email: "" },
+  { name: "Shri D. P. Judal",   role: "Member",       dept: "Mechanical",                    email: "" },
+  { name: "Shri Ankit Gajjar",  role: "Member",       dept: "Electrical",                    email: "" },
+];
+
+// Dept-wise placement data per year (from official report)
+const deptData = [
+  {
+    name: "Civil Engineering",
+    rows: [
+      { year: "2024-25", passout: 15, placed: 0,  higher: 15, rate: "100%" },
+      { year: "2023-24", passout: 16, placed: 0,  higher: 16, rate: "100%" },
+      { year: "2022-23", passout: 16, placed: 0,  higher: 16, rate: "100%" },
+      { year: "2021-22", passout: 29, placed: 1,  higher: 26, rate: "93%" },
+      { year: "2020-21", passout: 34, placed: 0,  higher: 32, rate: "94%" },
+    ],
+  },
+  {
+    name: "Mechanical Engineering",
+    rows: [
+      { year: "2024-25", passout: 10, placed: 7,  higher: 3,  rate: "100%" },
+      { year: "2023-24", passout: 9,  placed: 4,  higher: 5,  rate: "100%" },
+      { year: "2022-23", passout: 16, placed: 3,  higher: 12, rate: "94%" },
+      { year: "2021-22", passout: 40, placed: 3,  higher: 22, rate: "63%" },
+      { year: "2020-21", passout: 57, placed: 2,  higher: 35, rate: "65%" },
+    ],
+  },
+  {
+    name: "Electrical Engineering",
+    rows: [
+      { year: "2024-25", passout: 23, placed: 8,  higher: 14, rate: "96%" },
+      { year: "2023-24", passout: 16, placed: 6,  higher: 6,  rate: "75%" },
+      { year: "2022-23", passout: 13, placed: 3,  higher: 3,  rate: "46%" },
+      { year: "2021-22", passout: 24, placed: 8,  higher: 3,  rate: "46%" },
+      { year: "2020-21", passout: 47, placed: 13, higher: 10, rate: "49%" },
+    ],
+  },
+  {
+    name: "Electronics & Communication",
+    rows: [
+      { year: "2024-25", passout: 3,  placed: 1,  higher: 1,  rate: "67%" },
+      { year: "2023-24", passout: 3,  placed: 2,  higher: 1,  rate: "100%" },
+      { year: "2022-23", passout: 2,  placed: 0,  higher: 2,  rate: "100%" },
+      { year: "2021-22", passout: 4,  placed: 1,  higher: 2,  rate: "75%" },
+      { year: "2020-21", passout: 5,  placed: 1,  higher: 2,  rate: "60%" },
+    ],
+  },
+  {
+    name: "ICT",
+    rows: [
+      { year: "2024-25", passout: 4,  placed: 0,  higher: 3,  rate: "100%" },
+    ],
+  },
+];
+
+const recruiters = [
+  "Academy For Skill Development (ArcelorMittal)",
+  "L&T Construction",
+  "SUSPA Pneumatics India Pvt. Ltd.",
+  "Suzuki Motor Gujarat Pvt. Ltd.",
+  "Torrent Power",
+  "Asahi Glass India Ltd.",
+  "TATA Passenger Vehicle",
+  "Tanu Motors",
+  "L&T Energy Carbonlite Solutions",
+];
+
+const services = [
+  { title: "Career Counseling",          desc: "Professional guidance for career planning",              icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+  { title: "Industrial Training",        desc: "Hands-on experience with industry partners",             icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5" },
+  { title: "Recruitment Drives",         desc: "On-campus placement opportunities",                      icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+  { title: "Skill Enhancement",          desc: "Workshops and training programs",                        icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+  { title: "Alumni Tracking",            desc: "Monitoring graduate progress and success",               icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" },
+  { title: "Entrepreneurship Support",   desc: "SSIP initiatives and startup guidance",                  icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+];
+---
+
+<Layout title="TPO Cell | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1 mb-4 inline-block">Training & Placement Cell</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">TPO Cell</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Building bridges between academic excellence and industry opportunities. Our dedicated Training & Placement Cell focuses on comprehensive career development and successful industry integration.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center"><div class="text-3xl font-bold text-primary">35%</div><div class="text-sm text-gray-600">Placement Rate</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">₹4.5L</div><div class="text-sm text-gray-600">Max Package</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">5+</div><div class="text-sm text-gray-600">Companies/Year</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">100+</div><div class="text-sm text-gray-600">Alumni Network</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">To bridge the gap between academic learning and industry requirements by providing comprehensive training, career guidance, and placement opportunities that enable our students to excel in their professional careers.</p>
+          <ul class="space-y-4">
+            {[["Industry Connections", "Establishing strong partnerships with leading companies"], ["Skill Development", "Comprehensive training programs and workshops"], ["Career Guidance", "Professional counseling and mentorship programs"]].map(([title, desc]) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <div>
+                  <div class="font-semibold text-gray-900">{title}</div>
+                  <div class="text-gray-600 text-sm">{desc}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-primary/5 to-blue-50 rounded-2xl p-8 text-center">
+          <span class="text-sm font-semibold text-primary border border-primary/30 rounded-full px-4 py-2 bg-white">"Bridging Academia & Industry"</span>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-4 shadow-sm text-center"><div class="text-2xl font-bold text-primary">171</div><div class="text-xs text-gray-500 mt-1">Placements 2024</div></div>
+            <div class="bg-white rounded-xl p-4 shadow-sm text-center"><div class="text-2xl font-bold text-primary">14</div><div class="text-xs text-gray-500 mt-1">Partner Companies</div></div>
+            <div class="bg-white rounded-xl p-4 shadow-sm text-center"><div class="text-2xl font-bold text-primary">₹1.8L</div><div class="text-xs text-gray-500 mt-1">Median Package</div></div>
+            <div class="bg-white rounded-xl p-4 shadow-sm text-center"><div class="text-2xl font-bold text-primary">35%</div><div class="text-xs text-gray-500 mt-1">Placement Rate</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TPO Team -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">TPO Cell Team</h2>
+        <p class="text-gray-600">Dedicated faculty members working to connect students with industry</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-sm border border-gray-200 text-sm">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th class="px-4 py-3 text-left font-semibold">Sr.</th>
+              <th class="px-4 py-3 text-left font-semibold">Name</th>
+              <th class="px-4 py-3 text-left font-semibold">Designation</th>
+              <th class="px-4 py-3 text-left font-semibold">Department</th>
+              <th class="px-4 py-3 text-left font-semibold">Email</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {tpoTeam.map((m, i) => (
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-4 py-3 text-gray-500">{i + 1}</td>
+                <td class="px-4 py-3 font-medium text-gray-900">{m.name}</td>
+                <td class="px-4 py-3">
+                  <span class={`text-xs font-semibold rounded-full px-2 py-1 ${m.role === 'Convener' ? 'bg-primary/10 text-primary' : m.role === 'Co-Convener' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'}`}>{m.role}</span>
+                </td>
+                <td class="px-4 py-3 text-gray-600">{m.dept}</td>
+                <td class="px-4 py-3 text-gray-500">{m.email ? <a href={`mailto:${m.email}`} class="text-primary hover:underline">{m.email}</a> : '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placement Statistics -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Placement Statistics</h2>
+        <p class="text-gray-600">Department-wise placement data (jobs + higher studies) — Academic Years 2020–25</p>
+      </div>
+      <div class="space-y-8">
+        {deptData.map(dept => (
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+            <div class="bg-primary/5 px-6 py-3 border-b border-gray-200">
+              <h3 class="font-bold text-gray-900">{dept.name}</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
+                  <tr>
+                    <th class="px-4 py-2 text-left">Year</th>
+                    <th class="px-4 py-2 text-center">Pass-out</th>
+                    <th class="px-4 py-2 text-center">Placed (Job)</th>
+                    <th class="px-4 py-2 text-center">Higher Studies</th>
+                    <th class="px-4 py-2 text-center">% Placement</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                  {dept.rows.map(r => (
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-4 py-2 font-medium text-gray-900">{r.year}</td>
+                      <td class="px-4 py-2 text-center text-gray-700">{r.passout}</td>
+                      <td class="px-4 py-2 text-center text-gray-700">{r.placed}</td>
+                      <td class="px-4 py-2 text-center text-gray-700">{r.higher}</td>
+                      <td class="px-4 py-2 text-center">
+                        <span class="text-xs font-semibold bg-green-100 text-green-800 rounded-full px-2 py-0.5">{r.rate}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Services Offered</h2>
+        <p class="text-gray-600">Comprehensive support for career development</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">{s.title}</h3>
+              <p class="text-gray-600 text-sm">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Recruiters -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Major Recruiters</h2>
+        <p class="text-gray-600">Companies that have recruited students from GP Palanpur</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {recruiters.map((c, i) => (
+          <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4 flex items-center gap-3">
+            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 text-primary font-bold text-sm">{i + 1}</div>
+            <span class="text-gray-800 font-medium text-sm">{c}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Connect with TPO Cell</h2>
+      <p class="text-gray-600 mb-6">For placement inquiries, campus recruitment, or career guidance</p>
+      <a href="/contact" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

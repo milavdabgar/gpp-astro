@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const functions = [
+  {
+    title: "Human Resources",
+    desc: "Managing faculty and staff recruitment, appointments, service records, and career development",
+    color: "blue",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    title: "Policy Implementation",
+    desc: "Ensuring compliance with government directives, UGC/AICTE guidelines, and institutional policies",
+    color: "green",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+  },
+  {
+    title: "Infrastructure Management",
+    desc: "Overseeing campus infrastructure, maintenance, construction projects, and resource allocation",
+    color: "purple",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  },
+  {
+    title: "Quality Assurance",
+    desc: "Monitoring academic standards, assessment processes, and institutional performance metrics",
+    color: "orange",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+  },
+  {
+    title: "Record Management",
+    desc: "Maintaining official documents, correspondence, and administrative archives in digital and physical formats",
+    color: "red",
+    icon: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4",
+  },
+  {
+    title: "Strategic Planning",
+    desc: "Long-term institutional planning, NAAC preparation, accreditation cycles, and growth initiatives",
+    color: "teal",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+  },
+];
+
+const colorMap: Record<string, string> = {
+  blue: "bg-blue-50 text-blue-600",
+  green: "bg-green-50 text-green-600",
+  purple: "bg-purple-50 text-purple-600",
+  orange: "bg-orange-50 text-orange-600",
+  red: "bg-red-50 text-red-600",
+  teal: "bg-teal-50 text-teal-600",
+};
+---
+
+<Layout title="Establishment Section | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Administration</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Governance</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Official Records</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Establishment Section</h1>
+      <p class="text-xl text-gray-600 mb-8">The administrative backbone of Government Polytechnic Palanpur, ensuring smooth institutional operations, policy compliance, and excellence in governance since 1983.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center"><div class="text-3xl font-bold text-primary">40+</div><div class="text-sm text-gray-600">Years of Service</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">6</div><div class="text-sm text-gray-600">Departments</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">2000+</div><div class="text-sm text-gray-600">Students</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">100+</div><div class="text-sm text-gray-600">Staff Members</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Administrative Excellence</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>The Establishment Section serves as the central administrative unit of Government Polytechnic Palanpur, coordinating all non-academic functions essential to the smooth operation of the institution. From personnel management to infrastructure oversight, our team ensures that every aspect of institutional administration runs efficiently and transparently.</p>
+            <p>We work in close coordination with the Principal's office, all academic departments, and external government bodies to implement policies, maintain compliance, and facilitate the overall development and growth of the institution.</p>
+            <p>Our commitment to good governance, timely record maintenance, and responsive services ensures that both staff and students receive the administrative support they need in their daily academic and professional activities.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-primary/5 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-primary">1983</div>
+            <div class="text-sm text-gray-600 mt-1">Year Established</div>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-blue-600">100+</div>
+            <div class="text-sm text-gray-600 mt-1">Staff Members</div>
+          </div>
+          <div class="bg-green-50 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-green-600">6</div>
+            <div class="text-sm text-gray-600 mt-1">Departments</div>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-purple-600">100%</div>
+            <div class="text-sm text-gray-600 mt-1">Policy Compliance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Functions -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Key Administrative Functions</h2>
+        <p class="text-gray-600 max-w-xl mx-auto">Core responsibilities and services managed by the Establishment Section</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {functions.map(fn => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class={`w-12 h-12 ${colorMap[fn.color]} rounded-xl flex items-center justify-center mb-4`}>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={fn.icon}/></svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">{fn.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{fn.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Website Card -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="bg-primary text-white rounded-xl p-8 text-center">
+        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">Official Establishment Website</h2>
+        <p class="text-blue-100 mb-6">Access official notices, circulars, and administrative updates through the dedicated Establishment Section website.</p>
+        <a href="https://gppest626.wixsite.com/gppest" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors text-sm">
+          Visit Establishment Website
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Quick Links -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Establishment Section</h3>
+          <div class="space-y-3 text-gray-600 text-sm">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Government Polytechnic Palanpur, Ambaji Road, Palanpur, Gujarat 385001
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a href="tel:+912742252663" class="hover:text-primary transition-colors">+91 2742 252663</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <a href="mailto:aesgpppalanpur@gmail.com" class="hover:text-primary transition-colors">aesgpppalanpur@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Navigation</h3>
+          <div class="flex flex-wrap gap-3">
+            {[["About", "/about"], ["Departments", "/departments"], ["Admissions", "/admissions"], ["Facilities", "/facilities"], ["Contact", "/contact"]].map(([label, href]) => (
+              <a href={href} class="text-sm font-medium border border-gray-200 rounded-lg px-4 py-2 text-gray-700 hover:border-primary hover:text-primary transition-colors bg-white">
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

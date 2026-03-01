@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+import { getSortedAnnouncements, getAnnouncementBySlug } from '../../data/announcements';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const items = getSortedAnnouncements().filter(a => a.hasDetailPage);
+  return items.map(ann => ({ params: { slug: ann.slug }, props: { ann } }));
+};
+
+const { ann } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  admission:     "Admission",
+  exam:          "Examination",
+  recruitment:   "Recruitment",
+  event:         "Events",
+  result:        "Results",
+  scholarship:   "Scholarship / SSIP",
+  accreditation: "NBA Accreditation",
+  general:       "General",
+};
+
+const categoryStyles: Record<string, string> = {
+  admission:     "bg-blue-100 text-blue-800 border-blue-200",
+  exam:          "bg-amber-100 text-amber-800 border-amber-200",
+  recruitment:   "bg-green-100 text-green-800 border-green-200",
+  event:         "bg-purple-100 text-purple-800 border-purple-200",
+  result:        "bg-rose-100 text-rose-800 border-rose-200",
+  scholarship:   "bg-teal-100 text-teal-800 border-teal-200",
+  accreditation: "bg-indigo-100 text-indigo-800 border-indigo-200",
+  general:       "bg-gray-100 text-gray-700 border-gray-200",
+};
+---
+
+<Layout title={`${ann.title} | GP Palanpur`}>
+  <Nav />
+  <AnnouncementTicker />
+
+  <main class="min-h-screen bg-gray-50 py-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/announcements" class="hover:text-primary transition-colors">Announcements</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-gray-700 truncate max-w-[200px]">{ann.title}</span>
+      </nav>
+
+      <article class="bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-sm">
+        <!-- Meta -->
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          {ann.isNew && (
+            <span class="inline-flex items-center rounded-sm bg-primary px-1.5 py-px text-[10px] font-bold text-white uppercase tracking-wider">NEW</span>
+          )}
+          <span class={`inline-flex items-center rounded-full border px-2 py-px text-[11px] font-semibold capitalize ${categoryStyles[ann.category] ?? categoryStyles.general}`}>
+            {categoryLabels[ann.category] ?? ann.category}
+          </span>
+          <span class="flex items-center gap-1 text-xs text-gray-400">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            {ann.date}
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 leading-tight">{ann.title}</h1>
+
+        {ann.summary && (
+          <p class="text-gray-600 text-lg leading-relaxed mb-6 border-l-4 border-primary/30 pl-4 italic">
+            {ann.summary}
+          </p>
+        )}
+
+        {ann.content && (
+          <div class="prose prose-gray max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
+            {ann.content}
+          </div>
+        )}
+
+        {ann.attachmentUrl && (
+          <div class="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/20">
+            <a
+              href={ann.attachmentUrl}
+              class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              {ann.attachmentLabel ?? "Download Attachment"}
+            </a>
+          </div>
+        )}
+      </article>
+
+      <!-- Back link -->
+      <div class="mt-6">
+        <a href="/announcements" class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Back to Announcements
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

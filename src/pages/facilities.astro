@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import facilities from '../data/facilities.json';
+import collegeInfo from '../data/college-info.json';
+
+const typeIcons: Record<string, string> = {
+  Academic:        "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  Residential:     "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+  Service:         "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+  "Green Energy":  "M13 10V3L4 14h7v7l9-11h-7z",
+  Technology:      "M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0",
+  Recreation:      "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+  Infrastructure:  "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+};
+---
+
+<Layout title="Campus Facilities | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Campus Facilities</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Our {collegeInfo.basic_info.campus_area} campus provides modern infrastructure and comprehensive facilities to support academic excellence and student life.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center"><div class="text-3xl font-bold text-primary">{collegeInfo.infrastructure.total_labs}+</div><div class="text-sm text-gray-600">Modern Labs</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">{collegeInfo.infrastructure.library_books.toLocaleString('en-IN')}</div><div class="text-sm text-gray-600">Library Books</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">6</div><div class="text-sm text-gray-600">Departments</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">200</div><div class="text-sm text-gray-600">Mbps Internet</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campus Overview -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Modern Infrastructure for Excellence</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Our sprawling {collegeInfo.basic_info.campus_area} campus in Palanpur provides a conducive environment for learning with state-of-the-art facilities, modern laboratories, and comfortable living spaces.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-gray-700">
+              <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <span><strong>Location:</strong> {collegeInfo.basic_info.location_type} campus in Palanpur</span>
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg>
+              </div>
+              <span><strong>Established:</strong> {collegeInfo.basic_info.established} – {collegeInfo.achievements.established_years} years of excellence</span>
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <span><strong>Green Energy:</strong> {collegeInfo.infrastructure.green_energy}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-primary/5 to-blue-50 rounded-2xl p-8 text-center">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="text-2xl font-bold text-primary">{collegeInfo.basic_info.campus_area}</div>
+              <div class="text-xs text-gray-500 mt-1">Campus Area</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="text-2xl font-bold text-primary">{collegeInfo.infrastructure.total_labs}+</div>
+              <div class="text-xs text-gray-500 mt-1">Labs</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="text-2xl font-bold text-primary">200 Mbps</div>
+              <div class="text-xs text-gray-500 mt-1">Internet Speed</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="text-2xl font-bold text-primary">86K</div>
+              <div class="text-xs text-gray-500 mt-1">Solar Units/Year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facilities Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Comprehensive Campus Facilities</h2>
+        <p class="text-gray-600">Everything you need for a complete educational experience</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {facilities.map(facility => (
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow flex flex-col">
+            <div class="p-6 border-b border-gray-100">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={typeIcons[facility.type] ?? typeIcons.Infrastructure}/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">{facility.name}</h3>
+                  <span class="text-[11px] border border-gray-200 rounded px-1.5 py-0.5 text-gray-500">{facility.type}</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">{facility.description}</p>
+              <div>
+                <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Key Features</h4>
+                <ul class="space-y-1.5">
+                  {facility.features.map((f: string) => (
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <div class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Highlights -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Special Highlights</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Solar Power Plant</h3>
+          <p class="text-gray-600 text-sm mb-4">Environmentally conscious campus with renewable energy generating 86,000 units annually</p>
+          <span class="text-xs font-semibold bg-green-100 text-green-800 rounded-full px-3 py-1">Eco-Friendly</span>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">High-Speed Connectivity</h3>
+          <p class="text-gray-600 text-sm mb-4">200 Mbps internet with NAMO WiFi covering the entire campus for seamless learning</p>
+          <span class="text-xs font-semibold bg-blue-100 text-blue-800 rounded-full px-3 py-1">Digital Ready</span>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Advanced Laboratories</h3>
+          <p class="text-gray-600 text-sm mb-4">25+ modern laboratories equipped with latest instruments for hands-on learning</p>
+          <span class="text-xs font-semibold bg-purple-100 text-purple-800 rounded-full px-3 py-1">State-of-art</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Experience Our Campus</h2>
+      <p class="text-gray-600 mb-6">Visit GP Palanpur to explore our facilities and learn about our programs.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+          Schedule a Visit
+        </a>
+        <a href="/admissions" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:border-primary hover:text-primary transition-colors">
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

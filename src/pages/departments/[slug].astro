@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+import departments from '../../data/departments.json';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return departments.map(dept => ({
+    params: { slug: dept.slug },
+    props: { dept },
+  }));
+};
+
+const { dept } = Astro.props;
+---
+
+<Layout title={`${dept.name} | GP Palanpur`}>
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+        <a href="/" class="hover:text-primary">Home</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/departments" class="hover:text-primary">Departments</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-gray-700">{dept.name}</span>
+      </nav>
+
+      <div class="max-w-4xl">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          {dept.nba_status && (
+            <span class="text-xs font-semibold bg-green-100 text-green-800 border border-green-200 rounded-full px-3 py-1">NBA Accredited</span>
+          )}
+          <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Est. {dept.established}</span>
+          <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">{dept.intake_capacity} Seats</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{dept.name}</h1>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl">{dept.overview}</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="text-center bg-white/80 rounded-xl p-4 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{dept.intake_capacity}</div>
+            <div class="text-xs text-gray-500 mt-1">Intake Seats</div>
+          </div>
+          <div class="text-center bg-white/80 rounded-xl p-4 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{dept.faculty_count ?? '—'}</div>
+            <div class="text-xs text-gray-500 mt-1">Faculty</div>
+          </div>
+          <div class="text-center bg-white/80 rounded-xl p-4 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{dept.laboratories.length}</div>
+            <div class="text-xs text-gray-500 mt-1">Labs</div>
+          </div>
+          <div class="text-center bg-white/80 rounded-xl p-4 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{dept.nba_status ? '✓' : '—'}</div>
+            <div class="text-xs text-gray-500 mt-1">NBA Status</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specializations + Career + Labs -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Specializations -->
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900">Specializations</h2>
+          </div>
+          <ul class="space-y-2">
+            {dept.specializations.map(s => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Career Opportunities -->
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900">Career Opportunities</h2>
+          </div>
+          <ul class="space-y-2">
+            {dept.career_opportunities.map(c => (
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Laboratories -->
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900">Laboratories</h2>
+          </div>
+          <ul class="space-y-2">
+            {dept.laboratories.map(lab => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <div class="w-2 h-2 bg-purple-400 rounded-full flex-shrink-0"></div>
+                {lab}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOD + Website -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 font-medium uppercase tracking-wide">Head of Department</div>
+            <div class="text-lg font-bold text-gray-900">{dept.head_of_department}</div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          {dept.website && (
+            <a href={dept.website} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Department Website
+            </a>
+          )}
+          <a href="/admissions" class="inline-flex items-center gap-2 border border-primary text-primary font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/5 transition-colors text-sm">
+            Apply Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back + CTA -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-4 items-center justify-between">
+      <a href="/departments" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        All Departments
+      </a>
+      <a href="/contact" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+        Have questions? Contact us
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

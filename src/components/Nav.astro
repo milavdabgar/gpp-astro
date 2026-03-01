@@ -1,0 +1,188 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: "Home", href: "/", exact: true },
+  { label: "About", href: "/about" },
+  { label: "Announcements", href: "/announcements" },
+  { label: "Newsletters",   href: "/newsletters" },
+  {
+    label: "Academics",
+    children: [
+      { label: "Departments", href: "/departments" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "Library", href: "/library" },
+      { label: "Facilities", href: "/facilities" },
+    ],
+  },
+  {
+    label: "Student Life",
+    children: [
+      { label: "Student Section", href: "/student-section" },
+      { label: "SSIP", href: "/ssip" },
+      { label: "TPO", href: "/tpo" },
+    ],
+  },
+  {
+    label: "Administration",
+    children: [
+      { label: "Establishment", href: "/establishment" },
+      { label: "Innovation", href: "/innovation" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+
+function isActive(href: string, exact = false): boolean {
+  if (exact) return currentPath === href;
+  return currentPath.startsWith(href) && href !== "/";
+}
+---
+
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 flex-shrink-0">
+        <img src="/images/gpp-logo.png" alt="GPP Logo" class="h-10 w-10 object-contain" />
+        <div class="hidden sm:block">
+          <div class="font-bold text-gray-900 text-sm leading-tight">Govt. Polytechnic</div>
+          <div class="text-primary text-xs font-semibold">Palanpur</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-1">
+        {navLinks.map((link) =>
+          link.children ? (
+            <div class="relative group">
+              <button class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary rounded-md hover:bg-gray-50 transition-colors">
+                {link.label}
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                {link.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class={`block px-4 py-2.5 text-sm hover:bg-gray-50 hover:text-primary transition-colors first:rounded-t-lg last:rounded-b-lg ${isActive(child.href) ? "text-primary font-medium bg-primary/5" : "text-gray-700"}`}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${isActive(link.href!, link.exact) ? "text-primary bg-primary/5" : "text-gray-700 hover:text-primary hover:bg-gray-50"}`}
+            >
+              {link.label}
+            </a>
+          )
+        )}
+      </nav>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-2">
+        <a
+          href="https://gppalanpur.ac.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden md:inline-flex items-center gap-1 text-xs font-medium text-white bg-primary hover:bg-primary/90 px-3 py-1.5 rounded-md transition-colors"
+        >
+          Portal
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 bg-white">
+    <div class="px-4 py-3 space-y-1 max-h-[75vh] overflow-y-auto">
+      {navLinks.map((link) =>
+        link.children ? (
+          <div>
+            <button
+              class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary rounded-md hover:bg-gray-50"
+            >
+              {link.label}
+              <svg class="chevron w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="mobile-dropdown-content hidden pl-4 mt-1 space-y-1">
+              {link.children.map((child) => (
+                <a
+                  href={child.href}
+                  class={`block px-3 py-2 text-sm rounded-md transition-colors ${isActive(child.href) ? "text-primary font-medium bg-primary/5" : "text-gray-600 hover:text-primary hover:bg-gray-50"}`}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a
+            href={link.href}
+            class={`block px-3 py-2 text-sm font-medium rounded-md transition-colors ${isActive(link.href!, link.exact) ? "text-primary bg-primary/5" : "text-gray-700 hover:text-primary hover:bg-gray-50"}`}
+          >
+            {link.label}
+          </a>
+        )
+      )}
+      <div class="pt-2 border-t border-gray-100">
+        <a
+          href="https://gppalanpur.ac.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-primary"
+        >
+          Visit Portal
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  btn?.addEventListener("click", () => {
+    const isHidden = menu?.classList.toggle("hidden");
+    iconOpen?.classList.toggle("hidden", !isHidden);
+    iconClose?.classList.toggle("hidden", isHidden);
+  });
+
+  document.querySelectorAll(".mobile-dropdown-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector(".chevron") as HTMLElement;
+      content?.classList.toggle("hidden");
+      chevron?.classList.toggle("rotate-180");
+    });
+  });
+</script>

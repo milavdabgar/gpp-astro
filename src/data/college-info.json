@@ -1,0 +1,97 @@
+{
+  "name": "Government Polytechnic Palanpur",
+  "short_name": "GPP Palanpur",
+  "institute_code": "626",
+  "motto": "Excellence in Technical Education",
+  "location": "Palanpur, Gujarat, India",
+  "address": "Outside Malan Gate, Ambaji Road, Palanpur-385001, Banaskantha, Gujarat",
+  "contact": {
+    "phone": "02742-262115",
+    "mobile": "9099063226",
+    "email": "gp-palanpur-dte@gujarat.gov.in",
+    "email_alt": "info@gppalanpur.ac.in",
+    "website": "https://gppalanpur.ac.in",
+    "institutional_website": "www.gppp.cteguj.in",
+    "gtu_webmail": "dec626owner@gtu.edu.in"
+  },
+  "basic_info": {
+    "type": "Government Technical Institute",
+    "established": 1984,
+    "aicte_approval_date": "15-Feb-1994",
+    "affiliation": "Gujarat Technological University (GTU)",
+    "gtu_first_affiliation_year": 2008,
+    "gtu_first_affiliation_no": "GTU/INST_AFFI/626/2012-13/677",
+    "gtu_first_affiliation_date": "31-Jan-2013",
+    "approval": "AICTE Approved",
+    "recognition": "Government of Gujarat",
+    "apex_body": "Commissionerate of Technical Education, Gujarat",
+    "campus_area": "20.36 acres",
+    "campus_area_at_approval": "18.8 acres",
+    "total_built_up_area_sqm": 22461.91,
+    "location_type": "Urban",
+    "location_coordinates": { "latitude": "24°12'", "longitude": "72°28'" },
+    "land_ownership": "Government Land",
+    "total_buildings": 5
+  },
+  "buildings": [
+    "Main Building",
+    "Workshop",
+    "BADP Building",
+    "LRUC Building",
+    "Mechanical Block"
+  ],
+  "administration": {
+    "principal": "Shri Sureshkumar Dalabhai Dabhi",
+    "principal_designation": "In-charge Principal",
+    "principal_since": "01-Apr-2019",
+    "principal_qualification": "M.Tech. Manufacturing Systems, NIT Jaipur",
+    "principal_mobile": "9825697278",
+    "principal_email": "sureshdabhi1968@gmail.com",
+    "total_faculty": 64,
+    "faculty_with_phd": 6,
+    "faculty_with_masters": 41
+  },
+  "programs": [
+    { "name": "Civil Engineering",                      "intake": 90, "started": 1984, "nba": true },
+    { "name": "Electrical Engineering",                 "intake": 60, "started": 1984, "nba": true },
+    { "name": "Mechanical Engineering",                 "intake": 60, "started": 1988, "nba": true },
+    { "name": "Electronics & Communication Engineering","intake": 30, "started": 1994, "nba": false },
+    { "name": "Information & Communication Technology", "intake": 60, "started": 2022, "nba": false },
+    { "name": "Information Technology",                 "intake": 30, "started": 2023, "nba": false }
+  ],
+  "nba": {
+    "accredited_programs": 3,
+    "accredited_courses": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"],
+    "valid_from": "01-Jul-2024",
+    "valid_upto": "30-Jun-2027"
+  },
+  "infrastructure": {
+    "total_departments": 6,
+    "total_intake": 330,
+    "total_labs": 25,
+    "library_books": 18000,
+    "internet": "200 Mbps with NAMO WiFi",
+    "green_energy": "Solar plant generating 86,000 units annually"
+  },
+  "achievements": {
+    "nba_accredited_programs": 3,
+    "established_years": 42,
+    "total_programs": 6,
+    "placement_companies": 14,
+    "job_offers_2024": 171
+  },
+  "highlights": [
+    "Premier government diploma engineering institution in Banaskantha district",
+    "Operating since 1984 with proven track record",
+    "20.36 acres green campus in Palanpur",
+    "64 qualified faculty as per AICTE/GTU norms",
+    "100% grant-in-aid from Government of Gujarat",
+    "Three NBA accredited programs (valid till Jun 2027)",
+    "AICTE approved since 15 Feb 1994",
+    "GTU affiliated institute code 626",
+    "State-of-the-art laboratories and 5 academic buildings",
+    "200 Mbps internet with NAMO WiFi campus",
+    "Focus on innovation through SSIP cell",
+    "Strong placement record with 171 offers in 2024"
+  ]
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "id": "library",
+    "name": "Central Library",
+    "type": "Academic",
+    "description": "Comprehensive library with over 18,000 books, digital resources, e-journals, e-books, and modern research facilities supporting academic excellence",
+    "features": [
+      "18,000+ books collection",
+      "E-Journals and E-Books access",
+      "Digital magazines and newspapers",
+      "Computer terminals with internet",
+      "Reading halls and study areas",
+      "Research assistance services",
+      "200+ seating capacity",
+      "Extended hours during exams"
+    ]
+  },
+  {
+    "id": "laboratories",
+    "name": "Department Laboratories",
+    "type": "Academic",
+    "description": "Modern, well-equipped laboratories for all departments with latest instruments",
+    "features": [
+      "State-of-the-art equipment",
+      "Department-specific labs",
+      "Research facilities"
+    ]
+  },
+  {
+    "id": "classrooms",
+    "name": "Smart Classrooms",
+    "type": "Academic",
+    "description": "CCTV-equipped classrooms with projectors and modern teaching aids",
+    "features": [
+      "CCTV surveillance",
+      "Projectors",
+      "Audio-visual equipment",
+      "Wi-Fi connectivity"
+    ]
+  },
+  {
+    "id": "sports",
+    "name": "Sports Complex",
+    "type": "Recreation",
+    "description": "Sports grounds and recreational facilities for student activities",
+    "features": [
+      "Playing fields",
+      "Indoor games",
+      "Sports equipment"
+    ]
+  },
+  {
+    "id": "auditorium",
+    "name": "Auditorium",
+    "type": "Infrastructure",
+    "description": "Modern auditorium for events, seminars, and cultural programs",
+    "features": [
+      "Seating capacity",
+      "Audio-visual system",
+      "Stage facilities"
+    ]
+  },
+  {
+    "id": "solar-plant",
+    "name": "Solar Power Plant",
+    "type": "Green Energy",
+    "description": "Renewable energy facility generating clean electricity",
+    "features": [
+      "86,000 units annually",
+      "Eco-friendly",
+      "Cost-effective"
+    ]
+  },
+  {
+    "id": "internet",
+    "name": "Digital Infrastructure",
+    "type": "Technology",
+    "description": "High-speed internet connectivity across campus",
+    "features": [
+      "200 Mbps internet",
+      "NAMO WiFi",
+      "Campus-wide coverage"
+    ]
+  },
+  {
+    "id": "canteen",
+    "name": "Campus Canteen",
+    "type": "Service",
+    "description": "Food and refreshment services for students and staff",
+    "features": [
+      "Hygienic food",
+      "Affordable prices",
+      "Varied menu"
+    ]
+  }
+]

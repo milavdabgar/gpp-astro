@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+type PdfEdition = { label: string; file: string };
+
+type Department = {
+  name: string;
+  short: string;
+  newsletterName: string;
+  status: 'available' | 'coming-soon';
+  description: string;
+  color: string;
+  note?: string;
+  siteUrl?: string;
+  pdfs: PdfEdition[];
+};
+
+const departments: Department[] = [
+  {
+    name: "Electronics & Communication Engineering",
+    short: "EC Department",
+    newsletterName: "Spectrum",
+    status: "available",
+    description: "Annual newsletter of the EC Department, featuring faculty articles, student achievements, innovations, placements, and department activities.",
+    color: "blue",
+    note: "Also available as an interactive digital edition",
+    siteUrl: "https://ec.gppalanpur.ac.in/newsletter",
+    pdfs: [
+      { label: "Band I — 2021–22",  file: "/docs/newsletters/ec/Spectrum-Band-I.pdf" },
+      { label: "Band II — 2022–23", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2022-23.pdf" },
+      { label: "Band IV — 2024–25", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2024-25.pdf" },
+    ],
+  },
+  {
+    name: "Civil Engineering",
+    short: "Civil Department",
+    newsletterName: "InfraCreator",
+    status: "available",
+    description: "Semi-annual newsletter of the Civil Engineering Department, published every June and December, featuring infrastructure projects, survey activities, and student milestones.",
+    color: "stone",
+    note: "Also visit the Civil Department website at gppcivil06.wixsite.com/civil",
+    siteUrl: "https://gppcivil06.wixsite.com/civil",
+    pdfs: [
+      { label: "June 2025", file: "/docs/newsletters/civil/june-2025.pdf" },
+      { label: "Dec 2024",  file: "/docs/newsletters/civil/dec-2024.pdf" },
+      { label: "June 2024", file: "/docs/newsletters/civil/june-2024.pdf" },
+      { label: "Dec 2023",  file: "/docs/newsletters/civil/dec-2023.pdf" },
+      { label: "June 2023", file: "/docs/newsletters/civil/june-2023.pdf" },
+      { label: "Dec 2022",  file: "/docs/newsletters/civil/dec-2022.pdf" },
+      { label: "June 2022", file: "/docs/newsletters/civil/june-2022.pdf" },
+      { label: "Dec 2021",  file: "/docs/newsletters/civil/dec-2021.pdf" },
+      { label: "June 2021", file: "/docs/newsletters/civil/june-2021.pdf" },
+      { label: "Dec 2020",  file: "/docs/newsletters/civil/dec-2020.pdf" },
+      { label: "June 2020", file: "/docs/newsletters/civil/june-2020.pdf" },
+      { label: "Dec 2019",  file: "/docs/newsletters/civil/dec-2019.pdf" },
+      { label: "June 2019", file: "/docs/newsletters/civil/june-2019.pdf" },
+      { label: "Dec 2018",  file: "/docs/newsletters/civil/dec-2018.pdf" },
+      { label: "June 2018", file: "/docs/newsletters/civil/june-2018.pdf" },
+    ],
+  },
+  {
+    name: "Electrical Engineering",
+    short: "Electrical Department",
+    newsletterName: "Spark",
+    status: "available",
+    description: "Annual newsletter of the Electrical Engineering Department, published every July, covering power systems projects, industrial training, expert lectures, and academic highlights.",
+    color: "yellow",
+    pdfs: [
+      { label: "July 2025", file: "/docs/newsletters/electrical/july-2025.pdf" },
+      { label: "July 2024", file: "/docs/newsletters/electrical/july-2024.pdf" },
+      { label: "July 2023", file: "/docs/newsletters/electrical/july-2023.pdf" },
+      { label: "July 2022", file: "/docs/newsletters/electrical/july-2022.pdf" },
+      { label: "July 2021", file: "/docs/newsletters/electrical/july-2021.pdf" },
+      { label: "July 2020", file: "/docs/newsletters/electrical/july-2020.pdf" },
+    ],
+  },
+  {
+    name: "Mechanical Engineering",
+    short: "Mechanical Department",
+    newsletterName: "Sampark",
+    status: "coming-soon",
+    description: "Annual newsletter of the Mechanical Engineering Department — will feature student innovations, industry visits, workshops, and academic achievements.",
+    color: "orange",
+    pdfs: [],
+  },
+  {
+    name: "Government Polytechnic Palanpur",
+    short: "College Newsletter",
+    newsletterName: "Samvad",
+    status: "coming-soon",
+    description: "The college-wide annual newsletter featuring cross-department highlights, principal's message, sports, cultural events, and institutional milestones.",
+    color: "green",
+    pdfs: [],
+  },
+];
+
+const colorMap: Record<string, { bg: string; badge: string; badgeCs: string; text: string; border: string; light: string; chipHover: string }> = {
+  blue:   { bg: "bg-blue-50",   badge: "bg-blue-100 text-blue-700",    badgeCs: "bg-gray-100 text-gray-500", text: "text-blue-700",   border: "border-blue-200",  light: "bg-blue-100",   chipHover: "hover:border-blue-400 hover:bg-blue-50" },
+  stone:  { bg: "bg-stone-50",  badge: "bg-stone-100 text-stone-700",  badgeCs: "bg-gray-100 text-gray-500", text: "text-stone-700",  border: "border-stone-200", light: "bg-stone-100",  chipHover: "hover:border-stone-400 hover:bg-stone-50" },
+  yellow: { bg: "bg-yellow-50", badge: "bg-yellow-100 text-yellow-700",badgeCs: "bg-gray-100 text-gray-500", text: "text-yellow-700", border: "border-yellow-200", light: "bg-yellow-100", chipHover: "hover:border-yellow-400 hover:bg-yellow-50" },
+  orange: { bg: "bg-orange-50", badge: "bg-orange-100 text-orange-700",badgeCs: "bg-gray-100 text-gray-500", text: "text-orange-700", border: "border-orange-200", light: "bg-orange-100", chipHover: "hover:border-orange-400 hover:bg-orange-50" },
+  green:  { bg: "bg-green-50",  badge: "bg-green-100 text-green-700",  badgeCs: "bg-gray-100 text-gray-500", text: "text-green-700",  border: "border-green-200",  light: "bg-green-100",  chipHover: "hover:border-green-400 hover:bg-green-50" },
+};
+
+const totalPdfs = departments.reduce((n, d) => n + d.pdfs.length, 0);
+const availableCount = departments.filter(d => d.status === 'available').length;
+---
+
+<Layout title="Newsletters | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Department Newsletters</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">PDF Archive</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Newsletters</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Annual and semi-annual newsletters from departments capturing academic achievements, innovations, industry engagements, and student stories.
+      </p>
+      <div class="grid grid-cols-3 gap-6 max-w-lg mx-auto">
+        <div class="text-center"><div class="text-3xl font-bold text-primary">5</div><div class="text-sm text-gray-600">Newsletters</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">{availableCount}</div><div class="text-sm text-gray-600">Available Now</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">{totalPdfs}</div><div class="text-sm text-gray-600">PDF Issues</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department Cards -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl space-y-8">
+
+      {departments.map(dept => {
+        const c = colorMap[dept.color];
+        return (
+          <div class={`rounded-2xl border ${c.border} ${c.bg} overflow-hidden shadow-sm`}>
+
+            <!-- Header -->
+            <div class="p-6 flex items-start gap-4">
+              <div class={`w-11 h-11 rounded-xl ${c.light} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                <svg class={`w-5 h-5 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2zM9 12h6M9 16h4M13 6v4h4"/>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h2 class="text-xl font-bold text-gray-900">{dept.newsletterName}</h2>
+                  <span class={`text-xs font-semibold rounded-full px-2.5 py-0.5 ${dept.status === 'available' ? c.badge : c.badgeCs}`}>
+                    {dept.status === 'available' ? `${dept.pdfs.length} Issues` : 'Coming Soon'}
+                  </span>
+                </div>
+                <p class="text-sm text-gray-500 mt-0.5">{dept.short} · Government Polytechnic Palanpur</p>
+                <p class="text-sm text-gray-600 mt-2 leading-relaxed">{dept.description}</p>
+              </div>
+            </div>
+
+            <!-- PDF chips -->
+            {dept.pdfs.length > 0 && (
+              <div class="border-t border-gray-200/60 px-6 py-5">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Available Issues</p>
+                <div class="flex flex-wrap gap-2">
+                  {dept.pdfs.map(pdf => (
+                    <a
+                      href={pdf.file}
+                      target="_blank"
+                      rel="noopener"
+                      class={`group inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-all ${c.chipHover} hover:shadow-sm`}
+                    >
+                      <svg class={`w-4 h-4 text-gray-400 group-hover:${c.text} transition-colors flex-shrink-0`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                      </svg>
+                      {pdf.label}
+                    </a>
+                  ))}
+                </div>
+                {(dept.note || dept.siteUrl) && (
+                  <p class="mt-3 text-xs text-gray-400 flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    {dept.note && <span>{dept.note}&nbsp;</span>}
+                    {dept.siteUrl && (
+                      <a href={dept.siteUrl} target="_blank" rel="noopener" class="underline hover:text-gray-600 transition-colors">
+                        {dept.siteUrl.replace(/^https?:\/\//, '')}
+                      </a>
+                    )}
+                  </p>
+                )}
+              </div>
+            )}
+
+            <!-- Coming soon footer -->
+            {dept.status === 'coming-soon' && (
+              <div class="border-t border-gray-200/60 px-6 py-4">
+                <p class="text-xs text-gray-400 flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  PDFs will be made available here once digitisation is complete.
+                </p>
+              </div>
+            )}
+
+          </div>
+        );
+      })}
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

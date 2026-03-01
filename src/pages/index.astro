@@ -1,11 +1,294 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import departments from '../data/departments.json';
 ---
 
 <Layout>
-	<Welcome />
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-4">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">Est. 1984</span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-200 text-gray-700">AICTE Approved</span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-200 text-gray-700">GTU Affiliated</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Premier Government Polytechnic in
+            <span class="text-primary"> Banaskantha District</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+            Building technical excellence for over 40 years with modern infrastructure,
+            experienced faculty, and industry-focused education on our 18.8-acre green campus.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/admissions" class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors shadow-sm">
+              Apply Now
+            </a>
+            <a href="/departments" class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-primary border border-primary hover:bg-primary/5 rounded-lg transition-colors">
+              Explore Programs
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+            <img
+              src="/newsletters/2024-25/IMG_20241014_072640_109.jpg"
+              alt="Government Polytechnic Palanpur Campus"
+              class="rounded-xl w-full object-cover"
+              onerror="this.src='https://dummyimage.com/600x400/1d58a5/ffffff&text=GP+Palanpur+Campus'"
+            />
+            <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="text-2xl font-bold text-primary">6</div>
+                <div class="text-sm text-gray-500">Departments</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-primary">66</div>
+                <div class="text-sm text-gray-500">Faculty</div>
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-primary">3</div>
+                <div class="text-sm text-gray-500">NBA Accredited</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campus Video -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Discover GP Palanpur</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Take a virtual tour of our campus and learn about our commitment to excellence in technical education
+        </p>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+          <iframe
+            src="https://www.youtube.com/embed/Z6w-asbJO9E?start=336"
+            title="Government Polytechnic Palanpur Introduction"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <p class="text-center mt-6 text-gray-500">
+          Experience our state-of-the-art facilities, dedicated faculty, and vibrant campus life
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats -->
+  <section class="py-12 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-gray-900">40+</div>
+          <div class="text-gray-500 mt-1">Years of Excellence</div>
+        </div>
+        <div class="text-center">
+          <div class="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-gray-900">171</div>
+          <div class="text-gray-500 mt-1">Job Offers (2024)</div>
+        </div>
+        <div class="text-center">
+          <div class="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-gray-900">25+</div>
+          <div class="text-gray-500 mt-1">Modern Labs</div>
+        </div>
+        <div class="text-center">
+          <div class="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-gray-900">18K+</div>
+          <div class="text-gray-500 mt-1">Library Books</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Programs -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Academic Programs</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Choose from 6 engineering departments with modern curriculum and industry exposure
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {departments.map(dept => (
+          <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900">{dept.name}</h3>
+              {dept.nba_status && (
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">NBA</span>
+              )}
+            </div>
+            <p class="text-sm text-gray-500 mb-3">Est. {dept.established} • {dept.intake_capacity} Seats</p>
+            <p class="text-gray-600 text-sm mb-4">{dept.overview.slice(0, 120)}...</p>
+            {dept.faculty_count && (
+              <div class="flex items-center text-sm text-gray-500">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                {dept.faculty_count} Faculty Members
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/departments" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+          View All Programs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose GP Palanpur?</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">AICTE Approved</h3>
+            <p class="text-gray-600">Government-recognized institution with quality assurance</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">NBA Accredited Programs</h3>
+            <p class="text-gray-600">Three programs with National Board of Accreditation</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">Strong Placements</h3>
+            <p class="text-gray-600">171 job offers in 2024 with industry partnerships</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">Modern Infrastructure</h3>
+            <p class="text-gray-600">18.8-acre campus with state-of-the-art facilities</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">Green Energy</h3>
+            <p class="text-gray-600">Solar power plant generating 86,000 units annually</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">Experienced Faculty</h3>
+            <p class="text-gray-600">66 GPSC selected faculty including 6 PhDs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Visit Our Campus</h2>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div>
+                <p class="font-medium text-gray-900">Address</p>
+                <p class="text-gray-600">Outside Malan Gate, Near Dhaniyana Crossroads</p>
+                <p class="text-gray-600">Palanpur-385001, Banaskantha, Gujarat</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <div>
+                <p class="font-medium text-gray-900">Phone</p>
+                <p class="text-gray-600">02742-262115</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <div>
+                <p class="font-medium text-gray-900">Email</p>
+                <p class="text-gray-600">info@gppalanpur.ac.in</p>
+              </div>
+            </div>
+          </div>
+          <a href="/contact" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+            Get Directions
+          </a>
+        </div>
+        <div>
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Quick Links</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="/admissions" class="p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors block">
+                <div class="font-medium text-gray-900">Admissions</div>
+                <div class="text-sm text-gray-500">Apply for 2026-27</div>
+              </a>
+              <a href="/facilities" class="p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors block">
+                <div class="font-medium text-gray-900">Facilities</div>
+                <div class="text-sm text-gray-500">Campus Tour</div>
+              </a>
+              <a href="/ssip" class="p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors block">
+                <div class="font-medium text-gray-900">SSIP</div>
+                <div class="text-sm text-gray-500">Innovation Cell</div>
+              </a>
+              <a href="/departments" class="p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors block">
+                <div class="font-medium text-gray-900">Departments</div>
+                <div class="text-sm text-gray-500">Programs Offered</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>

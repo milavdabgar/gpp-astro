@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import departments from '../data/departments.json';
+
+const totalSeats = departments.reduce((sum, d) => sum + d.intake_capacity, 0);
+
+const steps = [
+  { step: "Step 1", title: "Check Eligibility", desc: "Ensure you meet the eligibility criteria for diploma engineering programs.", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+  { step: "Step 2", title: "Apply Online", desc: "Submit your application through the ACPDC official portal.", icon: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" },
+  { step: "Step 3", title: "Merit List", desc: "Check merit list published by ACPDC and attend counseling as per schedule.", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+  { step: "Step 4", title: "Admission", desc: "Complete documentation and confirm your admission at the institute.", icon: "M5 13l4 4L19 7" },
+];
+
+const eligibility = [
+  "Passed SSC (10th Standard) or equivalent examination",
+  "Minimum 35% aggregate marks in Mathematics, Science & Technology",
+  "No age limit for diploma engineering programs",
+  "Gujarat state domicile for regular seats",
+  "Valid category certificate for reserved seats",
+];
+
+const documents = [
+  "SSC Marksheet (original + photocopy)",
+  "School Leaving Certificate",
+  "Cast Certificate (if applicable)",
+  "Income Certificate (if applicable)",
+  "Domicile / Nationality Certificate",
+  "Passport size photographs (4 copies)",
+  "Aadhar Card photocopy",
+];
+---
+
+<Layout title="Admissions 2025-26 | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="flex justify-center gap-2 mb-6">
+          <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Academic Year 2025-26</span>
+          <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Applications Open</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Admissions 2025-26</h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Join Government Polytechnic Palanpur and embark on your journey towards a successful engineering career. Apply now for our diploma engineering programs.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center"><div class="text-3xl font-bold text-primary">{totalSeats}</div><div class="text-sm text-gray-600">Total Seats</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-primary">6</div><div class="text-sm text-gray-600">Programs</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-primary">3</div><div class="text-sm text-gray-600">NBA Accredited</div></div>
+          <div class="text-center"><div class="text-3xl font-bold text-primary">171</div><div class="text-sm text-gray-600">Placements 2024</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACPDC Notice -->
+  <section class="py-6 bg-amber-50 border-b border-amber-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        <p class="text-amber-800 text-sm">
+          <strong>Important:</strong> Admissions for 2025-26 are conducted through <strong>ACPDC</strong> (Admission Committee for Professional Diploma Courses). Visit the official ACPDC portal for the application process and important dates.
+          <a href="https://gujdiploma.nic.in/" target="_blank" rel="noopener noreferrer" class="ml-2 font-semibold text-amber-700 underline hover:text-amber-900">Visit ACPDC Portal →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Available Programs -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Available Programs</h2>
+        <p class="text-gray-600">Choose from 6 engineering disciplines with industry-focused curriculum</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {departments.map(dept => (
+          <div class="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-lg transition-shadow">
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="font-bold text-gray-900 text-base leading-tight">{dept.name}</h3>
+              {dept.nba_status && (
+                <span class="ml-2 flex-shrink-0 text-[10px] font-bold bg-green-100 text-green-800 rounded px-1.5 py-0.5">NBA</span>
+              )}
+            </div>
+            <div class="flex gap-3 text-xs text-gray-500 mb-3">
+              <span>Est. {dept.established}</span>
+              <span>·</span>
+              <span>{dept.intake_capacity} Seats</span>
+            </div>
+            <p class="text-sm text-gray-600 mb-4">{dept.overview.substring(0, 100)}…</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-primary">{dept.intake_capacity}</span>
+              <a href={`/departments/${dept.slug}`} class="text-sm font-semibold text-primary hover:underline">Learn More →</a>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/departments" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+          View All Programs in Detail
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission Process -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Admission Process</h2>
+        <p class="text-gray-600">Step-by-step guide to join GP Palanpur</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map(s => (
+          <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/>
+              </svg>
+            </div>
+            <div class="text-xs font-bold text-primary uppercase tracking-wide mb-1">{s.step}</div>
+            <h3 class="font-bold text-gray-900 mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-600">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility & Documents -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Eligibility Criteria</h2>
+          <ul class="space-y-3">
+            {eligibility.map(e => (
+              <li class="flex items-start gap-3 text-gray-700 text-sm">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Required Documents</h2>
+          <ul class="space-y-3">
+            {documents.map(d => (
+              <li class="flex items-start gap-3 text-gray-700 text-sm">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                {d}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Apply?</h2>
+      <p class="text-gray-600 mb-8">Visit the ACPDC portal to begin your application. For questions, feel free to contact us.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://gujdiploma.nic.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+          Apply via ACPDC
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:border-primary hover:text-primary transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

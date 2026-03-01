@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const achievements = [
+  { number: "6",     label: "Patents Filed" },
+  { number: "6",     label: "Startups Supported" },
+  { number: "32",    label: "POC Projects" },
+  { number: "41",    label: "Events Organized" },
+];
+
+const ssipTeam = [
+  { name: "Mr. L. K. Patel",  dept: "Electronics & Communication", role: "SSIP Coordinator" },
+  { name: "Mr. B. M. Patel",  dept: "Electrical Engineering",       role: "Member" },
+  { name: "Mr. M. J. Dabgar", dept: "Electronics & Communication",  role: "Member" },
+  { name: "Mr. F. M. Mukhi",  dept: "Civil Engineering",            role: "Member" },
+  { name: "Mr. V. H. Suthar", dept: "Mechanical Engineering",       role: "Member" },
+  { name: "Mr. V. A. Chauhan",dept: "IC Engineering",               role: "Member" },
+];
+
+const patents = [
+  { sr: 1, title: "Switchboard",                                                           ipr: "202021026651",  leader: "Mr. Hiten Patel",  fy: "2020-21", filed: "24/06/2020", granted: "22/12/2023" },
+  { sr: 2, title: "Smart Rotary Switchboard",                                              ipr: "202021044176",  leader: "Mr. Hiten Patel",  fy: "2020-21", filed: "10/10/2020", granted: "10/05/2022" },
+  { sr: 3, title: "Water TAP Alarm",                                                       ipr: "202121004092",  leader: "Nai Dhaval",        fy: "2020-21", filed: "29/01/2021", granted: "25/10/2021" },
+  { sr: 4, title: "Cup and Glass Cleaning Device",                                         ipr: "202121049081",  leader: "Nai Dhaval",        fy: "2021-22", filed: "27/10/2021", granted: "20/02/2024" },
+  { sr: 5, title: "Multimodular Digital Stethoscope with Integrated Diagnostics & AI",     ipr: "202521118577",  leader: "Dr. Vipul Tank",    fy: "2025-26", filed: "28/11/2025", granted: "Under Examination" },
+  { sr: 6, title: "Modular Stethoscope with Interchangeable Chest Piece",                  ipr: "202521131153",  leader: "Dr. Vipul Tank",    fy: "2025-26", filed: "24/12/2025", granted: "Under Examination" },
+];
+
+const startups = [
+  { name: "Prahantam Pvt. Ltd",            founder: "Mr. Dhaval Nai",            domain: "Manufacturing",    desc: "Manufacturer of automated tea cup washing machines, improving hygiene and efficiency for tea vendors." },
+  { name: "Zephyr Digisteth",              founder: "Dr. Vipul Tank",            domain: "Healthcare & AI",  desc: "Compact all-in-one medical device integrating auscultation, ECG, temperature monitoring with AI-powered analysis." },
+  { name: "Beerobokids Innovations Pvt Ltd",founder: "Rishabh Prajapati",         domain: "STEM Education",   desc: "Empowering kids through hands-on learning in Robotics and IoT to nurture creativity and critical thinking." },
+  { name: "Innovate 3D",                   founder: "Deepak Chaudhary",          domain: "Tech / 3D Printing",desc: "Advancing 3D design, printing, and rapid prototyping with cost-effective STEM education kits." },
+  { name: "Sky Print Startup",             founder: "Rajput Yuvraj",             domain: "Drone Technology", desc: "Creating customised FPV, surveillance, and special-purpose drone solutions for diverse industries." },
+  { name: "Sky Craft",                     founder: "Bharat Mali",               domain: "STEM Education",   desc: "Developing low-cost robotics and IoT kits making future technologies accessible to schools and rural areas." },
+];
+
+const objectives = [
+  { title: "Promote Innovation",       desc: "Encourage creative thinking and innovative problem-solving approaches",          color: "bg-blue-100",   icon_color: "text-blue-600",   icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" },
+  { title: "Support Prototyping",      desc: "Provide technical resources and guidance for prototype development",             color: "bg-green-100",  icon_color: "text-green-600",  icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" },
+  { title: "Enable Startup Development", desc: "Support the transition from ideas to viable business ventures",               color: "bg-purple-100", icon_color: "text-purple-600", icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" },
+  { title: "Foster Collaboration",     desc: "Build partnerships between students, faculty, and industry",                    color: "bg-orange-100", icon_color: "text-orange-600", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+  { title: "Develop IP",               desc: "Guide students through intellectual property creation and protection",          color: "bg-red-100",    icon_color: "text-red-600",    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+  { title: "Create Job Creators",      desc: "Transform students from job seekers to job creators and entrepreneurs",        color: "bg-teal-100",   icon_color: "text-teal-600",   icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" },
+];
+
+const services = [
+  { title: "Ideation Support",       desc: "Guidance in idea generation, validation, and development process",         icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" },
+  { title: "Technical Assistance",   desc: "Expert technical support for prototype development and testing",          icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" },
+  { title: "Financial Support",      desc: "Funding assistance and grant application support for viable projects",    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" },
+  { title: "IP Guidance",            desc: "Intellectual property consultation and patent filing assistance",         icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+  { title: "Incubation Facilities",  desc: "Access to modern labs, equipment, and workspace for project development", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+  { title: "Mentorship",             desc: "One-on-one mentoring from experienced faculty and industry experts",      icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+];
+
+---
+
+<Layout title="SSIP Cell | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Innovation Hub</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Patent Support</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Startup Incubation</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">SSIP Cell</h1>
+      <h2 class="text-2xl font-medium text-gray-700 mb-4">Student Startup and Innovation Policy</h2>
+      <p class="text-xl text-gray-600 italic mb-10">"Build a culture of innovation and entrepreneurship that empowers students to become job creators"</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {achievements.map(a => (
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary">{a.number}</div>
+            <div class="text-sm text-gray-600">{a.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About SSIP -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Fostering Innovation & Entrepreneurship</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>The SSIP (Student Startup and Innovation Policy) Cell at Government Polytechnic Palanpur serves as the epicenter of innovation and entrepreneurship for our students. Located in the Administrative Block on the Ground Floor, our cell is dedicated to transforming creative ideas into viable solutions.</p>
+            <p>Our comprehensive approach supports students throughout their innovation journey — from initial ideation to potential commercialization. We provide technical assistance, financial support, and mentorship to help students develop their innovative projects and entrepreneurial ventures.</p>
+            <p>With a strong focus on intellectual property development, we have successfully guided students through the patent process, resulting in 4 published patents and fostering a growth-stage startup.</p>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-primary/5 to-blue-50 rounded-2xl p-8">
+          <div class="grid grid-cols-2 gap-4">
+            {achievements.map(a => (
+              <div class="bg-white rounded-xl p-4 text-center shadow-sm">
+                <div class="text-2xl font-bold text-primary">{a.number}</div>
+                <div class="text-xs text-gray-500 mt-1">{a.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Objectives -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Our Vision & Key Objectives</h2>
+        <p class="text-gray-600">Empowering the next generation of innovators and entrepreneurs</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {objectives.map(obj => (
+          <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class={`w-16 h-16 ${obj.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <svg class={`w-8 h-8 ${obj.icon_color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={obj.icon}/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">{obj.title}</h3>
+            <p class="text-gray-600 text-sm">{obj.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Services We Provide</h2>
+        <p class="text-gray-600">Comprehensive support for your innovation journey</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">{s.title}</h3>
+              <p class="text-gray-600 text-sm">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SSIP Team -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">SSIP Cell Team</h2>
+        <p class="text-gray-600">Faculty members driving innovation at GP Palanpur</p>
+      </div>
+      <div class="overflow-x-auto max-w-3xl mx-auto">
+        <table class="w-full bg-white rounded-xl shadow-sm border border-gray-200 text-sm">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th class="px-4 py-3 text-left">Sr.</th>
+              <th class="px-4 py-3 text-left">Faculty</th>
+              <th class="px-4 py-3 text-left">Department</th>
+              <th class="px-4 py-3 text-left">Role</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {ssipTeam.map((m, i) => (
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3 text-gray-500">{i + 1}</td>
+                <td class="px-4 py-3 font-medium text-gray-900">{m.name}</td>
+                <td class="px-4 py-3 text-gray-600">{m.dept}</td>
+                <td class="px-4 py-3">
+                  <span class={`text-xs font-semibold rounded-full px-2 py-1 ${m.role === 'SSIP Coordinator' ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-600'}`}>{m.role}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patents Table -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">Patents Filed by Students</h2>
+        <p class="text-gray-600">6 patents filed under SSIP support — showcasing student innovation</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-sm border border-gray-200 text-sm">
+          <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
+            <tr>
+              <th class="px-4 py-3 text-left">Sr.</th>
+              <th class="px-4 py-3 text-left">Title</th>
+              <th class="px-4 py-3 text-left">IPR No.</th>
+              <th class="px-4 py-3 text-left">Leader</th>
+              <th class="px-4 py-3 text-left">Filed</th>
+              <th class="px-4 py-3 text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {patents.map(p => (
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3 text-gray-500">{p.sr}</td>
+                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs">{p.title}</td>
+                <td class="px-4 py-3 font-mono text-xs text-gray-600">{p.ipr}</td>
+                <td class="px-4 py-3 text-gray-700">{p.leader}</td>
+                <td class="px-4 py-3 text-gray-500 whitespace-nowrap">{p.filed}</td>
+                <td class="px-4 py-3">
+                  <span class={`text-xs font-semibold rounded-full px-2 py-1 ${p.granted === 'Under Examination' ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'}`}>
+                    {p.granted === 'Under Examination' ? 'Under Examination' : `Granted ${p.granted}`}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Startups -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">Startups Supported</h2>
+        <p class="text-gray-600">Student-led ventures incubated through the SSIP Cell</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {startups.map(s => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <span class="text-[11px] font-semibold bg-primary/5 text-primary rounded-full px-2 py-1">{s.domain}</span>
+            <h3 class="font-bold text-gray-900 mt-3 mb-1">{s.name}</h3>
+            <p class="text-xs text-gray-500 mb-2">Founder: {s.founder}</p>
+            <p class="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Financial Impact -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">Financial Impact (2022–2026)</h2>
+        <p class="text-gray-600">Summary of SSIP grant utilization across key activity areas</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+        {[
+          { label: "Total Grant Sanctioned",  value: "₹9.90 lakh",  bg: "bg-blue-50",   text: "text-blue-700" },
+          { label: "Total Grant Utilized",    value: "₹8.07 lakh",  bg: "bg-green-50",  text: "text-green-700" },
+          { label: "POC Projects Approved",   value: "32",          bg: "bg-purple-50", text: "text-purple-700" },
+          { label: "Events Organized",        value: "41",          bg: "bg-orange-50", text: "text-orange-700" },
+        ].map(stat => (
+          <div class={`${stat.bg} rounded-xl p-5 text-center`}>
+            <div class={`text-2xl font-bold ${stat.text}`}>{stat.value}</div>
+            <div class="text-sm text-gray-600 mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+      <div class="grid sm:grid-cols-3 gap-4 text-sm">
+        {[
+          { title: "POC Development",    util: "₹4.80 lakh", detail: "32 projects approved for hands-on innovation" },
+          { title: "IPR / Patents",      util: "₹0.57 lakh", detail: "6 patent applications supported" },
+          { title: "Events & Training",  util: "₹1.10 lakh", detail: "41 events including outreach, workshops & seminars" },
+        ].map(item => (
+          <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <div class="font-semibold text-gray-900 mb-1">{item.title}</div>
+            <div class="text-primary font-bold text-lg">{item.util}</div>
+            <div class="text-gray-500 mt-1 text-xs">{item.detail}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <div class="bg-primary/5 border border-primary/20 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Contact SSIP Cell</h2>
+        <p class="text-gray-600 mb-4 text-sm">Administrative Block, Ground Floor, Government Polytechnic Palanpur</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:info@gppalanpur.ac.in" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm">
+            Email SSIP Cell
+          </a>
+          <a href="/contact" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-semibold px-5 py-2.5 rounded-lg hover:border-primary hover:text-primary transition-colors text-sm">
+            Contact us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer variant="ssip" />
+</Layout>

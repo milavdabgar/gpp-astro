@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import collegeInfo from '../data/college-info.json';
+---
+
+<Layout title="Contact Us | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
+      <p class="text-xl text-gray-600 mb-6">
+        Get in touch with Government Polytechnic Palanpur for admissions, inquiries, or campus visits. We're here to help you begin your engineering journey.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Mon–Fri: 9:00 AM – 5:00 PM
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Quick Response
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info + Form -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Details -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+          <div class="space-y-4">
+            <!-- Address -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6 border-l-4 border-l-primary">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Campus Address</h3>
+                  <p class="text-gray-600 leading-relaxed">{collegeInfo.address}</p>
+                  <p class="text-gray-600 font-medium mt-1">{collegeInfo.location}</p>
+                </div>
+              </div>
+            </div>
+            <!-- Phone -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6 border-l-4 border-l-primary">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Phone Numbers</h3>
+                  <p class="text-gray-600">{collegeInfo.contact.phone}</p>
+                  <p class="text-sm text-gray-500 mt-1">Office hours: Monday to Friday, 9:00 AM – 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <!-- Email -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6 border-l-4 border-l-primary">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Email Address</h3>
+                  <a href={`mailto:${collegeInfo.contact.email}`} class="text-primary hover:underline">{collegeInfo.contact.email}</a>
+                  <p class="text-sm text-gray-500 mt-1">We typically respond within 24–48 hours</p>
+                </div>
+              </div>
+            </div>
+            <!-- Websites -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6 border-l-4 border-l-primary">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Websites</h3>
+                  <p class="text-gray-600"><strong>Main:</strong> <a href={collegeInfo.contact.website} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">{collegeInfo.contact.website}</a></p>
+                  <p class="text-gray-600 mt-1"><strong>Institutional:</strong> {collegeInfo.contact.institutional_website}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <div class="bg-white rounded-xl border border-gray-200 shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Send us a Message</h2>
+            <p class="text-gray-500 mb-6 text-sm">Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form class="space-y-5">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1" for="firstName">First Name *</label>
+                  <input id="firstName" type="text" placeholder="Enter your first name" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1" for="lastName">Last Name *</label>
+                  <input id="lastName" type="text" placeholder="Enter your last name" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="email">Email Address *</label>
+                <input id="email" type="email" placeholder="Enter your email address" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="phone">Phone Number</label>
+                <input id="phone" type="tel" placeholder="Enter your phone number" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="subject">Subject *</label>
+                <input id="subject" type="text" placeholder="What is this regarding?" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="message">Message *</label>
+                <textarea id="message" rows="5" placeholder="Please provide details about your inquiry..." class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                Send Message
+              </button>
+              <p class="text-xs text-gray-400 text-center">By submitting this form, you consent to be contacted by GP Palanpur.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Contact + Principal -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Quick Contact Options</h2>
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Admissions Office</h3>
+          <p class="text-gray-600 mb-4 text-sm">For admission inquiries, application status, and enrollment procedures</p>
+          <a href="/admissions" class="text-sm font-semibold text-primary hover:underline">Learn More →</a>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Administration</h3>
+          <p class="text-gray-600 mb-4 text-sm">For general inquiries, official documents, and administrative matters</p>
+          <a href={`tel:${collegeInfo.contact.phone}`} class="text-sm font-semibold text-primary hover:underline">Call Office →</a>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Academic Departments</h3>
+          <p class="text-gray-600 mb-4 text-sm">For program-specific questions and departmental information</p>
+          <a href="/departments" class="text-sm font-semibold text-primary hover:underline">View Departments →</a>
+        </div>
+      </div>
+
+      <!-- Principal Card -->
+      <div class="max-w-3xl mx-auto bg-white rounded-xl border border-gray-200 shadow-sm p-8">
+        <h3 class="text-2xl font-bold text-gray-900 text-center mb-6">Leadership</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          </div>
+          <div class="text-center md:text-left">
+            <h4 class="text-xl font-bold text-gray-900">{collegeInfo.administration.principal}</h4>
+            <p class="text-primary font-semibold mb-3">Principal</p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Leading Government Polytechnic Palanpur with {collegeInfo.achievements.established_years} years of institutional excellence, overseeing {collegeInfo.administration.total_faculty} faculty members and {collegeInfo.infrastructure.total_departments} engineering departments committed to providing quality technical education.
+            </p>
+            <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
+              <div class="text-center"><div class="font-bold text-primary">{collegeInfo.administration.total_faculty}</div><div class="text-gray-500">Total Faculty</div></div>
+              <div class="text-center"><div class="font-bold text-primary">{collegeInfo.administration.faculty_with_phd}</div><div class="text-gray-500">PhD Faculty</div></div>
+              <div class="text-center"><div class="font-bold text-primary">{collegeInfo.administration.faculty_with_masters}</div><div class="text-gray-500">Masters Faculty</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

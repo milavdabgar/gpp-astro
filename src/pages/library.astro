@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import collegeInfo from '../data/college-info.json';
+
+const eResources = [
+  { name: "E-Journals (Open Access)", desc: "Access to academic journals and research papers", cat: "Academic" },
+  { name: "E-Books", desc: "Digital collection of technical and reference books", cat: "Books" },
+  { name: "E-Magazines", desc: "Technical and general interest magazines", cat: "Periodicals" },
+  { name: "E-Newspapers", desc: "Daily newspapers and current affairs", cat: "News" },
+  { name: "Online Journals", desc: "Subscription-based research journals", cat: "Research" },
+  { name: "Useful Links", desc: "Curated educational and technical resources", cat: "Resources" },
+];
+
+const services = [
+  { title: "Book Lending Service", desc: "Borrow books for academic and personal reading with flexible lending periods", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+  { title: "Digital Resources Access", desc: "Access to online databases, e-books, and digital journals", icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+  { title: "Reading Halls", desc: "Quiet study spaces for individual and group study sessions", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+  { title: "Reference Service", desc: "Research assistance and information guidance from library staff", icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
+  { title: "Internet & Computer Access", desc: "High-speed internet and computer terminals for research", icon: "M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" },
+  { title: "Document Services", desc: "Printing, scanning, and photocopying facilities", icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" },
+];
+---
+
+<Layout title="Library | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Central Library</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Digital Resources</span>
+        <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Research Support</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">GP Palanpur Library</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Your gateway to knowledge with over {collegeInfo.infrastructure.library_books.toLocaleString('en-IN')} books, digital resources, and comprehensive research facilities supporting academic excellence.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center"><div class="text-3xl font-bold text-primary">{collegeInfo.infrastructure.library_books.toLocaleString('en-IN')}</div><div class="text-sm text-gray-600">Books Collection</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">6</div><div class="text-sm text-gray-600">Digital Resources</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">12</div><div class="text-sm text-gray-600">Hours Daily</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">200+</div><div class="text-sm text-gray-600">Seating Capacity</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview + Blog Link -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Supporting Academic Excellence</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              The Central Library at Government Polytechnic Palanpur serves as the heart of academic and research activities. With a vast collection of over {collegeInfo.infrastructure.library_books.toLocaleString('en-IN')} books, digital resources, and modern facilities, our library supports the educational mission of creating competent diploma engineers.
+            </p>
+            <p>
+              Our library is designed to foster an excellent teaching and learning environment, providing students and faculty with access to both traditional and digital resources essential for technical education and research.
+            </p>
+          </div>
+          <div class="mt-8 p-6 bg-primary/5 rounded-xl border border-primary/20">
+            <h3 class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Visit Library Website
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">Access our comprehensive online resources, e-resources, and latest additions to our collection.</p>
+            <a href="https://gpplibrary.blogspot.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm">
+              GP Palanpur Library Portal
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-primary/5 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-primary mb-1">{collegeInfo.infrastructure.library_books.toLocaleString('en-IN')}</div>
+            <div class="text-sm text-gray-600">Books & Periodicals</div>
+          </div>
+          <div class="bg-blue-50 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-blue-600 mb-1">200+</div>
+            <div class="text-sm text-gray-600">Seating Capacity</div>
+          </div>
+          <div class="bg-green-50 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-green-600 mb-1">6 AM–6 PM</div>
+            <div class="text-sm text-gray-600">Working Hours</div>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-6 text-center">
+            <div class="text-3xl font-bold text-purple-600 mb-1">NDL</div>
+            <div class="text-sm text-gray-600">National Digital Library</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Library Vision & Mission</h2>
+        <p class="text-gray-600">Guiding principles that drive our commitment to information services</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Vision</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">To be a premier knowledge centre that empowers students and faculty with access to information resources, fostering a culture of lifelong learning and research excellence.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Mission</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">To provide excellent teaching and learning environment by creating, maintaining, and facilitating access to information resources that effectively support the academic and research requirements of the institution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Resources -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Digital E-Resources</h2>
+        <p class="text-gray-600">Explore our comprehensive online resources available to all students and faculty</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {eResources.map(r => (
+          <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 text-sm">{r.name}</h3>
+              <p class="text-gray-500 text-xs mt-0.5">{r.desc}</p>
+              <span class="inline-block mt-1.5 text-[10px] font-medium bg-primary/5 text-primary rounded px-1.5 py-0.5">{r.cat}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Library Services -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Library Services</h2>
+        <p class="text-gray-600">Comprehensive services designed to support your academic journey</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+            <div class="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 text-sm">{s.title}</h3>
+              <p class="text-gray-500 text-xs mt-1 leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NDL + CTA -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="bg-primary/5 border border-primary/20 rounded-xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">National Digital Library of India</h2>
+        <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+          GP Palanpur is registered with the National Digital Library of India (NDL), giving students and faculty access to a vast repository of academic resources, research papers, and study materials.
+        </p>
+        <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors text-sm">
+          Access NDL India
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
