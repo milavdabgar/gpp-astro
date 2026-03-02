@@ -1,0 +1,266 @@
+[
+  {
+    "id": "civil",
+    "name": "Civil Engineering",
+    "slug": "civil-engineering",
+    "established": 1984,
+    "intake_capacity": 90,
+    "nba_status": "Accredited",
+    "nba_valid_until": 2027,
+    "faculty_count": 13,
+    "head_of_department": "Mr. D N Sheth",
+    "website": null,
+    "overview": "Civil Engineering at GPP Palanpur focuses on structural design, construction techniques, and infrastructure development. The program equips students with skills in structural analysis, material science, transportation engineering, water resource management, and soil mechanics. With NBA accreditation and state-of-the-art laboratories, we provide comprehensive education that meets industry standards.",
+    "vision": "The department envisions to achieve professionals in emerging field of civil engineering to meet aspirations of the society by transforming students to be technically skilled entrepreneurs, ethical and environmentally sensible civil engineers.",
+    "mission": [
+      "To impart quality technical education in the field of civil engineering",
+      "Establish industry collaboration through internship and interaction with professional society through experts and workshops",
+      "Promote leadership, management and entrepreneurship skills in students through various projects, co-curriculum and extra-curriculum events",
+      "Develop environmental awareness and social responsibility"
+    ],
+    "peos": [
+      "Exhibit technical and leadership capabilities for providing sustainable solutions to various Civil Engineering problems with professional ethics",
+      "Inculcate state of the art technology for efficient implementation of Civil Engineering projects",
+      "Enhance social and economical commitment by entrepreneurial spirit as job creators",
+      "Pursue higher education and improve learning spirit in the context of technological changes"
+    ],
+    "specializations": [
+      "Structural Design",
+      "Construction Techniques",
+      "Infrastructure Development",
+      "Water Resource Management",
+      "Soil Mechanics",
+      "Transportation Engineering"
+    ],
+    "career_opportunities": [
+      "Construction companies and consultancies",
+      "Government departments (R&B, Irrigation, GWSSB, GMB)",
+      "Town planning and development projects",
+      "Infrastructure development firms",
+      "Self-employment and entrepreneurship"
+    ],
+    "laboratories": [
+      "Concrete Technology Lab",
+      "Soil Mechanics Lab",
+      "Surveying Lab",
+      "Highway Engineering Lab",
+      "Water Supply & Sanitary Engineering Lab"
+    ]
+  },
+  {
+    "id": "electrical",
+    "name": "Electrical Engineering",
+    "slug": "electrical-engineering",
+    "established": 1984,
+    "intake_capacity": 60,
+    "nba_status": "Accredited",
+    "nba_valid_until": 2027,
+    "faculty_count": 10,
+    "head_of_department": "Mr. A D Shah",
+    "website": "https://eegppalanpur.wixsite.com/electrical",
+    "overview": "Our Electrical Engineering program focuses on electricity, power systems, and control mechanisms. Students learn about power generation, electrical motors, transmission systems, and renewable energy technologies through a blend of theoretical and practical coursework. For comprehensive details about our labs, projects, and achievements, please visit our department website.",
+    "vision": "To develop competent electrical engineering professionals with strong technical skills, entrepreneurial mindset and ethical values to serve industry and society.",
+    "mission": [
+      "Prepare the students with strong fundamental concepts and problem solving skills to enhance their employability in the industries",
+      "To provide them a platform for developing new products that can help industry and society as a whole",
+      "Promote leadership and entrepreneurship skills in students through various projects, co-curriculum and extra-curriculum events",
+      "Imbibe social awareness and responsibility in students to serve the society and protect environment"
+    ],
+    "peos": [
+      "Apply the knowledge of electrical engineering to solve problems of industrial and social relevance",
+      "Pursue higher education and adopt to changing professional needs and engage in lifelong learning",
+      "Be professional with leadership qualities, ethics, moral values and work efficiently in a team",
+      "Fulfill social and economical commitments by entrepreneurial spirit"
+    ],
+    "specializations": [
+      "Power Systems",
+      "Electrical Motors",
+      "Transmission Systems",
+      "Renewable Energy Technologies",
+      "Control Systems",
+      "Power Electronics"
+    ],
+    "career_opportunities": [
+      "Power generation and distribution companies",
+      "Electrical supervision and maintenance",
+      "Installation and testing of electrical equipment",
+      "Renewable energy sector",
+      "Manufacturing industries",
+      "Entrepreneurship in electrical services"
+    ],
+    "laboratories": [
+      "Electrical Machines Lab",
+      "Power Electronics Lab",
+      "Control Systems Lab",
+      "Power Systems Lab",
+      "Renewable Energy Lab"
+    ]
+  },
+  {
+    "id": "mechanical",
+    "name": "Mechanical Engineering",
+    "slug": "mechanical-engineering",
+    "established": 1988,
+    "intake_capacity": 60,
+    "nba_status": "Accredited",
+    "nba_valid_until": 2027,
+    "faculty_count": 23,
+    "head_of_department": "Mr. D D Prajapati",
+    "website": "https://gppmechanical.wixsite.com/mechanical",
+    "overview": "The Mechanical Engineering program concentrates on industrial production and machinery. The curriculum covers mechanical system design, manufacturing processes, thermal engineering, and maintenance procedures. For detailed information about faculty, research activities, and latest departmental updates, visit our dedicated website.",
+    "vision": "To create competent diploma mechanical engineers with humanities, leadership and entrepreneurship qualities.",
+    "mission": [
+      "To impart quality technical education with hands-on training in manufacturing and industrial processes",
+      "Develop state-of-art laboratories and infrastructure for practical learning",
+      "Foster industry-institute interaction through internships and collaborative projects",
+      "Promote innovation, entrepreneurship and lifelong learning among students"
+    ],
+    "peos": [
+      "Successfully apply the principle of mechanical engineering in the industry",
+      "Pursue continued life long learning through professional practice and higher studies",
+      "Established as a successful entrepreneur"
+    ],
+    "specializations": [
+      "Manufacturing Processes",
+      "Thermal Engineering",
+      "Mechanical Design",
+      "Industrial Production",
+      "Machine Design",
+      "CAD/CAM"
+    ],
+    "career_opportunities": [
+      "Automotive and manufacturing industries",
+      "Design and development firms",
+      "Energy sector",
+      "Production planning and quality control",
+      "Maintenance and service operations",
+      "Entrepreneurial ventures"
+    ],
+    "laboratories": [
+      "Manufacturing Technology Lab",
+      "Thermal Engineering Lab",
+      "Fluid Mechanics Lab",
+      "Machine Design Lab",
+      "CAD/CAM Lab"
+    ]
+  },
+  {
+    "id": "ec",
+    "name": "Electronics & Communication Engineering",
+    "slug": "electronics-communication-engineering",
+    "established": 1994,
+    "intake_capacity": 30,
+    "nba_status": "Applying",
+    "faculty_count": 8,
+    "head_of_department": "Mr. S J Chauhan",
+    "website": "https://ec.gppalanpur.ac.in/",
+    "overview": "The EC program focuses on computer, communication, and navigation electronics. Students study IoT, Embedded Systems, VLSI, Integrated Circuits, and Medical Electronics through well-designed theoretical and practical sessions. Visit our department website for latest updates on research activities, student projects, and industry collaborations.",
+    "vision": "To prepare competent diploma level electronics and communication engineers, catering the needs of industries and society as an excellent employees, innovator and entrepreneur with moral values.",
+    "mission": [
+      "Provide quality education in the field of EC engineering",
+      "Develop state of art laboratories, classrooms and up gradation of faculties",
+      "Strengthen industrial liaison by offering mutual beneficiaries services"
+    ],
+    "peos": [
+      "Successfully pursue professional Electronics and Communication engineering career working in multidisciplinary areas, focusing on innovation and entrepreneurship",
+      "Pursue higher education",
+      "Demonstrate societal and ethical responsibility in every domain of life",
+      "Adapt technological changes with focus on societal and environmental issues"
+    ],
+    "specializations": [
+      "IoT (Internet of Things)",
+      "Embedded Systems",
+      "VLSI Design",
+      "Integrated Circuits",
+      "Medical Electronics",
+      "Communication Systems"
+    ],
+    "career_opportunities": [
+      "Telecommunications sector",
+      "Electronics manufacturing companies",
+      "Research and development organizations",
+      "Technical support and maintenance",
+      "IT sector as programmers and developers",
+      "Entrepreneurship in electronics services"
+    ],
+    "laboratories": [
+      "Digital Electronics Lab",
+      "Communication Systems Lab",
+      "Microprocessor Lab",
+      "VLSI Design Lab",
+      "Embedded Systems Lab"
+    ]
+  },
+  {
+    "id": "ict",
+    "name": "Information & Communication Technology",
+    "slug": "information-communication-technology",
+    "established": 2022,
+    "intake_capacity": 78,
+    "nba_status": null,
+    "faculty_count": null,
+    "head_of_department": "Mr. S J Chauhan",
+    "website": "https://ecdepartmentgpp.wixsite.com/ec626",
+    "overview": "The ICT program deals with computer networks, data communication, and software systems. Students learn image processing, networking, cybersecurity, and data analytics through a comprehensive curriculum. As our newest department, we are building cutting-edge facilities and establishing industry partnerships to provide students with the most current technological education.",
+    "specializations": [
+      "Computer Networks",
+      "Data Communication",
+      "Cybersecurity",
+      "Image Processing",
+      "Data Analytics",
+      "Software Systems"
+    ],
+    "career_opportunities": [
+      "IT support and database management",
+      "Network administration",
+      "Cybersecurity operations",
+      "Software development",
+      "Web and mobile application development",
+      "Data analysis and management",
+      "Chief Information Officer roles"
+    ],
+    "laboratories": [
+      "Networking Lab",
+      "Cybersecurity Lab",
+      "Database Lab",
+      "Software Development Lab",
+      "Data Analytics Lab"
+    ]
+  },
+  {
+    "id": "it",
+    "name": "Information Technology",
+    "slug": "information-technology",
+    "established": 2023,
+    "intake_capacity": 38,
+    "nba_status": null,
+    "faculty_count": null,
+    "head_of_department": "Ms. M M Shah",
+    "website": null,
+    "overview": "The IT program focuses on software development, networking, and data management. Students study cybersecurity, web development, and database administration through theory and practical sessions. This program prepares students for the rapidly evolving IT industry with hands-on experience in the latest technologies and methodologies.",
+    "specializations": [
+      "Software Development",
+      "Web Development",
+      "Database Administration",
+      "Cybersecurity",
+      "Network Management",
+      "Graphics Design"
+    ],
+    "career_opportunities": [
+      "Software engineering and development",
+      "Network administration",
+      "IT security analysis",
+      "Web and application development",
+      "Database management",
+      "Graphics design",
+      "Technical support services"
+    ],
+    "laboratories": [
+      "Programming Lab",
+      "Web Development Lab",
+      "Database Lab",
+      "Graphics Design Lab",
+      "IT Security Lab"
+    ]
+  }
+]

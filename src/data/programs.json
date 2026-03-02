@@ -1,0 +1,331 @@
+[
+  {
+    "id": "civil",
+    "name": "Diploma in Civil Engineering",
+    "short_name": "Civil Engineering",
+    "slug": "civil-engineering",
+    "department_id": "civil-applied-mechanics",
+    "code": "CE",
+    "established": 1984,
+    "duration_years": 3,
+    "intake_capacity": 90,
+    "nba_status": "Accredited",
+    "nba_valid_until": "2027",
+    "affiliation": "Gujarat Technological University",
+    "overview": "The Diploma in Civil Engineering focuses on structural design, construction techniques, and infrastructure development. Students gain practical skills in structural analysis, material science, transportation engineering, water resource management, and soil mechanics. With NBA accreditation and modern laboratories, this program meets industry standards and prepares students for successful careers in construction and infrastructure sectors.",
+    "vision": "The program envisions to create professionals in emerging field of civil engineering to meet aspirations of the society by transforming students to be technically skilled entrepreneurs, ethical and environmentally sensible civil engineers.",
+    "mission": [
+      "To impart quality technical education in the field of civil engineering",
+      "Establish industry collaboration through internship and interaction with professional society through experts and workshops",
+      "Promote leadership, management and entrepreneurship skills in students through various projects, co-curriculum and extra-curriculum events",
+      "Develop environmental awareness and social responsibility"
+    ],
+    "peos": [
+      "Exhibit technical and leadership capabilities for providing sustainable solutions to various Civil Engineering problems with professional ethics",
+      "Inculcate state of the art technology for efficient implementation of Civil Engineering projects",
+      "Enhance social and economical commitment by entrepreneurial spirit as job creators",
+      "Pursue higher education and improve learning spirit in the context of technological changes"
+    ],
+    "program_outcomes": [
+      "Basic and Discipline specific knowledge",
+      "Problem Analysis",
+      "Design/Development of solutions",
+      "Engineering Tools, Experimentation and Testing",
+      "Engineering practices for society, sustainability and environment",
+      "Project Management",
+      "Life-long learning"
+    ],
+    "specializations": [
+      "Structural Design",
+      "Construction Techniques",
+      "Infrastructure Development",
+      "Water Resource Management",
+      "Soil Mechanics",
+      "Transportation Engineering"
+    ],
+    "career_opportunities": [
+      "Construction companies and consultancies",
+      "Government departments (R&B, Irrigation, GWSSB, GMB)",
+      "Town planning and development projects",
+      "Infrastructure development firms",
+      "Self-employment and entrepreneurship"
+    ],
+    "eligibility": "10th pass (SSC) with Science and Mathematics",
+    "admission_process": "Through Gujarat Common Entrance Test (GUJCET) conducted by Admission Committee for Professional Courses (ACPC)"
+  },
+  {
+    "id": "electrical",
+    "name": "Diploma in Electrical Engineering",
+    "short_name": "Electrical Engineering",
+    "slug": "electrical-engineering",
+    "department_id": "electrical",
+    "code": "EE",
+    "established": 1984,
+    "duration_years": 3,
+    "intake_capacity": 60,
+    "nba_status": "Accredited",
+    "nba_valid_until": "2027",
+    "affiliation": "Gujarat Technological University",
+    "overview": "The Diploma in Electrical Engineering focuses on electricity, power systems, and control mechanisms. Students learn about power generation, electrical motors, transmission systems, and renewable energy technologies through comprehensive theoretical and practical training. The program prepares graduates for diverse careers in power, manufacturing, and renewable energy sectors.",
+    "vision": "To develop competent electrical engineering professionals with strong technical skills, entrepreneurial mindset and ethical values to serve industry and society.",
+    "mission": [
+      "Prepare the students with strong fundamental concepts and problem solving skills to enhance their employability in the industries",
+      "To provide them a platform for developing new products that can help industry and society as a whole",
+      "Promote leadership and entrepreneurship skills in students through various projects, co-curriculum and extra-curriculum events",
+      "Imbibe social awareness and responsibility in students to serve the society and protect environment"
+    ],
+    "peos": [
+      "Apply the knowledge of electrical engineering to solve problems of industrial and social relevance",
+      "Pursue higher education and adopt to changing professional needs and engage in lifelong learning",
+      "Be professional with leadership qualities, ethics, moral values and work efficiently in a team",
+      "Fulfill social and economical commitments by entrepreneurial spirit"
+    ],
+    "program_outcomes": [
+      "Basic and Discipline specific knowledge",
+      "Problem Analysis",
+      "Design/Development of solutions",
+      "Engineering Tools, Experimentation and Testing",
+      "Engineering practices for society, sustainability and environment",
+      "Project Management",
+      "Life-long learning"
+    ],
+    "specializations": [
+      "Power Systems",
+      "Electrical Motors",
+      "Transmission Systems",
+      "Renewable Energy Technologies",
+      "Control Systems",
+      "Power Electronics"
+    ],
+    "career_opportunities": [
+      "Power generation and distribution companies",
+      "Electrical supervision and maintenance",
+      "Installation and testing of electrical equipment",
+      "Renewable energy sector",
+      "Manufacturing industries",
+      "Entrepreneurship in electrical services"
+    ],
+    "eligibility": "10th pass (SSC) with Science and Mathematics",
+    "admission_process": "Through Gujarat Common Entrance Test (GUJCET) conducted by Admission Committee for Professional Courses (ACPC)"
+  },
+  {
+    "id": "mechanical",
+    "name": "Diploma in Mechanical Engineering",
+    "short_name": "Mechanical Engineering",
+    "slug": "mechanical-engineering",
+    "department_id": "mechanical",
+    "code": "ME",
+    "established": 1988,
+    "duration_years": 3,
+    "intake_capacity": 60,
+    "nba_status": "Accredited",
+    "nba_valid_until": "2027",
+    "affiliation": "Gujarat Technological University",
+    "overview": "The Diploma in Mechanical Engineering focuses on industrial production, machinery, and manufacturing processes. Students study mechanical system design, thermal engineering, production planning, and maintenance procedures. The comprehensive curriculum combines theoretical knowledge with extensive hands-on training to prepare industry-ready mechanical engineers.",
+    "vision": "To create competent diploma mechanical engineers with humanities, leadership and entrepreneurship qualities.",
+    "mission": [
+      "To impart quality technical education with hands-on training in manufacturing and industrial processes",
+      "Develop state-of-art laboratories and infrastructure for practical learning",
+      "Foster industry-institute interaction through internships and collaborative projects",
+      "Promote innovation, entrepreneurship and lifelong learning among students"
+    ],
+    "peos": [
+      "Successfully apply the principle of mechanical engineering in the industry",
+      "Pursue continued life long learning through professional practice and higher studies",
+      "Established as a successful entrepreneur"
+    ],
+    "program_outcomes": [
+      "Basic and Discipline specific knowledge",
+      "Problem Analysis",
+      "Design/Development of solutions",
+      "Engineering Tools, Experimentation and Testing",
+      "Engineering practices for society, sustainability and environment",
+      "Project Management",
+      "Life-long learning"
+    ],
+    "specializations": [
+      "Manufacturing Processes",
+      "Thermal Engineering",
+      "Mechanical Design",
+      "Industrial Production",
+      "Machine Design",
+      "CAD/CAM"
+    ],
+    "career_opportunities": [
+      "Automotive and manufacturing industries",
+      "Design and development firms",
+      "Energy sector",
+      "Production planning and quality control",
+      "Maintenance and service operations",
+      "Entrepreneurial ventures"
+    ],
+    "eligibility": "10th pass (SSC) with Science and Mathematics",
+    "admission_process": "Through Gujarat Common Entrance Test (GUJCET) conducted by Admission Committee for Professional Courses (ACPC)"
+  },
+  {
+    "id": "ec",
+    "name": "Diploma in Electronics & Communication Engineering",
+    "short_name": "Electronics & Communication",
+    "slug": "electronics-communication-engineering",
+    "department_id": "ec",
+    "code": "EC",
+    "established": 1994,
+    "duration_years": 3,
+    "intake_capacity": 30,
+    "nba_status": "Applying",
+    "nba_valid_until": null,
+    "affiliation": "Gujarat Technological University",
+    "overview": "The Diploma in Electronics & Communication Engineering focuses on computer, communication, and navigation electronics. Students explore IoT, Embedded Systems, VLSI, Integrated Circuits, and Medical Electronics through well-structured theoretical and practical training. The program prepares graduates for careers in telecommunications, electronics manufacturing, and emerging technologies.",
+    "vision": "To prepare competent diploma level electronics and communication engineers, catering the needs of industries and society as an excellent employees, innovator and entrepreneur with moral values.",
+    "mission": [
+      "Provide quality education in the field of EC engineering",
+      "Develop state of art laboratories, classrooms and up gradation of faculties",
+      "Strengthen industrial liaison by offering mutual beneficiaries services"
+    ],
+    "peos": [
+      "Successfully pursue professional Electronics and Communication engineering career working in multidisciplinary areas, focusing on innovation and entrepreneurship",
+      "Pursue higher education",
+      "Demonstrate societal and ethical responsibility in every domain of life",
+      "Adapt technological changes with focus on societal and environmental issues"
+    ],
+    "program_outcomes": [
+      "Basic and Discipline specific knowledge",
+      "Problem Analysis",
+      "Design/Development of solutions",
+      "Engineering Tools, Experimentation and Testing",
+      "Engineering practices for society, sustainability and environment",
+      "Project Management",
+      "Life-long learning"
+    ],
+    "specializations": [
+      "IoT (Internet of Things)",
+      "Embedded Systems",
+      "VLSI Design",
+      "Integrated Circuits",
+      "Medical Electronics",
+      "Communication Systems"
+    ],
+    "career_opportunities": [
+      "Telecommunications sector",
+      "Electronics manufacturing companies",
+      "Research and development organizations",
+      "Technical support and maintenance",
+      "IT sector as programmers and developers",
+      "Entrepreneurship in electronics services"
+    ],
+    "eligibility": "10th pass (SSC) with Science and Mathematics",
+    "admission_process": "Through Gujarat Common Entrance Test (GUJCET) conducted by Admission Committee for Professional Courses (ACPC)"
+  },
+  {
+    "id": "ict",
+    "name": "Diploma in Information & Communication Technology",
+    "short_name": "ICT",
+    "slug": "information-communication-technology",
+    "department_id": "ec",
+    "code": "ICT",
+    "established": 2022,
+    "duration_years": 3,
+    "intake_capacity": 78,
+    "nba_status": null,
+    "nba_valid_until": null,
+    "affiliation": "Gujarat Technological University",
+    "overview": "The Diploma in Information & Communication Technology focuses on computer networks, data communication, and software systems. Students learn image processing, networking, cybersecurity, and data analytics through a comprehensive curriculum. This modern program prepares graduates for the rapidly evolving IT and communication sectors with industry-relevant skills.",
+    "vision": "To develop skilled ICT professionals capable of innovating and implementing technology solutions for industry and society.",
+    "mission": [
+      "Provide quality education in Information and Communication Technology",
+      "Develop practical skills through modern laboratories and industry exposure",
+      "Foster innovation and entrepreneurship in technology sectors",
+      "Prepare students for global IT and communication industries"
+    ],
+    "peos": [
+      "Apply ICT knowledge to solve real-world problems in industry and society",
+      "Adapt to rapidly changing technology landscape through continuous learning",
+      "Demonstrate professional ethics and work effectively in teams",
+      "Pursue entrepreneurship or higher education in technology fields"
+    ],
+    "program_outcomes": [
+      "Basic and Discipline specific knowledge",
+      "Problem Analysis",
+      "Design/Development of solutions",
+      "Engineering Tools, Experimentation and Testing",
+      "Engineering practices for society, sustainability and environment",
+      "Project Management",
+      "Life-long learning"
+    ],
+    "specializations": [
+      "Computer Networks",
+      "Data Communication",
+      "Cybersecurity",
+      "Image Processing",
+      "Data Analytics",
+      "Software Systems"
+    ],
+    "career_opportunities": [
+      "IT support and database management",
+      "Network administration",
+      "Cybersecurity operations",
+      "Software development",
+      "Web and mobile application development",
+      "Data analysis and management",
+      "System administration roles"
+    ],
+    "eligibility": "10th pass (SSC) with Science and Mathematics",
+    "admission_process": "Through Gujarat Common Entrance Test (GUJCET) conducted by Admission Committee for Professional Courses (ACPC)"
+  },
+  {
+    "id": "it",
+    "name": "Diploma in Information Technology",
+    "short_name": "Information Technology",
+    "slug": "information-technology",
+    "department_id": "instrumentation-control",
+    "code": "IT",
+    "established": 2023,
+    "duration_years": 3,
+    "intake_capacity": 38,
+    "nba_status": null,
+    "nba_valid_until": null,
+    "affiliation": "Gujarat Technological University",
+    "overview": "The Diploma in Information Technology focuses on software development, networking, and data management. Students study cybersecurity, web development, database administration, and graphics design through comprehensive theoretical and practical sessions. This program prepares students for diverse IT careers with hands-on experience in latest technologies and methodologies.",
+    "vision": "To produce competent IT professionals with strong technical foundation, problem-solving abilities, and ethical values.",
+    "mission": [
+      "Provide quality education in software development and IT systems",
+      "Develop practical skills through project-based learning and industry internships",
+      "Promote innovation, creativity and entrepreneurial thinking",
+      "Prepare globally competitive IT professionals with ethical values"
+    ],
+    "peos": [
+      "Apply IT knowledge and skills to develop software solutions for industry needs",
+      "Pursue higher education and engage in continuous professional development",
+      "Work effectively as IT professionals with leadership and teamwork capabilities",
+      "Demonstrate entrepreneurial skills and contribute to technological advancement"
+    ],
+    "program_outcomes": [
+      "Basic and Discipline specific knowledge",
+      "Problem Analysis",
+      "Design/Development of solutions",
+      "Engineering Tools, Experimentation and Testing",
+      "Engineering practices for society, sustainability and environment",
+      "Project Management",
+      "Life-long learning"
+    ],
+    "specializations": [
+      "Software Development",
+      "Web Development",
+      "Database Administration",
+      "Cybersecurity",
+      "Network Management",
+      "Graphics Design"
+    ],
+    "career_opportunities": [
+      "Software engineering and development",
+      "Network administration",
+      "IT security analysis",
+      "Web and application development",
+      "Database management",
+      "Graphics design",
+      "Technical support services"
+    ],
+    "eligibility": "10th pass (SSC) with Science and Mathematics",
+    "admission_process": "Through Gujarat Common Entrance Test (GUJCET) conducted by Admission Committee for Professional Courses (ACPC)"
+  }
+]

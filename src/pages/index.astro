@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import programs from '../data/programs.json';
 import departments from '../data/departments.json';
 ---
 
@@ -32,7 +33,7 @@ import departments from '../data/departments.json';
             <a href="/admissions" class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors shadow-sm">
               Apply Now
             </a>
-            <a href="/departments" class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-primary border border-primary hover:bg-primary/5 rounded-lg transition-colors">
+            <a href="/programs" class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-primary border border-primary hover:bg-primary/5 rounded-lg transition-colors">
               Explore Programs
             </a>
           </div>
@@ -48,7 +49,7 @@ import departments from '../data/departments.json';
             <div class="mt-6 grid grid-cols-3 gap-4 text-center">
               <div>
                 <div class="text-2xl font-bold text-primary">6</div>
-                <div class="text-sm text-gray-500">Departments</div>
+                <div class="text-sm text-gray-500">Diploma Programs</div>
               </div>
               <div>
                 <div class="text-2xl font-bold text-primary">66</div>
@@ -131,33 +132,35 @@ import departments from '../data/departments.json';
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Academic Programs</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Diploma Programs</h2>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Choose from 6 engineering departments with modern curriculum and industry exposure
+          Choose from 6 engineering diploma programs with modern curriculum and industry exposure
         </p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {departments.map(dept => (
-          <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-lg font-semibold text-gray-900">{dept.name}</h3>
-              {dept.nba_status && (
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">NBA</span>
-              )}
-            </div>
-            <p class="text-sm text-gray-500 mb-3">Est. {dept.established} • {dept.intake_capacity} Seats</p>
-            <p class="text-gray-600 text-sm mb-4">{dept.overview.slice(0, 120)}...</p>
-            {dept.faculty_count && (
-              <div class="flex items-center text-sm text-gray-500">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                {dept.faculty_count} Faculty Members
+        {programs.map(program => {
+          const dept = departments.find(d => d.id === program.department_id);
+          return (
+            <a href={`/programs/${program.slug}`} class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-primary transition-all block">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold bg-primary/10 text-primary rounded px-2 py-1">{program.code}</span>
+                {program.nba_status === "Accredited" && (
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">NBA</span>
+                )}
               </div>
-            )}
-          </div>
-        ))}
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">{program.name}</h3>
+              <p class="text-sm text-gray-500 mb-3">Est. {program.established} • {program.intake_capacity} Seats</p>
+              <p class="text-gray-600 text-sm mb-4">{program.vision.slice(0, 120)}...</p>
+              <div class="flex items-center text-sm text-gray-500">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                Offered by {dept?.short_name || 'GPP'}
+              </div>
+            </a>
+          );
+        })}
       </div>
       <div class="text-center mt-8">
-        <a href="/departments" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+        <a href="/programs" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors">
           View All Programs
         </a>
       </div>
@@ -279,9 +282,9 @@ import departments from '../data/departments.json';
                 <div class="font-medium text-gray-900">SSIP</div>
                 <div class="text-sm text-gray-500">Innovation Cell</div>
               </a>
-              <a href="/departments" class="p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors block">
-                <div class="font-medium text-gray-900">Departments</div>
-                <div class="text-sm text-gray-500">Programs Offered</div>
+              <a href="/programs" class="p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors block">
+                <div class="font-medium text-gray-900">Programs</div>
+                <div class="text-sm text-gray-500">Diploma Courses</div>
               </a>
             </div>
           </div>
