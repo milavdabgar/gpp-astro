@@ -3,9 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+import programs from '../data/programs.json';
 import departments from '../data/departments.json';
 
-const totalSeats = departments.reduce((sum, d) => sum + d.intake_capacity, 0);
+const totalSeats = programs.reduce((sum, p) => sum + p.intake_capacity, 0);
 
 const steps = [
   { step: "Step 1", title: "Check Eligibility", desc: "Ensure you meet the eligibility criteria for diploma engineering programs.", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
@@ -77,32 +78,45 @@ const documents = [
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-900 mb-3">Available Programs</h2>
-        <p class="text-gray-600">Choose from 6 engineering disciplines with industry-focused curriculum</p>
+        <p class="text-gray-600">Choose from 6 engineering diploma programs with industry-focused curriculum</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {departments.map(dept => (
-          <div class="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-lg transition-shadow">
-            <div class="flex items-start justify-between mb-2">
-              <h3 class="font-bold text-gray-900 text-base leading-tight">{dept.name}</h3>
-              {dept.nba_status && (
-                <span class="ml-2 flex-shrink-0 text-[10px] font-bold bg-green-100 text-green-800 rounded px-1.5 py-0.5">NBA</span>
-              )}
+        {programs.map(program => {
+          const dept = departments.find(d => d.id === program.department_id);
+          return (
+            <div class="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-lg hover:border-primary transition-all">
+              <div class="flex items-start justify-between mb-2">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs font-bold bg-primary/10 text-primary rounded px-2 py-0.5">{program.code}</span>
+                    {program.nba_status === "Accredited" && (
+                      <span class="text-[10px] font-bold bg-green-100 text-green-800 rounded px-1.5 py-0.5">NBA</span>
+                    )}
+                  </div>
+                  <h3 class="font-bold text-gray-900 text-base leading-tight">{program.name}</h3>
+                </div>
+              </div>
+              <div class="flex gap-3 text-xs text-gray-500 mb-3">
+                <span>Est. {program.established}</span>
+                <span>·</span>
+                <span>{program.intake_capacity} Seats</span>
+                <span>·</span>
+                <span>{program.duration_years} Years</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3">{program.vision.substring(0, 100)}…</p>
+              <div class="text-xs text-gray-500 mb-4">
+                Offered by {dept?.short_name || 'GPP'}
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-primary">{program.intake_capacity}</span>
+                <a href={`/programs/${program.slug}`} class="text-sm font-semibold text-primary hover:underline">Learn More →</a>
+              </div>
             </div>
-            <div class="flex gap-3 text-xs text-gray-500 mb-3">
-              <span>Est. {dept.established}</span>
-              <span>·</span>
-              <span>{dept.intake_capacity} Seats</span>
-            </div>
-            <p class="text-sm text-gray-600 mb-4">{dept.overview.substring(0, 100)}…</p>
-            <div class="flex items-center justify-between">
-              <span class="text-2xl font-bold text-primary">{dept.intake_capacity}</span>
-              <a href={`/departments/${dept.slug}`} class="text-sm font-semibold text-primary hover:underline">Learn More →</a>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div class="text-center mt-10">
-        <a href="/departments" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+        <a href="/programs" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
           View All Programs in Detail
         </a>
       </div>

@@ -5,30 +5,24 @@ import Footer from '../../components/Footer.astro';
 import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
 import programs from '../../data/programs.json';
 import departments from '../../data/departments.json';
-import facultyData from '../../data/faculty.json';
-import labGallery from '../../data/lab-gallery.json';
 import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths: GetStaticPaths = () => {
   return programs.map(program => {
     // Find the department offering this program
     const dept = departments.find(d => (d.programs_offered as string[]).includes(program.id));
-    const deptFacultyId = program.department_id.replace('-applied-mechanics', '').replace('instrumentation-control', 'it');
     
     return {
       params: { slug: program.slug },
       props: { 
         program,
         department: dept,
-        hasFaculty: !!(facultyData as any)[deptFacultyId || program.id],
-        hasLabs: !!(labGallery as any)[program.id],
-        labs: (labGallery as any)[program.id] || []
       },
     };
   });
 };
 
-const { program, department, hasFaculty, hasLabs, labs } = Astro.props as any;
+const { program, department } = Astro.props as any;
 ---
 
 <Layout title={`${program.name} | GP Palanpur`}>
@@ -118,7 +112,7 @@ const { program, department, hasFaculty, hasLabs, labs } = Astro.props as any;
           </div>
           <p class="text-xs text-gray-600">Curriculum aligned with industry requirements</p>
         </div>
-        {hasLabs && labs.length > 0 && (
+        {department && department.laboratories && department.laboratories.length > 0 && (
           <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-5 border border-purple-100 hover:shadow-lg transition-shadow">
             <div class="flex items-center gap-3 mb-2">
               <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -126,7 +120,7 @@ const { program, department, hasFaculty, hasLabs, labs } = Astro.props as any;
               </div>
               <h3 class="text-sm font-bold text-gray-900">Modern Labs</h3>
             </div>
-            <p class="text-xs text-gray-600">Well-equipped facilities for practical learning</p>
+            <p class="text-xs text-gray-600">Well-equipped department facilities for hands-on learning</p>
           </div>
         )}
         <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-5 border border-orange-100 hover:shadow-lg transition-shadow">
@@ -160,18 +154,18 @@ const { program, department, hasFaculty, hasLabs, labs } = Astro.props as any;
             <p class="text-xs text-gray-600">Faculty & facilities</p>
           </a>
         )}
-        {hasLabs && labs.length > 0 && (
-          <a href={`/programs/${program.slug}/labs`} class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
+        {department && department.laboratories && department.laboratories.length > 0 && (
+          <a href={`/departments/${department.slug}/labs`} class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
             <div class="flex items-center gap-3 mb-2">
               <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
                 <svg class="w-5 h-5 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
               </div>
               <div>
                 <h3 class="text-sm font-bold text-gray-900">Laboratories</h3>
-                <p class="text-xs text-gray-500">{labs.length} labs</p>
+                <p class="text-xs text-gray-500">{department.laboratories.length} labs</p>
               </div>
             </div>
-            <p class="text-xs text-gray-600">Explore facilities</p>
+            <p class="text-xs text-gray-600">Shared department facilities</p>
           </a>
         )}
         <a href="#curriculum" class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
@@ -338,35 +332,37 @@ const { program, department, hasFaculty, hasLabs, labs } = Astro.props as any;
     </div>
   </section>
 
-  <!-- Lab Gallery -->
-  {hasLabs && labs.length > 0 && (
+  <!-- Lab Gallery - Shows department labs since they're shared across programs -->
+  {department && department.laboratories && department.laboratories.length > 0 && (
     <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-3">Our Laboratories</h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">State-of-the-art facilities equipped with modern equipment for hands-on learning</p>
+          <h2 class="text-3xl font-bold text-gray-900 mb-3">Department Laboratories</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">State-of-the-art facilities in {department.short_name} shared across all programs</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {labs.slice(0, 3).map((lab: any) => (
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
-              <div class="aspect-video bg-gray-100 overflow-hidden">
-                <img 
-                  src={lab.image} 
-                  alt={lab.name}
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+          {department.laboratories.slice(0, 3).map((lab: any) => (
+            <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-lg font-bold text-gray-900 flex-1">{lab.name}</h3>
+                {lab.equipment_count && (
+                  <span class="text-xs font-semibold bg-purple-100 text-purple-700 rounded-full px-2 py-1 ml-2">
+                    {lab.equipment_count}+ Equipment
+                  </span>
+                )}
               </div>
-              <div class="p-5">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">{lab.name}</h3>
-                <p class="text-sm text-gray-600">{lab.description}</p>
-              </div>
+              {lab.incharge && (
+                <p class="text-sm text-gray-600 mb-2">
+                  <span class="font-medium">In-charge:</span> {lab.incharge}
+                </p>
+              )}
             </div>
           ))}
         </div>
-        {labs.length > 3 && (
+        {department.laboratories.length > 3 && (
           <div class="text-center mt-8">
-            <a href={`/programs/${program.slug}/labs`} class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
-              View All {labs.length} Labs
+            <a href={`/departments/${department.slug}/labs`} class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+              View All {department.laboratories.length} Labs
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
           </div>
