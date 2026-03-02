@@ -7,22 +7,62 @@ import departments from '../../data/departments.json';
 import programs from '../../data/programs.json';
 import type { GetStaticPaths } from 'astro';
 
+// Newsletters data mapped by department slug
+const newslettersData: Record<string, { name: string; pdfs: { label: string; file: string }[]; siteUrl?: string }> = {
+  'electronics-communication': {
+    name: 'Spectrum',
+    pdfs: [
+      { label: "Band IV — 2024–25", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2024-25.pdf" },
+      { label: "Band II — 2022–23", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2022-23.pdf" },
+      { label: "Band I — 2021–22", file: "/docs/newsletters/ec/Spectrum-Band-I.pdf" },
+    ],
+    siteUrl: "https://ec.gppalanpur.ac.in/newsletter",
+  },
+  'civil-applied-mechanics': {
+    name: 'InfraCreator',
+    pdfs: [
+      { label: "June 2025", file: "/docs/newsletters/civil/june-2025.pdf" },
+      { label: "Dec 2024", file: "/docs/newsletters/civil/dec-2024.pdf" },
+      { label: "June 2024", file: "/docs/newsletters/civil/june-2024.pdf" },
+      { label: "Dec 2023", file: "/docs/newsletters/civil/dec-2023.pdf" },
+      { label: "June 2023", file: "/docs/newsletters/civil/june-2023.pdf" },
+      { label: "Dec 2022", file: "/docs/newsletters/civil/dec-2022.pdf" },
+    ],
+    siteUrl: "https://gppcivil06.wixsite.com/civil",
+  },
+  'electrical': {
+    name: 'Spark',
+    pdfs: [
+      { label: "July 2025", file: "/docs/newsletters/electrical/july-2025.pdf" },
+      { label: "July 2024", file: "/docs/newsletters/electrical/july-2024.pdf" },
+      { label: "July 2023", file: "/docs/newsletters/electrical/july-2023.pdf" },
+      { label: "July 2022", file: "/docs/newsletters/electrical/july-2022.pdf" },
+      { label: "July 2021", file: "/docs/newsletters/electrical/july-2021.pdf" },
+      { label: "July 2020", file: "/docs/newsletters/electrical/july-2020.pdf" },
+    ],
+  },
+};
+
 export const getStaticPaths: GetStaticPaths = () => {
   return departments.map(dept => {
     // Find programs offered by this department
     const deptPrograms = programs.filter(p => p.department_id === dept.id);
+    
+    // Get newsletters for this department
+    const newsletters = newslettersData[dept.slug] || null;
     
     return {
       params: { slug: dept.slug },
       props: { 
         dept,
         programs: deptPrograms,
+        newsletters,
       },
     };
   });
 };
 
-const { dept, programs: deptPrograms } = Astro.props as any;
+const { dept, programs: deptPrograms, newsletters } = Astro.props as any;
 ---
 
 <Layout title={`${dept.name} | GP Palanpur`}>
@@ -181,6 +221,59 @@ const { dept, programs: deptPrograms } = Astro.props as any;
     </section>
   )}
 
+  <!-- Vision & Mission -->
+  {deptPrograms.length > 0 && deptPrograms[0].vision && (
+    <section class="py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-3">Vision & Mission</h2>
+            <p class="text-gray-600">Guiding principles that drive our department's excellence</p>
+          </div>
+          
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Vision -->
+            <div class="group bg-white rounded-2xl p-8 border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2">Our Vision</h3>
+                  <div class="w-16 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full"></div>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed text-lg">{deptPrograms[0].vision}</p>
+            </div>
+
+            <!-- Mission -->
+            <div class="group bg-white rounded-2xl p-8 border-2 border-purple-100 hover:border-purple-300 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-2">Our Mission</h3>
+                  <div class="w-16 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full"></div>
+                </div>
+              </div>
+              {deptPrograms[0].mission && (
+                <ul class="space-y-3">
+                  {deptPrograms[0].mission.map((item: string) => (
+                    <li class="flex items-start gap-3 text-gray-700">
+                      <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      <span class="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Programs Offered -->
   {deptPrograms.length > 0 && (
     <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
@@ -256,6 +349,64 @@ const { dept, programs: deptPrograms } = Astro.props as any;
               {dept.subjects_taught.map(subject => (
                 <span class="text-sm bg-blue-50 text-blue-700 rounded-full px-4 py-2">{subject}</span>
               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Department Newsletters -->
+  {newsletters && newsletters.pdfs.length > 0 && (
+    <section class="py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-amber-600 rounded-2xl mb-4 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-3">{newsletters.name} Newsletter</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              Stay updated with department activities, student achievements, faculty insights, and technical innovations
+            </p>
+          </div>
+
+          <!-- Newsletter Cards -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {newsletters.pdfs.map((pdf: { label: string; file: string }, idx: number) => (
+              <a href={pdf.file} target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border-2 border-amber-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-start justify-between mb-4">
+                  <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                  </div>
+                  {idx === 0 && (
+                    <span class="text-xs font-bold bg-amber-100 text-amber-700 rounded-full px-2 py-1">Latest</span>
+                  )}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{pdf.label}</h3>
+                <p class="text-sm text-gray-600 mb-4">{newsletters.name} Edition</p>
+                <div class="flex items-center gap-2 text-sm font-semibold text-amber-600 group-hover:gap-3 transition-all">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  Download PDF
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <!-- View All Link -->
+          <div class="text-center">
+            <div class="flex flex-wrap gap-4 items-center justify-center">
+              {newsletters.siteUrl && (
+                <a href={newsletters.siteUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-amber-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-amber-700 transition-all shadow-lg hover:shadow-xl">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  Read Interactive Newsletter
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              )}
+              <a href="/newsletters" class="inline-flex items-center justify-center gap-2 bg-white text-amber-600 border-2 border-amber-600 font-semibold px-8 py-4 rounded-xl hover:bg-amber-50 transition-all">
+                View All College Newsletters
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
             </div>
           </div>
         </div>
