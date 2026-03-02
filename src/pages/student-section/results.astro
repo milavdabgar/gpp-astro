@@ -1,0 +1,320 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// Semester-wise overall result analysis (2023–2025) from GTU Affiliation 2026-27
+const overallResults = [
+  { year: 2023, sem: 1, appeared: 284, passed: 69,  cpi8: 24,  cpi7: 59,  cpi6: 85,  cpi5: 109 },
+  { year: 2023, sem: 3, appeared: 148, passed: 44,  cpi8: 14,  cpi7: 32,  cpi6: 51,  cpi5: 73  },
+  { year: 2023, sem: 5, appeared: 86,  passed: 41,  cpi8: 16,  cpi7: 32,  cpi6: 46,  cpi5: 67  },
+  { year: 2024, sem: 1, appeared: 298, passed: 51,  cpi8: 13,  cpi7: 32,  cpi6: 54,  cpi5: 78  },
+  { year: 2024, sem: 2, appeared: 233, passed: 64,  cpi8: 16,  cpi7: 49,  cpi6: 78,  cpi5: 103 },
+  { year: 2024, sem: 3, appeared: 190, passed: 48,  cpi8: 15,  cpi7: 47,  cpi6: 61,  cpi5: 85  },
+  { year: 2024, sem: 4, appeared: 109, passed: 51,  cpi8: 12,  cpi7: 32,  cpi6: 55,  cpi5: 72  },
+  { year: 2024, sem: 5, appeared: 99,  passed: 64,  cpi8: 13,  cpi7: 41,  cpi6: 66,  cpi5: 86  },
+  { year: 2024, sem: 6, appeared: 78,  passed: 48,  cpi8: 17,  cpi7: 38,  cpi6: 58,  cpi5: 73  },
+  { year: 2025, sem: 2, appeared: 241, passed: 77,  cpi8: 15,  cpi7: 37,  cpi6: 67,  cpi5: 91  },
+  { year: 2025, sem: 4, appeared: 151, passed: 79,  cpi8: 21,  cpi7: 50,  cpi6: 77,  cpi5: 100 },
+  { year: 2025, sem: 6, appeared: 96,  passed: 73,  cpi8: 16,  cpi7: 52,  cpi6: 76,  cpi5: 90  },
+];
+
+// Branch-wise result analysis — Last Academic Year (2024-25) from GTU Affiliation 2026-27
+const branchResults = [
+  {
+    branch: "Civil Engineering",
+    code: "CE",
+    color: "stone",
+    years: [
+      { label: "1st Year (Sem 1–2)", appeared: 78, passed: 10, pct: 13 },
+      { label: "2nd Year (Sem 3–4)", appeared: 42, passed: 20, pct: 48 },
+      { label: "3rd Year (Sem 5–6)", appeared: 35, passed: 21, pct: 60 },
+    ],
+  },
+  {
+    branch: "Electrical Engineering",
+    code: "EE",
+    color: "yellow",
+    years: [
+      { label: "1st Year (Sem 1–2)", appeared: 61, passed: 15, pct: 25 },
+      { label: "2nd Year (Sem 3–4)", appeared: 29, passed: 12, pct: 41 },
+      { label: "3rd Year (Sem 5–6)", appeared: 60, passed: 24, pct: 40 },
+    ],
+  },
+  {
+    branch: "Electronics & Communication",
+    code: "EC",
+    color: "blue",
+    years: [
+      { label: "1st Year (Sem 1–2)", appeared: 11, passed: 4,  pct: 36 },
+      { label: "2nd Year (Sem 3–4)", appeared: 7,  passed: 4,  pct: 57 },
+      { label: "3rd Year (Sem 5–6)", appeared: 8,  passed: 5,  pct: 63 },
+    ],
+  },
+  {
+    branch: "Information Communication Technology",
+    code: "ICT",
+    color: "purple",
+    years: [
+      { label: "1st Year (Sem 1–2)", appeared: 22, passed: 5,  pct: 23 },
+      { label: "2nd Year (Sem 3–4)", appeared: 24, passed: 7,  pct: 29 },
+      { label: "3rd Year (Sem 5–6)", appeared: 7,  passed: 5,  pct: 71 },
+    ],
+  },
+  {
+    branch: "Information Technology",
+    code: "IT",
+    color: "teal",
+    years: [
+      { label: "1st Year (Sem 1–2)", appeared: 36, passed: 16, pct: 44 },
+      { label: "2nd Year (Sem 3–4)", appeared: 20, passed: 14, pct: 70 },
+    ],
+  },
+  {
+    branch: "Mechanical Engineering",
+    code: "ME",
+    color: "orange",
+    years: [
+      { label: "1st Year (Sem 1–2)", appeared: 61, passed: 15, pct: 25 },
+      { label: "2nd Year (Sem 3–4)", appeared: 40, passed: 8,  pct: 20 },
+      { label: "3rd Year (Sem 5–6)", appeared: 18, passed: 13, pct: 72 },
+    ],
+  },
+];
+
+// GTU Rankings (institute-level rank among all diploma colleges, last 3 years)
+const gtuRankings = [
+  { year: 2025, sem: 6, rank: 50  },
+  { year: 2025, sem: 4, rank: 32  },
+  { year: 2025, sem: 2, rank: 50  },
+  { year: 2024, sem: 6, rank: 66  },
+  { year: 2024, sem: 5, rank: 37  },
+  { year: 2024, sem: 4, rank: 41  },
+  { year: 2024, sem: 3, rank: 49  },
+  { year: 2024, sem: 2, rank: 50  },
+  { year: 2024, sem: 1, rank: 69  },
+  { year: 2023, sem: 6, rank: 61  },
+  { year: 2023, sem: 5, rank: 75  },
+  { year: 2023, sem: 4, rank: 49  },
+  { year: 2023, sem: 3, rank: 40  },
+  { year: 2023, sem: 2, rank: 77  },
+  { year: 2023, sem: 1, rank: 44  },
+  { year: 2022, sem: 6, rank: 40  },
+  { year: 2022, sem: 4, rank: 57  },
+  { year: 2022, sem: 2, rank: 49  },
+];
+
+const colorBadge: Record<string, string> = {
+  stone:  "bg-stone-100 text-stone-800",
+  yellow: "bg-yellow-100 text-yellow-800",
+  blue:   "bg-blue-100 text-blue-800",
+  purple: "bg-purple-100 text-purple-800",
+  teal:   "bg-teal-100 text-teal-800",
+  orange: "bg-orange-100 text-orange-800",
+};
+
+function rankColor(rank: number) {
+  if (rank <= 40) return "text-green-600 font-bold";
+  if (rank <= 60) return "text-blue-600 font-semibold";
+  return "text-gray-600";
+}
+
+const bestRank = Math.min(...gtuRankings.map(r => r.rank));
+const latestPct = Math.round((overallResults.at(-1)!.passed / overallResults.at(-1)!.appeared) * 100);
+---
+
+<Layout title="Academic Results | Student Section | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/student-section" class="hover:text-primary transition-colors">Student Section</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Academic Results</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Academic Results</h1>
+      <p class="text-gray-600 text-lg mb-8">Semester-wise result analysis & GTU rankings for Government Polytechnic, Palanpur</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="text-3xl font-bold text-primary">#{bestRank}</div>
+          <div class="text-sm text-gray-500 mt-1">Best GTU Rank</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="text-3xl font-bold text-green-600">{latestPct}%</div>
+          <div class="text-sm text-gray-500 mt-1">Latest Pass % (Sem 6)</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="text-3xl font-bold text-primary">6</div>
+          <div class="text-sm text-gray-500 mt-1">Branches</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="text-3xl font-bold text-primary">GTU</div>
+          <div class="text-sm text-gray-500 mt-1">Affiliated University</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Results Notice -->
+  <div class="bg-amber-50 border-b border-amber-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-amber-800 text-sm flex items-start gap-2">
+        <svg class="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>For the latest semester results, visit the official GTU portal: 
+          <a href="https://www.gtu.ac.in" target="_blank" rel="noopener noreferrer" class="font-semibold underline hover:text-amber-900">www.gtu.ac.in</a>
+          . Data shown here is from GTU Affiliation Report 2026-27.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Semester-wise Overall Results -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-1">Semester-wise Result Analysis (2023–2025)</h2>
+        <p class="text-gray-500 text-sm">All diploma programs combined — institute-level performance</p>
+      </div>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="text-left py-3 px-4 font-semibold">Year</th>
+              <th class="text-left py-3 px-4 font-semibold">Sem</th>
+              <th class="text-right py-3 px-4 font-semibold">Appeared</th>
+              <th class="text-right py-3 px-4 font-semibold">Passed</th>
+              <th class="text-right py-3 px-4 font-semibold">Pass %</th>
+              <th class="text-right py-3 px-4 font-semibold hidden sm:table-cell">CPI &gt; 8</th>
+              <th class="text-right py-3 px-4 font-semibold hidden md:table-cell">CPI &gt; 7</th>
+              <th class="text-right py-3 px-4 font-semibold hidden md:table-cell">CPI &gt; 6</th>
+            </tr>
+          </thead>
+          <tbody>
+            {overallResults.map((r, i) => {
+              const pct = Math.round((r.passed / r.appeared) * 100);
+              return (
+                <tr class={`border-t border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"} hover:bg-primary/5 transition-colors`}>
+                  <td class="py-3 px-4 font-medium text-gray-900">{r.year}</td>
+                  <td class="py-3 px-4 text-gray-600">Sem {r.sem}</td>
+                  <td class="py-3 px-4 text-right text-gray-700">{r.appeared}</td>
+                  <td class="py-3 px-4 text-right text-gray-700">{r.passed}</td>
+                  <td class="py-3 px-4 text-right">
+                    <span class={`font-bold ${pct >= 60 ? "text-green-600" : pct >= 40 ? "text-blue-600" : "text-orange-600"}`}>{pct}%</span>
+                  </td>
+                  <td class="py-3 px-4 text-right text-gray-600 hidden sm:table-cell">{r.cpi8}</td>
+                  <td class="py-3 px-4 text-right text-gray-600 hidden md:table-cell">{r.cpi7}</td>
+                  <td class="py-3 px-4 text-right text-gray-600 hidden md:table-cell">{r.cpi6}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branch-wise Results -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-1">Branch-wise Results — AY 2024-25</h2>
+        <p class="text-gray-500 text-sm">Pass percentage by year for each engineering branch</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {branchResults.map(dept => (
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+            <div class="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
+              <span class={`text-xs font-bold rounded px-2 py-0.5 ${colorBadge[dept.color]}`}>{dept.code}</span>
+              <h3 class="font-bold text-gray-900 text-sm leading-tight">{dept.branch}</h3>
+            </div>
+            <div class="p-5 space-y-3">
+              {dept.years.map(y => (
+                <div>
+                  <div class="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>{y.label}</span>
+                    <span class={`font-semibold ${y.pct >= 60 ? "text-green-600" : y.pct >= 40 ? "text-blue-600" : "text-orange-600"}`}>{y.pct}%</span>
+                  </div>
+                  <div class="w-full bg-gray-100 rounded-full h-1.5">
+                    <div
+                      class={`h-1.5 rounded-full ${y.pct >= 60 ? "bg-green-500" : y.pct >= 40 ? "bg-blue-500" : "bg-orange-400"}`}
+                      style={`width: ${y.pct}%`}
+                    ></div>
+                  </div>
+                  <div class="text-xs text-gray-400 mt-0.5">{y.passed} / {y.appeared} students</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GTU Rankings -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-1">GTU Institute Rankings</h2>
+        <p class="text-gray-500 text-sm">Rank among all diploma engineering colleges affiliated to GTU (lower is better)</p>
+      </div>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="text-left py-3 px-5 font-semibold text-gray-700">Year</th>
+              <th class="text-left py-3 px-5 font-semibold text-gray-700">Semester</th>
+              <th class="text-right py-3 px-5 font-semibold text-gray-700">GTU Rank</th>
+              <th class="text-right py-3 px-5 font-semibold text-gray-700 hidden sm:table-cell">Performance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {gtuRankings.map((r, i) => (
+              <tr class={`border-t border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"} hover:bg-primary/5 transition-colors`}>
+                <td class="py-3 px-5 font-medium text-gray-900">{r.year}</td>
+                <td class="py-3 px-5 text-gray-600">Sem {r.sem}</td>
+                <td class={`py-3 px-5 text-right text-lg ${rankColor(r.rank)}`}>#{r.rank}</td>
+                <td class="py-3 px-5 text-right hidden sm:table-cell">
+                  <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${r.rank <= 40 ? "bg-green-100 text-green-700" : r.rank <= 60 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600"}`}>
+                    {r.rank <= 40 ? "Excellent" : r.rank <= 60 ? "Good" : "Average"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">Source: GTU Affiliation Report 2026-27 · Rankings among all GTU-affiliated diploma institutes</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-10 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-2">Check Your Latest Results</h2>
+      <p class="text-gray-600 text-sm mb-5">For real-time results and marksheets, visit the official GTU portal with your enrollment number.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://www.gtu.ac.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+          GTU Portal
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        <a href="/student-section/notice-board" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:border-primary hover:text-primary transition-colors">
+          Result Notices
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
