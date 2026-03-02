@@ -168,17 +168,17 @@ const { program, department } = Astro.props as any;
             <p class="text-xs text-gray-600">Shared department facilities</p>
           </a>
         )}
-        <a href="#curriculum" class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
+        <a href={`/programs/${program.slug}/curriculum`} class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
           <div class="flex items-center gap-3 mb-2">
             <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
               <svg class="w-5 h-5 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
             </div>
             <div>
               <h3 class="text-sm font-bold text-gray-900">Curriculum</h3>
-              <p class="text-xs text-gray-500">What you'll learn</p>
+              <p class="text-xs text-gray-500">Syllabus & Subjects</p>
             </div>
           </div>
-          <p class="text-xs text-gray-600">View course details</p>
+          <p class="text-xs text-gray-600">View complete course details</p>
         </a>
         <a href="/admissions" class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
           <div class="flex items-center gap-3 mb-2">
