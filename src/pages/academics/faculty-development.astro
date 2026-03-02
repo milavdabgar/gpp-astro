@@ -1,0 +1,396 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// Representative sample of 177 FDP records organised by host institution
+// Data sourced from GTU Affiliation Document 2026-27 (939.md)
+const fdpGroups = [
+  {
+    host: "NPTEL / SWAYAM / MOOC",
+    color: "blue",
+    count: 111,
+    entries: [
+      { faculty: "Dr. R N Patel",       topic: "Enhancing Soft Skills and Personality",                   year: 2025, platform: "IIT Kanpur / NPTEL" },
+      { faculty: "Dr. R N Patel",       topic: "Training and Development",                               year: 2025, platform: "IIT Kharagpur / NPTEL" },
+      { faculty: "K A Patel",           topic: "Training and Development",                               year: 2025, platform: "IIT Kharagpur / NPTEL" },
+      { faculty: "L K Patel",           topic: "Training and Development",                               year: 2024, platform: "IIT Kharagpur / NPTEL" },
+      { faculty: "Dr. R N Patel",       topic: "Leadership and Team Effectiveness",                      year: 2024, platform: "IIT Roorkee / NPTEL" },
+      { faculty: "Dr. J D Modi",        topic: "NBA Accreditation and Teaching & Learning in Engineering", year: 2024, platform: "IIT Madras / NPTEL" },
+      { faculty: "Dr. B B Mor",         topic: "NBA Accreditation and Teaching & Learning in Engineering", year: 2024, platform: "IIT Madras / NPTEL" },
+      { faculty: "Dr. C S Pandya",      topic: "NBA Accreditation and Teaching & Learning in Engineering", year: 2024, platform: "IIT Madras / NPTEL" },
+      { faculty: "Dr. C Gehlot",        topic: "Accreditation and Outcome Based Learning",               year: 2024, platform: "IIT Madras / NPTEL" },
+      { faculty: "Dr. J D Modi",        topic: "Mentoring, Coaching and Counselling",                    year: 2024, platform: "IIT Madras / NPTEL" },
+      { faculty: "S P Mahant",          topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "T D Modi",            topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "S N Chauhan",         topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "C M Amin",            topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "M F Tank",            topic: "Nuclear & Radiochemistry",                               year: 2024, platform: "IIT Bombay / NPTEL" },
+      { faculty: "Y T Rana",            topic: "Design of Reinforced Concrete Structures",               year: 2024, platform: "SWAYAM / MOOC" },
+      { faculty: "M J Mansuri",         topic: "Novel Advances in Sustainable Construction Materials",   year: 2024, platform: "DTE FDP" },
+      { faculty: "Dr. J D Modi",        topic: "Mentoring, Coaching and Counselling",                    year: 2023, platform: "DTE FDP" },
+      { faculty: "S N Chauhan",         topic: "Joy of Computing using Python",                          year: 2023, platform: "IIT Madras / NPTEL" },
+      { faculty: "T D Modi",            topic: "Introduction to Artificial Intelligence",                year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Science of Happiness",                                   year: 2023, platform: "IIT Madras / NPTEL" },
+      { faculty: "Dr. J D Modi",        topic: "Science of Happiness",                                   year: 2023, platform: "IIT Madras / NPTEL" },
+      { faculty: "B B Mor",             topic: "Science of Happiness",                                   year: 2023, platform: "IIT Madras / NPTEL" },
+      { faculty: "B B Mor",             topic: "Entrepreneurship",                                       year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Entrepreneurship",                                       year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "N J Chauhan",         topic: "Recent Development in RF and Antenna Design",            year: 2025, platform: "ATAL FDP / GEC Rajkot" },
+      { faculty: "V A Chauhan",         topic: "Trends in Industrial Automation",                        year: 2022, platform: "GEC Gandhinagar" },
+      { faculty: "N A Modi",            topic: "Industrial NDT for Welding and Castings",                year: 2022, platform: "GEC Gandhinagar" },
+      { faculty: "S N Chauhan",         topic: "Manufacturing Processes I",                              year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Manufacturing Processes II",                             year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Advanced Machining Processes",                           year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Joining Technologies",                                   year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Automation in Production",                               year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Operations Management",                                  year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Industry 4.0 and Industrial Internet of Things (IIoT)",  year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "S N Chauhan",         topic: "Software Testing",                                       year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "T D Modi",            topic: "Leadership and Team Effectiveness",                      year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "T D Modi",            topic: "Entrepreneurship",                                       year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "T D Modi",            topic: "Philosophy and Critical Thinking",                       year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "T D Modi",            topic: "Education for Sustainable Development",                  year: 2022, platform: "IIT Kharagpur / NPTEL" },
+      { faculty: "T D Modi",            topic: "Soft Skills and Personality Development",               year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "T D Modi",            topic: "OBE and Accreditation",                                  year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Non-Conventional Energy",                                year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Concrete Technology",                                    year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Maintenance and Repair of Concrete Structures",          year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Water Supply Engineering",                               year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Accounting for Civil Engineers",                         year: 2024, platform: "NPTEL / MOOC" },
+      { faculty: "M R Zala",            topic: "Rural Water Resources",                                  year: 2024, platform: "NPTEL / MOOC" },
+      { faculty: "B B Mor",             topic: "Ecology and Society",                                    year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "B B Mor",             topic: "Mathematics for Economics",                               year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "B B Mor",             topic: "Positive Psychology",                                    year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "L K Patel",           topic: "Remote Sensing Essentials",                              year: 2024, platform: "NPTEL / MOOC" },
+      { faculty: "L K Patel",           topic: "Interior Design",                                        year: 2024, platform: "NPTEL / MOOC" },
+      { faculty: "J D Modi",            topic: "Concrete Technology",                                    year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "J D Modi",            topic: "Analytical Chemistry",                                   year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "M J Vadhavaniya",     topic: "Concrete Technology",                                    year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "M J Vadhavaniya",     topic: "NBA Accreditation and OBE",                             year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "N J Chauhan",         topic: "Introduction to Internet of Things",                     year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "N J Chauhan",         topic: "Industry 4.0 and IIoT",                                 year: 2023, platform: "NPTEL / MOOC" },
+      { faculty: "V K Patel",           topic: "Leadership and Team Effectiveness",                      year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "V H Suthar",          topic: "Concrete Technology",                                    year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "V B Chaudhari",       topic: "Non-Conventional Energy",                                year: 2022, platform: "NPTEL / MOOC" },
+      { faculty: "M K Prajapati",       topic: "Education for Sustainable Development",                  year: 2022, platform: "NPTEL / MOOC" },
+    ]
+  },
+  {
+    host: "NITTTR Bhopal",
+    color: "green",
+    count: 27,
+    entries: [
+      { faculty: "D Judal",             topic: "E-Content Development",                                  year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "M R Zala",            topic: "Technology Enabled Learning and Assessment (TELA)",      year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "D H Desai",           topic: "Academic Leadership and Management",                     year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "T D Modi",            topic: "Lab Manual Development",                                 year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "V K Patel",           topic: "TQM and Six Sigma",                                      year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "V H Suthar",          topic: "Role of Technical Institutions in Community Development", year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "V B Chaudhari",       topic: "Outcome Based Curriculum Design",                        year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "M K Prajapati",       topic: "Induction Phase 2 Training",                             year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "S N Chauhan",         topic: "Technology-Supported Instructional Media (Induction)",  year: 2022, platform: "NITTTR Bhopal" },
+      { faculty: "S N Chauhan",         topic: "Advanced Manufacturing – CAM and CNC",                  year: 2023, platform: "NITTTR Bhopal" },
+      { faculty: "T D Modi",            topic: "Outcome Based Education (OBE) for Polytechnics",        year: 2022, platform: "NITTTR Bhopal" },
+    ]
+  },
+  {
+    host: "IIT Institutes",
+    color: "orange",
+    count: 18,
+    entries: [
+      { faculty: "Dr. J D Modi",        topic: "Mentoring, Coaching and Counselling",                    year: 2024, platform: "IIT Madras" },
+      { faculty: "Dr. B B Mor",         topic: "NBA Accreditation and Teaching & Learning",              year: 2024, platform: "IIT Madras" },
+      { faculty: "Dr. C S Pandya",      topic: "NBA Accreditation and Teaching & Learning",              year: 2024, platform: "IIT Madras" },
+      { faculty: "Dr. C Gehlot",        topic: "Accreditation and Outcome-Based Learning",               year: 2024, platform: "IIT Madras" },
+      { faculty: "Dr. R N Patel",       topic: "Training and Development",                               year: 2025, platform: "IIT Kharagpur" },
+      { faculty: "K A Patel",           topic: "Training and Development",                               year: 2025, platform: "IIT Kharagpur" },
+      { faculty: "L K Patel",           topic: "Training and Development",                               year: 2024, platform: "IIT Kharagpur" },
+      { faculty: "T D Modi",            topic: "Education for Sustainable Development",                  year: 2022, platform: "IIT Kharagpur" },
+      { faculty: "Dr. R N Patel",       topic: "Leadership and Team Effectiveness",                      year: 2024, platform: "IIT Roorkee" },
+      { faculty: "Dr. R N Patel",       topic: "Enhancing Soft Skills and Personality",                  year: 2025, platform: "IIT Kanpur" },
+      { faculty: "M F Tank",            topic: "Nuclear and Radiochemistry",                             year: 2024, platform: "IIT Bombay" },
+    ]
+  },
+  {
+    host: "GTU / GEC / DTE",
+    color: "purple",
+    count: 10,
+    entries: [
+      { faculty: "S P Mahant",          topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "T D Modi",            topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "S N Chauhan",         topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "C M Amin",            topic: "Educational Reforms for a Modern Workforce",             year: 2024, platform: "GTU" },
+      { faculty: "V A Chauhan",         topic: "Trends in Industrial Automation: Refreshing Past and Future", year: 2022, platform: "GEC Gandhinagar" },
+      { faculty: "N A Modi",            topic: "Industrial NDT for Welding and Castings",                year: 2022, platform: "GEC Gandhinagar" },
+      { faculty: "N J Chauhan",         topic: "Recent Development in RF and Antenna Design",            year: 2025, platform: "GEC Rajkot (ATAL FDP)" },
+      { faculty: "M J Mansuri",         topic: "Novel Advances in Sustainable Construction Materials",   year: 2024, platform: "DTE FDP" },
+      { faculty: "Dr. J D Modi",        topic: "Mentoring, Coaching and Counselling",                    year: 2023, platform: "DTE FDP" },
+    ]
+  },
+  {
+    host: "GPP Hosted FDPs",
+    color: "red",
+    count: 2,
+    entries: [
+      { faculty: "All Teaching Staff",  topic: "Innovative Practices to Enhance Learning",               year: 2024, platform: "GPP Palanpur (hosted)" },
+      { faculty: "All Teaching Staff",  topic: "Energy Conservation Workshop",                           year: 2024, platform: "GPP Palanpur (hosted)" },
+    ]
+  },
+];
+
+const colorMap: Record<string, string> = {
+  blue:   "bg-blue-100 text-blue-800",
+  green:  "bg-green-100 text-green-800",
+  orange: "bg-orange-100 text-orange-800",
+  purple: "bg-purple-100 text-purple-800",
+  red:    "bg-red-100 text-red-800",
+};
+const borderMap: Record<string, string> = {
+  blue:   "border-blue-200",
+  green:  "border-green-200",
+  orange: "border-orange-200",
+  purple: "border-purple-200",
+  red:    "border-red-200",
+};
+const headMap: Record<string, string> = {
+  blue:   "bg-blue-50",
+  green:  "bg-green-50",
+  orange: "bg-orange-50",
+  purple: "bg-purple-50",
+  red:    "bg-red-50",
+};
+
+const totalFDP = fdpGroups.reduce((s, g) => s + g.count, 0);
+
+const topFaculty = [
+  { name: "S N Chauhan",       count: 18 },
+  { name: "T D Modi",          count: 15 },
+  { name: "M R Zala",          count: 12 },
+  { name: "Dr. R N Patel",     count: 10 },
+  { name: "B B Mor",           count:  9 },
+  { name: "Dr. J D Modi",      count:  9 },
+  { name: "N J Chauhan",       count:  8 },
+  { name: "L K Patel",         count:  8 },
+  { name: "M J Vadhavaniya",   count:  7 },
+  { name: "V K Patel",         count:  6 },
+];
+---
+
+<Layout title="Faculty Development Programs | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Faculty Development Programs</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-emerald-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        Continuous Professional Development
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Faculty Development Programs</h1>
+      <p class="text-gray-600 text-lg">
+        GPP faculty members continually upgrade their skills through national programs at premier institutions — IITs, NITTTR Bhopal, GTU, and global MOOC platforms.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-5 max-w-5xl mx-auto text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary">{totalFDP}+</div>
+          <div class="text-sm text-gray-500 mt-1">FDP Participations</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">5</div>
+          <div class="text-sm text-gray-500 mt-1">Years Covered</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">25+</div>
+          <div class="text-sm text-gray-500 mt-1">Faculty Trained</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">12+</div>
+          <div class="text-sm text-gray-500 mt-1">Host Institutions</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">40+</div>
+          <div class="text-sm text-gray-500 mt-1">Unique Topics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Activities Summary -->
+  <section class="py-8 bg-gray-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Faculty Activities at a Glance</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-900">Workshops Attended</div>
+              <div class="text-sm text-gray-500">External professional workshops</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-2">
+            <div class="bg-orange-50 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-orange-700">70</div>
+              <div class="text-xs text-orange-600">Participations</div>
+            </div>
+            <div class="bg-orange-50 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-orange-700">18</div>
+              <div class="text-xs text-orange-600">Faculty Members</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-900">FDPs Attended</div>
+              <div class="text-sm text-gray-500">Faculty Development Programs</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-2">
+            <div class="bg-emerald-50 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-emerald-700">89</div>
+              <div class="text-xs text-emerald-600">Participations</div>
+            </div>
+            <div class="bg-emerald-50 rounded-lg p-3 text-center">
+              <div class="text-2xl font-bold text-emerald-700">25</div>
+              <div class="text-xs text-emerald-600">Faculty Members</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Participants -->
+  <section class="py-8 bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Faculty with Most FDP Participations</h2>
+      <div class="grid md:grid-cols-2 gap-3">
+        {topFaculty.map((f, i) => (
+          <div class="flex items-center gap-3">
+            <span class={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${i < 3 ? 'bg-yellow-400 text-yellow-900' : 'bg-gray-100 text-gray-600'}`}>
+              {i + 1}
+            </span>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-semibold text-gray-900">{f.name}</span>
+                <span class="text-xs font-bold text-primary">{f.count} FDPs</span>
+              </div>
+              <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style={`width: ${Math.round((f.count / topFaculty[0].count) * 100)}%`}></div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FDP List grouped by Host -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">FDP Programs by Host Institution</h2>
+      <div class="space-y-6">
+        {fdpGroups.map(group => (
+          <div class={`border ${borderMap[group.color]} rounded-2xl overflow-hidden bg-white`}>
+            <!-- Group Header -->
+            <div class={`${headMap[group.color]} px-6 py-4 flex items-center justify-between`}>
+              <div class="flex items-center gap-3">
+                <span class={`px-3 py-1 rounded-full text-xs font-bold ${colorMap[group.color]}`}>{group.count} FDPs</span>
+                <h3 class="font-bold text-gray-900 text-lg">{group.host}</h3>
+              </div>
+            </div>
+            <!-- Entries Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="bg-gray-50 border-b border-gray-100 text-left text-xs text-gray-500 uppercase tracking-wide">
+                    <th class="px-4 py-2 font-semibold">Faculty</th>
+                    <th class="px-4 py-2 font-semibold">Topic / Program</th>
+                    <th class="px-4 py-2 font-semibold">Platform</th>
+                    <th class="px-4 py-2 font-semibold text-center">Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {group.entries.map((e, idx) => (
+                    <tr class={`border-b border-gray-50 ${idx % 2 === 0 ? '' : 'bg-gray-50/50'} hover:bg-primary/5 transition-colors`}>
+                      <td class="px-4 py-2.5 font-medium text-gray-900 whitespace-nowrap">{e.faculty}</td>
+                      <td class="px-4 py-2.5 text-gray-700">{e.topic}</td>
+                      <td class="px-4 py-2.5 text-gray-500 whitespace-nowrap">{e.platform}</td>
+                      <td class="px-4 py-2.5 text-center">
+                        <span class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-medium">{e.year}</span>
+                      </td>
+                    </tr>
+                  ))}
+                  {group.count > group.entries.length && (
+                    <tr class={`${headMap[group.color]}`}>
+                      <td colspan="4" class="px-4 py-2.5 text-sm text-gray-500 text-center italic">
+                        + {group.count - group.entries.length} additional records on file (total {group.count} FDPs for this institution)
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-6 text-sm text-center text-gray-500">
+        Displaying representative entries — <strong>{totalFDP}+ FDP participations</strong> recorded between 2021 and 2025.
+        Complete records available on request.
+      </p>
+    </div>
+  </section>
+
+  <!-- GPP Hosting Events -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">FDP / Workshops Hosted at GPP</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="border border-primary/30 rounded-xl p-5 bg-primary/5">
+          <div class="text-xs font-semibold text-primary mb-2">17 February 2024</div>
+          <h3 class="font-bold text-gray-900 mb-1">Innovative Practices to Enhance Learning</h3>
+          <p class="text-sm text-gray-600">Faculty Development Program organised at Government Polytechnic Palanpur. All teaching staff participated.</p>
+        </div>
+        <div class="border border-amber-300 rounded-xl p-5 bg-amber-50">
+          <div class="text-xs font-semibold text-amber-700 mb-2">10 October 2024</div>
+          <h3 class="font-bold text-gray-900 mb-1">Energy Conservation Workshop</h3>
+          <p class="text-sm text-gray-600">Workshop conducted at GPP with sponsorship of ₹1,000. Focused on energy-saving practices and sustainable engineering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

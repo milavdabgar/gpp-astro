@@ -1,0 +1,270 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const lectures = [
+  // 2025
+  { id: 1,  name: "Rishabh Prajapati",        designation: "Co-Founder",                  org: "Bee-Robokids Innovation Pvt. Ltd., Palanpur",   topic: "IoT Applications with NodeMCU and Raspberry Pi",             year: 2025, date: "7 Oct 2025" },
+  { id: 2,  name: "Prof. Ashfaq M. Qureshi",  designation: "Lecturer M.E.",                org: "G P Palanpur",                                   topic: "Basics of Electrical Services",                              year: 2025, date: "6 Feb 2025" },
+  { id: 3,  name: "Mr. Amit R. Verma",        designation: "Jr. Asst. Electrical Inspector", org: "Office of Asst. Electrical Inspector, Nadiad", topic: "Electrical Safety and Electrical Act & Regulations",         year: 2025, date: "12 Sep 2025" },
+  { id: 4,  name: "Dr. Mohmadiishaq Sheikh",  designation: "Asst. Professor, GEC Dahod",   org: "GEC Dahod",                                      topic: "Best Practices for Diploma Engineering Students",            year: 2025, date: "15 Apr 2025" },
+  { id: 5,  name: "Mr. Manish Chauhan",       designation: "Asst. Professor M.E.",         org: "GEC Modasa",                                     topic: "Cyber Crime Awareness and Crime Detection",                  year: 2025, date: "12 Sep 2025" },
+  { id: 6,  name: "Mr. Yuvrajsinh Rajput",    designation: "CEO B.E.",                     org: "Bee-Robokids Academy, Palanpur",                 topic: "Drone Technologies",                                         year: 2025, date: "15 Feb 2025" },
+  { id: 7,  name: "Mr. N. B. Nadoda",         designation: "Sr. Lecturer M.E.",            org: "GGP Ahmedabad",                                  topic: "HAM Radio Workshop",                                         year: 2025, date: "14 Feb 2025" },
+  { id: 8,  name: "Prof. Kunalsinh Kathia",   designation: "Professor M.E.",               org: "Saffrony Institute of Technology",                topic: "CAD & CAM",                                                  year: 2025, date: "26 Mar 2025" },
+  // 2024
+  { id: 9,  name: "Patel Nikunj N.",          designation: "Asst. Professor M.E. Electrical", org: "Ganpat University",                           topic: "Basics of Power Electronics and Application of PSIM Software", year: 2024, date: "29 Apr 2024" },
+  { id: 10, name: "Mr. A. B. Chotaliya",      designation: "D.E., GETCO 132KV, Mahemdavad", org: "GETCO 132KV Mahemdavad",                       topic: "Introduction to Substation Equipment",                       year: 2024, date: "21 Mar 2024" },
+  { id: 11, name: "Mr. Krishna Panchal",      designation: "Associate Engineer B.E.E.C.", org: "E-Infochips",                                      topic: "Career Guidance for EC Engineers",                           year: 2024, date: "11 Oct 2024" },
+  { id: 12, name: "Mr. Vishal Vadher",        designation: "Asst. Manager Training B.E.E.C.", org: "Sofcon India Pvt. Ltd.",                       topic: "AI-ML – A New Era of Future",                                year: 2024, date: "30 Sep 2024" },
+  { id: 13, name: "Dr. V K Thakar",           designation: "Dean (PhD)",                   org: "Indrashil University",                           topic: "Internet of Things",                                         year: 2024, date: "22 Oct 2024" },
+  // 2023
+  { id: 14, name: "Vinod Tejwani",            designation: "Lecturer B.E.",                org: "G P Jamnagar",                                   topic: "Electric Vehicle Technologies",                              year: 2023, date: "5 May 2023" },
+  { id: 15, name: "Mr. Sandip Joshi",         designation: "Jr. Engineer Diploma EC",      org: "Adani Power Ltd.",                               topic: "Fabrication of Solar Cell",                                  year: 2023, date: "18 Oct 2023" },
+  { id: 16, name: "Vimal Darji",              designation: "Instructor B.E.",              org: "Sarjan MARG ITI",                                topic: "CNC & Robotics",                                             year: 2023, date: "1 Apr 2023" },
+  { id: 17, name: "Shailesh Patel",           designation: "HOD (PhD)",                    org: "Sakalchand University",                          topic: "Smart Manufacturing",                                        year: 2023, date: "21 Apr 2023" },
+  { id: 18, name: "K S Patel",               designation: "Lecturer M.E.",                org: "K D Polytechnic",                                topic: "How to Prepare for Competitive MCQ Exam",                    year: 2023, date: "8 Nov 2023" },
+  { id: 19, name: "Salman K. Shahu",          designation: "Engineer B.E.",                org: "Classic Eng. Palanpur",                          topic: "Surveying by Total Station and DGPS",                        year: 2023, date: "8 Jun 2023" },
+  { id: 20, name: "Ritesh Vora",              designation: "Manager (Pidilite Ind.)",       org: "Pidilite Industries",                            topic: "Building Defects and Repair Techniques",                     year: 2023, date: "21 Apr 2023" },
+  { id: 21, name: "Er. Divyesh Kakadiya",     designation: "Engineer B.E.",                org: "GEC Palanpur",                                   topic: "3D Modelling using SketchSoft",                              year: 2023, date: "6 Jan 2023" },
+  // 2022
+  { id: 22, name: "Mr. Darshak Langaliya",    designation: "Senior Manager B.E.",          org: "J.K. Laxmi Cement",                              topic: "Design of RCC Structure",                                    year: 2022, date: "10 Mar 2022" },
+  { id: 23, name: "Mr. Vikram Kamboya",       designation: "Senior Manager B.E.",          org: "UltraTech Cement",                               topic: "Basics of RCC Design",                                       year: 2022, date: "11 Jan 2022" },
+  { id: 24, name: "Suresh Rajendra",          designation: "Divisional Engineer B.E.",     org: "GEB Palanpur",                                   topic: "Current Trends in Substation",                               year: 2022, date: "7 Sep 2022" },
+  { id: 25, name: "N N Rajgor",              designation: "Sr. Lecturer M.E.",            org: "G P Palanpur",                                   topic: "Corporate Etiquette",                                        year: 2022, date: "3 May 2022" },
+  { id: 26, name: "Prof. I D Chaudhary",      designation: "Sr. Lecturer M.E.",            org: "G P Palanpur",                                   topic: "Electrical Services and Layout of Building",                 year: 2022, date: "2 Nov 2022" },
+  { id: 27, name: "Arjun Butala",             designation: "Professor M.E.",               org: "U V Patel College of Engg. (Ganpat University)", topic: "Repair and Retrofitting of Structures",                     year: 2022, date: "2 Jul 2022" },
+  { id: 28, name: "Prof. S A Trivedi",        designation: "Asso. Professor M.E.",         org: "VGEC Chandkheda",                                topic: "Different Types of Civil Engineering Estimates and Their Importance", year: 2022, date: "9 Apr 2021" },
+  { id: 29, name: "Satyam Kansara",           designation: "Engineer / Contractor B.E.",   org: "S K Engineers",                                  topic: "Quantity Aspect in Retrofitting & Rehabilitation of Old Structures", year: 2022, date: "3 Aug 2022" },
+  { id: 30, name: "Harishankar Sahu",         designation: "Department Head (Graduate)",   org: "Krishna Maruti Ltd.",                            topic: "Recent Trends in Automotive Engineering",                    year: 2022, date: "23 Mar 2022" },
+  { id: 31, name: "Nilesh Bharati",           designation: "Engineer (Graduate)",          org: "FAG Bearing",                                    topic: "Industry Policy",                                            year: 2022, date: "16 Mar 2022" },
+  { id: 32, name: "Niraj Sorathiya",          designation: "Asst. Professor (Graduate)",   org: "SPB Safferony Institute of Technology",          topic: "Computer Aided Manufacturing",                               year: 2022, date: "28 Jan 2022" },
+  { id: 33, name: "Tausif Shaikh",            designation: "Asst. Professor (Graduate)",   org: "SPB Safferony Institute of Technology",          topic: "Quality Engineering and Management",                         year: 2022, date: "21 Jan 2022" },
+  { id: 34, name: "Mukesh Yogi",              designation: "Centre Head (Graduate)",       org: "SAI CAD Patan",                                  topic: "AutoCAD",                                                    year: 2022, date: "5 Mar 2022" },
+  { id: 35, name: "Mr. Jaimin Rami",          designation: "Station Controller M.E. EC",  org: "JMRC Ahmedabad",                                 topic: "Importance of Communication in Industries",                  year: 2022, date: "8 Sep 2022" },
+  { id: 36, name: "Mr. Prakash Darji",        designation: "Design Engineer B.E. EC",     org: "Google Bangalore",                               topic: "Future of Electronics in Industries",                        year: 2022, date: "6 Aug 2022" },
+  // 2021
+  { id: 37, name: "Dr. Mehulkumar Desai",     designation: "Lecturer (PhD EC)",            org: "GGP Surat",                                      topic: "NAVIC and Its Applications",                                 year: 2021, date: "29 Jan 2022" },
+  { id: 38, name: "Surendrabhai Chaudhary",   designation: "Contractor B.E.",              org: "Civil Engineering",                              topic: "Quality Control Inspection in Construction Activities",       year: 2021, date: "1 Nov 2022" },
+  { id: 39, name: "Satyam Kansara",           designation: "Contractor B.E.",              org: "Civil Engineering",                              topic: "Quality Aspect in Retrofitting & Rehabilitation of Old Structures", year: 2021, date: "3 Aug 2021" },
+  { id: 40, name: "Mr. Pranav Dave",          designation: "Associate Consultant MCA",     org: "TCS Gandhinagar",                                topic: "Importance of Programming",                                  year: 2021, date: "9 Aug 2021" },
+  { id: 41, name: "Dr. Urvashi P. Shukla",    designation: "Asst. Professor PhD EC",       org: "Bansantali Vidhyapith",                          topic: "Digital Communication Basics Realization with MATLAB",       year: 2021, date: "19 Mar 2021" },
+  { id: 42, name: "Mr. Nishant Patel",        designation: "Application Engineer B.E.E.C.", org: "Synopsys Inc., California",                     topic: "VLSI Low Power Techniques",                                  year: 2021, date: "3 Mar 2021" },
+  { id: 43, name: "Mr. Ketan Acharya",        designation: "Asst. Professor B.E.IC",       org: "GEC Gandhinagar",                                topic: "Latest Trends in Industrial Automation",                     year: 2021, date: "30 Apr 2021" },
+  { id: 44, name: "Mr. N. P. Vasav A",        designation: "Lecturer B.E.IC",             org: "G P Vyara",                                      topic: "Career Opportunities in IC Engineering",                     year: 2021, date: "29 Apr 2021" },
+];
+
+const years = [...new Set(lectures.map(l => l.year))].sort((a, b) => b - a);
+const totalOrgs = new Set(lectures.map(l => l.org)).size;
+
+const tags: Record<string, string> = {
+  "IoT Applications": "IoT",
+  "Internet of Things": "IoT",
+  "Drone": "Electronics",
+  "HAM Radio": "Electronics",
+  "NAVIC": "Electronics",
+  "VLSI": "Electronics",
+  "EC Engineers": "EC",
+  "Power Electronics": "Electrical",
+  "Substation": "Electrical",
+  "Electric Vehicle": "Electrical",
+  "Solar Cell": "Electrical",
+  "Electrical Safety": "Electrical",
+  "Electrical Services": "Electrical",
+  "CNC": "Manufacturing",
+  "AutoCAD": "Design & CAD",
+  "CAD & CAM": "Design & CAD",
+  "3D Modelling": "Design & CAD",
+  "Smart Manufacturing": "Manufacturing",
+  "Automotive": "Mechanical",
+  "Manufacturing": "Manufacturing",
+  "Joining Technologies": "Manufacturing",
+  "RCC": "Civil",
+  "Retrofitting": "Civil",
+  "Surveying": "Civil",
+  "Total Station": "Civil",
+  "Building Defect": "Civil",
+  "Construction": "Civil",
+  "Concrete": "Civil",
+  "AI-ML": "IT/CS",
+  "Programming": "IT/CS",
+  "Cyber Crime": "IT/CS",
+  "Python": "IT/CS",
+  "Industry 4.0": "IT/CS",
+  "Communication": "Soft Skills",
+  "Corporate Etiquette": "Soft Skills",
+  "Career": "Career",
+};
+---
+
+<Layout title="Expert Lectures | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span class="text-gray-600">Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Expert Lectures</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        Industry &amp; Academia Connect
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Expert Lectures</h1>
+      <p class="text-gray-600 text-lg">
+        Eminent professionals from industry and academia share cutting-edge knowledge with GPP students through invited talks, workshops, and seminars.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary">{lectures.length}</div>
+          <div class="text-sm text-gray-500 mt-1">Expert Lectures</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{totalOrgs}</div>
+          <div class="text-sm text-gray-500 mt-1">Organisations</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{years.length}</div>
+          <div class="text-sm text-gray-500 mt-1">Years (2021–2025)</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">5+</div>
+          <div class="text-sm text-gray-500 mt-1">Disciplines Covered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Year filter -->
+  <section class="bg-gray-50 border-b sticky top-0 z-30 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-2 items-center">
+        <span class="text-sm font-medium text-gray-600 shrink-0">Year:</span>
+        <button onclick="filterYear('all')" data-year="all"
+          class="yr-btn px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white">All</button>
+        {years.map(y => (
+          <button onclick={`filterYear(${y})`} data-year={String(y)}
+            class="yr-btn px-3 py-1 rounded-full text-xs font-semibold bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-colors">
+            {y}
+          </button>
+        ))}
+        <span class="ml-auto text-xs text-gray-500">Showing <span id="lec-count">{lectures.length}</span> lectures</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lectures Grid -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="lectures-grid">
+        {lectures.map(lec => (
+          <div class="lec-card border border-gray-200 rounded-xl p-5 hover:border-primary/40 hover:shadow-md transition-all" data-year={lec.year}>
+            <!-- Topic -->
+            <h3 class="font-bold text-gray-900 text-sm mb-1 leading-snug">{lec.topic}</h3>
+
+            <!-- Speaker -->
+            <div class="mt-3 flex items-start gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-gray-900">{lec.name}</p>
+                <p class="text-xs text-gray-500">{lec.designation}</p>
+              </div>
+            </div>
+
+            <!-- Org & date -->
+            <div class="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs text-gray-600 flex items-center gap-1">
+                <svg class="w-3 h-3 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/>
+                </svg>
+                <span class="line-clamp-1">{lec.org}</span>
+              </span>
+              <span class="text-xs text-gray-400 shrink-0 ml-2">{lec.date}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div id="lec-empty" class="hidden text-center py-16 text-gray-400">
+        <p class="text-sm">No lectures found for selected year.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Expert Lectures -->
+  <section class="py-10 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Notable Visiting Experts</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          { name: "Mr. Prakash Darji", role: "Design Engineer", org: "Google Bangalore", topic: "Future of Electronics in Industries" },
+          { name: "Mr. Nishant Patel",  role: "Application Engineer", org: "Synopsys Inc., California", topic: "VLSI Low Power Techniques" },
+          { name: "Mr. Pranav Dave",   role: "Associate Consultant", org: "TCS Gandhinagar", topic: "Importance of Programming" },
+          { name: "Dr. V K Thakar",    role: "Dean, Indrashil University", org: "Indrashil University", topic: "Internet of Things" },
+          { name: "Mr. Vishal Vadher",  role: "Asst. Manager Training", org: "Sofcon India Pvt. Ltd.", topic: "AI-ML – A New Era of Future" },
+          { name: "Mr. Krishna Panchal", role: "Associate Engineer", org: "E-Infochips", topic: "Career Guidance for EC Engineers" },
+        ].map(e => (
+          <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start">
+            <div class="w-9 h-9 bg-purple-100 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">{e.name}</p>
+              <p class="text-xs text-gray-500">{e.role} · {e.org}</p>
+              <p class="text-xs text-primary mt-1 font-medium">"{e.topic}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+function filterYear(year) {
+  document.querySelectorAll('.yr-btn').forEach(btn => {
+    const active = btn.dataset.year === String(year);
+    btn.classList.toggle('bg-primary', active);
+    btn.classList.toggle('text-white', active);
+    btn.classList.toggle('bg-white', !active);
+    btn.classList.toggle('border', !active);
+    btn.classList.toggle('border-gray-300', !active);
+    btn.classList.toggle('text-gray-700', !active);
+  });
+
+  let count = 0;
+  document.querySelectorAll('.lec-card').forEach(card => {
+    const show = year === 'all' || parseInt(card.dataset.year) === year;
+    card.style.display = show ? '' : 'none';
+    if (show) count++;
+  });
+  document.getElementById('lec-count').textContent = count;
+  document.getElementById('lec-empty').classList.toggle('hidden', count > 0);
+}
+</script>
