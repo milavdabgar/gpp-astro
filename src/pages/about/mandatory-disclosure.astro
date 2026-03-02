@@ -1,0 +1,206 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const sections = [
+  {
+    title: "A. Name & Address of the Institution",
+    rows: [
+      ["Name of Institution", "Government Polytechnic, Palanpur"],
+      ["Address", "Outside Malan Gate, Ambaji Road, Palanpur – 385001"],
+      ["City", "Palanpur"],
+      ["District", "Banaskantha"],
+      ["State", "Gujarat"],
+      ["Pin Code", "385001"],
+      ["Phone (with STD)", "(02742) 262115"],
+      ["E-Mail", "gp-palanpur-dte@gujarat.gov.in"],
+      ["Website (New)", "www.gppalanpur.in"],
+      ["Website (Old)", "www.gppp.cteguj.in"],
+      ["GTU Institute Code", "626"],
+    ],
+  },
+  {
+    title: "B. Name & Address of the Trust / Society / Company",
+    rows: [
+      ["Name", "Commissionerate of Technical Education, Gujarat"],
+      ["Address", "Block No. 5, 5th Floor, Dr. Jivraj Mehta Bhavan, Sector 10-A, Gandhinagar – 382010"],
+      ["Phone", "(079) 23256071 / 23256025"],
+      ["Type of Institution", "Government (100% Grant in Aid)"],
+    ],
+  },
+  {
+    title: "C. Name of Principal / Director",
+    rows: [
+      ["Name", "Shri Sureshkumar Dalabhai Dabhi"],
+      ["Designation", "Principal (In-Charge)"],
+      ["Qualification", "M.Tech. Manufacturing Systems"],
+      ["University", "NIT Jaipur"],
+      ["Date of Appointment", "01 April 2019"],
+      ["Appointment Order", "GTU-SEB/CTE/GPT/CHARGE/AACHARY/2019/GH-4/4810 (29/03/2019)"],
+      ["Mobile", "9825697278"],
+      ["E-Mail", "sureshdabhi1968@gmail.com"],
+    ],
+  },
+  {
+    title: "D. Governance",
+    rows: [
+      ["Governing Body / Members", "As per Gujarat Government norms"],
+      ["Academic Advisory Body", "Constituted as per AICTE norms"],
+      ["Frequency of Governing Body Meetings", "Twice a year (minimum)"],
+      ["Organisational Chart", "Available at /about/organization-chart"],
+      ["Student Feedback on Institutional Governance", "Available on Request"],
+      ["Student Feedback on Faculty", "Conducted Semester-wise"],
+    ],
+  },
+  {
+    title: "E. Programs",
+    rows: [
+      ["Name of Programme", "Diploma in Civil Engineering | Intake: 90 | Since: 1984 | NBA: Accredited (2024-2027)"],
+      ["Name of Programme", "Diploma in Electrical Engineering | Intake: 60 | Since: 1984 | NBA: Accredited (2024-2027)"],
+      ["Name of Programme", "Diploma in Mechanical Engineering | Intake: 60 | Since: 1988 | NBA: Accredited (2024-2027)"],
+      ["Name of Programme", "Diploma in Electronics & Communication Engg | Intake: 30 | Since: 1994"],
+      ["Name of Programme", "Diploma in Information & Communication Technology | Intake: 60 | Since: 2022"],
+      ["Name of Programme", "Diploma in Information Technology | Intake: 30 | Since: 2023"],
+      ["Affiliating University", "Gujarat Technological University (GTU), Ahmedabad"],
+      ["First Affiliation Date", "31-Jan-2013 (No. GTU/INST_AFFI/626/2012-13/677)"],
+    ],
+  },
+  {
+    title: "F. Faculty",
+    rows: [
+      ["Total Faculty", "64"],
+      ["All meet AICTE qualification norms", "Yes"],
+      ["Pay Scale", "6th Pay Commission (Gujarat Government)"],
+      ["Faculty Cadre Ratio (Professor:Associate:Assistant)", "As applicable for Polytechnic (Lecturer grade)"],
+    ],
+  },
+  {
+    title: "G. Infrastructure",
+    rows: [
+      ["Total Land Area", "20.36 Acres (Government Land, Continuous)"],
+      ["Total Built-Up Area", "22,461.91 sq.m"],
+      ["Classrooms", "22 (min 66 sq.m each)"],
+      ["Drawing Halls", "3"],
+      ["Laboratories", "36"],
+      ["Seminar Hall", "1"],
+      ["Computer Centers", "3 (Total Area: 226.71 sq.m)"],
+      ["Library Area", "413.72 sq.m"],
+      ["Workshop", "1 (1,478.5 sq.m)"],
+      ["Boys Hostel", "3 Buildings, 264 Seats"],
+      ["Girls Hostel", "1 Building, 48 Seats"],
+      ["Canteen Area", "352 sq.m"],
+      ["Playground / Sports", "13,950 sq.m"],
+    ],
+  },
+  {
+    title: "H. Library",
+    rows: [
+      ["Total Titles", "4,197"],
+      ["Total Volumes", "23,009"],
+      ["Reference Books", "18,180"],
+      ["Journals", "6 (Inventi Impact series + Electronics for You)"],
+      ["Total Cost of Books", "Rs. 27,43,693"],
+      ["Books Added Last Year", "138 (Cost: Rs. 1,10,635)"],
+      ["Computerised Operations", "Yes"],
+      ["Internet Facility in Library", "Yes"],
+    ],
+  },
+  {
+    title: "I. Computer Facilities",
+    rows: [
+      ["PCs for Students (Labs)", "233"],
+      ["Library PCs", "10"],
+      ["Admin PCs", "20"],
+      ["Language Lab PCs", "20"],
+      ["Faculty PCs", "40"],
+      ["Licensed Software (System)", "321"],
+      ["Licensed Application Software", "12"],
+      ["Key Software", "AutoCAD, CREO Parametric 2018, Revit 2018, STAAD Pro, Scilab, Logisim, PyCharm, Jupyter"],
+      ["Internet Speed", "200 Mbps"],
+    ],
+  },
+  {
+    title: "J. Fee Structure",
+    rows: [
+      ["Fees Regulation", "Gujarat Fee Regulatory Commission (FRC)"],
+      ["Government Funding", "100% Grant-in-Aid from State Government"],
+      ["Tuition Fee (General)", "As per Gujarat FRC notification (approx. Rs. 15,000–20,000/year)"],
+      ["SC/ST Students", "Eligible for Full Scholarship / Freeship Card"],
+      ["Admission Portal", "ACPDC Portal (gujdiploma.nic.in)"],
+      ["Refund Policy", "As per AICTE/State Government norms"],
+    ],
+  },
+  {
+    title: "K. Accreditation & Recognition",
+    rows: [
+      ["NBA", "YES — Civil, Electrical, Mechanical (1 Jul 2024 – 30 Jun 2027)"],
+      ["NAAC", "No"],
+      ["ISO", "No"],
+      ["AICTE Approved", "Yes — Since 1994"],
+      ["PAN", "AHMP02238F"],
+    ],
+  },
+];
+---
+
+<Layout title="Mandatory Disclosure | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Mandatory Disclosure</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Mandatory Disclosure</h1>
+      <p class="text-gray-600 text-lg">
+        As per AICTE Approval Process Handbook — Government Polytechnic, Palanpur (Code: 626)
+      </p>
+      <div class="mt-4 text-sm text-gray-500">
+        Information Effective: Academic Year 2025–26 &nbsp;|&nbsp; Last Updated: June 2025
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclosure Sections -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl space-y-8">
+      {sections.map(section => (
+        <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+          <div class="bg-primary/10 px-5 py-3">
+            <h2 class="text-sm font-bold text-primary uppercase tracking-wide">{section.title}</h2>
+          </div>
+          <table class="w-full text-sm">
+            <tbody>
+              {section.rows.map((row, i) => (
+                <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <td class="px-5 py-3 font-medium text-gray-700 w-2/5 border-r border-gray-100">{row[0]}</td>
+                  <td class="px-5 py-3 text-gray-900">{row[1]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 text-sm text-blue-800">
+        <strong>Note:</strong> This disclosure is filed as per the AICTE Approval Process Handbook. For the latest AICTE Extension of Approval (EoA) letter and detailed institutional data, please contact the college office or visit the AICTE portal at <a href="https://www.aicte-india.org" class="underline font-medium" target="_blank" rel="noopener">aicte-india.org</a>.
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

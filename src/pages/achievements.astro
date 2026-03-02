@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const instituteAchievements = [
+  {
+    title: "Rank 5 – Smart City Hackathon",
+    desc: "Government Polytechnic, Palanpur secured 5th position out of 1,500+ participants at the Smart City Hackathon held at Rajkot.",
+    date: "January 2020",
+    category: "Institute",
+    icon: "🏆",
+  },
+  {
+    title: "NBA Accreditation – 3 Programmes",
+    desc: "Three engineering programmes (Civil, Electrical, Mechanical) received NBA accreditation valid from 1 July 2024 to 30 June 2027, affirming top-tier academic quality.",
+    date: "July 2024",
+    category: "Institute",
+    icon: "🎖️",
+  },
+  {
+    title: "GTU Rank 32 – Sem 4 (2025)",
+    desc: "Best GTU ranking: Rank 32 (out of all GTU polytechnic institutes) in Semester 4, 2025. Also Rank 37 in Sem 5 (2024) and Rank 50 in Sem 6 (2025).",
+    date: "2024–2025",
+    category: "Academic",
+    icon: "📊",
+  },
+  {
+    title: "4 Patents Filed; 1 Accepted",
+    desc: "Faculty and student innovation recognized with 4 patent filings and 1 accepted patent, reflecting the institute's culture of innovation.",
+    date: "2021–2022",
+    category: "Research",
+    icon: "💡",
+  },
+];
+
+const facultyAchievements = [
+  {
+    name: "Dr. R.N. Patel",
+    achievement: "Patent filed",
+    detail: "Application No. 202141060958 (January 2022)",
+    dept: "Faculty",
+    icon: "📜",
+  },
+  {
+    name: "Dr. L.K. Patel",
+    achievement: "PhD Degree — Electronics & Communication / Image Processing",
+    detail: "Awarded July 2024. Published 2 papers on image registration using CNN and ORB techniques (2023).",
+    dept: "EC Department",
+    icon: "🎓",
+  },
+  {
+    name: "Dr. N.N. Chaudhary",
+    achievement: "PhD Degree",
+    detail: "Awarded January 2026.",
+    dept: "Faculty",
+    icon: "🎓",
+  },
+  {
+    name: "Shri Mittal K. Pedhadiya",
+    achievement: "International Research Paper",
+    detail: "Co-author of peer-reviewed 5G joint resource management paper, Impact Factor 5.493 (February 2023).",
+    dept: "EC Department",
+    icon: "📄",
+  },
+  {
+    name: "Shri N.J. Chauhan",
+    achievement: "International Research Paper",
+    detail: "Vedic Microstrip Patch Antenna Analysis and Design — SJR 0.19 (June 2024).",
+    dept: "Faculty",
+    icon: "📄",
+  },
+  {
+    name: "Shri R.H. Prajapati & Shri J.P. Fudani",
+    achievement: "Published Book",
+    detail: "\"LAB MANUAL OF FMHM\" — Atul Prakashan, 2021.",
+    dept: "Mechanical / Civil",
+    icon: "📘",
+  },
+];
+
+const studentAchievements = [
+  {
+    name: "Dhaval P. Nai",
+    achievement: "Student Patent — Water Alarm Tap",
+    detail: "Patent accepted (January 2021). Enrollment No: 186260319044.",
+    icon: "🔬",
+  },
+  {
+    name: "SSIP Startup Conclave Team",
+    achievement: "Participated – Startup Conclave, Gandhinagar",
+    detail: "55 students represented GPP at the Startup Conclave, Gandhinagar (December 2023).",
+    icon: "🚀",
+  },
+  {
+    name: "Smart City Hackathon Team",
+    achievement: "Rank 5 – Smart City Hackathon",
+    detail: "College team secured 5th rank among 1,500+ participants, Rajkot (January 2020).",
+    icon: "💻",
+  },
+];
+
+const placements = [
+  { dept: "Civil Engineering", year: "2024–25", passout: 15, placed: "100%", detail: "Higher studies focused" },
+  { dept: "Mechanical Engineering", year: "2024–25", passout: 10, placed: "100%", detail: "7 in jobs, 3 in higher studies" },
+  { dept: "Electrical Engineering", year: "2024–25", passout: 23, placed: "96%", detail: "8 in jobs, 14 in higher studies" },
+  { dept: "ICT", year: "2024–25", passout: 4, placed: "100%", detail: "Higher studies" },
+  { dept: "EC Engineering", year: "2024–25", passout: 3, placed: "67%", detail: "1 in job, 1 in higher studies" },
+];
+---
+
+<Layout title="Achievements | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Achievements</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Achievements</h1>
+      <p class="text-gray-600 text-lg">Celebrating the accomplishments of our institute, faculty, and students</p>
+      <!-- Stats row -->
+      <div class="flex flex-wrap justify-center gap-6 mt-8">
+        {[
+          { num: "3", label: "NBA Accredited Programmes" },
+          { num: "4", label: "Patents Filed" },
+          { num: "32", label: "Best GTU Rank" },
+          { num: "~100%", label: "Placement Rate" },
+        ].map(stat => (
+          <div class="bg-white rounded-xl border border-gray-200 px-6 py-4 shadow-sm text-center min-w-[120px]">
+            <div class="text-2xl font-bold text-primary">{stat.num}</div>
+            <div class="text-xs text-gray-600 mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Institute Achievements -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-7">Institute Achievements</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        {instituteAchievements.map(item => (
+          <div class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">{item.icon}</span>
+              <div>
+                <span class="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">{item.category}</span>
+                <p class="text-xs text-gray-400 mt-1">{item.date}</p>
+              </div>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Achievements -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-7">Faculty Achievements</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {facultyAchievements.map(item => (
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl">{item.icon}</span>
+              <div>
+                <p class="font-bold text-gray-900 text-sm">{item.name}</p>
+                <p class="text-xs text-primary font-medium mt-0.5">{item.achievement}</p>
+                <p class="text-xs text-gray-600 mt-1 leading-relaxed">{item.detail}</p>
+                <span class="inline-block mt-2 text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{item.dept}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Achievements -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-7">Student Achievements</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        {studentAchievements.map(item => (
+          <div class="border border-gray-200 rounded-xl p-5">
+            <span class="text-3xl">{item.icon}</span>
+            <h3 class="font-bold text-gray-900 mt-3 mb-1 text-sm">{item.name}</h3>
+            <p class="text-primary text-xs font-medium">{item.achievement}</p>
+            <p class="text-xs text-gray-600 mt-2 leading-relaxed">{item.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Placement Results -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Placement Results 2024–25</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="px-5 py-3 text-left font-semibold">Department</th>
+              <th class="px-5 py-3 text-center font-semibold">Passouts</th>
+              <th class="px-5 py-3 text-center font-semibold">Placement %</th>
+              <th class="px-5 py-3 text-left font-semibold">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {placements.map((row, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{row.dept}</td>
+                <td class="px-5 py-3 text-center text-gray-700">{row.passout}</td>
+                <td class="px-5 py-3 text-center font-bold text-green-700">{row.placed}</td>
+                <td class="px-5 py-3 text-gray-600 text-xs">{row.detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

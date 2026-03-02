@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const accreditedPrograms = [
+  {
+    name: "Diploma in Civil Engineering",
+    short: "Civil",
+    intake: 90,
+    since: 1984,
+    from: "1 July 2024",
+    to: "30 June 2027",
+    status: "Accredited",
+    logo: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+    color: "green",
+  },
+  {
+    name: "Diploma in Electrical Engineering",
+    short: "Electrical",
+    intake: 60,
+    since: 1984,
+    from: "1 July 2024",
+    to: "30 June 2027",
+    status: "Accredited",
+    logo: "M13 10V3L4 14h7v7l9-11h-7z",
+    color: "yellow",
+  },
+  {
+    name: "Diploma in Mechanical Engineering",
+    short: "Mechanical",
+    intake: 60,
+    since: 1988,
+    from: "1 July 2024",
+    to: "30 June 2027",
+    status: "Accredited",
+    logo: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+    color: "blue",
+  },
+];
+
+const ineligiblePrograms = [
+  { name: "Diploma in Electronics & Communication Engineering", intake: 30, since: 1994, reason: "Applying First Time" },
+  { name: "Diploma in Information & Communication Technology", intake: 60, since: 2022, reason: "Not Eligible (New Program)" },
+  { name: "Diploma in Information Technology", intake: 30, since: 2023, reason: "Not Eligible (New Program)" },
+];
+
+const colorMap: Record<string, string> = {
+  green: "bg-green-50 border-green-200 text-green-800",
+  yellow: "bg-yellow-50 border-yellow-200 text-yellow-800",
+  blue: "bg-blue-50 border-blue-200 text-blue-800",
+};
+---
+
+<Layout title="NBA Accreditation | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">NBA Accreditation</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        NBA Approved Institution
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">NBA Accreditation</h1>
+      <p class="text-lg text-gray-600">
+        National Board of Accreditation (NBA) accreditation for three engineering programmes, valid from 1 July 2024 to 30 June 2027
+      </p>
+    </div>
+  </section>
+
+  <!-- What is NBA -->
+  <section class="py-12 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-center">
+        <div class="flex-shrink-0 text-center">
+          <div class="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
+            <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <div class="text-xs text-gray-500 mt-2 font-medium">National Board of<br/>Accreditation</div>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">About NBA Accreditation</h2>
+          <p class="text-gray-600 leading-relaxed text-sm">
+            The <strong>National Board of Accreditation (NBA)</strong> is an autonomous body set up by AICTE that evaluates technical programmes on the basis of outcomes-based education (OBE) framework. NBA accreditation is a mark of quality that signifies rigorous academic standards, well-qualified faculty, adequate infrastructure, and strong industry relevance. Accredited institutions are recognized across India and internationally through the Washington Accord (for degree-level institutions).
+          </p>
+          <a href="https://www.nbaind.org" target="_blank" rel="noopener" class="inline-flex items-center gap-1 mt-3 text-primary text-sm font-medium hover:underline">
+            Visit NBA India Website
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accredited Programs -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-10">NBA Accredited Programmes</h2>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+        {accreditedPrograms.map(prog => (
+          <div class="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+            <div class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold mb-4 border ${colorMap[prog.color]}`}>
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              Accredited
+            </div>
+            <h3 class="font-bold text-gray-900 text-lg mb-3">{prog.name}</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between text-gray-600">
+                <span>Intake</span>
+                <span class="font-semibold text-gray-900">{prog.intake} seats</span>
+              </div>
+              <div class="flex justify-between text-gray-600">
+                <span>Programme Since</span>
+                <span class="font-semibold text-gray-900">{prog.since}</span>
+              </div>
+              <div class="pt-2 border-t border-gray-100">
+                <div class="text-xs text-gray-500 mb-1">Accreditation Period</div>
+                <div class="font-semibold text-green-700">{prog.from} → {prog.to}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Other Programs -->
+      <h2 class="text-xl font-bold text-gray-900 text-center mb-6">Other Programmes</h2>
+      <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        {ineligiblePrograms.map(prog => (
+          <div class="border border-gray-200 rounded-xl p-5">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium mb-3 bg-gray-100 text-gray-600">
+              {prog.reason}
+            </div>
+            <h3 class="font-semibold text-gray-800 text-sm mb-2">{prog.name}</h3>
+            <div class="text-xs text-gray-500">Intake: {prog.intake} seats · Since {prog.since}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-10">Benefits of Studying in an NBA-Accredited Programme</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          "Internationally recognized quality benchmark",
+          "Outcomes-Based Education (OBE) curriculum ensuring practical skills",
+          "Regular monitoring and continuous improvement of academic quality",
+          "Better employment prospects — many firms prefer NBA-accredited graduates",
+          "Eligible for government scholarships and incentive programmes",
+          "Stronger alumni network and industry connect",
+        ].map(benefit => (
+          <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200">
+            <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-gray-700 text-sm">{benefit}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

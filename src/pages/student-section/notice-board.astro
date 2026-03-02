@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+import { announcements } from '../../data/announcements.ts';
+
+const categories = [
+  { key: "all", label: "All Notices" },
+  { key: "academic", label: "Academic" },
+  { key: "exam", label: "Examination" },
+  { key: "admission", label: "Admissions" },
+  { key: "scholarship", label: "Scholarship" },
+  { key: "result", label: "Results" },
+  { key: "general", label: "General" },
+];
+
+// Use existing announcements data
+const notices = announcements.slice().sort(
+  (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime()
+);
+
+const categoryColors: Record<string, string> = {
+  admission:     "bg-blue-100 text-blue-800",
+  exam:          "bg-red-100 text-red-800",
+  recruitment:   "bg-purple-100 text-purple-800",
+  event:         "bg-yellow-100 text-yellow-800",
+  result:        "bg-green-100 text-green-800",
+  scholarship:   "bg-teal-100 text-teal-800",
+  accreditation: "bg-orange-100 text-orange-800",
+  general:       "bg-gray-100 text-gray-800",
+};
+---
+
+<Layout title="Notice Board | Student Section | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/student-section" class="hover:text-primary transition-colors">Student Section</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Notice Board</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Notice Board</h1>
+      <p class="text-gray-600 text-lg">Official notices, circulars, and announcements from Government Polytechnic, Palanpur</p>
+    </div>
+  </section>
+
+  <!-- Filter + Notices -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+      <!-- Category Filters -->
+      <div class="flex gap-2 flex-wrap mb-8" id="notice-filters">
+        {categories.map(cat => (
+          <button
+            data-filter={cat.key}
+            onclick={`filterNotices('${cat.key}')`}
+            class={`notice-filter-btn px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${cat.key === "all" ? "bg-primary text-white border-primary" : "bg-white text-gray-700 border-gray-300 hover:border-primary hover:text-primary"}`}
+          >{cat.label}</button>
+        ))}
+      </div>
+
+      <!-- Notice List -->
+      <div class="space-y-3" id="notices-list">
+        {notices.map(notice => (
+          <div
+            class="notice-item border border-gray-200 rounded-xl p-5 hover:shadow-sm transition-shadow"
+            data-category={notice.category}
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+              <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${categoryColors[notice.category] ?? "bg-gray-100 text-gray-700"}`}>
+                    {notice.category.charAt(0).toUpperCase() + notice.category.slice(1)}
+                  </span>
+                  {notice.isNew && (
+                    <span class="text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-full animate-pulse">NEW</span>
+                  )}
+                  <span class="text-xs text-gray-400">{notice.date}</span>
+                </div>
+                <h3 class="font-semibold text-gray-900 text-sm leading-snug">{notice.title}</h3>
+                {notice.summary && (
+                  <p class="text-xs text-gray-500 mt-1 leading-relaxed">{notice.summary}</p>
+                )}
+              </div>
+              <div class="flex flex-col gap-1.5 shrink-0">
+                {notice.hasDetailPage && (
+                  <a href={`/announcements/${notice.slug}`} class="inline-flex items-center gap-1 text-xs text-primary font-medium hover:underline">
+                    Read More →
+                  </a>
+                )}
+                {notice.attachmentUrl && (
+                  <a href={notice.attachmentUrl} class="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-primary">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Download
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty state -->
+      <div id="notices-empty" class="hidden text-center py-12 text-gray-400">
+        <p class="text-sm">No notices in this category.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="py-8 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4">External Portals</h2>
+      <div class="flex flex-wrap gap-3">
+        {[
+          { label: "GTU – Results / Timetable", url: "https://gtu.ac.in" },
+          { label: "ACPDC – Admissions", url: "https://gujdiploma.nic.in" },
+          { label: "Digital Gujarat – Scholarships", url: "https://digitalgujarat.gov.in" },
+          { label: "NSP – National Scholarships", url: "https://scholarships.gov.in" },
+        ].map(link => (
+          <a href={link.url} target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-sm text-gray-700 hover:text-primary hover:border-primary px-4 py-2 rounded-lg transition-colors">
+            {link.label}
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+function filterNotices(filter) {
+  const items = document.querySelectorAll('.notice-item');
+  const btns = document.querySelectorAll('.notice-filter-btn');
+  let visible = 0;
+  items.forEach(item => {
+    const show = filter === 'all' || item.dataset.category === filter;
+    item.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  btns.forEach(btn => {
+    const active = btn.dataset.filter === filter;
+    btn.classList.toggle('bg-primary', active);
+    btn.classList.toggle('text-white', active);
+    btn.classList.toggle('border-primary', active);
+    btn.classList.toggle('bg-white', !active);
+    btn.classList.toggle('text-gray-700', !active);
+    btn.classList.toggle('border-gray-300', !active);
+  });
+  document.getElementById('notices-empty').classList.toggle('hidden', visible > 0);
+}
+</script>

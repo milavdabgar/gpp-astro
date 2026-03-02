@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const scholarships = [
+  {
+    name: "Digital Gujarat – Scholarship for SC/ST Students",
+    provider: "Government of Gujarat",
+    category: ["SC", "ST"],
+    amount: "Full tuition fee reimbursement + maintenance allowance",
+    eligibility: "Students belonging to SC/ST category; enrollment in government recognized institution; income criteria as per scheme",
+    portal: "https://digitalgujarat.gov.in",
+    portalLabel: "Digital Gujarat Portal",
+    color: "blue",
+  },
+  {
+    name: "Mukhyamantri Yuva Swavalamban Yojana (MYSY)",
+    provider: "Government of Gujarat",
+    category: ["General", "SEBC", "EWS"],
+    amount: "Up to Rs. 2,00,000/year for tuition + hostel",
+    eligibility: "Family annual income ≤ Rs. 6,00,000; Minimum 80% in SSC (10th); Gujarat domicile",
+    portal: "https://mysy.guj.nic.in",
+    portalLabel: "MYSY Portal",
+    color: "orange",
+  },
+  {
+    name: "National Scholarship Portal (NSP) – Pre & Post Matric",
+    provider: "Ministry of Social Justice & Empowerment, Govt. of India",
+    category: ["SC", "ST", "OBC", "Minorities"],
+    amount: "Varies – Full fee + maintenance up to Rs. 1,200/month",
+    eligibility: "Specified reserved categories; income limit; enrolled in recognized institution; 50%+ in previous year",
+    portal: "https://scholarships.gov.in",
+    portalLabel: "scholarships.gov.in",
+    color: "green",
+  },
+  {
+    name: "Free-Ship Card (Tuition & Exam Fee Waiver)",
+    provider: "Government of Gujarat / SJE",
+    category: ["SC", "ST"],
+    amount: "Full waiver of tuition and examination fees",
+    eligibility: "SC/ST students; Gujarat domicile; annual family income ≤ Rs. 2,50,000",
+    portal: "https://esamajkalyan.gujarat.gov.in",
+    portalLabel: "e-Samaj Kalyan Portal",
+    color: "purple",
+  },
+  {
+    name: "SEBC / OBC Scholarship",
+    provider: "Government of Gujarat (SEBC Department)",
+    category: ["SEBC", "OBC"],
+    amount: "Partial fee reimbursement; as per scheme notification",
+    eligibility: "SEBC/OBC certificate required; income below Rs. 1,50,000/year (non-creamy layer)",
+    portal: "https://digitalgujarat.gov.in",
+    portalLabel: "Digital Gujarat Portal",
+    color: "teal",
+  },
+  {
+    name: "Post-Matric Scholarship for Minorities",
+    provider: "Ministry of Minority Affairs, Govt. of India",
+    category: ["Minority"],
+    amount: "Rs. 10,000–20,000/year",
+    eligibility: "Muslim / Christian / Sikh / Buddhist / Parsi / Jain students; income ≤ Rs. 2,00,000/year; enrolled full-time",
+    portal: "https://scholarships.gov.in",
+    portalLabel: "NSP Portal (Minority)",
+    color: "rose",
+  },
+];
+
+const colorMap: Record<string, { badge: string; border: string }> = {
+  blue: { badge: "bg-blue-100 text-blue-800", border: "border-blue-200" },
+  orange: { badge: "bg-orange-100 text-orange-800", border: "border-orange-200" },
+  green: { badge: "bg-green-100 text-green-800", border: "border-green-200" },
+  purple: { badge: "bg-purple-100 text-purple-800", border: "border-purple-200" },
+  teal: { badge: "bg-teal-100 text-teal-800", border: "border-teal-200" },
+  rose: { badge: "bg-rose-100 text-rose-800", border: "border-rose-200" },
+};
+
+const steps = [
+  "Get admission confirmation from ACPDC portal",
+  "Collect category certificate (Caste / Income) from Mamlatdar / Taluka office",
+  "Register on relevant scholarship portal (Digital Gujarat / NSP / MYSY)",
+  "Fill application form with all required documents",
+  "Submit bank account details (in student's name) and Aadhaar",
+  "Upload mark sheets, fee receipts, and bonafide certificate",
+  "Track application status online; respond to queries promptly",
+];
+---
+
+<Layout title="Scholarships | Admissions | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/admissions" class="hover:text-primary transition-colors">Admissions</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Scholarships</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Scholarships &amp; Financial Aid</h1>
+      <p class="text-gray-600 text-lg">
+        Multiple government scholarship schemes are available to support students from all backgrounds. Most students at Government Polytechnic Palanpur receive some form of financial assistance.
+      </p>
+    </div>
+  </section>
+
+  <!-- Scholarship Cards -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Available Scholarships</h2>
+      <div class="space-y-5">
+        {scholarships.map(s => (
+          <div class={`border ${colorMap[s.color].border} rounded-xl p-6`}>
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900 text-base">{s.name}</h3>
+                <p class="text-sm text-gray-500 mt-0.5">{s.provider}</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                {s.category.map(cat => (
+                  <span class={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorMap[s.color].badge}`}>{cat}</span>
+                ))}
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-gray-500 font-medium">Amount / Benefit:</span>
+                <p class="text-gray-900 mt-0.5">{s.amount}</p>
+              </div>
+              <div>
+                <span class="text-gray-500 font-medium">Eligibility:</span>
+                <p class="text-gray-700 mt-0.5">{s.eligibility}</p>
+              </div>
+            </div>
+            <div class="mt-3">
+              <a href={s.portal} target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-primary text-sm font-medium hover:underline">
+                Apply at {s.portalLabel}
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Apply -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">How to Apply for Scholarship</h2>
+      <ol class="relative border-l border-primary/30 space-y-6 pl-6">
+        {steps.map((step, i) => (
+          <li class="relative">
+            <div class="absolute -left-3.5 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">{i + 1}</div>
+            <p class="text-gray-700 text-sm leading-relaxed">{step}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-8 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <p class="text-gray-600 text-sm">
+        For scholarship-related assistance, contact the college office or SC/ST Cell:<br/>
+        <strong>Shri Chiragkumar Amin</strong> · <strong>Smt. Payal Chauhan</strong> · <strong>Shri Yagnik Rana</strong>
+      </p>
+      <p class="text-gray-500 text-xs mt-2">Office Hours: 10:30 AM – 6:10 PM (Mon – Sat) · Phone: (02742) 262115</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

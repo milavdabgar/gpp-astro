@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const programs = [
+  { name: "Civil Engineering", intake: 90, duration: "3 Years", since: 1984, nba: true },
+  { name: "Electrical Engineering", intake: 60, duration: "3 Years", since: 1984, nba: true },
+  { name: "Mechanical Engineering", intake: 60, duration: "3 Years", since: 1988, nba: true },
+  { name: "Electronics & Communication Engineering", intake: 30, duration: "3 Years", since: 1994, nba: false },
+  { name: "Information & Communication Technology", intake: 60, duration: "3 Years", since: 2022, nba: false },
+  { name: "Information Technology", intake: 30, duration: "3 Years", since: 2023, nba: false },
+];
+
+const feeCategories = [
+  { category: "General / SEBC", tuition: "~Rs. 15,000", development: "~Rs. 2,000", total: "~Rs. 17,000" },
+  { category: "SC / ST", tuition: "Rs. 800–1,200*", development: "Nil*", total: "Rs. 800–1,200*" },
+  { category: "EWS", tuition: "As per FRC", development: "As per FRC", total: "As per FRC" },
+];
+---
+
+<Layout title="Fee Structure | Admissions | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/admissions" class="hover:text-primary transition-colors">Admissions</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Fee Structure</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Fee Structure</h1>
+      <p class="text-gray-600 text-lg">
+        Government Polytechnic Palanpur is a <strong>100% Government Grant-in-Aid</strong> institution. Fees are regulated by the Gujarat Fee Regulatory Commission (FRC).
+      </p>
+    </div>
+  </section>
+
+  <!-- Programs Table -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Available Programmes</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="px-5 py-3 text-left font-semibold">Programme</th>
+              <th class="px-5 py-3 text-center font-semibold">Intake</th>
+              <th class="px-5 py-3 text-center font-semibold">Duration</th>
+              <th class="px-5 py-3 text-center font-semibold">NBA</th>
+              <th class="px-5 py-3 text-center font-semibold">Since</th>
+            </tr>
+          </thead>
+          <tbody>
+            {programs.map((prog, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">Diploma in {prog.name}</td>
+                <td class="px-5 py-3 text-center text-gray-700">{prog.intake}</td>
+                <td class="px-5 py-3 text-center text-gray-700">{prog.duration}</td>
+                <td class="px-5 py-3 text-center">
+                  {prog.nba
+                    ? <span class="inline-flex items-center gap-1 text-green-700 font-medium"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Accredited</span>
+                    : <span class="text-gray-400 text-xs">–</span>
+                  }
+                </td>
+                <td class="px-5 py-3 text-center text-gray-700">{prog.since}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fee Table -->
+  <section class="py-10 bg-gray-50 border-t border-b border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Approximate Fee (Per Annum)</h2>
+      <p class="text-sm text-gray-500 mb-6">Fees are same across all programmes. Final fees notified by Gujarat FRC before each admission cycle.</p>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="px-5 py-3 text-left font-semibold">Category</th>
+              <th class="px-5 py-3 text-center font-semibold">Tuition Fee</th>
+              <th class="px-5 py-3 text-center font-semibold">Development Fee</th>
+              <th class="px-5 py-3 text-center font-semibold">Approx. Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {feeCategories.map((row, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{row.category}</td>
+                <td class="px-5 py-3 text-center text-gray-700">{row.tuition}</td>
+                <td class="px-5 py-3 text-center text-gray-700">{row.development}</td>
+                <td class="px-5 py-3 text-center font-semibold text-gray-900">{row.total}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-500 mt-3">* SC/ST students are eligible for full freeship/scholarship — fees effectively nil. Amounts shown are nominal charges before scholarship adjustment.</p>
+    </div>
+  </section>
+
+  <!-- Other Charges -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-5">Other Charges (Indicative)</h2>
+      <div class="grid md:grid-cols-3 gap-4 text-sm">
+        {[
+          { item: "Examination Fee", amount: "As per GTU norms" },
+          { item: "Library Deposit", amount: "Rs. 500 (refundable)" },
+          { item: "Hostel Fee (Boys)", amount: "Nominal — as per Govt. rules" },
+          { item: "Hostel Fee (Girls)", amount: "Nominal — as per Govt. rules" },
+          { item: "Uniform / Books", amount: "Market price (student's expense)" },
+          { item: "ID Card", amount: "Included in fees" },
+        ].map(row => (
+          <div class="flex justify-between border border-gray-200 rounded-lg px-4 py-3">
+            <span class="text-gray-700">{row.item}</span>
+            <span class="font-medium text-gray-900">{row.amount}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Notes + Links -->
+  <section class="py-10 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl border border-gray-200 p-6">
+          <h3 class="font-bold text-gray-900 mb-3">Important Notes</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-2"></span>All admissions through ACPDC centralized process.</li>
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-2"></span>Fee payment during counseling round via ACPDC portal.</li>
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-2"></span>No capitation fee or donation is collected.</li>
+            <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-2"></span>Refund policy as per AICTE/State Government directives.</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl border border-gray-200 p-6">
+          <h3 class="font-bold text-gray-900 mb-3">Useful Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://gujdiploma.nic.in" target="_blank" rel="noopener" class="text-primary hover:underline flex items-center gap-1">ACPDC Admission Portal <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+            <li><a href="https://digitalgujarat.gov.in" target="_blank" rel="noopener" class="text-primary hover:underline flex items-center gap-1">Digital Gujarat Scholarship <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+            <li><a href="/admissions/scholarship" class="text-primary hover:underline">Scholarship Information →</a></li>
+            <li><a href="/admissions/calendar" class="text-primary hover:underline">Academic Calendar →</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

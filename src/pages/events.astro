@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const events = [
+  {
+    title: "Faculty Development Programme (FDP)",
+    subtitle: "Innovative Practices to Enhance Learning",
+    date: "February 2024",
+    category: "Academic",
+    description: "A Faculty Development Programme was organized to enhance teaching methodologies and adopt innovative practices in diploma-level technical education.",
+    tags: ["FDP", "Faculty", "Innovation"],
+    color: "blue",
+    icon: "🎓",
+  },
+  {
+    title: "SSIP Startup Conclave",
+    subtitle: "Student Startup & Innovation Policy Event",
+    date: "December 2023, Gandhinagar",
+    category: "Innovation",
+    description: "55 students from GPP participated at the SSIP Startup Conclave organized at Gandhinagar, showcasing their innovative ideas and startup concepts.",
+    tags: ["SSIP", "Startup", "Innovation"],
+    color: "orange",
+    icon: "🚀",
+  },
+  {
+    title: "Alumni Meet 2023",
+    subtitle: "Annual Alumni Reunion",
+    date: "November 2023",
+    category: "Community",
+    description: "GPP hosted its Alumni Meet, bringing together graduates from various batches for networking, knowledge sharing and reconnecting with the institute's journey.",
+    tags: ["Alumni", "Networking"],
+    color: "purple",
+    icon: "🤝",
+  },
+  {
+    title: "Workshop on Energy Conservation",
+    subtitle: "Technical Workshop for Students",
+    date: "October 2024",
+    category: "Technical",
+    description: "Students participated in a hands-on workshop on energy conservation techniques and sustainable engineering practices. Sponsorship: Rs. 1,000.",
+    tags: ["Workshop", "Energy", "Sustainability"],
+    color: "green",
+    icon: "⚡",
+  },
+  {
+    title: "Smart City Hackathon",
+    subtitle: "Inter-Institute Innovation Competition",
+    date: "January 2020, Rajkot",
+    category: "Competition",
+    description: "GPP team competed among 1,500+ participants at the Smart City Hackathon, Rajkot, and secured an impressive 5th rank — a milestone achievement for the institute.",
+    tags: ["Hackathon", "Competition", "Award"],
+    color: "yellow",
+    icon: "🏆",
+  },
+  {
+    title: "NSS Special Camp",
+    subtitle: "National Service Scheme Activities",
+    date: "Ongoing 2023–2025",
+    category: "Social",
+    description: "GPP's NSS unit has conducted 9+ special camps (2023–2025) including social awareness drives, Swachh Bharat activities, and community service with 50–187 students participating per camp.",
+    tags: ["NSS", "Social", "Community"],
+    color: "teal",
+    icon: "🌱",
+  },
+  {
+    title: "Blood Donation Camp",
+    subtitle: "Community Health Initiative",
+    date: "Multiple years",
+    category: "Social",
+    description: "In collaboration with Civil Hospital Palanpur, GPP organized blood donation drives with 70+ donors. Thalassemia testing events also held 7 times (2016–2024) through Indian Red Cross Society, testing 1,184+ participants.",
+    tags: ["NSS", "Health", "Social"],
+    color: "rose",
+    icon: "❤️",
+  },
+  {
+    title: "Alumni Meet 2022",
+    subtitle: "Annual Alumni Reunion",
+    date: "June 2022",
+    category: "Community",
+    description: "First post-pandemic alumni gathering, reconnecting decades of graduates with their alma mater.",
+    tags: ["Alumni", "Networking"],
+    color: "purple",
+    icon: "🤝",
+  },
+];
+
+const colorMap: Record<string, { badge: string; border: string; leftBar: string }> = {
+  blue:   { badge: "bg-blue-100 text-blue-800",   border: "border-blue-200",   leftBar: "bg-blue-500" },
+  orange: { badge: "bg-orange-100 text-orange-800", border: "border-orange-200", leftBar: "bg-orange-500" },
+  purple: { badge: "bg-purple-100 text-purple-800", border: "border-purple-200", leftBar: "bg-purple-500" },
+  green:  { badge: "bg-green-100 text-green-800",  border: "border-green-200",  leftBar: "bg-green-500" },
+  yellow: { badge: "bg-yellow-100 text-yellow-800", border: "border-yellow-200", leftBar: "bg-yellow-500" },
+  teal:   { badge: "bg-teal-100 text-teal-800",    border: "border-teal-200",   leftBar: "bg-teal-500" },
+  rose:   { badge: "bg-rose-100 text-rose-800",    border: "border-rose-200",   leftBar: "bg-rose-500" },
+};
+
+const categories = [...new Set(events.map(e => e.category))];
+---
+
+<Layout title="Events | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Events</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Events &amp; Activities</h1>
+      <p class="text-gray-600 text-lg">A glimpse into the vibrant academic, technical, and social activities at Government Polytechnic, Palanpur</p>
+    </div>
+  </section>
+
+  <!-- Event Cards -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid md:grid-cols-2 gap-5">
+        {events.map(ev => (
+          <div class={`border ${colorMap[ev.color].border} rounded-xl overflow-hidden hover:shadow-md transition-shadow flex`}>
+            <div class={`w-1 shrink-0 ${colorMap[ev.color].leftBar}`}></div>
+            <div class="p-5 flex-1">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${colorMap[ev.color].badge}`}>{ev.category}</span>
+                <span class="text-xs text-gray-400">{ev.date}</span>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-0.5">{ev.icon} {ev.title}</h3>
+              <p class="text-xs text-gray-500 mb-2 italic">{ev.subtitle}</p>
+              <p class="text-sm text-gray-600 leading-relaxed">{ev.description}</p>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                {ev.tags.map(tag => (
+                  <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SSIP Banner -->
+  <section class="py-10 bg-primary/5 border-t border-primary/10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+      <h2 class="text-lg font-bold text-gray-900 mb-2">SSIP – Student Start-up &amp; Innovation Policy</h2>
+      <p class="text-gray-600 text-sm max-w-2xl mx-auto mb-4">
+        GPP's Innovation Club regularly participates in GTU-SSIP events, encouraging students to ideate, prototype, and pitch their innovations.
+      </p>
+      <p class="text-sm text-gray-600">
+        Convener: <strong>Shri B.M. Patel</strong> &nbsp;|&nbsp;
+        Email: <a href="mailto:bmp1412@gmail.com" class="text-primary hover:underline">bmp1412@gmail.com</a> &nbsp;|&nbsp;
+        Mobile: 9726246059
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

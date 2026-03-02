@@ -1,0 +1,46 @@
+﻿Sr.no.,Company Name,Display Name,Building,Type of Room,Device No,IP Address,User Name,Password,status
+1,Digilink,A-019,Main,Lab,D31,10.169.24.27,admin,admin,All Ok
+2,Hickvison,A-101,Main,Lab,D09,10.169.24.36,admin,admin@123,All Ok
+3,Digilink,A-102,Main,Lab,D30,10.169.24.11,admin,admin,All Ok
+4,Hickvison,A-103,Main,Lab,D01,10.169.24.37,admin,admin@123,All Ok
+5,Hickvison,A-106,Main,Other,D13,10.169.24.38,admin,admin@123,All Ok
+6,Hickvison,A-108,Main,Lab,D15,10.169.24.33,admin,admin@123,All Ok
+7,Hickvison,A-111,Main,Lab,D24,10.169.24.35,admin,admin@123,All Ok
+8,Hickvison,A-114,Main,Lab,D26,10.169.24.34,admin,admin@123,All Ok
+9,Digilink,A-201,Main,Classroom,D40,10.169.24.12,admin,admin,All Ok
+10,Digilink,A-202,Main,Classroom,D35,10.169.24.23,admin,admin,All Ok
+11,Digilink,A-204,Main,Classroom,D28,10.169.24.15,admin,admin,All Ok
+12,Digilink,A-205,Main,Lab,D29,10.169.24.22,admin,admin,All Ok
+13,Digilink,A-206,Main,Classroom,D36,10.169.24.18,admin,admin,All Ok
+14,Digilink,A-207,Main,Classroom,D32,10.169.24.17,admin,admin,All Ok
+15,Digilink,A-210,Main,Classroom,D38,10.169.24.13,admin,admin,All Ok
+16,Digilink,A-211,Main,Classroom,D34,10.169.24.14,admin,admin,All Ok
+17,Hickvison,A-212,Main,Drawingroom,D12,10.169.24.41,admin,admin@123,All Ok
+18,Digilink,A-214,Main,Classroom,D33,10.169.24.20,admin,admin,All Ok
+19,Digilink,A-215,Main,Classroom,D39,10.169.24.21,admin,admin,All Ok
+20,Hickvison,B-002,BADP,Lab,D21,10.169.24.50,admin,admin@123,All Ok
+21,Hickvison,B-007,BADP,Classroom,D03,10.169.24.48,admin,admin@123,All Ok
+22,Hickvison,B-008,BADP,Lab,D44,10.169.24.53,admin,admin@123,All Ok
+23,Hickvison,B-009,BADP,Lab,D02,10.169.24.52,admin,admin@123,All Ok
+24,Hickvison,B-011,BADP,Classroom,D18,10.169.24.47,admin,admin@123,All Ok
+25,Hickvison,B-013,BADP,Lab,D25,10.169.24.56,admin,admin@123,All Ok
+26,Hickvison,B-014,BADP,Lab,D16,10.169.24.46,admin,admin@123,All Ok
+27,Hickvison,B-106,BADP,Lab,D10,10.169.24.49,admin,admin@123,All Ok
+28,Hickvison,B-108,BADP,Classroom,D11,10.169.24.55,admin,admin@123,All Ok
+29,Hickvison,B-109,BADP,Classroom,D22,10.169.24.32,admin,admin@123,All Ok
+30,Hickvison,B-111,BADP,Classroom,D05,10.169.24.51,admin,admin@123,All Ok
+31,Digilink,BADP Entry,BADP,Other,D43,10.169.24.24,admin,admin,All Ok
+32,Hickvison,LRUC Election Booth,LRUC,Other,D20,10.169.24.40,admin,admin@123,All Ok
+33,Hickvison,LRUC Entry,LRUC,Other,D08,10.169.24.44,admin,admin@123,All Ok
+34,Digilink,LRUC Language Lab,LRUC,Other,D14,10.169.24.43,admin,admin@123,All Ok
+35,Hickvison,LRUC Library,LRUC,Other,D07,10.169.24.42,admin,admin@123,All Ok
+36,Digilink,Main Entry Back,Main,Other,D42,10.169.24.26,admin,admin,Down
+37,Digilink,Main Entry Front,Main,Other,D41,10.169.24.25,admin,admin,All Ok
+38,Hickvison,Main Lobby FF,Main,Other,D27,10.169.24.39,admin,admin@123,All Ok
+39,Hickvison,Main Lobby GF - GTU,Main,Other,D04,10.169.24.30,admin,admin@123,All Ok
+40,Hickvison,Main Lobby GF - RTO,Main,Other,D23,10.169.24.28,admin,admin@123,All Ok
+41,Digilink,Main Lobby SF - Left,Main,Other,D37,10.169.24.16,admin,admin,All Ok
+42,Hickvison,Main Lobby SF - Right,Main,Other,D19,10.169.24.31,admin,admin@123,All Ok
+43,Hickvison,Mech Back,Mech,Other,D17,10.169.24.54,admin,admin@123,All Ok
+44,Hickvison,Mech Side,Mech,Other,D06,10.169.24.29,admin,admin@123,All Ok
+45,Hickvison,NA,NA,NA,NA,10.169.24.45,admin,admin@123,To Be Installed

@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+---
+
+<Layout title="Organization Chart | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Organization Chart</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Organization Chart</h1>
+      <p class="text-gray-600 text-lg">Administrative and academic structure of Government Polytechnic, Palanpur</p>
+    </div>
+  </section>
+
+  <!-- Chart -->
+  <section class="py-12 bg-white overflow-x-auto">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Level 0: Governing Body -->
+      <div class="flex justify-center mb-4">
+        <div class="bg-gray-900 text-white rounded-xl px-8 py-4 text-center shadow-lg min-w-[260px]">
+          <div class="text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1">Governing Authority</div>
+          <div class="text-base font-bold">Commissionerate of Technical Education</div>
+          <div class="text-xs text-gray-400 mt-1">Government of Gujarat</div>
+        </div>
+      </div>
+      <div class="flex justify-center mb-4">
+        <div class="w-px h-8 bg-gray-300"></div>
+      </div>
+
+      <!-- Level 1: Principal -->
+      <div class="flex justify-center mb-4">
+        <div class="bg-primary text-white rounded-xl px-8 py-4 text-center shadow-lg min-w-[260px]">
+          <div class="text-xs font-semibold uppercase tracking-wider text-blue-200 mb-1">Principal (In-Charge)</div>
+          <div class="text-base font-bold">Shri S.D. Dabhi</div>
+          <div class="text-xs text-blue-200 mt-1">M.Tech. · NIT Jaipur</div>
+        </div>
+      </div>
+
+      <!-- Connector lines to Level 2 -->
+      <div class="flex justify-center mb-0">
+        <div class="w-px h-8 bg-gray-300"></div>
+      </div>
+      <div class="relative flex justify-center mb-4">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 right-0 h-px bg-gray-300" style="width:75%; left:12.5%;"></div>
+      </div>
+      <div class="h-4"></div>
+
+      <!-- Level 2: HODs + Admin -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-2 max-w-6xl mx-auto">
+        {[
+          { title: "HOD – Civil", name: "Shri D.N. Sheth", sub: "Civil & Applied Mechanics" },
+          { title: "HOD – Electrical", name: "Shri A.D. Shah", sub: "gpppelect09@gmail.com" },
+          { title: "HOD – Mechanical", name: "Shri D.D. Prajapati", sub: "In-Charge HOD" },
+          { title: "HOD – EC", name: "Shri S.J. Chauhan", sub: "Electronics & Comm." },
+          { title: "HOD – ICT / IT", name: "Shri M.M. Shah", sub: "ICT Department" },
+          { title: "HOD – S&H", name: "Shri M.F. Tank", sub: "Science & Humanities" },
+          { title: "Head – Admin", name: "Office Superintendent", sub: "I.P. Kharodiya (Store)" },
+        ].map(node => (
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center text-xs">
+            <div class="bg-primary/80 text-white rounded-md px-2 py-1 font-semibold text-xs mb-2">{node.title}</div>
+            <div class="font-medium text-gray-900">{node.name}</div>
+            <div class="text-gray-500 mt-0.5 leading-tight">{node.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Level 3: Faculty / Staff -->
+      <div class="flex justify-center mb-2">
+        <div class="w-px h-6 bg-gray-300"></div>
+      </div>
+      <div class="flex justify-center gap-4 flex-wrap max-w-5xl mx-auto">
+        {[
+          { label: "Teaching Faculty", count: "64 Faculty Members", color: "bg-green-50 border-green-200 text-green-800" },
+          { label: "Technical Staff", count: "Lab Assistants / Technicians", color: "bg-yellow-50 border-yellow-200 text-yellow-800" },
+          { label: "Administrative Staff", count: "Office / Clerical Staff", color: "bg-purple-50 border-purple-200 text-purple-800" },
+          { label: "Support Staff", count: "Maintenance / Housekeeping", color: "bg-gray-100 border-gray-200 text-gray-700" },
+        ].map(item => (
+          <div class={`border rounded-lg px-5 py-3 text-center text-xs font-medium ${item.color}`}>
+            <div class="font-bold text-sm mb-0.5">{item.label}</div>
+            <div>{item.count}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Committees -->
+  <section class="py-12 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-6 text-center">Key Committees & Cells</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          {
+            name: "Anti-Ragging Committee",
+            members: ["Shri D.D. Prajapati (I/C HOD Mech) — Convener", "Shri I.P. Kharodiya (Store Keeper)", "Student Representative"],
+          },
+          {
+            name: "Grievance Redressal Committee",
+            members: ["Shri A.D. Shah (HOD Electrical) — Convener", "Shri P.G. Chauhan", "Smt. M.M. Shah", "Shri M.F. Tank"],
+          },
+          {
+            name: "Women's Development Cell",
+            members: ["Smt. M.M. Shah", "Shri V.G. Patel", "Smt. M.K. Pedhadiya", "Shri F.M. Patel", "Dr. P.D. Sheth"],
+          },
+          {
+            name: "SC/ST Cell",
+            members: ["Shri Chiragkumar Amin", "Smt. Payal Chauhan", "Shri Yagnik Rana"],
+          },
+          {
+            name: "SSIP / Innovation Club",
+            members: ["Convener: Shri B.M. Patel", "Email: bmp1412@gmail.com", "Mobile: 9726246059"],
+          },
+          {
+            name: "TPO Cell",
+            members: ["Convener: Shri N.V. Oza (Lecturer, Mechanical)", "Email: gpptpo@gmail.com", "Mobile: 9067737576", "Co-Conveners: I.D. Chaudhary, J.B. Patel"],
+          },
+        ].map(committee => (
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="font-bold text-gray-900 text-sm mb-3 pb-2 border-b border-gray-100">{committee.name}</h3>
+            <ul class="space-y-1">
+              {committee.members.map(m => (
+                <li class="text-xs text-gray-600 flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5"></span>
+                  {m}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

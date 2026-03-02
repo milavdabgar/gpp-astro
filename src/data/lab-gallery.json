@@ -1,5 +1,5 @@
 {
-  "civil": [
+  "civil-applied-mechanics": [
     {
       "name": "Computer Lab",
       "image": "/images/NEW WEBSITE DATA/CIVIL/LAB/Computer lab.jpeg",
@@ -46,6 +46,122 @@
       "name": "Microcontroller & Microprocessor Lab",
       "image": "/images/NEW WEBSITE DATA/EC/LAB/microcontroller, microprecessor.jpg",
       "description": "Hands-on training with various microcontroller and microprocessor platforms"
+    }
+  ],
+  "electrical": [
+    {
+      "name": "AC Machine Lab",
+      "image": "/images/NEW WEBSITE DATA/ELECTRICAL/LAB/AC MACHINE LAB.jpeg",
+      "description": "Equipped for experiments with alternating current machines including transformers and induction motors"
+    },
+    {
+      "name": "DC Machine Lab",
+      "image": "/images/NEW WEBSITE DATA/ELECTRICAL/LAB/DC MACHINE LAB.jpeg",
+      "description": "Facilities for experiments with direct current machines including DC motors and generators"
+    },
+    {
+      "name": "Switchgear & Protection Lab",
+      "image": "/images/NEW WEBSITE DATA/ELECTRICAL/LAB/SWITCHGEAR AND PROTECTION LAB.jpeg",
+      "description": "Modern switchgear and relay protection testing equipment"
+    },
+    {
+      "name": "SGP Lab",
+      "image": "/images/NEW WEBSITE DATA/ELECTRICAL/LAB/SGP LAB.jpeg",
+      "description": "Dedicated lab for switchgear and power system protection experiments"
+    },
+    {
+      "name": "Computer Lab",
+      "image": "/images/NEW WEBSITE DATA/ELECTRICAL/LAB/COMPUTER LAB.jpeg",
+      "description": "Computers equipped with simulation software for electrical engineering applications"
+    }
+  ],
+  "mechanical": [
+    {
+      "name": "CAD Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/CAD LAB.jpg",
+      "description": "Computer-aided design lab with latest CAD/CAM software for product design and manufacturing"
+    },
+    {
+      "name": "Thermal Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/Thermal lab.jpg",
+      "description": "Equipped for experiments in thermodynamics, heat transfer, and thermal engineering"
+    },
+    {
+      "name": "FMHM Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/FMHM LAB.jpeg",
+      "description": "Fluid Mechanics and Hydraulic Machinery lab with flow measurement and hydraulic equipment"
+    },
+    {
+      "name": "Fabrication Technology Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/Fabrication Technology Lab.jpg",
+      "description": "Welding, casting, and metal fabrication facilities for hands-on manufacturing training"
+    },
+    {
+      "name": "Engineering Material Science Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/Engineering material science_.jpg",
+      "description": "Material testing and characterization equipment for engineering materials"
+    },
+    {
+      "name": "Tool Engineering Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/TOOL ENGINEERING_LAB_MECH_GPP.png",
+      "description": "Precision tool design and manufacturing equipment for tool engineering studies"
+    },
+    {
+      "name": "Mechanical Drafting Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/Mechanical Drafting lab.jpg",
+      "description": "Drafting and drawing laboratory for mechanical engineering design practice"
+    },
+    {
+      "name": "Engineering Graphics Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/engineering graphics lab.jpeg",
+      "description": "Facilities for engineering drawing and graphics, including 2D and 3D modeling"
+    },
+    {
+      "name": "Workshop",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/Workshop_.jpg",
+      "description": "Comprehensive workshop with lathe machines, drilling machines, and hand tools"
+    },
+    {
+      "name": "Carpentry Shop",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/Carpentery shop-WA0005.jpg",
+      "description": "Woodworking and carpentry tools for practical training in shop floor practices"
+    },
+    {
+      "name": "EME Lab",
+      "image": "/images/NEW WEBSITE DATA/MECHANICAL/Lab photos/EME LAB.jpg",
+      "description": "Elements of Mechanical Engineering lab for first-year practical sessions"
+    }
+  ],
+  "science-humanities": [
+    {
+      "name": "Chemistry Lab",
+      "image": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/LAB/CHEMISTRY LAB PHOTOS/WhatsApp Image 2025-06-30 at 16.25.07.jpeg",
+      "description": "Well-equipped chemistry lab for engineering chemistry experiments and analysis"
+    },
+    {
+      "name": "Chemistry Lab - 2",
+      "image": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/LAB/CHEMISTRY LAB PHOTOS/WhatsApp Image 2025-06-30 at 16.25.08.jpeg",
+      "description": "Analytical chemistry setup with glassware and instruments for quantitative analysis"
+    },
+    {
+      "name": "Physics Lab",
+      "image": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/LAB/PHYSICS LAB PHOTOS/WhatsApp Image 2025-06-30 at 16.48.57.jpeg",
+      "description": "Physics laboratory with apparatus for optics, electricity, and mechanics experiments"
+    },
+    {
+      "name": "Physics Lab - 2",
+      "image": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/LAB/PHYSICS LAB PHOTOS/WhatsApp Image 2025-06-30 at 16.48.57 (1).jpeg",
+      "description": "Additional physics lab setups for engineering physics practicals"
+    },
+    {
+      "name": "Language Lab",
+      "image": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/LAB/LANGUAGE LAB PHOTOS/WhatsApp Image 2025-06-30 at 17.07.38.jpeg",
+      "description": "State-of-the-art language lab with audio-visual equipment for English communication skills"
+    },
+    {
+      "name": "Language Lab - 2",
+      "image": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/LAB/LANGUAGE LAB PHOTOS/WhatsApp Image 2025-06-30 at 17.07.39.jpeg",
+      "description": "Interactive language learning environment with individual listening and speaking stations"
     }
   ]
 }

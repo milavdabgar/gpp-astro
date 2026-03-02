@@ -1,5 +1,5 @@
 {
-  "civil": [
+  "civil-applied-mechanics": [
     {
       "name": "Mr. D.N. Sheth",
       "designation": "Head of Department (HOD)",
@@ -323,6 +323,38 @@
       "since": "01/07/2017",
       "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/Nirav Latest.jpg",
       "highlights": ["Electronics Lab-1 & 3 In-charge", "3 Research Papers Published"]
+    }
+  ],
+  "science-humanities": [
+    {
+      "name": "Dr. M.F. Tank",
+      "designation": "Head of Department (HOD)",
+      "qualification": "Ph.D",
+      "photo": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/FACULTY PHOTOS/DR. M F TANK  PHOTO.jpeg"
+    },
+    {
+      "name": "Dr. B.B. Mor",
+      "designation": "Lecturer (PhD)",
+      "qualification": "Ph.D",
+      "photo": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/FACULTY PHOTOS/DR. B B MOR PHOTO.jpeg"
+    },
+    {
+      "name": "Dr. C.S. Pandya",
+      "designation": "Lecturer (PhD)",
+      "qualification": "Ph.D",
+      "photo": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/FACULTY PHOTOS/DR C S PANDYA PHOTO.jpeg"
+    },
+    {
+      "name": "Dr. J.D. Mody",
+      "designation": "Lecturer (PhD)",
+      "qualification": "Ph.D",
+      "photo": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/FACULTY PHOTOS/DR. J D MODY photo.jpg"
+    },
+    {
+      "name": "Mr. C.P. Gelot",
+      "designation": "Lecturer",
+      "qualification": "M.Sc.",
+      "photo": "/images/NEW WEBSITE DATA/SCIENCE AND HUMANITIES DEPARTMENT/FACULTY PHOTOS/CP GELOT PHOTO.jpeg"
     }
   ]
 }
