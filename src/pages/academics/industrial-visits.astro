@@ -1,0 +1,358 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const visits = [
+  { id: 1, year: 2021, sem: 1, dept: "Mechanical", industry: "Banas Dairy", date: "22-Feb-2021", students: 33 },
+  { id: 2, year: 2021, sem: 3, dept: "Electrical", industry: "Captain Pumps Pvt. Ltd.", date: "28-Oct-2021", students: 16 },
+  { id: 3, year: 2021, sem: 5, dept: "Electrical", industry: "Captain Pumps Pvt. Ltd.", date: "28-Oct-2021", students: 34 },
+  { id: 4, year: 2021, sem: 3, dept: "Electrical", industry: "PRI Motors", date: "28-Oct-2020", students: 16 },
+  { id: 5, year: 2021, sem: 5, dept: "Electrical", industry: "PRI Motors", date: "28-Oct-2021", students: 34 },
+  { id: 6, year: 2021, sem: 6, dept: "Civil", industry: "City Bus Port Palanpur", date: "16-Mar-2021", students: 70 },
+  { id: 7, year: 2022, sem: 6, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "26-Mar-2022", students: 11 },
+  { id: 8, year: 2022, sem: 4, dept: "EC/ICT", industry: "Samsung Care", date: "29-Mar-2022", students: 4 },
+  { id: 9, year: 2022, sem: 4, dept: "EC/ICT", industry: "Sahajanand Laser Tech Gandhinagar", date: "12-Apr-2022", students: 4 },
+  { id: 10, year: 2022, sem: 2, dept: "EC/ICT", industry: "J K Industries Chandisar", date: "2-May-2022", students: 14 },
+  { id: 11, year: 2022, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Product", date: "21-Sep-2022", students: 6 },
+  { id: 12, year: 2022, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Products", date: "21-Sep-2022", students: 17 },
+  { id: 13, year: 2022, sem: 1, dept: "Mechanical", industry: "Banas Dairy", date: "7-Jan-2022", students: 28 },
+  { id: 14, year: 2022, sem: 6, dept: "Mechanical", industry: "Laxminarayan Metal Industry", date: "19-Feb-2022", students: 10 },
+  { id: 15, year: 2022, sem: 4, dept: "Mechanical", industry: "Sahajanand Laser Technology", date: "12-Apr-2023", students: 31 },
+  { id: 16, year: 2022, sem: 2, dept: "Mechanical", industry: "Ammann India Pvt. Ltd.", date: "7-May-2022", students: 31 },
+  { id: 17, year: 2022, sem: 1, dept: "Mechanical", industry: "Banas Dairy", date: "21-Sep-2022", students: 19 },
+  { id: 18, year: 2022, sem: 5, dept: "Mechanical", industry: "Indo German Tool Room", date: "26-Sep-2022", students: 36 },
+  { id: 19, year: 2021, sem: 3, dept: "Civil", industry: "Sanidhya Residency Palanpur", date: "12-Aug-2021", students: 64 },
+  { id: 20, year: 2021, sem: 3, dept: "Civil", industry: "Rose Velly Residency Palanpur", date: "15-Dec-2021", students: 64 },
+  { id: 21, year: 2021, sem: 6, dept: "Civil", industry: "City Center Bus Port Palanpur", date: "16-Mar-2021", students: 70 },
+  { id: 22, year: 2022, sem: 6, dept: "Civil", industry: "ITI Palanpur", date: "14-Mar-2022", students: 57 },
+  { id: 23, year: 2022, sem: 4, dept: "Civil", industry: "Polytechnic Campus", date: "28-Apr-2022", students: 60 },
+  { id: 24, year: 2022, sem: 4, dept: "Civil", industry: "Dhaniyana Palanpur", date: "27-May-2022", students: 60 },
+  { id: 25, year: 2022, sem: 6, dept: "Electrical", industry: "220KV Substation Sadarpur", date: "4-Mar-2022", students: 25 },
+  { id: 26, year: 2022, sem: 4, dept: "Electrical", industry: "Master Control Panel Chadotar", date: "25-May-2022", students: 16 },
+  { id: 27, year: 2022, sem: 4, dept: "Electrical", industry: "Patel Transformer Pvt. Ltd., Chandisar", date: "25-May-2022", students: 16 },
+  { id: 28, year: 2022, sem: 5, dept: "Electrical", industry: "220KV Substation Sadarpur", date: "1-Oct-2022", students: 15 },
+  { id: 29, year: 2022, sem: 6, dept: "Civil", industry: "WDFC Project Site 12 PCL", date: "19-Feb-2022", students: 56 },
+  { id: 30, year: 2022, sem: 1, dept: "Civil", industry: "Aaganvilla Residential Project", date: "21-Sep-2023", students: 90 },
+  { id: 31, year: 2022, sem: 5, dept: "Civil", industry: "Aaganvilla Residential Project", date: "21-Sep-2021", students: 77 },
+  { id: 32, year: 2023, sem: 3, dept: "Civil", industry: "Aaganvilla Residential Project II", date: "7-Jan-2023", students: 57 },
+  { id: 33, year: 2023, sem: 3, dept: "Civil", industry: "Aravali Marble, Palanpur", date: "10-Jan-2023", students: 57 },
+  { id: 34, year: 2023, sem: 6, dept: "Civil", industry: "Amrutam Hospital Palanpur", date: "25-Apr-2024", students: 47 },
+  { id: 35, year: 2023, sem: 6, dept: "Civil", industry: "S9 Commercial Complex Palanpur", date: "25-Apr-2023", students: 47 },
+  { id: 36, year: 2023, sem: 4, dept: "Civil", industry: "Techometry Survey Jalotra", date: "3-May-2023", students: 49 },
+  { id: 37, year: 2023, sem: 2, dept: "Civil", industry: "Principal Bungalow GPP", date: "4-May-2023", students: 65 },
+  { id: 38, year: 2023, sem: 2, dept: "Civil", industry: "Principal Bungalow GPP", date: "22-Jun-2023", students: 65 },
+  { id: 39, year: 2023, sem: 5, dept: "Civil", industry: "Bridge Site near RTO Palanpur", date: "1-Nov-2023", students: 39 },
+  { id: 40, year: 2023, sem: 3, dept: "Civil", industry: "Profile Levelling Opp GPP", date: "3-Nov-2023", students: 62 },
+  { id: 41, year: 2023, sem: 5, dept: "Civil", industry: "ARK RMC Chadotar", date: "14-Dec-2023", students: 39 },
+  { id: 42, year: 2023, sem: 3, dept: "Mechanical", industry: "Laxmi Narayan Metal Industry", date: "11-Jan-2023", students: 33 },
+  { id: 43, year: 2023, sem: 6, dept: "Mechanical", industry: "MARG ITI Sarjan Foundation Rampura (Vadala)", date: "19-Apr-2023", students: 27 },
+  { id: 44, year: 2023, sem: 4, dept: "Mechanical", industry: "MARG ITI Sarjan Foundation Rampura (Vadala)", date: "20-Apr-2023", students: 27 },
+  { id: 45, year: 2023, sem: 1, dept: "Mechanical", industry: "Banas Dairy", date: "1-Aug-2023", students: 32 },
+  { id: 46, year: 2023, sem: 3, dept: "Electrical", industry: "Master Control Panel", date: "23-Jan-2023", students: 20 },
+  { id: 47, year: 2023, sem: 3, dept: "Electrical", industry: "Patel Transformer Pvt. Ltd.", date: "23-Jan-2023", students: 20 },
+  { id: 48, year: 2023, sem: 3, dept: "Electrical", industry: "IPR Gandhinagar", date: "19-Oct-2023", students: 55 },
+  { id: 49, year: 2023, sem: 3, dept: "Electrical", industry: "PDPU-SGP Lab, Gandhinagar", date: "19-Oct-2023", students: 55 },
+  { id: 50, year: 2023, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Product", date: "1-Aug-2023", students: 7 },
+  { id: 51, year: 2023, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Product", date: "1-Aug-2023", students: 43 },
+  { id: 52, year: 2023, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Product", date: "1-Aug-2023", students: 29 },
+  { id: 53, year: 2023, sem: 2, dept: "EC/ICT", industry: "Samsung Service Centre Palanpur", date: "4-May-2023", students: 10 },
+  { id: 54, year: 2023, sem: 2, dept: "EC/ICT", industry: "Samsung Service Centre Palanpur", date: "4-May-2023", students: 20 },
+  { id: 55, year: 2023, sem: 4, dept: "EC/ICT", industry: "Samsung Service Centre Palanpur", date: "4-May-2023", students: 9 },
+  { id: 56, year: 2023, sem: 5, dept: "Civil", industry: "Multistory Building, Dhaniyana Chowkadi", date: "23-Oct-2023", students: 39 },
+  { id: 57, year: 2023, sem: 5, dept: "Civil", industry: "Bridge near RTO Circle Palanpur", date: "1-Nov-2023", students: 39 },
+  { id: 58, year: 2024, sem: 2, dept: "Civil", industry: "Aaganvilla Palanpur", date: "17-Feb-2024", students: 83 },
+  { id: 59, year: 2024, sem: 4, dept: "Civil", industry: "Techometry Survey at Dhori Danta", date: "13-Mar-2024", students: 56 },
+  { id: 60, year: 2024, sem: 4, dept: "Civil", industry: "Construction of Road, RTO Circle Palanpur", date: "16-May-2024", students: 56 },
+  { id: 61, year: 2024, sem: 2, dept: "Civil", industry: "Building Services Aaganvilla Palanpur", date: "17-May-2024", students: 83 },
+  { id: 62, year: 2024, sem: 4, dept: "Civil", industry: "Total Station Project GPP", date: "18-May-2024", students: 56 },
+  { id: 63, year: 2024, sem: 5, dept: "Civil", industry: "Sports Complex Palanpur", date: "14-Oct-2024", students: 24 },
+  { id: 64, year: 2024, sem: 3, dept: "EC/ICT", industry: "Banas Dairy", date: "5-Oct-2024", students: 4 },
+  { id: 65, year: 2024, sem: 3, dept: "EC/ICT", industry: "Banas Dairy", date: "5-Oct-2024", students: 22 },
+  { id: 66, year: 2024, sem: 5, dept: "EC/ICT", industry: "Banas Dairy", date: "5-Oct-2024", students: 6 },
+  { id: 67, year: 2024, sem: 5, dept: "EC/ICT", industry: "Banas Dairy", date: "5-Oct-2024", students: 5 },
+  { id: 68, year: 2024, sem: 3, dept: "EC/ICT", industry: "Railway Station Palanpur", date: "25-Sep-2024", students: 28 },
+  { id: 69, year: 2024, sem: 3, dept: "EC/ICT", industry: "Railway Station Palanpur", date: "25-Sep-2024", students: 5 },
+  { id: 70, year: 2024, sem: 5, dept: "EC/ICT", industry: "Railway Station Palanpur", date: "25-Sep-2024", students: 7 },
+  { id: 71, year: 2024, sem: 5, dept: "EC/ICT", industry: "Railway Station Palanpur", date: "25-Sep-2024", students: 9 },
+  { id: 72, year: 2024, sem: 2, dept: "EC/ICT", industry: "PCB Power and MCBS Pvt. Ltd.", date: "16-Mar-2024", students: 4 },
+  { id: 73, year: 2024, sem: 2, dept: "EC/ICT", industry: "PCB Power and MCBS Pvt. Ltd.", date: "16-Mar-2024", students: 21 },
+  { id: 74, year: 2024, sem: 4, dept: "EC/ICT", industry: "PCB Power and MCBS Pvt. Ltd.", date: "16-Mar-2024", students: 6 },
+  { id: 75, year: 2024, sem: 4, dept: "EC/ICT", industry: "PCB Power and MCBS Pvt. Ltd.", date: "16-Mar-2024", students: 7 },
+  { id: 76, year: 2024, sem: 6, dept: "EC/ICT", industry: "PCB Power and MCBS Pvt. Ltd.", date: "16-Mar-2024", students: 4 },
+  { id: 77, year: 2024, sem: 6, dept: "Mechanical", industry: "Duke Pipe Pvt. Ltd.", date: "2-Mar-2024", students: 10 },
+  { id: 78, year: 2024, sem: 4, dept: "Mechanical", industry: "Coach International Technique Pvt. Ltd.", date: "19-Apr-2024", students: 20 },
+  { id: 79, year: 2024, sem: 1, dept: "Mechanical", industry: "Banas Dairy", date: "8-Feb-2024", students: 45 },
+  { id: 80, year: 2024, sem: 3, dept: "Mechanical", industry: "Coach International Technique Pvt. Ltd.", date: "27-Sep-2024", students: 19 },
+  { id: 81, year: 2024, sem: 5, dept: "Mechanical", industry: "Leak Proof Engineering Pvt. Ltd.", date: "25-Oct-2024", students: 17 },
+  { id: 82, year: 2025, sem: 6, dept: "Mechanical", industry: "MARG ITI Sarjan Foundation Rampura (Vadala)", date: "28-Mar-2025", students: 14 },
+  { id: 83, year: 2025, sem: 1, dept: "Mechanical", industry: "Banas Dairy, Palanpur", date: "8-Aug-2025", students: 43 },
+  { id: 84, year: 2025, sem: 3, dept: "Mechanical", industry: "Coach International Technique Pvt. Ltd.", date: "29-Nov-2025", students: 19 },
+  { id: 85, year: 2025, sem: 3, dept: "EC/ICT", industry: "Netram Office Control Room, Palanpur", date: "8-Aug-2025", students: 56 },
+  { id: 86, year: 2024, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Products Palanpur", date: "2-Aug-2024", students: 13 },
+  { id: 87, year: 2024, sem: 1, dept: "EC/ICT", industry: "Bajarang Paper Products Palanpur", date: "2-Aug-2024", students: 20 },
+  { id: 88, year: 2024, sem: 4, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "16-Oct-2024", students: 7 },
+  { id: 89, year: 2024, sem: 4, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "16-Oct-2024", students: 20 },
+  { id: 90, year: 2025, sem: 1, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "5-Aug-2025", students: 16 },
+  { id: 91, year: 2025, sem: 1, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "5-Aug-2025", students: 35 },
+  { id: 92, year: 2025, sem: 4, dept: "Electrical", industry: "Duke Pumping Solutions Pvt. Ltd.", date: "7-Feb-2025", students: 20 },
+  { id: 93, year: 2025, sem: 6, dept: "Electrical", industry: "Duke Pumping Solutions Pvt. Ltd.", date: "7-Feb-2025", students: 21 },
+  { id: 94, year: 2025, sem: 3, dept: "Electrical", industry: "Banaskantha District Co-operative Milk Producers", date: "19-Sep-2025", students: 40 },
+  { id: 95, year: 2025, sem: 5, dept: "Electrical", industry: "Banaskantha District Co-operative Milk Producers", date: "19-Sep-2025", students: 28 },
+  { id: 96, year: 2025, sem: 3, dept: "Civil", industry: "Levelling & Contouring Surveying Project", date: "5-May-2025", students: 50 },
+  { id: 97, year: 2025, sem: 3, dept: "Civil", industry: "Levelling & Contouring Surveying Project", date: "5-Aug-2025", students: 15 },
+  { id: 98, year: 2025, sem: 3, dept: "Civil", industry: "Visual Inspection to Identify Defects", date: "4-Apr-2025", students: 45 },
+  { id: 99, year: 2025, sem: 5, dept: "Civil", industry: "Banas Dairy, Palanpur", date: "4-Jul-2025", students: 30 },
+  { id: 100, year: 2025, sem: 5, dept: "Civil", industry: "P.H.S. Sub Division, Jal Bhavan, Palanpur", date: "16-Apr-2025", students: 16 },
+  { id: 101, year: 2025, sem: 5, dept: "Civil", industry: "Akshatam Luxury Flats, Palanpur", date: "1-Aug-2025", students: 44 },
+  { id: 102, year: 2025, sem: 5, dept: "Civil", industry: "S9-Sarvoday, Palanpur", date: "14-Aug-2025", students: 44 },
+  { id: 103, year: 2025, sem: 3, dept: "Civil", industry: "City Akshat Villa, A'bad Highway, Palanpur", date: "19-Sep-2025", students: 60 },
+  { id: 104, year: 2025, sem: 3, dept: "Civil", industry: "Hatavada, Near Helipad, Palanpur-Danta Highway", date: "24-Sep-2025", students: 60 },
+  { id: 105, year: 2025, sem: 3, dept: "Civil", industry: "Aina Park Society, Gatahaman Road, Palanpur", date: "30-Sep-2025", students: 60 },
+  { id: 106, year: 2025, sem: 1, dept: "Civil", industry: "Shree Hai Granite, Near Toll Tax, Abu Highway, Palanpur", date: "3-Oct-2025", students: 100 },
+  { id: 107, year: 2025, sem: 1, dept: "Civil", industry: "Modern Tiles, Near Toll Tax, Abu Highway, Palanpur", date: "3-Oct-2025", students: 100 },
+  { id: 108, year: 2025, sem: 1, dept: "Civil", industry: "Prime Infra, Malandarwaja, Palanpur", date: "10-Oct-2025", students: 108 },
+  { id: 109, year: 2025, sem: 3, dept: "EC/ICT", industry: "Netram Command and Control Centre Palanpur", date: "20-Sep-2025", students: 7 },
+  { id: 110, year: 2025, sem: 3, dept: "EC/ICT", industry: "Netram Command and Control Centre Palanpur", date: "20-Sep-2025", students: 10 },
+  { id: 111, year: 2025, sem: 5, dept: "EC/ICT", industry: "Netram Command and Control Centre Palanpur", date: "20-Sep-2025", students: 5 },
+  { id: 112, year: 2025, sem: 5, dept: "EC/ICT", industry: "Netram Command and Control Centre Palanpur", date: "20-Sep-2025", students: 13 },
+  { id: 113, year: 2025, sem: 3, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "17-Nov-2025", students: 6 },
+  { id: 114, year: 2025, sem: 5, dept: "EC/ICT", industry: "Community Radio Station Palanpur", date: "17-Nov-2025", students: 8 },
+];
+
+const totalStudents = visits.reduce((sum, v) => sum + v.students, 0);
+const years = [...new Set(visits.map(v => v.year))].sort();
+const depts = ["Civil", "Electrical", "Mechanical", "EC/ICT"];
+
+const deptColors: Record<string, string> = {
+  "Civil": "bg-amber-100 text-amber-800",
+  "Electrical": "bg-blue-100 text-blue-800",
+  "Mechanical": "bg-red-100 text-red-800",
+  "EC/ICT": "bg-purple-100 text-purple-800",
+};
+
+const stats = [
+  { label: "Industrial Visits", value: visits.length, icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+  { label: "Students Benefited", value: totalStudents + "+", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+  { label: "Years (2021–2025)", value: years.length, icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" },
+  { label: "Departments Active", value: 4, icon: "M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" },
+];
+---
+
+<Layout title="Industrial Visits | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span class="hover:text-primary transition-colors">Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Industrial Visits</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        Industry–Academia Connect
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Industrial Visits</h1>
+      <p class="text-gray-600 text-lg">
+        Hands-on exposure to real-world industrial settings — bridging classroom learning with professional practice.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        {stats.map(s => (
+          <div class="text-center">
+            <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-2">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/>
+              </svg>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">{s.value}</div>
+            <div class="text-xs text-gray-500 mt-0.5">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Controls -->
+  <section class="bg-gray-50 border-b border-gray-200 py-4 sticky top-0 z-30">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="text-sm font-medium text-gray-600 shrink-0">Filter by:</span>
+
+        <!-- Department Filter -->
+        <div class="flex flex-wrap gap-1.5" id="dept-filters">
+          <button onclick="filterVisits('dept', 'all')" data-dept="all"
+            class="filter-dept-btn px-3 py-1 rounded-full text-xs font-medium bg-primary text-white transition-colors">
+            All Depts
+          </button>
+          {depts.map(d => (
+            <button onclick={`filterVisits('dept', '${d}')`} data-dept={d}
+              class="filter-dept-btn px-3 py-1 rounded-full text-xs font-medium bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-colors">
+              {d}
+            </button>
+          ))}
+        </div>
+
+        <!-- Year Filter -->
+        <div class="flex flex-wrap gap-1.5 ml-auto" id="year-filters">
+          <button onclick="filterVisits('year', 'all')" data-year="all"
+            class="filter-year-btn px-3 py-1 rounded-full text-xs font-medium bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-colors">
+            All Years
+          </button>
+          {years.map(y => (
+            <button onclick={`filterVisits('year', '${y}')`} data-year={String(y)}
+              class="filter-year-btn px-3 py-1 rounded-full text-xs font-medium bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-colors">
+              {y}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div class="mt-2 text-xs text-gray-500">
+        Showing <span id="visible-count">{visits.length}</span> visits
+      </div>
+    </div>
+  </section>
+
+  <!-- Table -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm" id="visits-table">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="px-4 py-3 text-left font-semibold">#</th>
+              <th class="px-4 py-3 text-left font-semibold">Department</th>
+              <th class="px-4 py-3 text-left font-semibold">Industry / Site Visited</th>
+              <th class="px-4 py-3 text-center font-semibold">Date</th>
+              <th class="px-4 py-3 text-center font-semibold">Sem</th>
+              <th class="px-4 py-3 text-center font-semibold">Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            {visits.map((v, i) => (
+              <tr
+                class={`visit-row ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+                data-dept={v.dept}
+                data-year={v.year}
+              >
+                <td class="px-4 py-3 text-gray-400 text-xs">{v.id}</td>
+                <td class="px-4 py-3">
+                  <span class={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${deptColors[v.dept] ?? 'bg-gray-100 text-gray-700'}`}>
+                    {v.dept}
+                  </span>
+                </td>
+                <td class="px-4 py-3 font-medium text-gray-900">{v.industry}</td>
+                <td class="px-4 py-3 text-center text-gray-600 whitespace-nowrap">{v.date}</td>
+                <td class="px-4 py-3 text-center text-gray-600">{v.sem}</td>
+                <td class="px-4 py-3 text-center font-semibold text-gray-900">{v.students}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty state -->
+      <div id="visits-empty" class="hidden text-center py-16 text-gray-400">
+        <svg class="w-10 h-10 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        <p class="text-sm">No visits found for the selected filter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Industrial Visits -->
+  <section class="py-10 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-4">About Our Industrial Visit Programme</h2>
+          <p class="text-gray-600 text-sm leading-relaxed mb-3">
+            Industrial visits are a mandatory component of the GTU Diploma curriculum. Students from all departments undertake field visits to local industries, construction sites, research institutions, and infrastructure projects to gain first-hand operational knowledge.
+          </p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            These visits cover a broad spectrum — from dairy processing plants (Banas Dairy) and precision manufacturing (Sahajanand Laser Tech) to power substations (220KV Sadarpur), civic infrastructure (WDFC Project Site), and research labs (IPR Gandhinagar, PDPU-SGP Lab).
+          </p>
+        </div>
+        <div class="space-y-3">
+          <h3 class="font-bold text-gray-900 text-sm">Key Industry Partners</h3>
+          {[
+            { name: "Banas Dairy, Palanpur", tag: "Food Processing" },
+            { name: "Sahajanand Laser Technology, Gandhinagar", tag: "Manufacturing" },
+            { name: "220KV Substation Sadarpur", tag: "Power Sector" },
+            { name: "IPR Gandhinagar / PDPU-SGP Lab", tag: "Research" },
+            { name: "WDFC Project Site", tag: "Infrastructure" },
+            { name: "Community Radio Station Palanpur", tag: "Media / Telecom" },
+            { name: "Netram Command & Control Centre", tag: "Technology" },
+          ].map(p => (
+            <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-2.5">
+              <div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+              <span class="text-sm font-medium text-gray-900 flex-1">{p.name}</span>
+              <span class="text-xs text-gray-400">{p.tag}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+let activeDept = 'all';
+let activeYear = 'all';
+
+function filterVisits(type, value) {
+  if (type === 'dept') activeDept = value;
+  if (type === 'year') activeYear = value;
+
+  // Update button styles
+  document.querySelectorAll('.filter-dept-btn').forEach(btn => {
+    const isActive = btn.dataset.dept === activeDept;
+    btn.classList.toggle('bg-primary', isActive);
+    btn.classList.toggle('text-white', isActive);
+    btn.classList.toggle('bg-white', !isActive);
+    btn.classList.toggle('border', !isActive);
+    btn.classList.toggle('border-gray-300', !isActive);
+    btn.classList.toggle('text-gray-700', !isActive);
+  });
+  document.querySelectorAll('.filter-year-btn').forEach(btn => {
+    const isActive = btn.dataset.year === activeYear;
+    btn.classList.toggle('bg-primary', isActive);
+    btn.classList.toggle('text-white', isActive);
+    btn.classList.toggle('bg-white', !isActive);
+    btn.classList.toggle('border', !isActive);
+    btn.classList.toggle('border-gray-300', !isActive);
+    btn.classList.toggle('text-gray-700', !isActive);
+  });
+
+  let visible = 0;
+  document.querySelectorAll('.visit-row').forEach(row => {
+    const deptMatch = activeDept === 'all' || row.dataset.dept === activeDept;
+    const yearMatch = activeYear === 'all' || row.dataset.year === activeYear;
+    const show = deptMatch && yearMatch;
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+
+  document.getElementById('visible-count').textContent = visible;
+  document.getElementById('visits-empty').classList.toggle('hidden', visible > 0);
+}
+</script>
