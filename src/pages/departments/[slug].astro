@@ -7,43 +7,43 @@ import departments from '../../data/departments.json';
 import programs from '../../data/programs.json';
 import type { GetStaticPaths } from 'astro';
 
-// Newsletters data mapped by department slug
-const newslettersData: Record<string, { name: string; pdfs: { label: string; file: string }[]; siteUrl?: string }> = {
-  'electronics-communication': {
-    name: 'Spectrum',
-    pdfs: [
-      { label: "Band IV — 2024–25", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2024-25.pdf" },
-      { label: "Band II — 2022–23", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2022-23.pdf" },
-      { label: "Band I — 2021–22", file: "/docs/newsletters/ec/Spectrum-Band-I.pdf" },
-    ],
-    siteUrl: "https://ec.gppalanpur.ac.in/newsletter",
-  },
-  'civil-applied-mechanics': {
-    name: 'InfraCreator',
-    pdfs: [
-      { label: "June 2025", file: "/docs/newsletters/civil/june-2025.pdf" },
-      { label: "Dec 2024", file: "/docs/newsletters/civil/dec-2024.pdf" },
-      { label: "June 2024", file: "/docs/newsletters/civil/june-2024.pdf" },
-      { label: "Dec 2023", file: "/docs/newsletters/civil/dec-2023.pdf" },
-      { label: "June 2023", file: "/docs/newsletters/civil/june-2023.pdf" },
-      { label: "Dec 2022", file: "/docs/newsletters/civil/dec-2022.pdf" },
-    ],
-    siteUrl: "https://gppcivil06.wixsite.com/civil",
-  },
-  'electrical': {
-    name: 'Spark',
-    pdfs: [
-      { label: "July 2025", file: "/docs/newsletters/electrical/july-2025.pdf" },
-      { label: "July 2024", file: "/docs/newsletters/electrical/july-2024.pdf" },
-      { label: "July 2023", file: "/docs/newsletters/electrical/july-2023.pdf" },
-      { label: "July 2022", file: "/docs/newsletters/electrical/july-2022.pdf" },
-      { label: "July 2021", file: "/docs/newsletters/electrical/july-2021.pdf" },
-      { label: "July 2020", file: "/docs/newsletters/electrical/july-2020.pdf" },
-    ],
-  },
-};
-
 export const getStaticPaths: GetStaticPaths = () => {
+  // Newsletters data mapped by department slug
+  const newslettersData: Record<string, { name: string; pdfs: { label: string; file: string }[]; siteUrl?: string }> = {
+    'electronics-communication': {
+      name: 'Spectrum',
+      pdfs: [
+        { label: "Band IV — 2024–25", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2024-25.pdf" },
+        { label: "Band II — 2022–23", file: "/docs/newsletters/ec/Spectrum-Interactive-Newsletter-2022-23.pdf" },
+        { label: "Band I — 2021–22", file: "/docs/newsletters/ec/Spectrum-Band-I.pdf" },
+      ],
+      siteUrl: "https://ec.gppalanpur.ac.in/newsletter",
+    },
+    'civil-applied-mechanics': {
+      name: 'InfraCreator',
+      pdfs: [
+        { label: "June 2025", file: "/docs/newsletters/civil/june-2025.pdf" },
+        { label: "Dec 2024", file: "/docs/newsletters/civil/dec-2024.pdf" },
+        { label: "June 2024", file: "/docs/newsletters/civil/june-2024.pdf" },
+        { label: "Dec 2023", file: "/docs/newsletters/civil/dec-2023.pdf" },
+        { label: "June 2023", file: "/docs/newsletters/civil/june-2023.pdf" },
+        { label: "Dec 2022", file: "/docs/newsletters/civil/dec-2022.pdf" },
+      ],
+      siteUrl: "https://gppcivil06.wixsite.com/civil",
+    },
+    'electrical': {
+      name: 'Spark',
+      pdfs: [
+        { label: "July 2025", file: "/docs/newsletters/electrical/july-2025.pdf" },
+        { label: "July 2024", file: "/docs/newsletters/electrical/july-2024.pdf" },
+        { label: "July 2023", file: "/docs/newsletters/electrical/july-2023.pdf" },
+        { label: "July 2022", file: "/docs/newsletters/electrical/july-2022.pdf" },
+        { label: "July 2021", file: "/docs/newsletters/electrical/july-2021.pdf" },
+        { label: "July 2020", file: "/docs/newsletters/electrical/july-2020.pdf" },
+      ],
+    },
+  };
+
   return departments.map(dept => {
     // Find programs offered by this department
     const deptPrograms = programs.filter(p => p.department_id === dept.id);
