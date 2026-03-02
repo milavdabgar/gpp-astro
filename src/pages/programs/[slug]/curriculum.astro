@@ -274,9 +274,11 @@ const semesters = [1, 2, 3, 4, 5, 6];
           
           for (const row of rows) {
             const cells = row.querySelectorAll('td');
-            if (cells.length < 16) continue;
+            if (cells.length < 17) continue; // Table has 17 columns (0-16)
             
-            const subjectCode = cells[1].textContent.trim();
+            // Extract subject code from the link in cells[1]
+            const subjectCodeElement = cells[1].querySelector('a') || cells[1];
+            const subjectCode = subjectCodeElement.textContent.trim();
             
             // Filter based on type
             if (type === 'gtu') {
