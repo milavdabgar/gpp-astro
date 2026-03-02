@@ -1,0 +1,1377 @@
+{
+  "gtu": {
+    "1": [
+      {
+        "code": "DI01000011",
+        "name": "Induction Programme with Essence of Indian Knowledge",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      },
+      {
+        "code": "DI01000021",
+        "name": "Mathematics-I",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI01000031",
+        "name": "Communication Skills in English",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000041",
+        "name": "Sports and Yoga",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI01000071",
+        "name": "Engineering Chemistry",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01016011",
+        "name": "Python Programming",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01016021",
+        "name": "Introduction to I.T. Systems",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01016031",
+        "name": "Web Development using PHP",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "DI01000061",
+        "name": "Modern Physics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000011",
+        "name": "Applied Mathematics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000051",
+        "name": "Environmental Sustainability",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000061",
+        "name": "Indian Constitution",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI02000131",
+        "name": "Contributor Personality Development",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000141",
+        "name": "Integrated Personality Development Course",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000151",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02016011",
+        "name": "Advanced Python Programming",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02016021",
+        "name": "Fundamentals of Software Development",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "DI03016011",
+        "name": "Digital Marketing",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03016021",
+        "name": "Cryptography and Web Security",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03016031",
+        "name": "Data Structures with Python",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03016041",
+        "name": "Database Management",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03016051",
+        "name": "Object Oriented Programming with JAVA",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03016061",
+        "name": "Operating Systems",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "DI04000081",
+        "name": "Entrepreneurship & Start-up",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04000141",
+        "name": "Human Resources Management",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04000291",
+        "name": "Industry 4.0",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04016011",
+        "name": "Mobile Computing and Networks",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04016021",
+        "name": "Cyber Security and Digital Forensics",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04016031",
+        "name": "Fundamental of Machine Learning",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04016041",
+        "name": "UI and UX Design",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI04016051",
+        "name": "Mobile Application Development",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04016061",
+        "name": "Database Administration",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04016071",
+        "name": "Advanced Java Programming",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04016081",
+        "name": "Data Mining and Warehousing",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "5": [],
+    "6": []
+  },
+  "cogc": {
+    "1": [
+      {
+        "code": "4300001",
+        "name": "Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300002",
+        "name": "Communication Skills in English",
+        "category": "Humanities & Social Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300015",
+        "name": "Sports and Yoga",
+        "category": "Audit",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4310002",
+        "name": "Induction Program",
+        "category": "Mandatory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      },
+      {
+        "code": "4311601",
+        "name": "Python Programming",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4311602",
+        "name": "Introduction to IT Systems",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4311603",
+        "name": "Static Webpage Design",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "4300003",
+        "name": "Environment and Sustainability",
+        "category": "General Science",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300005",
+        "name": "Physics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300016",
+        "name": "Indian Constitution",
+        "category": "Audit",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4320002",
+        "name": "Engineering Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4321601",
+        "name": "Basic Electronics",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4321602",
+        "name": "Advanced Python Programming",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4321603",
+        "name": "Information Security Awareness",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "4330001",
+        "name": "Summer Internship-I",
+        "category": "Summer Internship-1(2 Weeks) after sem-2",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4331601",
+        "name": "Data Structure with Python",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331602",
+        "name": "Linux Operating System",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331603",
+        "name": "Database Management",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331604",
+        "name": "Fundamentals of Software Development",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331605",
+        "name": "Seminar",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "4340001",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340002",
+        "name": "Contributor Personality Development",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340003",
+        "name": "Integrated Personality Development Course",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341601",
+        "name": "Essentials of Digital Marketing",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341602",
+        "name": "Object Oriented Programming with JAVA",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341603",
+        "name": "Fundamentals of Machine Learning",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341604",
+        "name": "Web Development using PHP",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "5": [
+      {
+        "code": "4300021",
+        "name": "Entrepreneurship and Start-ups",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4351601",
+        "name": "Foundation of AI and ML",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351602",
+        "name": "Mobile Computing and Networks",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351603",
+        "name": "Advanced Java Programming",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351604",
+        "name": "Mobile Application Development",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4351605",
+        "name": "Summer Internship-II",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      }
+    ],
+    "6": [
+      {
+        "code": "4361601",
+        "name": "Cyber Security and Digital Forensics",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "4",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "6",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361602",
+        "name": "Cloud and Data Center Technologies",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361603",
+        "name": "Foundation of Block Chain",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361604",
+        "name": "Software Development",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ]
+  }
+}

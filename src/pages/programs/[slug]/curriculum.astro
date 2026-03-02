@@ -14,17 +14,8 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 const { program } = Astro.props as any;
 
-// Map program slugs to file prefixes
-const programFileMap: Record<string, string> = {
-  "electronics-communication-engineering": "ec",
-  "information-communication-technology": "ict",
-  "information-technology": "it",
-  "civil-engineering": "ce",
-  "electrical-engineering": "ee",
-  "mechanical-engineering": "me",
-};
-
-const filePrefix = programFileMap[program.slug];
+// Use the program slug directly as the filename
+const filePrefix = program.slug;
 const semesters = [1, 2, 3, 4, 5, 6];
 ---
 
@@ -175,15 +166,26 @@ const semesters = [1, 2, 3, 4, 5, 6];
 
           <div class="space-y-4">
             {semesters.map((sem) => (
-              <div class="border border-gray-200 rounded-lg overflow-hidden opacity-50">
-                <div class="w-full bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 flex items-center justify-between">
+              <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button 
+                  class="semester-toggle w-full bg-gradient-to-r from-purple-50 to-purple-100 px-6 py-4 flex items-center justify-between hover:from-purple-100 hover:to-purple-200 transition-all cursor-pointer"
+                  data-semester={sem}
+                  data-type="cogc"
+                >
                   <div class="flex items-center gap-3">
                     <span class="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
                       {sem}
                     </span>
                     <span class="font-semibold text-gray-900">Semester {sem}</span>
                   </div>
-                  <span class="text-sm text-gray-500">Coming Soon</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="toggle-icon h-5 w-5 text-purple-600 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="semester-content hidden bg-white" data-semester={sem} data-type="cogc">
+                  <div class="p-6 text-center text-gray-500">
+                    <div class="animate-pulse">Loading subjects...</div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -252,67 +254,16 @@ const semesters = [1, 2, 3, 4, 5, 6];
       // Load and parse semester data
       async function loadSemesterData(semester, type, container) {
         try {
-          const filename = `${filePrefix}-${semester}.html`;
-          const response = await fetch(`/docs/syllabus/${filename}`);
+          const response = await fetch(`/data/curriculum/${filePrefix}.json`);
           
           if (!response.ok) {
-            throw new Error('Syllabus file not found');
+            throw new Error('Curriculum data not found');
           }
           
-          const html = await response.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
+          const curriculumData = await response.json();
+          const subjects = curriculumData[type]?.[semester] || [];
           
-          // Find the subjects table
-          const table = doc.querySelector('table.myGrid');
-          if (!table) {
-            throw new Error('No subjects table found');
-          }
-          
-          const rows = Array.from(table.querySelectorAll('tr')).slice(1); // Skip header
-          const subjects = [];
-          
-          for (const row of rows) {
-            const cells = row.querySelectorAll('td');
-            if (cells.length < 17) continue; // Table has 17 columns (0-16)
-            
-            // Extract subject code from the link in cells[1]
-            const subjectCodeElement = cells[1].querySelector('a') || cells[1];
-            const subjectCode = subjectCodeElement.textContent.trim();
-            
-            // Filter based on type
-            if (type === 'gtu') {
-              // Show only DI codes, exclude C2D students (DI01C pattern)
-              if (!subjectCode.startsWith('DI') || subjectCode.match(/DI01C\d+/)) {
-                continue;
-              }
-            } else if (type === 'cogc') {
-              // Show only 43xxx codes
-              if (!subjectCode.startsWith('43')) {
-                continue;
-              }
-            }
-            
-            subjects.push({
-              code: subjectCode,
-              name: cells[4].textContent.trim(),
-              category: cells[5].textContent.trim(),
-              hours: {
-                L: cells[7].textContent.trim(),
-                T: cells[8].textContent.trim(),
-                P: cells[9].textContent.trim(),
-                PBL: cells[10].textContent.trim()
-              },
-              credits: cells[11].textContent.trim(),
-              marks: {
-                E: cells[12].textContent.trim(),
-                M: cells[13].textContent.trim(),
-                I: cells[14].textContent.trim(),
-                V: cells[15].textContent.trim(),
-                Total: cells[16].textContent.trim()
-              }
-            });
-          }
+          console.log(`Loaded ${subjects.length} subjects for semester ${semester}, type: ${type}`);
           
           // Render subjects table
           if (subjects.length === 0) {
@@ -333,14 +284,21 @@ const semesters = [1, 2, 3, 4, 5, 6];
                       <th class="px-4 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">L-T-P</th>
                       <th class="px-4 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">Credits</th>
                       <th class="px-4 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">Total Marks</th>
-                      <th class="px-4 py-3 text-center text-xs font-medium text-gray-700 uppercase tracking-wider">Syllabus</th>
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200">
                     ${subjects.map((subject, index) => `
                       <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors">
                         <td class="px-4 py-4 whitespace-nowrap">
-                          <span class="text-sm font-mono font-semibold text-blue-600">${subject.code}</span>
+                          <a 
+                            href="https://s3-ap-southeast-1.amazonaws.com/gtusitecirculars/Syallbus/${subject.code}.pdf" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm font-mono font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                            title="Download ${subject.code} Syllabus PDF"
+                          >
+                            ${subject.code}
+                          </a>
                         </td>
                         <td class="px-4 py-4">
                           <div class="text-sm font-medium text-gray-900">${subject.name}</div>
@@ -349,7 +307,7 @@ const semesters = [1, 2, 3, 4, 5, 6];
                           <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800">${subject.category}</span>
                         </td>
                         <td class="px-4 py-4 text-center">
-                          <span class="text-sm text-gray-700">${subject.hours.L}-${subject.hours.T}-${subject.hours.P}</span>
+                          <span class="text-sm text-gray-700">${subject.hours.lecture}-${subject.hours.tutorial}-${subject.hours.practical}</span>
                         </td>
                         <td class="px-4 py-4 text-center">
                           <span class="inline-flex items-center justify-center px-2 py-1 text-sm font-semibold text-green-800 bg-green-100 rounded-full">
@@ -357,21 +315,7 @@ const semesters = [1, 2, 3, 4, 5, 6];
                           </span>
                         </td>
                         <td class="px-4 py-4 text-center">
-                          <span class="text-sm font-semibold text-gray-900">${subject.marks.Total}</span>
-                        </td>
-                        <td class="px-4 py-4 text-center">
-                          <a 
-                            href="https://s3-ap-southeast-1.amazonaws.com/gtusitecirculars/Syallbus/${subject.code}.pdf" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-1 text-xs font-medium text-red-600 hover:text-red-700 hover:underline"
-                            title="Download ${subject.code} Syllabus PDF"
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            PDF
-                          </a>
+                          <span class="text-sm font-semibold text-gray-900">${subject.marks.total}</span>
                         </td>
                       </tr>
                     `).join('')}
@@ -387,7 +331,7 @@ const semesters = [1, 2, 3, 4, 5, 6];
             `;
           }
         } catch (error) {
-          console.error('Error loading syllabus:', error);
+          console.error('Error loading curriculum:', error);
           container.innerHTML = `
             <div class="p-6 text-center">
               <div class="text-red-600 mb-2">
@@ -395,7 +339,7 @@ const semesters = [1, 2, 3, 4, 5, 6];
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p class="text-gray-700 font-medium">Unable to load syllabus for Semester ${semester}</p>
+              <p class="text-gray-700 font-medium">Unable to load curriculum for Semester ${semester}</p>
               <p class="text-gray-500 text-sm mt-1">${error.message}</p>
             </div>
           `;

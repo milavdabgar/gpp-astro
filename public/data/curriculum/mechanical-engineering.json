@@ -1,0 +1,1586 @@
+{
+  "gtu": {
+    "1": [
+      {
+        "code": "DI01000011",
+        "name": "Induction Programme with Essence of Indian Knowledge",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      },
+      {
+        "code": "DI01000021",
+        "name": "Mathematics-I",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI01000031",
+        "name": "Communication Skills in English",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000041",
+        "name": "Sports and Yoga",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI01000111",
+        "name": "Engineering Graphics",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000171",
+        "name": "Basics of Electricals and Electronics Engineering",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI01000181",
+        "name": "Engineering Materials Science",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000191",
+        "name": "Elements of Mechanical Engineering",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "DI01000121",
+        "name": "Applied Physics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000011",
+        "name": "Applied Mathematics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000051",
+        "name": "Environmental Sustainability",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000061",
+        "name": "Indian Constitution",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI02000111",
+        "name": "Engineering Workshop Proficiency",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI02000121",
+        "name": "Mechanical Drafting",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000131",
+        "name": "Contributor Personality Development",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000141",
+        "name": "Integrated Personality Development Course",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000151",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "DI03000141",
+        "name": "Theory of Machines and Mechanisms",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03000151",
+        "name": "Measurements and Metrology",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03000161",
+        "name": "Manufacturing Engineering-I",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03000171",
+        "name": "Fluid Mechanics and Hydraulic Machinery",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03000201",
+        "name": "Basics of Applied Mechanics",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03019011",
+        "name": "Engineering Thermodynamics",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "DI04000081",
+        "name": "Entrepreneurship & Start-up",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04000161",
+        "name": "Artificial Intelligence and Prompt Engineering",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04000241",
+        "name": "Manufacturing Engineering - II",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000251",
+        "name": "Design of Machine Elements",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000261",
+        "name": "Industrial Engineering and Management",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000271",
+        "name": "Operations Management",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000281",
+        "name": "Total Quality Management",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000291",
+        "name": "Industry 4.0",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04019011",
+        "name": "Thermal Engineering - I",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04019021",
+        "name": "Robotics, Automation and 3D Modeling Practice",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI04019031",
+        "name": "Engineering Costing and Plant Maintenance",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04019041",
+        "name": "Fabrication Technology",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "5": [],
+    "6": []
+  },
+  "cogc": {
+    "1": [
+      {
+        "code": "4300001",
+        "name": "Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300002",
+        "name": "Communication Skills in English",
+        "category": "Humanities & Social Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300004",
+        "name": "Applied Physics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300007",
+        "name": "Engineering Drawing",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300015",
+        "name": "Sports and Yoga",
+        "category": "Audit",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4301901",
+        "name": "Engineering Workshop Practice",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4310001",
+        "name": "Basics of Civil Engineering",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4310002",
+        "name": "Induction Program",
+        "category": "Mandatory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "4300003",
+        "name": "Environment and Sustainability",
+        "category": "General Science",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300008",
+        "name": "Engineering Mechanics",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300014",
+        "name": "Basics of Electrical and Electronic Engineering",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300016",
+        "name": "Indian Constitution",
+        "category": "Audit",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300019",
+        "name": "Computer Applications and Graphics",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4320001",
+        "name": "Applied Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4321902",
+        "name": "Mechanical Drafting",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "4300020",
+        "name": "Engineering Material",
+        "category": "Engineering Science",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330001",
+        "name": "Summer Internship-I",
+        "category": "Summer Internship-1(2 Weeks) after sem-2",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4331901",
+        "name": "Theory Of Machines And Mechanisms",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331902",
+        "name": "Engineering Thermodynamics",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4331903",
+        "name": "Manufacturing Engineering-I",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331904",
+        "name": "Strength Of Materials",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4331905",
+        "name": "Computer Aided Machine Drawing Practice",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "4340001",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340002",
+        "name": "Contributor Personality Development",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340003",
+        "name": "Integrated Personality Development Course",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341901",
+        "name": "Estimating, Costing and Engineering Contracting",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4341902",
+        "name": "Measurements and Metrology",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341903",
+        "name": "Fluid Mechanics and Hydraulic Machinery",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341904",
+        "name": "Manufacturing Engineering - II",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341905",
+        "name": "Thermal Engineering-I",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4341906",
+        "name": "Plant Maintenance and Safety",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "5": [
+      {
+        "code": "4300021",
+        "name": "Entrepreneurship and Start-ups",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4351901",
+        "name": "Summer Internship-II",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4351902",
+        "name": "Manufacturing Engineering -III",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351903",
+        "name": "Thermal Engineering-II",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351904",
+        "name": "Mechnaical Engineering Project-I",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4351905",
+        "name": "Tool Engineering",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351906",
+        "name": "Advance Manufacturing System",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4351907",
+        "name": "Renewable and Green Energy",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "6": [
+      {
+        "code": "4361901",
+        "name": "Industrial Engineering and Management",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361902",
+        "name": "CAD/CAM",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361903",
+        "name": "Design of Machine Elements",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361904",
+        "name": "Mechnaical Engineering Project-II",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4361905",
+        "name": "Power Plant Engineering",
+        "category": "Open Elective (Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361906",
+        "name": "Robotics and Industrial Automation",
+        "category": "Open Elective (Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361907",
+        "name": "Fabrication Technology",
+        "category": "Open Elective (Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4361908",
+        "name": "Thermal Systems and Energy Efficiency",
+        "category": "Open Elective (Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ]
+  }
+}

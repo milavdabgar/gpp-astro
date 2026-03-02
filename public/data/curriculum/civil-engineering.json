@@ -1,0 +1,1586 @@
+{
+  "gtu": {
+    "1": [
+      {
+        "code": "DI01000011",
+        "name": "Induction Programme with Essence of Indian Knowledge",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      },
+      {
+        "code": "DI01000021",
+        "name": "Mathematics-I",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI01000031",
+        "name": "Communication Skills in English",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000041",
+        "name": "Sports and Yoga",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI01000111",
+        "name": "Engineering Graphics",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000121",
+        "name": "Applied Physics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01006011",
+        "name": "Civil Engineering Drawing",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01006021",
+        "name": "Construction Material",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "DI01021011",
+        "name": "Applied Chemistry",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000011",
+        "name": "Applied Mathematics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000051",
+        "name": "Environmental Sustainability",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000061",
+        "name": "Indian Constitution",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI02000071",
+        "name": "Engineering Mechanics",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000131",
+        "name": "Contributor Personality Development",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000141",
+        "name": "Integrated Personality Development Course",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000151",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02006011",
+        "name": "Basic Surveying",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "DI03006011",
+        "name": "Construction Technology",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03006021",
+        "name": "Advance Surveying",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03006031",
+        "name": "Basic Transportation Engineering",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03006041",
+        "name": "Mechanics of Structures-I",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03006051",
+        "name": "Soil Engineering",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03006061",
+        "name": "Computer Aided Drafting",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "DI04000081",
+        "name": "Entrepreneurship & Start-up",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04000151",
+        "name": "Hydraulics",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000161",
+        "name": "Artificial Intelligence and Prompt Engineering",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04006011",
+        "name": "Concrete Technology",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006021",
+        "name": "Estimation & Costing",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006031",
+        "name": "Design of Steel Structures",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006041",
+        "name": "Water Resources Engineering",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006051",
+        "name": "Ground Water Engineering",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006061",
+        "name": "Irrigation Engineering",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006071",
+        "name": "Railway, Harbour & Tunnel Engineering",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006081",
+        "name": "Traffic Engineering",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04006091",
+        "name": "Airport Engineering",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "5": [],
+    "6": []
+  },
+  "cogc": {
+    "1": [
+      {
+        "code": "4300001",
+        "name": "Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300002",
+        "name": "Communication Skills in English",
+        "category": "Humanities & Social Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300004",
+        "name": "Applied Physics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300010",
+        "name": "Basics of Information and Communication Technology",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300013",
+        "name": "Basic Engineering Drawing and Graphics",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300014",
+        "name": "Basics of Electrical and Electronic Engineering",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300015",
+        "name": "Sports and Yoga",
+        "category": "Audit",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4310002",
+        "name": "Induction Program",
+        "category": "Mandatory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "4300003",
+        "name": "Environment and Sustainability",
+        "category": "General Science",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300008",
+        "name": "Engineering Mechanics",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300009",
+        "name": "Applied Chemistry",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300016",
+        "name": "Indian Constitution",
+        "category": "Audit",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300017",
+        "name": "Basics of Mechanical Engineering",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4320001",
+        "name": "Applied Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4320601",
+        "name": "Civil Engineering Drawing",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "4330001",
+        "name": "Summer Internship-I",
+        "category": "Summer Internship-1(2 Weeks) after sem-2",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4330601",
+        "name": "Surveying",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330602",
+        "name": "Mechanics of Structures",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330603",
+        "name": "Construction Materials & Technology",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330604",
+        "name": "Hydraulics",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330605",
+        "name": "Computer Aided Drafting",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "4340001",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340002",
+        "name": "Contributor Personality Development",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340003",
+        "name": "Integrated Personality Development Course",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340601",
+        "name": "Advanced Surveying",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340602",
+        "name": "Soil Engineering",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340603",
+        "name": "Estimating, Costing and Valuation",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340604",
+        "name": "Basic Transportation Engineering",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "5": [
+      {
+        "code": "4300021",
+        "name": "Entrepreneurship and Start-ups",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4350601",
+        "name": "Concrete Technology",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350602",
+        "name": "Water Resource Engineering",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350603",
+        "name": "Civil Engineering Project-I",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4350604",
+        "name": "Summer Internship-II",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4350605",
+        "name": "Advance Construction Technology",
+        "category": "Group1:Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350606",
+        "name": "Highway Engineering",
+        "category": "Group 2:Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350607",
+        "name": "Irrigation Engineering",
+        "category": "Group 3:Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350608",
+        "name": "Environmental Engineering and Pollution Control",
+        "category": "Group 4:Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350609",
+        "name": "Advance Analysis of Structures",
+        "category": "Group 5:Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "6": [
+      {
+        "code": "4360601",
+        "name": "Design of Structures",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360602",
+        "name": "Water Supply & Sanitary Engineering",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360603",
+        "name": "Construction Project Management",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360604",
+        "name": "Project-II",
+        "category": "Project",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "60",
+          "viva": "40",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4360605",
+        "name": "Building Services",
+        "category": "Elective (Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360606",
+        "name": "Traffic Engineering",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360607",
+        "name": "Ground Water Engineering",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360608",
+        "name": "Construction Quality Control and Monitoring",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360609",
+        "name": "Advance Design of Structures",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ]
+  }
+}

@@ -139,6 +139,7 @@ const { program, department } = Astro.props as any;
   <!-- Quick Actions -->
   <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick Actions</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {department && (
           <a href={`/departments/${department.slug}`} class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">

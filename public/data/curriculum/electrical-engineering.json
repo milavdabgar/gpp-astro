@@ -1,0 +1,1453 @@
+{
+  "gtu": {
+    "1": [
+      {
+        "code": "DI01000011",
+        "name": "Induction Programme with Essence of Indian Knowledge",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      },
+      {
+        "code": "DI01000021",
+        "name": "Mathematics-I",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI01000031",
+        "name": "Communication Skills in English",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000041",
+        "name": "Sports and Yoga",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI01000071",
+        "name": "Engineering Chemistry",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000081",
+        "name": "DC Circuit",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI01000091",
+        "name": "Fundamentals of Information and Communication Technology",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI01009011",
+        "name": "Electronics Devices & Circuits",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "DI01000061",
+        "name": "Modern Physics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000021",
+        "name": "Engineering Mathematics",
+        "category": "Basic Science Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000051",
+        "name": "Environmental Sustainability",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI02000061",
+        "name": "Indian Constitution",
+        "category": "Mandatory Non-Credit Courses – Audit Course",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI02000131",
+        "name": "Contributor Personality Development",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000141",
+        "name": "Integrated Personality Development Course",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000151",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Humanities and Social Science, including Management Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000161",
+        "name": "Fundamental of Digital Electronics",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI02000171",
+        "name": "AC Fundamental",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "DI03000071",
+        "name": "Electrical and Electronics Workshop",
+        "category": "Engineering Science Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI03000081",
+        "name": "Electrical Machines – I",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03000091",
+        "name": "Electrical Instrumentation",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03000101",
+        "name": "Electrical Power Transmission & Distribution",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03009011",
+        "name": "Electrical Wiring Estimating & Contracting",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI03009021",
+        "name": "Electrical Power Generation",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "DI04000081",
+        "name": "Entrepreneurship & Start-up",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "DI04000171",
+        "name": "Microcontroller & its Applications",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000181",
+        "name": "Utilization of Electrical Power",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000191",
+        "name": "Introduction to IoT",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000201",
+        "name": "Industrial Automation & Control",
+        "category": "Multidisciplinary Open Professional Electives Courses",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000321",
+        "name": "Electrical Machines - II",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04000331",
+        "name": "Electrical AutoCAD & Simulation",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "1",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "20",
+          "viva": "30",
+          "total": "50"
+        }
+      },
+      {
+        "code": "DI04009011",
+        "name": "Substation Engineering",
+        "category": "Professional Core Courses",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04009021",
+        "name": "Energy Efficiency & Audit",
+        "category": "Professional Elective - I",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04009031",
+        "name": "Commissioning & Maintenance of Electrical Equipments",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      },
+      {
+        "code": "DI04009041",
+        "name": "Electrical Control Panels",
+        "category": "Professional Elective - II",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "20",
+          "viva": "30",
+          "total": "150"
+        }
+      }
+    ],
+    "5": [],
+    "6": []
+  },
+  "cogc": {
+    "1": [
+      {
+        "code": "4300001",
+        "name": "Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300002",
+        "name": "Communication Skills in English",
+        "category": "Humanities & Social Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300006",
+        "name": "Engineering Chemistry",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300010",
+        "name": "Basics of Information and Communication Technology",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300015",
+        "name": "Sports and Yoga",
+        "category": "Audit",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4300017",
+        "name": "Basics of Mechanical Engineering",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4310002",
+        "name": "Induction Program",
+        "category": "Mandatory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "0",
+          "viva": "0",
+          "total": "0"
+        }
+      },
+      {
+        "code": "4310901",
+        "name": "D.C. Circuits",
+        "category": "Program core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "2": [
+      {
+        "code": "4300003",
+        "name": "Environment and Sustainability",
+        "category": "General Science",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4300005",
+        "name": "Physics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300013",
+        "name": "Basic Engineering Drawing and Graphics",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4300016",
+        "name": "Indian Constitution",
+        "category": "Audit",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "0",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "0",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4310001",
+        "name": "Basics of Civil Engineering",
+        "category": "Engineering Sciences",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "2",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4320002",
+        "name": "Engineering Mathematics",
+        "category": "Basic Sciences",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4320901",
+        "name": "A.C. Circuits",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "1",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "3": [
+      {
+        "code": "4330001",
+        "name": "Summer Internship-I",
+        "category": "Summer Internship-1(2 Weeks) after sem-2",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "25",
+          "viva": "25",
+          "total": "50"
+        }
+      },
+      {
+        "code": "4330901",
+        "name": "D. C. Machines And Transformer",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "4",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "6",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "50",
+          "viva": "50",
+          "total": "200"
+        }
+      },
+      {
+        "code": "4330902",
+        "name": "Electrical Instrumentation",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "4",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330903",
+        "name": "Electrical Power Generation and Transmission",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "4",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330904",
+        "name": "Fundamentals Of Electronics",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "4",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "5",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4330905",
+        "name": "Electrical Engineering Workshop Practice",
+        "category": "Program Core",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      }
+    ],
+    "4": [
+      {
+        "code": "4340001",
+        "name": "Essence of Indian Knowledge and Tradition",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340002",
+        "name": "Contributor Personality Development",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340003",
+        "name": "Integrated Personality Development Course",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "2",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340901",
+        "name": "Polyphase Transformers and Rotating AC Machines",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340902",
+        "name": "Distribution and Utilization of Electrical Power",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340903",
+        "name": "Electrical Wiring Estimating, Costing & Contracting",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4340904",
+        "name": "Digital Electronics & Digital Instruments",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "5": [
+      {
+        "code": "4300021",
+        "name": "Entrepreneurship and Start-ups",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "0",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "0",
+          "viva": "0",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4350901",
+        "name": "Switchgear & Protection",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350902",
+        "name": "Power Electronics & Drives",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350904",
+        "name": "Electrical Engineering Project-I",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "1",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4350905",
+        "name": "Summer Internship-II",
+        "category": "compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "6",
+          "pbl": "NA"
+        },
+        "credits": "3",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      },
+      {
+        "code": "4350906",
+        "name": "Special Electrical Machine",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4350907",
+        "name": "Electrical Traction & Control",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      }
+    ],
+    "6": [
+      {
+        "code": "4360901",
+        "name": "Electrical Installation, Commissioning And Maintenance",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360902",
+        "name": "Microprocessor & Controller Applications",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360903",
+        "name": "Energy Conservation & Audit",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360904",
+        "name": "Green Technology",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360905",
+        "name": "Electrical Drives",
+        "category": "Elective(Any one)",
+        "hours": {
+          "lecture": "3",
+          "tutorial": "0",
+          "practical": "2",
+          "pbl": "NA"
+        },
+        "credits": "4",
+        "marks": {
+          "external": "70",
+          "mid": "30",
+          "internal": "25",
+          "viva": "25",
+          "total": "150"
+        }
+      },
+      {
+        "code": "4360906",
+        "name": "Electrical Engineering Project-II",
+        "category": "Compulsory",
+        "hours": {
+          "lecture": "0",
+          "tutorial": "0",
+          "practical": "4",
+          "pbl": "NA"
+        },
+        "credits": "2",
+        "marks": {
+          "external": "0",
+          "mid": "0",
+          "internal": "50",
+          "viva": "50",
+          "total": "100"
+        }
+      }
+    ]
+  }
+}
