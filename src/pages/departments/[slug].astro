@@ -78,7 +78,118 @@ const { dept, hasFaculty, hasLabs, labs } = Astro.props as any;
     </div>
   </section>
 
-  <!-- Specializations + Career + Labs -->
+  <!-- Highlights Section -->
+  <section class="py-12 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Department Highlights</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {dept.nba_status === "Accredited" && (
+          <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-5 border border-green-100 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="text-sm font-bold text-gray-900">NBA Accredited</h3>
+            </div>
+            <p class="text-xs text-gray-600">Quality education recognized by national standards</p>
+          </div>
+        )}
+        {hasFaculty && (
+          <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-5 border border-blue-100 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <h3 class="text-sm font-bold text-gray-900">Expert Faculty</h3>
+            </div>
+            <p class="text-xs text-gray-600">Experienced educators with industry exposure</p>
+          </div>
+        )}
+        {hasLabs && labs.length > 0 && (
+          <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-5 border border-purple-100 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <h3 class="text-sm font-bold text-gray-900">Modern Labs</h3>
+            </div>
+            <p class="text-xs text-gray-600">Well-equipped facilities for practical learning</p>
+          </div>
+        )}
+        <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-5 border border-orange-100 hover:shadow-lg transition-shadow">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+              <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-gray-900">Career Ready</h3>
+          </div>
+          <p class="text-xs text-gray-600">Industry-aligned curriculum for placements</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Actions -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {hasFaculty && (
+          <a href={`/departments/${dept.slug}/faculty`} class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+                <svg class="w-5 h-5 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-gray-900">Faculty</h3>
+                <p class="text-xs text-gray-500">Meet our team</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600">View profiles and expertise</p>
+          </a>
+        )}
+        {hasLabs && labs.length > 0 && (
+          <a href={`/departments/${dept.slug}/labs`} class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+                <svg class="w-5 h-5 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-gray-900">Laboratories</h3>
+                <p class="text-xs text-gray-500">{labs.length} labs</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600">Explore our facilities</p>
+          </a>
+        )}
+        <a href="#specializations" class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+              <svg class="w-5 h-5 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-gray-900">Curriculum</h3>
+              <p class="text-xs text-gray-500">What you'll learn</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-600">View course details</p>
+        </a>
+        <a href="/contact" class="group bg-white rounded-xl p-5 border border-gray-200 hover:border-primary hover:shadow-lg transition-all">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+              <svg class="w-5 h-5 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-gray-900">Contact</h3>
+              <p class="text-xs text-gray-500">Get in touch</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-600">Visit or email us</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission + PEOs -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -142,7 +253,7 @@ const { dept, hasFaculty, hasLabs, labs } = Astro.props as any;
         </div>
       )}
 
-      <div class="grid lg:grid-cols-3 gap-8">
+      <div class="grid lg:grid-cols-3 gap-8" id="specializations">
         <!-- Specializations -->
         <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
           <div class="flex items-center gap-3 mb-4">
