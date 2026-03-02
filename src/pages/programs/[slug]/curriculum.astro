@@ -1,15 +1,18 @@
 ---
-import { getCollection } from "astro:content";
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
 import programsData from "../../../data/programs.json";
+import type { GetStaticPaths } from 'astro';
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
   return programsData.map((program) => ({
     params: { slug: program.slug },
     props: { program },
   }));
-}
+};
 
-const { program } = Astro.props;
+const { program } = Astro.props as any;
 
 // Map program slugs to file prefixes
 const programFileMap: Record<string, string> = {
@@ -25,15 +28,10 @@ const filePrefix = programFileMap[program.slug];
 const semesters = [1, 2, 3, 4, 5, 6];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{program.name} - Curriculum | Government Polytechnic, Palanpur</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-50">
+<Layout title={`${program.name} - Curriculum | GP Palanpur`}>
+  <Nav />
+  
+  <div class="bg-gray-50">
     <!-- Header -->
     <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-6 shadow-lg">
       <div class="container mx-auto px-4">
@@ -402,5 +400,7 @@ const semesters = [1, 2, 3, 4, 5, 6];
         }
       }
     </script>
-  </body>
-</html>
+  </div>
+  
+  <Footer />
+</Layout>
