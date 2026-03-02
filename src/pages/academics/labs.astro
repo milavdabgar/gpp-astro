@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// Lab data from GTU Affiliation Document 2026-27
+const departments = [
+  {
+    id: "ec",
+    name: "Electronics & Communication Engineering",
+    short: "EC",
+    color: "blue",
+    building: "BADP Building (Block 3)",
+    labs: [
+      { name: "Electronics Lab",       equipment: "CRO, Work Bench, Function Generator, Multimeter",                      investmentLac: 8.72 },
+      { name: "Workshop Lab",           equipment: "Soldering Station, CRO",                                                investmentLac: 5.35 },
+      { name: "Communication Lab",      equipment: "Microwave Workbench, Mobile Trainer Kit",                               investmentLac: 11.15 },
+      { name: "Computer Lab-1",         equipment: "DYNA 85 Kit, VLSI Kit, 10-PC Workstations",                             investmentLac: 7.41 },
+      { name: "Computer Lab-2",         equipment: "Computers, Projector, Networking Equipment",                            investmentLac: 13.16 },
+      { name: "Digital Lab",            equipment: "Digital Electronics Trainer Kit, Logic Analyser",                       investmentLac: null },
+    ],
+  },
+  {
+    id: "civil",
+    name: "Civil Engineering",
+    short: "CE",
+    color: "amber",
+    building: "Main Building (Block 1)",
+    labs: [
+      { name: "Applied Mechanics – Material Testing Lab",   equipment: "Computerized Hydraulic Universal Testing Machine, Impact Tester",     investmentLac: 2.32 },
+      { name: "Applied Mechanics – Concrete Technology Lab",equipment: "Compression Testing Machine (200 T), Vibration Table",                investmentLac: 20.40 },
+      { name: "Applied Mechanics – Soil Lab",               equipment: "Automatic Soil Compaction Machine, Sieve Shaker",                     investmentLac: 3.14 },
+      { name: "Survey Lab",                                  equipment: "Total Station Pantax, Auto Level, Theodolite",                        investmentLac: 12.27 },
+      { name: "Hydraulics Lab",                              equipment: "Hydraulic Bench, Pelton Wheel, Francis Turbine",                      investmentLac: 0.82 },
+      { name: "Computer Lab",                                equipment: "HCL & Acer Desktops (29 PCs), AutoCAD",                              investmentLac: 13.94 },
+      { name: "Water Supply & Sanitary Engineering Lab",     equipment: "BOD Incubator, Turbidity Meter, Colorimeter",                        investmentLac: 1.32 },
+      { name: "Transportation Lab",                          equipment: "Flash and Fire Point Equipment, Marshall Stability Tester",           investmentLac: 3.25 },
+    ],
+  },
+  {
+    id: "electrical",
+    name: "Electrical Engineering",
+    short: "EE",
+    color: "yellow",
+    building: "Main Building (Block 1)",
+    labs: [
+      { name: "Electrical Power Lab",         equipment: "Induction Motor Protection Simulator, Power Quality Analyser",                investmentLac: 6.03 },
+      { name: "Computer Lab",                 equipment: "15 PC Workstations, MATLAB, AutoCAD Electrical",                             investmentLac: 14.80 },
+      { name: "Electronics Lab",              equipment: "CRO 60 MHz Dual Trace, Function Generator, Power Supplies",                  investmentLac: 3.34 },
+      { name: "Electrical Machine Lab-1",     equipment: "3-Phase Induction Motor, DC Generator, Synchronous Machine",                 investmentLac: 5.20 },
+      { name: "Electrical Machine Lab-2",     equipment: "Electrical Machine Trainer Turbo 2000 with all accessories",                investmentLac: 4.00 },
+      { name: "Electrical Workshop & Project Lab", equipment: "Workshop Tool Kit, Earth Tester, Panel Wiring Trainer",               investmentLac: 1.00 },
+    ],
+  },
+  {
+    id: "mechanical",
+    name: "Mechanical Engineering",
+    short: "ME",
+    color: "red",
+    building: "Workshop Block (2) + Mechanical Block (5)",
+    labs: [
+      { name: "Thermal Engineering (1 & 2) / BME",   equipment: "4-Stroke Diesel Engine, 2-Stroke Petrol Engine, Heat Exchanger",    investmentLac: 5.29 },
+      { name: "FMHM, M&I Lab",                        equipment: "Centrifugal Pump, Microscope, Slip Gauge, Surface Roughness Tester",investmentLac: 1.40 },
+      { name: "CAD / CAMD Lab",                       equipment: "Computer Systems, SolidWorks, AutoCAD",                             investmentLac: 6.81 },
+      { name: "Machine Lab-1",                         equipment: "Lathe Machine (various sizes), Grinding Machine",                  investmentLac: 30.56 },
+      { name: "Machine Lab-2",                         equipment: "Milling Machine, Drilling Machine, Shaper Machine",               investmentLac: 32.45 },
+      { name: "Smithy / Welding Lab",                  equipment: "Arc Welding Machine, Spot Welding Machine, Forging Press",        investmentLac: 2.02 },
+      { name: "Fitter Lab",                             equipment: "Bench Vice, Surface Plate, Files & Fitting Tools",               investmentLac: 0.80 },
+      { name: "Carpentry Lab",                          equipment: "Wooden Lathe, Planer Machine, Power Tools",                      investmentLac: 1.02 },
+      { name: "Theory of Machines / FOME",             equipment: "Gear Train Model, Cams & Follower, Whirling of Shaft",            investmentLac: 0.32 },
+      { name: "ED & MD Lab",                           equipment: "Drawing Models, Drawing Boards",                                  investmentLac: 0.19 },
+      { name: "Manufacturing Systems / IE / SEED / MSM", equipment: "Microscope, Inspection Gauges, Time Study Board",              investmentLac: null },
+      { name: "Design of Mech Elements / Tool Engineering", equipment: "Jig and Fixtures, Design Models",                           investmentLac: null },
+    ],
+  },
+  {
+    id: "ict",
+    name: "Information & Communication Technology",
+    short: "ICT",
+    color: "purple",
+    building: "BADP Building (Block 3)",
+    labs: [
+      { name: "Communication Lab",  equipment: "CRO, Function Generator, Trainer Kits",                                         investmentLac: null },
+      { name: "Multimedia Lab",     equipment: "Computers, Peripherals, Projector, Audio System",                               investmentLac: null },
+      { name: "Electronics Lab",    equipment: "CRO, Function Generators, Workbench, Power Supply",                             investmentLac: null },
+      { name: "Computer Lab-1",     equipment: "Computers, Projector, Networking",                                               investmentLac: null },
+    ],
+  },
+  {
+    id: "it",
+    name: "Information Technology",
+    short: "IT",
+    color: "green",
+    building: "BADP Building (Block 3)",
+    labs: [
+      { name: "Computer Lab-1", equipment: "Computers, Projectors, Networking Equipment",  investmentLac: null },
+      { name: "Computer Lab-2", equipment: "Computers, Projectors, Server Systems",        investmentLac: null },
+    ],
+  },
+  {
+    id: "general",
+    name: "Science & Humanities (General)",
+    short: "SH",
+    color: "teal",
+    building: "Main Building (Block 1)",
+    labs: [
+      { name: "Physics Lab",      equipment: "Spectrometer, Optical Bench, Newton's Rings Apparatus",  investmentLac: 1.15 },
+      { name: "Chemistry Lab",    equipment: "Oven, Distillation Unit, Analytical Balance",            investmentLac: 0.57 },
+      { name: "Language Lab",     equipment: "17 PCs, Headsets, CALL Software, Projector",            investmentLac: 10.00 },
+    ],
+  },
+];
+
+const totalLabs = departments.reduce((acc, d) => acc + d.labs.length, 0);
+
+const colorClasses: Record<string, { border: string; bg: string; text: string; badge: string; head: string }> = {
+  blue:   { border: "border-blue-200",   bg: "bg-blue-50",   text: "text-blue-800",   badge: "bg-blue-100 text-blue-700",   head: "bg-blue-600"   },
+  amber:  { border: "border-amber-200",  bg: "bg-amber-50",  text: "text-amber-800",  badge: "bg-amber-100 text-amber-700", head: "bg-amber-600"  },
+  yellow: { border: "border-yellow-200", bg: "bg-yellow-50", text: "text-yellow-800", badge: "bg-yellow-100 text-yellow-700",head: "bg-yellow-500" },
+  red:    { border: "border-red-200",    bg: "bg-red-50",    text: "text-red-800",    badge: "bg-red-100 text-red-700",     head: "bg-red-600"    },
+  purple: { border: "border-purple-200", bg: "bg-purple-50", text: "text-purple-800", badge: "bg-purple-100 text-purple-700",head: "bg-purple-600" },
+  green:  { border: "border-green-200",  bg: "bg-green-50",  text: "text-green-800",  badge: "bg-green-100 text-green-700", head: "bg-green-600"  },
+  teal:   { border: "border-teal-200",   bg: "bg-teal-50",   text: "text-teal-800",   badge: "bg-teal-100 text-teal-700",   head: "bg-teal-600"   },
+};
+
+function formatInvestment(lac: number | null): string {
+  if (lac === null) return "—";
+  return `₹${lac.toFixed(2)} lac`;
+}
+---
+
+<Layout title="Laboratories | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Laboratories</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-slate-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        GTU Affiliation 2026-27 — Verified Data
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Department Laboratories</h1>
+      <p class="text-gray-600 text-lg">
+        GPP Palanpur operates {totalLabs} well-equipped laboratories across {departments.length} departments, providing students with hands-on practical training in cutting-edge equipment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick stats row -->
+  <section class="bg-white border-b border-gray-200 py-6">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary">{totalLabs}</div>
+          <div class="text-sm text-gray-600">Total Labs</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{departments.length}</div>
+          <div class="text-sm text-gray-600">Departments</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">5</div>
+          <div class="text-sm text-gray-600">Buildings</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">₹1.5 Cr+</div>
+          <div class="text-sm text-gray-600">Est. Equipment Investment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department quick-links -->
+  <section class="bg-gray-50 border-b border-gray-200 py-4 sticky top-0 z-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-2 justify-center">
+        {departments.map(d => (
+          <a href={`#dept-${d.id}`}
+             class={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors hover:opacity-80 ${colorClasses[d.color].badge}`}>
+            {d.short}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Department sections -->
+  <div class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl space-y-12">
+      {departments.map(dept => {
+        const c = colorClasses[dept.color];
+        return (
+          <section id={`dept-${dept.id}`}>
+            <!-- Dept header -->
+            <div class={`border ${c.border} rounded-2xl overflow-hidden`}>
+              <div class={`${c.bg} px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3`}>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${c.badge}`}>{dept.short}</span>
+                    <span class="text-xs text-gray-500">{dept.building}</span>
+                  </div>
+                  <h2 class={`text-xl font-bold ${c.text}`}>{dept.name}</h2>
+                </div>
+                <div class={`text-center px-4 py-2 rounded-xl ${c.badge} shrink-0`}>
+                  <div class="text-2xl font-bold">{dept.labs.length}</div>
+                  <div class="text-xs">Labs</div>
+                </div>
+              </div>
+
+              <!-- Labs table -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="bg-gray-50 border-t border-gray-200">
+                      <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200 w-6 text-xs">#</th>
+                      <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Laboratory Name</th>
+                      <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Key Equipment</th>
+                      <th class="text-left px-4 py-3 font-semibold text-gray-700 w-32">Investment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dept.labs.map((lab, i) => (
+                      <tr class={`border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                        <td class="px-4 py-3 border-r border-gray-100 text-gray-400 font-mono text-xs">{i + 1}</td>
+                        <td class="px-4 py-3 border-r border-gray-100 font-medium text-gray-900">{lab.name}</td>
+                        <td class="px-4 py-3 border-r border-gray-100 text-gray-600 text-xs">{lab.equipment}</td>
+                        <td class={`px-4 py-3 text-xs font-semibold ${lab.investmentLac ? c.text : 'text-gray-400'}`}>
+                          {formatInvestment(lab.investmentLac)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  </div>
+
+  <!-- Note -->
+  <section class="pb-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-xs text-gray-500">
+        <strong>Note:</strong> Investment figures are based on equipment purchase records submitted in the GTU Affiliation Application 2026-27. Entries marked "—" indicate labs with equipment not separately valued in the application. All labs are equipped with basic safety fixtures and comply with GTU norms.
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

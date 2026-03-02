@@ -1,0 +1,282 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// Financial data from GTU Affiliation Document 2026-27
+const income = [
+  { source: "State Government",   amountLac: 1431.45, primary: true   },
+  { source: "Student Fees",        amountLac: 5.35,    primary: false  },
+  { source: "Central Government",  amountLac: 0.00,    primary: false  },
+  { source: "UGC",                 amountLac: 0.00,    primary: false  },
+  { source: "Donations",           amountLac: 0.00,    primary: false  },
+  { source: "Others",              amountLac: 0.00,    primary: false  },
+];
+
+const expenditure = [
+  { item: "Salary – Full-Time Teaching Faculty",  amountLac: 653.06 },
+  { item: "Salary – Non-Teaching Staff",          amountLac: 57.67  },
+  { item: "Equipment / Labs / Workshops",         amountLac: 51.17  },
+  { item: "Others",                               amountLac: 24.68  },
+  { item: "Library",                              amountLac: 1.10   },
+  { item: "Computer Centre",                      amountLac: 0.00   },
+];
+
+const totalIncome    = income.reduce((s, r) => s + r.amountLac, 0);
+const totalExp       = expenditure.reduce((s, r) => s + r.amountLac, 0);
+const surplus        = totalIncome - totalExp;
+const expPct         = ((totalExp / totalIncome) * 100).toFixed(1);
+const facultySalaryPct = ((653.06 / totalExp) * 100).toFixed(1);
+
+const grants = [
+  {
+    name: "PMKVY (Pradhan Mantri Kaushal Vikas Yojana)",
+    year: "2019",
+    sanctionRef: "F.No. 5-6/PMKVY-TI/2018-89-CRO-1-3509",
+    sanctionDate: "21 February 2019",
+    fundsReceived: "11 March 2019",
+    activityPeriod: "8 October 2018 – 26 June 2019",
+    settlementAmt: "₹1,02,851",
+    refunded: "₹11,899",
+    ucRef: "GPP/PMKVY-DATED 12/10/2019",
+    color: "emerald",
+  },
+  {
+    name: "SSIP (Student Start-up Innovation Policy)",
+    year: "2019",
+    sanctionRef: "GKS/SSIP/GDP-4/GPPALANPUR/2019/61",
+    sanctionDate: "29 May 2019",
+    fundsReceived: "August 2019",
+    activityPeriod: "14 August 2019 – 6 March 2020",
+    settlementAmt: "₹1,18,862.90",
+    refunded: "—",
+    ucRef: "GPP/SSIP/2020/749",
+    color: "blue",
+  },
+];
+
+function fmt(v: number) {
+  return v.toFixed(2);
+}
+---
+
+<Layout title="Financial Details | About | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>About</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Financial Details</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-slate-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        GTU Affiliation 2026-27 — Verified Data
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Financial Details</h1>
+      <p class="text-gray-600 text-lg">
+        GPP Palanpur is a Government-funded institution. Financial data below is sourced from GTU Affiliation Application 2026-27.
+      </p>
+    </div>
+  </section>
+
+  <!-- KPI row -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+        <div>
+          <div class="text-2xl font-bold text-emerald-600">₹{fmt(totalIncome)} L</div>
+          <div class="text-sm text-gray-600 mt-0.5">Total Income</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-primary">₹{fmt(totalExp)} L</div>
+          <div class="text-sm text-gray-600 mt-0.5">Total Expenditure</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-gray-700">{expPct}%</div>
+          <div class="text-sm text-gray-600 mt-0.5">Expenditure Ratio</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-blue-600">{facultySalaryPct}%</div>
+          <div class="text-sm text-gray-600 mt-0.5">Salary of Expenditure</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Income vs Expenditure tables -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Income & Expenditure (Last Year)</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Income -->
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+          <div class="bg-emerald-600 px-5 py-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-white font-bold">Sources of Income</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="text-left px-5 py-2.5 font-semibold text-gray-700">Source</th>
+                <th class="text-right px-5 py-2.5 font-semibold text-gray-700">Amount (₹ Lac)</th>
+                <th class="text-right px-5 py-2.5 font-semibold text-gray-700">%</th>
+              </tr>
+            </thead>
+            <tbody>
+              {income.map((r, i) => (
+                <tr class={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                  <td class="px-5 py-3 text-gray-700">{r.source}</td>
+                  <td class="px-5 py-3 text-right font-mono">{fmt(r.amountLac)}</td>
+                  <td class="px-5 py-3 text-right text-gray-400 font-mono text-xs">
+                    {r.amountLac > 0 ? ((r.amountLac / totalIncome) * 100).toFixed(1) + '%' : '—'}
+                  </td>
+                </tr>
+              ))}
+              <tr class="bg-emerald-50 border-t-2 border-emerald-200 font-bold">
+                <td class="px-5 py-3 text-emerald-800">Total</td>
+                <td class="px-5 py-3 text-right text-emerald-800 font-mono">{fmt(totalIncome)}</td>
+                <td class="px-5 py-3 text-right text-emerald-800 font-mono text-xs">100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Expenditure -->
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+          <div class="bg-primary px-5 py-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+            </svg>
+            <span class="text-white font-bold">Expenditure</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="text-left px-5 py-2.5 font-semibold text-gray-700">Head</th>
+                <th class="text-right px-5 py-2.5 font-semibold text-gray-700">Amount (₹ Lac)</th>
+                <th class="text-right px-5 py-2.5 font-semibold text-gray-700">%</th>
+              </tr>
+            </thead>
+            <tbody>
+              {expenditure.map((r, i) => (
+                <tr class={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                  <td class="px-5 py-3 text-gray-700">{r.item}</td>
+                  <td class="px-5 py-3 text-right font-mono">{fmt(r.amountLac)}</td>
+                  <td class="px-5 py-3 text-right text-gray-400 font-mono text-xs">
+                    {r.amountLac > 0 ? ((r.amountLac / totalExp) * 100).toFixed(1) + '%' : '—'}
+                  </td>
+                </tr>
+              ))}
+              <tr class="bg-primary/5 border-t-2 border-primary/30 font-bold">
+                <td class="px-5 py-3 text-primary">Total</td>
+                <td class="px-5 py-3 text-right text-primary font-mono">{fmt(totalExp)}</td>
+                <td class="px-5 py-3 text-right text-primary font-mono text-xs">{expPct}% of Income</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Surplus note -->
+      <div class="mt-5 bg-blue-50 border border-blue-200 rounded-xl px-5 py-3 text-sm text-blue-700 flex items-start gap-2">
+        <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span>
+          The surplus of <strong>₹{fmt(surplus)} Lac</strong> ({(100 - parseFloat(expPct)).toFixed(1)}% of income) is held as government funds and re-appropriated per State Government budgetary provisions. Faculty and staff salary constitutes <strong>{facultySalaryPct}%</strong> of total expenditure.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expenditure bar chart (CSS) -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Expenditure Breakdown</h2>
+      <div class="space-y-3">
+        {expenditure.filter(e => e.amountLac > 0).map(e => {
+          const pct = (e.amountLac / totalExp) * 100;
+          return (
+            <div class="flex items-center gap-3">
+              <div class="w-52 text-right text-xs text-gray-600 shrink-0">{e.item}</div>
+              <div class="flex-1 bg-gray-100 rounded-full h-5 relative overflow-hidden">
+                <div class="bg-primary h-5 rounded-full flex items-center justify-end pr-2 transition-all" style={`width:${pct}%`}>
+                  <span class="text-white text-xs font-semibold whitespace-nowrap">{pct.toFixed(1)}%</span>
+                </div>
+              </div>
+              <div class="w-20 text-right text-xs font-mono text-gray-700 shrink-0">₹{fmt(e.amountLac)} L</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Government Grants -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Government Grants Received</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {grants.map(g => {
+          const isEmerald = g.color === "emerald";
+          const hdr = isEmerald ? "bg-emerald-600" : "bg-blue-600";
+          const bd  = isEmerald ? "border-emerald-200" : "border-blue-200";
+          const bg  = isEmerald ? "bg-emerald-50" : "bg-blue-50";
+          return (
+            <div class={`border ${bd} rounded-2xl overflow-hidden`}>
+              <div class={`${hdr} px-5 py-3`}>
+                <div class="text-white text-xs font-medium opacity-80 mb-0.5">{g.year}</div>
+                <h3 class="text-white font-bold leading-tight">{g.name}</h3>
+              </div>
+              <div class={`${bg} px-5 py-4 grid grid-cols-2 gap-3 text-sm`}>
+                <div>
+                  <div class="text-xs text-gray-500 font-medium mb-0.5">Sanction Reference</div>
+                  <div class="text-gray-800 font-mono text-xs break-all">{g.sanctionRef}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-500 font-medium mb-0.5">Sanction Date</div>
+                  <div class="text-gray-800">{g.sanctionDate}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-500 font-medium mb-0.5">Activity Period</div>
+                  <div class="text-gray-800 text-xs">{g.activityPeriod}</div>
+                </div>
+                <div>
+                  <div class="text-xs text-gray-500 font-medium mb-0.5">Settlement Amount</div>
+                  <div class="font-semibold text-gray-900">{g.settlementAmt}</div>
+                </div>
+                {g.refunded !== "—" && (
+                  <div>
+                    <div class="text-xs text-gray-500 font-medium mb-0.5">Amount Refunded</div>
+                    <div class="text-gray-700">{g.refunded}</div>
+                  </div>
+                )}
+                <div>
+                  <div class="text-xs text-gray-500 font-medium mb-0.5">UC Reference</div>
+                  <div class="text-gray-700 font-mono text-xs">{g.ucRef}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

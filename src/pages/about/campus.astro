@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// All data from GTU Affiliation Document 2026-27
+const land = {
+  totalAcres: 20.36,
+  location: "Palanpur, Banaskantha, Gujarat",
+  lat: "24°12′N",
+  lon: "72°28′E",
+  ownership: "Government Land",
+  registrationDate: "13 January 1989",
+  certifiedBy: "Collectorate, Banaskantha",
+  continuousPlot: true,
+};
+
+const buildings = [
+  { no: 1, name: "Main Building",       area: 4524.02,  instrArea: 1800,  adminArea: 536,   amenArea: 387.94, approval: "GTE/1184/379/86/S", date: "28 Feb 1996", authority: "Chief Architect, Govt of Gujarat", use: "Academic" },
+  { no: 2, name: "Workshop Building",   area: 1478.5,   instrArea: 820,   adminArea: 70,    amenArea: 63.69,  approval: "TEM/1087/2474",       date: "5 Feb 1990",  authority: "Chief Architect, Govt of Gujarat", use: "Academic" },
+  { no: 3, name: "BADP Building",       area: 2055.84,  instrArea: 879,   adminArea: 208,   amenArea: 969,    approval: "N/A",                  date: "—",           authority: "Chief Architect, Govt of Gujarat", use: "Academic" },
+  { no: 4, name: "LRUC Building",       area: 1038.0,   instrArea: 602.24,adminArea: 141.73,amenArea: 294.03, approval: "N/A",                  date: "—",           authority: "Chief Architect, Govt of Gujarat", use: "Academic" },
+  { no: 5, name: "Mechanical Block",    area: 4872.0,   instrArea: 1499,  adminArea: 176,   amenArea: 162,    approval: "TEM/10201/4/3054/S",   date: "18 Oct 2014", authority: "R&B Dept, Govt of Gujarat",       use: "Academic" },
+];
+
+const academicInfra = [
+  { label: "Classrooms (≥66 sq.m)",       count: "20",  detail: "1,223.75 sq.m combined area" },
+  { label: "Drawing Halls",                count: "4",   detail: "3 halls · 275.45 sq.m" },
+  { label: "Laboratories",                 count: "38",  detail: "2,560.14 sq.m combined area" },
+  { label: "Seminar Hall",                 count: "1",   detail: "Audio-Visual, 325 sq.m" },
+  { label: "Computer Centres",             count: "3",   detail: "226.71 sq.m total" },
+  { label: "Language Laboratory",          count: "1",   detail: "76.56 sq.m · 30+ student capacity" },
+  { label: "Library & Reading Room",       count: "1",   detail: "413.72 sq.m (norm: 400 sq.m)" },
+  { label: "Workshop",                     count: "1",   detail: "1,478 sq.m" },
+];
+
+const hostels = [
+  { type: "Boys' Hostel",  blocks: 3, seats: 264, area: 7256,  note: "3 separate hostel blocks" },
+  { type: "Girls' Hostel", blocks: 1, seats: 48,  area: 1055,  note: "Dedicated girls' block" },
+];
+
+const amenities = [
+  { label: "Sports Facility", detail: "13,950 sq.m (indoor + outdoor)",  yes: true },
+  { label: "Student Canteen",  detail: "352 sq.m",                         yes: true },
+  { label: "Medical Facility", detail: "On-campus; counseling available",  yes: true },
+  { label: "Girls' Common Room",detail: "Yes",                             yes: true },
+  { label: "Staff Quarters",   detail: "On-campus staff housing",          yes: true },
+  { label: "CCTV Security",    detail: "Classrooms, store, exam rooms, library", yes: true },
+  { label: "Generator",        detail: "10 kV DG backup",                  yes: true },
+  { label: "Projectors",       detail: "In all classrooms",                yes: true },
+  { label: "Public Address System", detail: "Campus-wide PA",              yes: true },
+  { label: "Potable Water",    detail: "Purified drinking water supply",    yes: true },
+  { label: "Barrier-Free",     detail: "Accessible infrastructure (ramps)", yes: true },
+  { label: "Sewage Disposal",  detail: "Proper sewage system",             yes: true },
+  { label: "First Aid",        detail: "Available",                         yes: true },
+  { label: "Vehicle Parking",  detail: "Campus parking",                   yes: true },
+  { label: "General Insurance",detail: "Institute insured",                yes: true },
+  { label: "Students' Insurance",detail: "Group insurance for students",   yes: true },
+  { label: "Telephone & Fax",  detail: "Communication infrastructure",     yes: true },
+  { label: "Bank Facility",    detail: "Not on-campus (nearby)",           yes: false },
+  { label: "Transport",        detail: "Not operated by institute",         yes: false },
+];
+
+const totalBuiltArea = buildings.reduce((s, b) => s + b.area, 0);
+const totalHostelSeats = hostels.reduce((s, h) => s + h.seats, 0);
+---
+
+<Layout title="Campus Infrastructure | About | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>About</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Campus & Infrastructure</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-slate-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        GTU Affiliation 2026-27 — Verified Data
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Campus & Infrastructure</h1>
+      <p class="text-gray-600 text-lg">
+        Spanning {land.totalAcres} acres of government land in Palanpur, GPP offers a well-equipped campus with modern classrooms, laboratories, workshops, hostels, and recreational facilities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key stats -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto text-center">
+        <div><div class="text-3xl font-bold text-primary">{land.totalAcres}</div><div class="text-sm font-semibold text-gray-900">Acres</div><div class="text-xs text-gray-500">Campus area</div></div>
+        <div><div class="text-3xl font-bold text-primary">{buildings.length}</div><div class="text-sm font-semibold text-gray-900">Buildings</div><div class="text-xs text-gray-500">{Math.round(totalBuiltArea).toLocaleString()} sq.m total</div></div>
+        <div><div class="text-3xl font-bold text-primary">38+</div><div class="text-sm font-semibold text-gray-900">Laboratories</div><div class="text-xs text-gray-500">Dept-wise equipped</div></div>
+        <div><div class="text-3xl font-bold text-primary">{totalHostelSeats}</div><div class="text-sm font-semibold text-gray-900">Hostel Seats</div><div class="text-xs text-gray-500">Boys + Girls</div></div>
+        <div><div class="text-3xl font-bold text-primary">13,950</div><div class="text-sm font-semibold text-gray-900">sq.m Sports</div><div class="text-xs text-gray-500">Grounds & facilities</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Land Details -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">Land Details</h2>
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {[
+          { label: "Total Area",           value: `${land.totalAcres} acres` },
+          { label: "Location",             value: land.location },
+          { label: "Coordinates",          value: `${land.lat}, ${land.lon}` },
+          { label: "Ownership",            value: land.ownership },
+          { label: "Land Registration",    value: land.registrationDate },
+          { label: "Certified By",         value: land.certifiedBy },
+          { label: "Land Use Certificate", value: "YES — k.jamin/2/vashi-142/86" },
+          { label: "Continuous Plot",      value: "YES" },
+          { label: "Occupancy Certificate",value: "Issued: 23 Jan 2017 (R&B Dept, Gujarat)" },
+        ].map(item => (
+          <div class="border-b sm:border-b-0 border-gray-100 pb-3 sm:pb-0 last:border-b-0">
+            <div class="text-xs text-gray-500 font-medium uppercase tracking-wide">{item.label}</div>
+            <div class="text-sm font-semibold text-gray-800 mt-0.5">{item.value}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Buildings -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">Campus Buildings</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-gray-50 border border-gray-200">
+              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Building</th>
+              <th class="text-right px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Total Area (sq.m)</th>
+              <th class="text-right px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Instructional</th>
+              <th class="text-right px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Administrative</th>
+              <th class="text-right px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Amenities</th>
+              <th class="text-left px-4 py-3 font-semibold text-gray-700">Approval Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {buildings.map((b, i) => (
+              <tr class={`border border-gray-200 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-primary/5 transition-colors`}>
+                <td class="px-4 py-3 border-r border-gray-200">
+                  <span class="inline-flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">{b.no}</span>
+                    <span class="font-medium text-gray-900">{b.name}</span>
+                  </span>
+                </td>
+                <td class="px-4 py-3 border-r border-gray-200 text-right font-mono text-gray-700">{b.area.toLocaleString()}</td>
+                <td class="px-4 py-3 border-r border-gray-200 text-right text-gray-600">{b.instrArea.toLocaleString()}</td>
+                <td class="px-4 py-3 border-r border-gray-200 text-right text-gray-600">{b.adminArea.toLocaleString()}</td>
+                <td class="px-4 py-3 border-r border-gray-200 text-right text-gray-600">{b.amenArea.toLocaleString()}</td>
+                <td class="px-4 py-3 text-gray-500 text-xs">{b.date}</td>
+              </tr>
+            ))}
+            <tr class="bg-primary/5 border border-primary/20 font-semibold">
+              <td class="px-4 py-3 border-r border-gray-200 text-gray-900">Total</td>
+              <td class="px-4 py-3 border-r border-gray-200 text-right font-mono text-primary">{Math.round(totalBuiltArea).toLocaleString()}</td>
+              <td class="px-4 py-3 border-r border-gray-200 text-right text-gray-600">{(buildings.reduce((s,b) => s+b.instrArea, 0)).toLocaleString()}</td>
+              <td class="px-4 py-3 border-r border-gray-200 text-right text-gray-600">{(buildings.reduce((s,b) => s+b.adminArea, 0)).toLocaleString()}</td>
+              <td class="px-4 py-3 border-r border-gray-200 text-right text-gray-600">—</td>
+              <td class="px-4 py-3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Infrastructure -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">Academic Infrastructure</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {academicInfra.map(item => (
+          <div class="bg-white border border-gray-200 rounded-xl p-4 flex items-start gap-3 hover:shadow-sm transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <span class="text-lg font-bold text-primary">{item.count}</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900 text-sm">{item.label}</div>
+              <div class="text-xs text-gray-500 mt-0.5">{item.detail}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Hostels -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">Hostel Facilities</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        {hostels.map(h => (
+          <div class={`border rounded-2xl p-6 ${h.type.includes('Boys') ? 'border-blue-200 bg-blue-50' : 'border-pink-200 bg-pink-50'}`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${h.type.includes('Boys') ? 'bg-blue-100' : 'bg-pink-100'}`}>
+                {h.type.includes('Boys') ? '🏠' : '🏡'}
+              </div>
+              <h3 class={`text-xl font-bold ${h.type.includes('Boys') ? 'text-blue-900' : 'text-pink-900'}`}>{h.type}</h3>
+            </div>
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div>
+                <div class={`text-2xl font-bold ${h.type.includes('Boys') ? 'text-blue-700' : 'text-pink-700'}`}>{h.blocks}</div>
+                <div class="text-xs text-gray-500">Blocks</div>
+              </div>
+              <div>
+                <div class={`text-2xl font-bold ${h.type.includes('Boys') ? 'text-blue-700' : 'text-pink-700'}`}>{h.seats}</div>
+                <div class="text-xs text-gray-500">Seats</div>
+              </div>
+              <div>
+                <div class={`text-2xl font-bold ${h.type.includes('Boys') ? 'text-blue-700' : 'text-pink-700'}`}>{h.area.toLocaleString()}</div>
+                <div class="text-xs text-gray-500">sq.m</div>
+              </div>
+            </div>
+            <div class={`text-xs mt-3 ${h.type.includes('Boys') ? 'text-blue-600' : 'text-pink-600'}`}>{h.note}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities grid -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">Other Facilities</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {amenities.map(am => (
+          <div class={`flex items-start gap-3 p-3.5 rounded-xl border ${am.yes ? 'bg-white border-gray-200' : 'bg-gray-100 border-gray-200 opacity-60'}`}>
+            <div class={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${am.yes ? 'bg-emerald-100 text-emerald-600' : 'bg-gray-200 text-gray-400'}`}>
+              {am.yes ? (
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              ) : (
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
+              )}
+            </div>
+            <div>
+              <div class="text-sm font-medium text-gray-900">{am.label}</div>
+              <div class="text-xs text-gray-500">{am.detail}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
