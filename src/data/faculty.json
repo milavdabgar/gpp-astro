@@ -1,0 +1,328 @@
+{
+  "civil": [
+    {
+      "name": "Mr. D.N. Sheth",
+      "designation": "Head of Department (HOD)",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/D.N.SHETH.jpg"
+    },
+    {
+      "name": "Mr. N.V. Prajapati",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/N.V.PRAJAPATI.jpg"
+    },
+    {
+      "name": "Mr. A.N. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/A.N.PATEL.jpg"
+    },
+    {
+      "name": "Mr. A.R. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/A.R.PATEL.jpg"
+    },
+    {
+      "name": "Mr. F.A. Mukhi",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/F.A.MUKHI.jpg"
+    },
+    {
+      "name": "Mr. H.P. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/H.P.PATEL.jpg"
+    },
+    {
+      "name": "Ms. F.M. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/SMT F.M.PATEL.jpg"
+    },
+    {
+      "name": "Ms. P.D. Sheth",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/SMT P.D.SHETH.jpg"
+    },
+    {
+      "name": "Mr. V.P. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/V.P.PATEL.jpg"
+    },
+    {
+      "name": "Mr. Y.T. Rana",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Civil Engineering",
+      "photo": "/images/NEW WEBSITE DATA/CIVIL/FACULTY PHOTOS/Y.T.RANA.jpg"
+    }
+  ],
+  "electrical": [
+    {
+      "name": "Mr. A.D. Shah",
+      "designation": "Head of Department (HOD)",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/ADSHAH.jpeg"
+    },
+    {
+      "name": "Mr. A.M. Qureshi",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/AMQURESHI.jpeg"
+    },
+    {
+      "name": "Mr. A.R. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/ARPATEL.jpeg"
+    },
+    {
+      "name": "Mr. A.V. Gajjar",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/AVGAJJAR.jpeg"
+    },
+    {
+      "name": "Mr. B.M. Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/BMPATEL.jpeg"
+    },
+    {
+      "name": "Mr. I.D. Chaudhary",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/IDCHAUDHARY.jpeg"
+    },
+    {
+      "name": "Mr. P.K. Bhavsar",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/PKBHAVSAR.jpeg"
+    },
+    {
+      "name": "Mr. R.M. Prajapati",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/RMPRAJAPATI.jpeg"
+    },
+    {
+      "name": "Mr. R.P. Chavda",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/RPCHAVDA.jpeg"
+    },
+    {
+      "name": "Mr. T.P. Purohit",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Electrical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/ELECTRICAL/FACULTY PHOTOS/TPPUROHIT.jpeg"
+    }
+  ],
+  "mechanical": [
+    {
+      "name": "Mr. D.D. Prajapati",
+      "designation": "Head of Department (HOD)",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/D D Prajapati.jpg"
+    },
+    {
+      "name": "Mr. S.D. Dabhi",
+      "designation": "Lecturer & Principal (I/C)",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/S D Dabhi.jpg"
+    },
+    {
+      "name": "Mr. N.V. Oza",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/N V OZA.jpg"
+    },
+    {
+      "name": "Mr. N.H. Oza",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/N H OZA.jpeg"
+    },
+    {
+      "name": "Dr. N.N. Chaudhary",
+      "designation": "Lecturer (PhD)",
+      "qualification": "Ph.D - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/Dr. N. N. Chaudhary.jpg"
+    },
+    {
+      "name": "Mr. B.N. Prajapati",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/B N Prajapati_.jpg"
+    },
+    {
+      "name": "Mr. C.M. Amin",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/C M AMIN.jpg"
+    },
+    {
+      "name": "Mr. D.H. Desai",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/D H DESAI.JPG"
+    },
+    {
+      "name": "Mr. D.P. Judal",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/D P JUDAL.jpeg"
+    },
+    {
+      "name": "Mr. M.K. Prajapati",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/M.K.Prajapati.jpg"
+    },
+    {
+      "name": "Mr. M.R. Zala",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/M. R. Zala Photo.jpg"
+    },
+    {
+      "name": "Mr. P.G. Chauhan",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/P.G.Chauhan.jpg"
+    },
+    {
+      "name": "Mr. R.L. Chaudhari",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/R.L.Chaudhari.jpg"
+    },
+    {
+      "name": "Mr. S.N. Chauhan",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/S N CHAUHAN_MECH_GPP.jpg"
+    },
+    {
+      "name": "Mr. S.P. Mahant",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/S P MAHANT.jpeg"
+    },
+    {
+      "name": "Mr. T.D. Modi",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/T.D.Modi.jpg"
+    },
+    {
+      "name": "Mr. V.B. Chaudhari",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/V B CHAUDHARI.jpg"
+    },
+    {
+      "name": "Mr. V.H. Suthar",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/V H SUTHAR .jpg"
+    },
+    {
+      "name": "Mr. V.M. Prajapati",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/V M Prajapati.jpeg"
+    },
+    {
+      "name": "Mr. Y.D. Chaudhari",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/Y D Chaudhari.jpg"
+    },
+    {
+      "name": "Mr. Viral Patel",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Mechanical Engineering",
+      "photo": "/images/NEW WEBSITE DATA/MECHANICAL/Faculty photos/viral patel.jpg"
+    }
+  ],
+  "ec": [
+    {
+      "name": "Mr. Sunil J. Chauhan",
+      "designation": "Head of Department (HOD)",
+      "qualification": "M.E. - Communication System Engineering",
+      "specialization": "Communication System Engineering",
+      "since": "07/12/1993",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/S.J.CHAUHAN.jpg",
+      "highlights": ["32+ years experience", "Chief Editor – SPECTRUM newsletter", "Leading NBA Accreditation drive"]
+    },
+    {
+      "name": "Ms. Mittal K. Pedhadiya",
+      "designation": "Lecturer",
+      "qualification": "M.Tech - Wireless Communication & Technology",
+      "specialization": "Wireless Communication",
+      "since": "26/04/2011",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/mkp.JPG",
+      "highlights": ["Computer Lab-1 In-charge", "1 Research Paper Published"]
+    },
+    {
+      "name": "Dr. Laukikkumar K. Patel",
+      "designation": "Lecturer (PhD)",
+      "qualification": "Ph.D - Electronics & Communication",
+      "specialization": "Electronics & Communication",
+      "since": "28/04/2011",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/DR. L.K.PATEL.jpeg",
+      "highlights": ["Computer Lab-2 In-charge", "PhD Recipient", "1 Research Paper Published"]
+    },
+    {
+      "name": "Dr. Ratansing N. Patel",
+      "designation": "Lecturer (PhD)",
+      "qualification": "Ph.D - Electronics & Communication",
+      "specialization": "Electronics & Communication",
+      "since": "28/10/2016",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/DR. R.N,.PATEL.jpeg",
+      "highlights": ["Communication Lab-1 & 2 In-charge", "1 Research Paper Published"]
+    },
+    {
+      "name": "Mr. Milav J. Dabgar",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Communication System Engineering",
+      "specialization": "Communication Systems",
+      "since": "02/11/2016",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/M.J.DABGAR.jpeg",
+      "highlights": ["Computer Lab-3 In-charge", "Faculty Coordinator – SPECTRUM newsletter"]
+    },
+    {
+      "name": "Mr. Rahul C. Parmar",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Communication System Engineering",
+      "specialization": "Communication Systems",
+      "since": "28/10/2016",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/R.C.PARMAR.jpeg",
+      "highlights": ["Electronics Lab-2 In-charge"]
+    },
+    {
+      "name": "Mr. Snehilkumar P. Joshiara",
+      "designation": "Lecturer",
+      "qualification": "B.E. - Electronics & Communication",
+      "specialization": "Electronics & Communication",
+      "since": "25/05/2017",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/S.P.JOSHIARA.JPG",
+      "highlights": ["Computer Lab-4 In-charge"]
+    },
+    {
+      "name": "Mr. Nirav J. Chauhan",
+      "designation": "Lecturer",
+      "qualification": "M.E. - Communication System Engineering",
+      "specialization": "Communication Systems",
+      "since": "01/07/2017",
+      "photo": "/images/NEW WEBSITE DATA/EC/FACULTY PHOTOS/Nirav Latest.jpg",
+      "highlights": ["Electronics Lab-1 & 3 In-charge", "3 Research Papers Published"]
+    }
+  ]
+}

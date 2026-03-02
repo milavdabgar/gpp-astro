@@ -1,0 +1,51 @@
+{
+  "civil": [
+    {
+      "name": "Computer Lab",
+      "image": "/images/NEW WEBSITE DATA/CIVIL/LAB/Computer lab.jpeg",
+      "description": "Equipped with latest software for structural analysis and design"
+    },
+    {
+      "name": "Hydraulics Lab",
+      "image": "/images/NEW WEBSITE DATA/CIVIL/LAB/Hydraulics lab.jpeg",
+      "description": "Facilities for fluid mechanics and hydraulics experiments"
+    },
+    {
+      "name": "Survey Lab",
+      "image": "/images/NEW WEBSITE DATA/CIVIL/LAB/Survey lab.jpeg",
+      "description": "Modern surveying instruments and equipment"
+    },
+    {
+      "name": "Transportation Lab",
+      "image": "/images/NEW WEBSITE DATA/CIVIL/LAB/Transportation lab.jpeg",
+      "description": "Testing facilities for highway materials and design"
+    },
+    {
+      "name": "Water Supply & Sanitary Engineering Lab",
+      "image": "/images/NEW WEBSITE DATA/CIVIL/LAB/WSSE Lab.jpeg",
+      "description": "Comprehensive facilities for environmental engineering"
+    }
+  ],
+  "ec": [
+    {
+      "name": "Computer Lab",
+      "image": "/images/NEW WEBSITE DATA/EC/LAB/Copmputer lab_002.jpg",
+      "description": "State-of-the-art computers with latest software for programming and simulations"
+    },
+    {
+      "name": "Digital Logic Design Lab",
+      "image": "/images/NEW WEBSITE DATA/EC/LAB/DLD LAB (1).jpeg",
+      "description": "Facilities for digital electronics and logic design experiments"
+    },
+    {
+      "name": "Electronics Lab",
+      "image": "/images/NEW WEBSITE DATA/EC/LAB/DLD LAB (2).jpeg",
+      "description": "Comprehensive electronics lab with modern equipment"
+    },
+    {
+      "name": "Microcontroller & Microprocessor Lab",
+      "image": "/images/NEW WEBSITE DATA/EC/LAB/microcontroller, microprecessor.jpg",
+      "description": "Hands-on training with various microcontroller and microprocessor platforms"
+    }
+  ]
+}

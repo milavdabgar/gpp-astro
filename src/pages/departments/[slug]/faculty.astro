@@ -1,0 +1,180 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+import departments from '../../../data/departments.json';
+import facultyData from '../../../data/faculty.json';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const paths = [];
+  for (const dept of departments) {
+    if ((facultyData as any)[dept.id]) {
+      paths.push({
+        params: { slug: dept.slug },
+        props: { dept, faculty: (facultyData as any)[dept.id] },
+      });
+    }
+  }
+  return paths;
+};
+
+const { dept, faculty } = Astro.props as any;
+
+// Count PhDs
+const phdCount = faculty.filter(f => f.designation?.includes('PhD') || f.qualification?.includes('Ph.D')).length;
+---
+
+<Layout title={`Faculty - ${dept.name} | GP Palanpur`}>
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Header -->
+  <section class="bg-gradient-to-br from-primary/10 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+        <a href="/" class="hover:text-primary">Home</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/departments" class="hover:text-primary">Departments</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href={`/departments/${dept.slug}`} class="hover:text-primary">{dept.name}</a>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-gray-700">Faculty</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Our Faculty</h1>
+        <p class="text-lg text-gray-600 mb-6">Experienced & Qualified Teaching Staff</p>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="text-center bg-white/80 rounded-lg p-3 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{faculty.length}</div>
+            <div class="text-xs text-gray-500 mt-1">Total Faculty</div>
+          </div>
+          {phdCount > 0 && (
+            <div class="text-center bg-white/80 rounded-lg p-3 border border-white shadow-sm">
+              <div class="text-2xl font-bold text-primary">{phdCount}</div>
+              <div class="text-xs text-gray-500 mt-1">PhD Holders</div>
+            </div>
+          )}
+          <div class="text-center bg-white/80 rounded-lg p-3 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{dept.laboratories.length}</div>
+            <div class="text-xs text-gray-500 mt-1">Laboratories</div>
+          </div>
+          <div class="text-center bg-white/80 rounded-lg p-3 border border-white shadow-sm">
+            <div class="text-2xl font-bold text-primary">{dept.intake_capacity}</div>
+            <div class="text-xs text-gray-500 mt-1">Students</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- HOD First -->
+      {faculty.filter(f => f.designation.includes('HOD')).map(member => (
+        <div class="max-w-4xl mx-auto mb-12">
+          <div class="bg-gradient-to-br from-primary/5 to-blue-50 rounded-2xl p-8 border border-primary/20 shadow-lg">
+            <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+              <div class="flex-shrink-0">
+                <img 
+                  src={member.photo} 
+                  alt={member.name}
+                  class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                />
+              </div>
+              <div class="flex-1 text-center md:text-left">
+                <div class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-2">
+                  HEAD OF DEPARTMENT
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <p class="text-primary font-semibold mb-3">{member.qualification}</p>
+                {member.specialization && (
+                  <p class="text-sm text-gray-600 mb-2">Specialization: {member.specialization}</p>
+                )}
+                {member.since && (
+                  <p class="text-sm text-gray-600 mb-3">Serving since: {member.since}</p>
+                )}
+                {member.highlights && member.highlights.length > 0 && (
+                  <div class="mt-4">
+                    <ul class="space-y-1">
+                      {member.highlights.map(highlight => (
+                        <li class="flex items-center gap-2 text-sm text-gray-700">
+                          <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <!-- Other Faculty -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {faculty.filter(f => !f.designation.includes('HOD')).map(member => (
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+            <div class="aspect-square bg-gray-100 overflow-hidden">
+              <img 
+                src={member.photo} 
+                alt={member.name}
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+              <p class="text-sm font-semibold text-primary mb-2">{member.designation}</p>
+              <p class="text-xs text-gray-600 mb-3">{member.qualification}</p>
+              {member.specialization && (
+                <p class="text-xs text-gray-500 mb-2">
+                  <span class="font-semibold">Area:</span> {member.specialization}
+                </p>
+              )}
+              {member.since && (
+                <p class="text-xs text-gray-500 mb-3">
+                  <span class="font-semibold">Since:</span> {member.since.split('/')[2] || member.since}
+                </p>
+              )}
+              {member.highlights && member.highlights.length > 0 && (
+                <div class="border-t border-gray-100 pt-3 mt-3">
+                  <ul class="space-y-1">
+                    {member.highlights.slice(0, 2).map(highlight => (
+                      <li class="flex items-start gap-2 text-xs text-gray-600">
+                        <svg class="w-3 h-3 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <a href={`/departments/${dept.slug}`} class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to {dept.name}
+      </a>
+      <a href="/contact" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+        Contact Department
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
