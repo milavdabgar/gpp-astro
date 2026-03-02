@@ -1,0 +1,233 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// Industrial Training for Faculties — Summer 2024 + Summer 2025
+// Source: GTU Affiliation Document 2026-27 (939.md)
+const trainings = [
+  // Civil faculty — USP Construction & Tirupati Sarjan
+  { sr: 1,  year: "2024 Summer", faculty: "Arvindkumar R. Patel",           industry: "USP Construction",                     address: "F 16, Seven Elevan Business Hub, Deesa Road, Patan – 9913071204" },
+  { sr: 2,  year: "2024 Summer", faculty: "Yagnik T. Rana",                 industry: "USP Construction",                     address: "F 16, Seven Elevan Business Hub, Deesa Road, Patan – 9913071204" },
+  { sr: 3,  year: "2024 Summer", faculty: "Vipul P. Patel",                 industry: "USP Construction",                     address: "F 16, Seven Elevan Business Hub, Deesa Road, Patan – 9913071204" },
+  { sr: 4,  year: "2024 Summer", faculty: "Hardik P. Patel",                industry: "Tirupati Sarjan Limited",              address: "1st Floor, M. K. Patel Market, Kansa Char Rasta, Visnagar-384315 – Ph: 02765-230294" },
+  { sr: 5,  year: "2024 Summer", faculty: "Nihar V. Prajapati",             industry: "Tirupati Sarjan Limited",              address: "1st Floor, M. K. Patel Market, Kansa Char Rasta, Visnagar-384315" },
+  { sr: 6,  year: "2024 Summer", faculty: "Patel Arvindbhai Naranbhai",     industry: "Tirupati Sarjan Limited",              address: "Visnagar-384315 – Ph: 02765-230294" },
+  { sr: 7,  year: "2024 Summer", faculty: "Fanan A. Mukhi",                 industry: "Tirupati Sarjan Limited",              address: "Visnagar-384315 – Ph: 02765-230294" },
+  // Mechanical/Electrical faculty — Banas Dairy
+  { sr: 8,  year: "2024 Summer", faculty: "Poonam D. Sheth",                industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 9,  year: "2024 Summer", faculty: "Devendrakumar N. Sheth",         industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 10, year: "2024 Summer", faculty: "Rajeshkumar Jivramdas Patel",    industry: "NCC Limited",                          address: "Patan" },
+  { sr: 11, year: "2024 Summer", faculty: "Jigneshkumar N. Chaudhary",      industry: "Tirupati Sarjan Limited",              address: "Visnagar-384315 – Ph: 02765-230294" },
+  { sr: 12, year: "2024 Summer", faculty: "M. K. Pedhadiya",                industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 13, year: "2024 Summer", faculty: "L. K. Patel",                    industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 14, year: "2024 Summer", faculty: "S. P. Joshiara",                 industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 15, year: "2024 Summer", faculty: "N. J. Chauhan",                  industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 16, year: "2024 Summer", faculty: "Dr. R. N. Patel",                industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 17, year: "2024 Summer", faculty: "M. J. Dabgar",                   industry: "Duke Pipes Private Limited",           address: "Survey No. 365/1, Gadh Road, Chadotar, Palanpur, Gujarat 385001" },
+  { sr: 18, year: "2024 Summer", faculty: "L. K. Patel",                    industry: "Duke Pipes Private Limited",           address: "Survey No. 365/1, Gadh Road, Chadotar, Palanpur, Gujarat 385001" },
+  { sr: 19, year: "2024 Summer", faculty: "P. K. Bhavsar",                  industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 20, year: "2024 Summer", faculty: "T. P. Purohit",                  industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 21, year: "2024 Summer", faculty: "R. M. Prajapati",                industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 22, year: "2024 Summer", faculty: "A. V. Gajjar",                   industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 23, year: "2024 Summer", faculty: "R. P. Chavda",                   industry: "Duke Pumping Solutions Pvt. Ltd.",     address: "Badarpura, Palanpur" },
+  { sr: 24, year: "2024 Summer", faculty: "B. M. Patel",                    industry: "Duke Pumping Solutions Pvt. Ltd.",     address: "Badarpura, Palanpur" },
+  { sr: 25, year: "2024 Summer", faculty: "A. M. Qureshi",                  industry: "Duke Pumping Solutions Pvt. Ltd.",     address: "Badarpura, Palanpur" },
+  { sr: 26, year: "2024 Summer", faculty: "Ashok R. Patel",                 industry: "Coach International Technique Pvt. Ltd.", address: "Ahmedabad Highway, Palanpur" },
+  { sr: 27, year: "2024 Summer", faculty: "N. N. Chaudhary",                industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 28, year: "2024 Summer", faculty: "V. M. Prajapati",                industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 29, year: "2024 Summer", faculty: "M. R. Zala",                     industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 30, year: "2024 Summer", faculty: "T. D. Modi",                     industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 31, year: "2024 Summer", faculty: "S. N. Chauhan",                  industry: "Banas Dairy",                          address: "PB No. 20, Palanpur 385001 – Mob: 9510407136" },
+  { sr: 32, year: "2024 Summer", faculty: "M. K. Prajapati",                industry: "Vimal Oil & Foods Ltd.",               address: "Mehsana" },
+  { sr: 33, year: "2024 Summer", faculty: "V. B. Chaudhari",                industry: "Vimal Oil & Foods Ltd.",               address: "Mehsana" },
+  { sr: 34, year: "2024 Summer", faculty: "Y. D. Chaudhari",                industry: "Vimal Oil & Foods Ltd.",               address: "Mehsana" },
+  { sr: 35, year: "2024 Summer", faculty: "R. L. Chaudhari",                industry: "Vimal Oil & Foods Ltd.",               address: "Mehsana" },
+  { sr: 36, year: "2024 Summer", faculty: "J. B. Patel",                    industry: "Mehsana Dairy and Food Products",      address: "Mehsana" },
+  { sr: 37, year: "2024 Summer", faculty: "N. H. Oza",                      industry: "Mehsana Dairy and Food Products",      address: "Mehsana" },
+  { sr: 38, year: "2024 Summer", faculty: "D. P. Judal",                    industry: "Mehsana Dairy and Food Products",      address: "Mehsana" },
+  { sr: 39, year: "2024 Summer", faculty: "V. G. Patel",                    industry: "Mehsana Dairy and Food Products",      address: "Mehsana" },
+  { sr: 40, year: "2024 Summer", faculty: "C. M. Amin",                     industry: "Kalpataru Projects International Ltd.", address: "Gandhinagar" },
+  { sr: 41, year: "2024 Summer", faculty: "D. H. Desai",                    industry: "Kalpataru Projects International Ltd.", address: "Gandhinagar" },
+  { sr: 42, year: "2024 Summer", faculty: "N. A. Modi",                     industry: "Gokul Agri",                           address: "Siddhpur" },
+  { sr: 43, year: "2024 Summer", faculty: "V. H. Suthar",                   industry: "SUSPA Pneumatics",                     address: "Palanpur" },
+  { sr: 44, year: "2024 Summer", faculty: "S. P. Mahant",                   industry: "SUSPA Pneumatics India Pvt. Ltd.",     address: "Palanpur" },
+  { sr: 45, year: "2024 Summer", faculty: "P. G. Chauhan",                  industry: "Duke Pumping Solution Pvt. Ltd.",      address: "Palanpur" },
+  { sr: 46, year: "2024 Summer", faculty: "B. N. Prajapati",                industry: "Duke Pumping Solution Pvt. Ltd.",      address: "Palanpur" },
+  { sr: 47, year: "2024 Summer", faculty: "Dr. Bhupendrakumar B. Mor",      industry: "Coach International Technique Pvt. Ltd.", address: "Palanpur" },
+  { sr: 48, year: "2024 Summer", faculty: "Gelot Chetan Prahladbhai",       industry: "Coach International Technique Pvt. Ltd.", address: "Palanpur" },
+  { sr: 49, year: "2024 Summer", faculty: "Dr. Chiragkumar S. Pandya",      industry: "Coach International Technique Pvt. Ltd.", address: "Palanpur" },
+  { sr: 50, year: "2024 Summer", faculty: "Tank Maheshkumar Fulchandbhai",  industry: "Coach International Technique Pvt. Ltd.", address: "Palanpur" },
+  { sr: 51, year: "2024 Summer", faculty: "Dr. Modi Jignaben Dahyalal",     industry: "Amee Castor & Derivatives Ltd.",       address: "Palanpur" },
+  { sr: 52, year: "2024 Summer", faculty: "Modi Devarsh Jitendrakumar",     industry: "Harikrupa Automation Pvt. Ltd.",       address: "302 Kalasagar Business Hub, Ghatlodiya, Ahmedabad – 380061" },
+  { sr: 53, year: "2024 Summer", faculty: "Chauhan Vismay Arvindbhai",      industry: "Harikrupa Automation Pvt. Ltd.",       address: "302 Kalasagar Business Hub, Ghatlodiya, Ahmedabad – 380061" },
+  { sr: 54, year: "2025 Summer", faculty: "R. C. Parmar",                   industry: "Topline Switchgear Pvt. Ltd.",         address: "At Vadsar, Taluka Kalol, Dist. Gandhinagar" },
+];
+
+// Group by industry name for stats
+const industries = [...new Set(trainings.map(t => t.industry))];
+
+const industryColors: Record<string, string> = {
+  "Banas Dairy":                               "bg-amber-100 text-amber-800 border-amber-200",
+  "Tirupati Sarjan Limited":                   "bg-orange-100 text-orange-800 border-orange-200",
+  "USP Construction":                          "bg-stone-100 text-stone-800 border-stone-200",
+  "Duke Pipes Private Limited":                "bg-blue-100 text-blue-800 border-blue-200",
+  "Duke Pumping Solutions Pvt. Ltd.":          "bg-blue-100 text-blue-800 border-blue-200",
+  "Duke Pumping Solution Pvt. Ltd.":           "bg-blue-100 text-blue-800 border-blue-200",
+  "Vimal Oil & Foods Ltd.":                    "bg-yellow-100 text-yellow-800 border-yellow-200",
+  "Mehsana Dairy and Food Products":           "bg-green-100 text-green-800 border-green-200",
+  "Kalpataru Projects International Ltd.":     "bg-indigo-100 text-indigo-800 border-indigo-200",
+  "Coach International Technique Pvt. Ltd.":   "bg-red-100 text-red-800 border-red-200",
+  "NCC Limited":                               "bg-teal-100 text-teal-800 border-teal-200",
+  "SUSPA Pneumatics":                          "bg-cyan-100 text-cyan-800 border-cyan-200",
+  "SUSPA Pneumatics India Pvt. Ltd.":          "bg-cyan-100 text-cyan-800 border-cyan-200",
+  "Gokul Agri":                                "bg-lime-100 text-lime-800 border-lime-200",
+  "Harikrupa Automation Pvt. Ltd.":            "bg-purple-100 text-purple-800 border-purple-200",
+  "Amee Castor & Derivatives Ltd.":            "bg-pink-100 text-pink-800 border-pink-200",
+  "Topline Switchgear Pvt. Ltd.":              "bg-violet-100 text-violet-800 border-violet-200",
+};
+function tagFor(ind: string) { return industryColors[ind] ?? "bg-gray-100 text-gray-700 border-gray-200"; }
+
+const industryStats = industries.map(ind => ({
+  name: ind,
+  count: trainings.filter(t => t.industry === ind).length,
+})).sort((a,b) => b.count - a.count);
+---
+
+<Layout title="Faculty Industrial Training | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Faculty Industrial Training</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-cyan-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        Industry–Academia Integration
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Faculty Industrial Training</h1>
+      <p class="text-gray-600 text-lg">
+        GPP faculty members undergo hands-on industrial exposure every summer at leading industries in the region — bridging the gap between academic teaching and real-world practice.
+      </p>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary">{trainings.length}</div>
+          <div class="text-sm text-gray-500 mt-1">Faculty Trainings</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{industries.length}</div>
+          <div class="text-sm text-gray-500 mt-1">Partner Industries</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">2</div>
+          <div class="text-sm text-gray-500 mt-1">Batches (2024–2025)</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">6+</div>
+          <div class="text-sm text-gray-500 mt-1">Industry Sectors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Stats -->
+  <section class="py-8 bg-gray-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Partner Industries (by faculty placement count)</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {industryStats.map(s => (
+          <div class={`border rounded-xl px-4 py-3 flex items-center justify-between ${tagFor(s.name).split(' ').filter(c=>c.startsWith('border')).join(' ')} bg-white`}>
+            <span class="text-sm font-semibold text-gray-900">{s.name}</span>
+            <span class={`ml-2 shrink-0 px-2 py-0.5 rounded-full text-xs font-bold ${tagFor(s.name)}`}>{s.count}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Table -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-bold text-gray-900">Complete Training Records</h2>
+        <span class="text-sm text-gray-500">{trainings.length} records</span>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200 text-left text-xs text-gray-500 uppercase tracking-wide">
+              <th class="px-4 py-3 font-semibold w-12">#</th>
+              <th class="px-4 py-3 font-semibold">Faculty Name</th>
+              <th class="px-4 py-3 font-semibold">Industry / Organisation</th>
+              <th class="px-4 py-3 font-semibold">Address</th>
+              <th class="px-4 py-3 font-semibold text-center">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            {trainings.map((t, i) => (
+              <tr class={`border-b border-gray-50 ${i % 2 === 0 ? '' : 'bg-gray-50/60'} hover:bg-primary/5 transition-colors`}>
+                <td class="px-4 py-3 text-gray-400 text-xs">{t.sr}</td>
+                <td class="px-4 py-3 font-medium text-gray-900">{t.faculty}</td>
+                <td class="px-4 py-3">
+                  <span class={`px-2 py-0.5 rounded-full text-xs font-semibold border ${tagFor(t.industry)}`}>
+                    {t.industry}
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-gray-500 text-xs max-w-xs">{t.address}</td>
+                <td class="px-4 py-3 text-center">
+                  <span class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-medium whitespace-nowrap">{t.year}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-xs text-gray-400">Source: GTU Affiliation Document 2026-27. All training programs are Summer programs unless noted.</p>
+    </div>
+  </section>
+
+  <!-- Why Industrial Training -->
+  <section class="py-10 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Purpose of Faculty Industrial Training</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        {[
+          { icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Practical Exposure", desc: "First-hand experience with modern industry equipment, processes, and quality systems that complement classroom teaching." },
+          { icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Curriculum Enhancement", desc: "Industry insights help faculty update their course content with current technologies and workplace practices." },
+          { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", title: "Industry Relations", desc: "Sustained partnerships with local and regional industries that benefit future placement opportunities for students." },
+        ].map(item => (
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
