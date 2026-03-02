@@ -1,0 +1,324 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const programs = [
+  {
+    name: "Civil Engineering",
+    gtuCourseId: "06",
+    intake: 90,
+    since: 1984,
+    accreditation: "ACCREDITED",
+    accredited: true,
+  },
+  {
+    name: "Electrical Engineering",
+    gtuCourseId: "09",
+    intake: 60,
+    since: 1984,
+    accreditation: "ACCREDITED",
+    accredited: true,
+  },
+  {
+    name: "Mechanical Engineering",
+    gtuCourseId: "19",
+    intake: 60,
+    since: 1988,
+    accreditation: "ACCREDITED",
+    accredited: true,
+  },
+  {
+    name: "Electronics & Communication Engineering",
+    gtuCourseId: "11",
+    intake: 30,
+    since: 1994,
+    accreditation: "NOT ELIGIBLE",
+    accredited: false,
+  },
+  {
+    name: "Information Technology",
+    gtuCourseId: "16",
+    intake: 30,
+    since: 2023,
+    accreditation: "NOT ELIGIBLE",
+    accredited: false,
+  },
+  {
+    name: "Information & Communication Technology",
+    gtuCourseId: "32",
+    intake: 60,
+    since: 2022,
+    accreditation: "NOT ELIGIBLE",
+    accredited: false,
+  },
+];
+
+const facultyStrength = [
+  { department: "Applied Mechanics & Civil Engineering", required: 12, available: 12, status: "met" },
+  { department: "Applied Mechanics (Associate Prof.)", required: 1, available: 1, status: "met" },
+  { department: "City Planning", required: 1, available: 1, status: "met" },
+  { department: "Electrical Engineering", required: 8, available: 8, status: "met" },
+  { department: "Electronics & Communication", required: 6, available: 6, status: "met" },
+  { department: "Information Technology", required: 6, available: 6, status: "met" },
+  { department: "Mechanical Engineering", required: 7, available: 7, status: "met" },
+  { department: "Science & Humanities", required: 14, available: 14, status: "met" },
+  { department: "Workshop", required: 4, available: 4, status: "met" },
+];
+---
+
+<Layout title="GTU Affiliation Status | Government Polytechnic Palanpur">
+  <Nav />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-blue-600/40 rounded-full px-4 py-1.5 text-blue-200 text-sm font-medium mb-6">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+        About — GTU Affiliation
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">GTU Affiliation Status</h1>
+      <p class="text-blue-200 text-lg max-w-2xl mx-auto">
+        Affiliated with Gujarat Technological University since 2013. All programmes approved by the
+        Directorate of Technical Education, Government of Gujarat.
+      </p>
+
+      <!-- Key facts strip -->
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        <div class="bg-white/10 rounded-xl p-5 backdrop-blur-sm">
+          <p class="text-3xl font-bold">626</p>
+          <p class="text-blue-200 text-sm mt-1">Institute Code</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-5 backdrop-blur-sm">
+          <p class="text-3xl font-bold">2013</p>
+          <p class="text-blue-200 text-sm mt-1">GTU Affiliation Year</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-5 backdrop-blur-sm">
+          <p class="text-3xl font-bold">330</p>
+          <p class="text-blue-200 text-sm mt-1">Total Approved Intake</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Affiliation Details -->
+  <section class="py-14 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">Affiliation Details</h2>
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <table class="w-full text-sm">
+          <tbody>
+            {[
+              ["University", "Gujarat Technological University (GTU), Ahmedabad"],
+              ["Institute", "Government Polytechnic Palanpur"],
+              ["Institute Code", "626"],
+              ["Affiliation Number", "GTU/INST_AFFI/626/2012-13/677"],
+              ["First Affiliation Date", "31 January 2013"],
+              ["Type of Affiliation", "Extension of Affiliation (renewed periodically)"],
+              ["Regulatory Body", "Directorate of Technical Education (DTE), Government of Gujarat"],
+              ["Approval Authority", "All India Council for Technical Education (AICTE)"],
+            ].map(([label, value], i) => (
+              <tr class={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                <td class="px-6 py-3.5 font-medium text-gray-600 w-1/3">{label}</td>
+                <td class="px-6 py-3.5 text-gray-800">{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programme-wise Accreditation -->
+  <section class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row sm:items-end gap-3 mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800">Programme-wise Accreditation Status</h2>
+          <p class="text-gray-500 mt-1 text-sm">
+            Status as per NBA (National Board of Accreditation) norms — academic year 2025–26
+          </p>
+        </div>
+        <a
+          href="/innovation"
+          class="sm:ml-auto text-sm text-blue-600 hover:text-blue-800 font-medium shrink-0"
+        >
+          View NBA Details →
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-100">
+              <th class="px-5 py-3.5 text-left font-semibold text-gray-700">#</th>
+              <th class="px-5 py-3.5 text-left font-semibold text-gray-700">Programme</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">GTU Course ID</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">Intake</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">Since</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">Accreditation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {programs.map((p, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3.5 text-gray-400 font-medium">{i + 1}</td>
+                <td class="px-5 py-3.5 font-medium text-gray-800">{p.name}</td>
+                <td class="px-5 py-3.5 text-center text-gray-600 font-mono">{p.gtuCourseId}</td>
+                <td class="px-5 py-3.5 text-center text-gray-700">{p.intake}</td>
+                <td class="px-5 py-3.5 text-center text-gray-600">{p.since}</td>
+                <td class="px-5 py-3.5 text-center">
+                  {p.accredited ? (
+                    <span class="inline-flex items-center gap-1.5 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      ACCREDITED
+                    </span>
+                  ) : (
+                    <span class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-xs font-semibold px-3 py-1 rounded-full">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      NOT ELIGIBLE YET
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Not eligible note -->
+      <div class="mt-4 flex gap-3 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
+        <svg class="w-5 h-5 text-amber-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p>
+          <strong>Note on "Not Eligible Yet":</strong> NBA accreditation requires a programme to have
+          completed at least <strong>2 full batches</strong> of graduates. ICT (started 2022) and IT
+          (started 2023) are new programmes; EC was started in 1994 but does not yet meet the minimum
+          threshold for the current accreditation cycle. Accreditation applications will be filed
+          once eligibility is met.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student-Teacher Ratio -->
+  <section class="py-14 bg-blue-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-gray-800 mb-8">Student–Teacher Ratio</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-blue-100 p-6 flex items-center gap-5">
+          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-4xl font-bold text-blue-700">10 : 1</p>
+            <p class="text-gray-600 text-sm mt-1">Students to Teaching Staff</p>
+            <p class="text-gray-400 text-xs mt-0.5">689 students : 64 teaching staff</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-blue-100 p-6 flex items-center gap-5">
+          <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0">
+            <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-4xl font-bold text-indigo-700">46 : 1</p>
+            <p class="text-gray-600 text-sm mt-1">Students to Support Staff</p>
+            <p class="text-gray-400 text-xs mt-0.5">689 students : 15 support-teaching staff</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Strength -->
+  <section class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Faculty Strength vs. Required</h2>
+      <p class="text-gray-500 text-sm mb-6">As per GTU/DTE norms — all departments meeting required strength</p>
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-100">
+              <th class="px-5 py-3.5 text-left font-semibold text-gray-700">Department / Specialization</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">Required</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">Available</th>
+              <th class="px-5 py-3.5 text-center font-semibold text-gray-700">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {facultyStrength.map((row, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3.5 text-gray-800">{row.department}</td>
+                <td class="px-5 py-3.5 text-center text-gray-600">{row.required}</td>
+                <td class="px-5 py-3.5 text-center font-semibold text-gray-800">{row.available}</td>
+                <td class="px-5 py-3.5 text-center">
+                  <span class="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Met
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr class="bg-blue-50 border-t-2 border-blue-100 font-semibold">
+              <td class="px-5 py-3.5 text-gray-700">Total</td>
+              <td class="px-5 py-3.5 text-center text-gray-700">
+                {facultyStrength.reduce((s, r) => s + r.required, 0)}
+              </td>
+              <td class="px-5 py-3.5 text-center text-blue-700">
+                {facultyStrength.reduce((s, r) => s + r.available, 0)}
+              </td>
+              <td class="px-5 py-3.5 text-center">
+                <span class="text-green-700 text-xs font-bold">All Departments Met</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick links -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl font-bold text-gray-800 mb-5">Related Information</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { label: "About Our Programs", href: "/programs", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+          { label: "Faculty Directory", href: "/about/faculty", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+          { label: "Mandatory Disclosure", href: "/about/mandatory-disclosure", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+        ].map((link) => (
+          <a
+            href={link.href}
+            class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-4 hover:border-blue-300 hover:shadow-sm transition-all group"
+          >
+            <svg class="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={link.icon} />
+            </svg>
+            <span class="text-gray-700 font-medium group-hover:text-blue-700 text-sm">{link.label}</span>
+            <svg class="w-4 h-4 text-gray-400 ml-auto group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

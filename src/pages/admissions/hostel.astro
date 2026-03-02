@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// Hostel data from GTU Affiliation Document 2026-27 (939.md)
+const hostels = [
+  {
+    type: "Boys' Hostels",
+    gender: "boys",
+    blocks: 3,
+    seats: 264,
+    areaSqm: 7256,
+    colorBorder: "border-blue-200",
+    colorBg: "bg-blue-50",
+    colorBadge: "bg-blue-100 text-blue-800",
+    colorStat: "text-blue-700",
+    colorHdr: "bg-blue-600",
+    note: "Three separate hostel blocks for male students",
+  },
+  {
+    type: "Girls' Hostel",
+    gender: "girls",
+    blocks: 1,
+    seats: 48,
+    areaSqm: 1055,
+    colorBorder: "border-pink-200",
+    colorBg: "bg-pink-50",
+    colorBadge: "bg-pink-100 text-pink-800",
+    colorStat: "text-pink-700",
+    colorHdr: "bg-pink-500",
+    note: "Dedicated secure block for female students",
+  },
+];
+
+const totalSeats = hostels.reduce((s, h) => s + h.seats, 0);
+
+// Amenities verified in GTU Affiliation document
+const amenities = [
+  { label: "Nutritious Food",        available: true,  detail: "Balanced meals provided" },
+  { label: "Purified Drinking Water", available: true,  detail: "RO / water purification system" },
+  { label: "24-Hour Security",        available: true,  detail: "Round-the-clock security staff" },
+  { label: "Medical / First Aid",     available: true,  detail: "On-campus first-aid facility" },
+  { label: "GYM / Sports Room",       available: true,  detail: "Indoor sports and fitness equipment" },
+  { label: "Barrier-Free Access",     available: true,  detail: "Accessible infrastructure for differently abled" },
+  { label: "CCTV Surveillance",       available: true,  detail: "Covered campus security system" },
+  { label: "Reading Room",            available: false, detail: "Newspaper reading room (in main library)" },
+  { label: "TV Hall",                 available: false, detail: "Not available in hostel block" },
+];
+
+const rules = [
+  "Students must register at the hostel warden's office upon arrival with all required documents.",
+  "Entry and exit timings are as per hostel schedule notified at the beginning of each semester.",
+  "Students are responsible for maintaining cleanliness and discipline in their respective rooms.",
+  "Visitors are permitted only in the designated visitor area during specified hours.",
+  "Use of tobacco, alcohol, or any prohibited substances is strictly not allowed inside hostels.",
+  "Any damage to hostel property will be recovered from the responsible student.",
+  "Students are required to vacate hostel rooms during semester breaks unless prior approval is obtained.",
+  "Any grievance related to hostel may be reported to the warden or the Grievance Redressal Committee.",
+];
+
+const docs = [
+  "Allotment / admission letter from GPP office",
+  "Aadhar card (original + photocopy)",
+  "Passport-size photographs (4 copies)",
+  "Medical fitness certificate",
+  "Parent / Guardian's declaration form (from GPP office)",
+  "Anti-ragging undertaking form",
+  "Fee payment receipt",
+];
+---
+
+<Layout title="Hostel & Accommodation | Admissions | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/admissions" class="hover:text-primary transition-colors">Admissions</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Hostel & Accommodation</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            On-Campus Residential Facilities
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Hostel &amp; Accommodation</h1>
+          <p class="text-blue-100 text-lg max-w-xl">
+            GPP Palanpur offers secure on-campus residential accommodation for students from Banaskantha and across Gujarat, with dedicated facilities for boys and girls.
+          </p>
+        </div>
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-3 shrink-0">
+          {[
+            { v: totalSeats, l: "Total Seats" },
+            { v: "4",        l: "Hostel Blocks" },
+            { v: "7+",       l: "Amenities" },
+          ].map(s => (
+            <div class="bg-white/10 backdrop-blur rounded-2xl px-5 py-4 text-center">
+              <div class="text-3xl font-bold">{s.v}</div>
+              <div class="text-blue-100 text-xs">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hostel cards -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Hostel Blocks</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {hostels.map(h => (
+          <div class={`border-2 ${h.colorBorder} ${h.colorBg} rounded-2xl overflow-hidden`}>
+            <div class={`${h.colorHdr} text-white px-6 py-4`}>
+              <h3 class="text-xl font-bold">{h.type}</h3>
+              <p class="text-sm opacity-90">{h.note}</p>
+            </div>
+            <div class="p-6">
+              <div class="grid grid-cols-3 gap-3 text-center mb-5">
+                {[
+                  { v: h.blocks,                  l: "Blocks" },
+                  { v: h.seats,                   l: "Seats" },
+                  { v: h.areaSqm.toLocaleString(), l: "sq.m area" },
+                ].map(s => (
+                  <div class="bg-white/70 rounded-xl py-3">
+                    <div class={`text-2xl font-bold ${h.colorStat}`}>{s.v}</div>
+                    <div class="text-xs text-gray-500">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+              <div class={`text-xs font-semibold px-2 py-1 rounded-full inline-flex items-center gap-1 ${h.colorBadge}`}>
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                GTU Verified Capacity
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Hostel Amenities</h2>
+      <p class="text-sm text-gray-500 mb-6">As submitted to GTU in the Affiliation Document 2026-27</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {amenities.map(am => (
+          <div class={`flex items-start gap-3 p-4 rounded-xl border transition-colors
+            ${am.available ? 'bg-white border-gray-200 hover:bg-gray-50' : 'bg-gray-50 border-gray-100 opacity-60'}`}>
+            <div class={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${am.available ? 'bg-emerald-100' : 'bg-red-50'}`}>
+              {am.available
+                ? <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                : <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+              }
+            </div>
+            <div>
+              <div class={`text-sm font-semibold ${am.available ? 'text-gray-900' : 'text-gray-400'}`}>{am.label}</div>
+              <div class="text-xs text-gray-500">{am.detail}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2-col: Documents + Rules -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Documents required -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Documents Required</h2>
+          <p class="text-sm text-gray-500 mb-4">Submit these at the time of hostel check-in:</p>
+          <ul class="space-y-2">
+            {docs.map((d, i) => (
+              <li class="flex items-start gap-2 text-sm text-gray-700">
+                <span class="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                {d}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Rules -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Hostel Rules</h2>
+          <p class="text-sm text-gray-500 mb-4">Students must comply with GPP hostel regulations:</p>
+          <ul class="space-y-2">
+            {rules.map((r, i) => (
+              <li class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="text-primary font-bold shrink-0">{i + 1}.</span>
+                {r}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Apply -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 md:p-8 text-white flex flex-col md:flex-row items-center gap-6">
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold mb-2">Hostel Admission Enquiry</h2>
+          <p class="text-blue-100 text-sm leading-relaxed">
+            Hostel allotment is subject to availability and merit. Students are advised to apply as early as possible after securing admission to GPP. Contact the institute office for admission forms and hostel fee details.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm">
+            <a href="tel:+912742252204" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              02742-252204
+            </a>
+            <a href="mailto:gp-palanpur-dte@gujarat.gov.in" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              gp-palanpur-dte@gujarat.gov.in
+            </a>
+          </div>
+        </div>
+        <a href="/contact" class="shrink-0 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm">
+          Contact Us →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Note -->
+  <div class="pb-8 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs text-gray-500">
+        <strong>Source:</strong> All hostel capacity and amenities data sourced from GTU Affiliation Application 2026-27, submitted by Government Polytechnic Palanpur (Institute Code: 626). Hostel allotment is at the discretion of the institute.
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
