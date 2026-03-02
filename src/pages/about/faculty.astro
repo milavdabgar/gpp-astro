@@ -1,0 +1,239 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+import facultyData from '../../data/faculty.json';
+
+// Map JSON keys to display info
+const departments = [
+  {
+    key: "civil-applied-mechanics",
+    name: "Civil Engineering & Applied Mechanics",
+    short: "CE / AM",
+    intake: 90,
+    color: "amber",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  },
+  {
+    key: "electrical",
+    name: "Electrical Engineering",
+    short: "EE",
+    intake: 60,
+    color: "yellow",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+  },
+  {
+    key: "mechanical",
+    name: "Mechanical Engineering",
+    short: "ME",
+    intake: 60,
+    color: "red",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+  },
+  {
+    key: "ec",
+    name: "Electronics & Communication Engineering",
+    short: "EC",
+    intake: 30,
+    color: "blue",
+    icon: "M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18",
+  },
+  {
+    key: "science-humanities",
+    name: "Science & Humanities",
+    short: "SH",
+    intake: 0,
+    color: "teal",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  },
+];
+
+// Color utility mappings
+const colorMap: Record<string, { border: string; bg: string; badge: string; hdr: string; icon: string }> = {
+  amber:  { border: "border-amber-200",  bg: "bg-amber-50",  badge: "bg-amber-100 text-amber-800",  hdr: "bg-amber-600",  icon: "text-amber-600" },
+  yellow: { border: "border-yellow-200", bg: "bg-yellow-50", badge: "bg-yellow-100 text-yellow-800", hdr: "bg-yellow-500", icon: "text-yellow-600" },
+  red:    { border: "border-red-200",    bg: "bg-red-50",    badge: "bg-red-100 text-red-800",       hdr: "bg-red-600",    icon: "text-red-600" },
+  blue:   { border: "border-blue-200",   bg: "bg-blue-50",   badge: "bg-blue-100 text-blue-800",     hdr: "bg-blue-600",   icon: "text-blue-600" },
+  teal:   { border: "border-teal-200",   bg: "bg-teal-50",   badge: "bg-teal-100 text-teal-800",     hdr: "bg-teal-600",   icon: "text-teal-600" },
+};
+
+// Designations in priority for display
+function sortFaculty(list: any[]) {
+  const order = (d: string) => {
+    if (d.includes("HOD") || d.includes("Head")) return 0;
+    if (d.includes("Principal")) return 1;
+    return 2;
+  };
+  return [...list].sort((a, b) => order(a.designation) - order(b.designation));
+}
+
+const totalFaculty = departments.reduce((s, d) => s + ((facultyData as any)[d.key]?.length ?? 0), 0);
+const hodCount = departments.reduce((s, d) => {
+  return s + ((facultyData as any)[d.key]?.filter((f: any) => f.designation.includes("HOD") || f.designation.includes("Head")).length ?? 0);
+}, 0);
+const phdCount = departments.reduce((s, d) => {
+  return s + ((facultyData as any)[d.key]?.filter((f: any) => f.name.startsWith("Dr.") || f.designation.includes("PhD")).length ?? 0);
+}, 0);
+---
+
+<Layout title="Faculty Directory | About | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>About</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Faculty Directory</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-slate-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        Teaching Faculty · GTU Affiliated
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Faculty Directory</h1>
+      <p class="text-gray-600 text-lg">
+        Meet our {totalFaculty} qualified teaching faculty — all holding postgraduate or higher engineering degrees, supported by {phdCount} faculty with doctoral qualifications.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview stats -->
+  <section class="bg-white border-b border-gray-200 py-6">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary">{totalFaculty}</div>
+          <div class="text-sm text-gray-600">Teaching Faculty</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{departments.length}</div>
+          <div class="text-sm text-gray-600">Departments</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{phdCount}</div>
+          <div class="text-sm text-gray-600">PhD Holders</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">10:1</div>
+          <div class="text-sm text-gray-600">Student:Teacher</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department quick-links -->
+  <div class="bg-gray-50 border-b border-gray-200 py-4 sticky top-0 z-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-2 justify-center">
+        {departments.map(d => {
+          const c = colorMap[d.color];
+          return (
+            <a href={`#dept-${d.key}`} class={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors hover:opacity-80 ${c.badge}`}>
+              {d.short}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+
+  <!-- Department sections -->
+  <div class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl space-y-10">
+      {departments.map(dept => {
+        const c = colorMap[dept.color];
+        const faculty = sortFaculty((facultyData as any)[dept.key] ?? []);
+        return (
+          <section id={`dept-${dept.key}`}>
+            <div class={`border ${c.border} rounded-2xl overflow-hidden`}>
+              <!-- Header -->
+              <div class={`${c.bg} px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3`}>
+                <div class="flex items-center gap-3">
+                  <div class={`w-10 h-10 rounded-xl bg-white/70 flex items-center justify-center shrink-0`}>
+                    <svg class={`w-5 h-5 ${c.icon}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={dept.icon}/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${c.badge}`}>{dept.short}</span>
+                    {dept.intake > 0 && <span class="text-xs text-gray-500 ml-2">Intake: {dept.intake}</span>}
+                    <h2 class="font-bold text-gray-900 text-lg mt-0.5">{dept.name}</h2>
+                  </div>
+                </div>
+                <div class={`text-center px-4 py-2 rounded-xl shrink-0 ${c.badge}`}>
+                  <div class="text-2xl font-bold">{faculty.length}</div>
+                  <div class="text-xs">Faculty</div>
+                </div>
+              </div>
+
+              <!-- Faculty grid -->
+              <div class="p-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {faculty.map((f: any) => {
+                  const isHOD   = f.designation.includes("HOD") || f.designation.includes("Head");
+                  const isPrin  = f.designation.includes("Principal");
+                  const isPhD   = f.name.startsWith("Dr.") || f.designation.includes("PhD");
+                  return (
+                    <div class={`flex items-start gap-3 p-3 rounded-xl border transition-colors
+                      ${isHOD    ? `${c.border} ${c.bg}`
+                      : isPrin  ? 'border-slate-200 bg-slate-50'
+                      : 'border-gray-100 bg-white hover:bg-gray-50'}`}>
+                      <!-- Avatar initials -->
+                      <div class={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0
+                        ${isHOD ? 'bg-white text-gray-800 border border-gray-200'
+                        : isPhD ? 'bg-indigo-100 text-indigo-700'
+                        : 'bg-gray-100 text-gray-600'}`}>
+                        {f.photo
+                          ? <img src={f.photo} alt={f.name} class="w-full h-full object-cover rounded-full" onerror="this.style.display='none'; this.nextSibling.style.display='flex'" />
+                          : null}
+                        <span class={f.photo ? 'hidden' : ''}>
+                          {f.name.split(' ').map((p: string) => p[0]).join('').slice(0,2).toUpperCase()}
+                        </span>
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <div class="text-sm font-semibold text-gray-900 truncate">{f.name}</div>
+                        <div class="text-xs text-gray-500 truncate">{f.designation.replace(' (PhD)', '').replace(' & Principal (I/C)', '')}</div>
+                        <div class="text-xs text-gray-400 truncate mt-0.5">{f.qualification}</div>
+                        <div class="flex flex-wrap gap-1 mt-1">
+                          {isHOD  && <span class={`text-xs px-1.5 py-0.5 rounded-md font-medium ${c.badge}`}>HOD</span>}
+                          {isPrin && <span class="text-xs px-1.5 py-0.5 rounded-md font-medium bg-slate-100 text-slate-700">Principal I/C</span>}
+                          {isPhD  && <span class="text-xs px-1.5 py-0.5 rounded-md font-medium bg-indigo-50 text-indigo-700">PhD</span>}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      <!-- ICT/IT note -->
+      <div class="bg-blue-50 border border-blue-200 rounded-2xl p-5 text-sm text-blue-800">
+        <div class="font-semibold mb-1">ICT & IT Departments</div>
+        <p>The Information & Communication Technology (ICT) and Information Technology (IT) programmes were launched in 2022 and 2023 respectively. Faculty for these departments currently share resources with the Electronics & Communication Engineering department. Dedicated faculty appointments are ongoing as per GTU norms.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Qualifications note -->
+  <section class="pb-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-xs text-gray-500">
+        <strong>Note:</strong> All faculty members hold at least a Bachelor of Engineering (B.E.) degree and most hold a Master of Engineering (M.E.) degree. Faculty marked "PhD" hold doctoral degrees. All qualifications comply with AICTE / GTU norms for Diploma-level engineering institutions. Faculty photos are displayed where available in our records.
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

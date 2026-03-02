@@ -1,0 +1,251 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const collection = [
+  { label: "Number of Titles",                  value: "4,197",      icon: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" },
+  { label: "Number of Volumes",                 value: "23,009",     icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
+  { label: "Total Books",                       value: "18,180",     icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+  { label: "Non-Technical Titles",              value: "339",        icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+  { label: "Non-Technical Books",               value: "1,255",      icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+  { label: "Journals Subscriptions",            value: "6",          icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6" },
+  { label: "Total Cost of Technical Books",     value: "₹27.43 Lac", icon: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" },
+  { label: "Books Added Last Year",             value: "138",        icon: "M12 4v16m8-8H4" },
+  { label: "Cost of Books Last Year",           value: "₹1.11 Lac",  icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+];
+
+const journals = [
+  { title: "Inventi Impact – Antennas & Propagation", type: "Journal", scope: "EC / Wireless Communications" },
+  { title: "Inventi Impact – Artificial Intelligence", type: "Journal", scope: "Computer Science / ICT / IT" },
+  { title: "Inventi Impact – Civil Structure", type: "Journal", scope: "Civil Engineering" },
+  { title: "Inventi Impact – Electrical Engineering", type: "Journal", scope: "Electrical Engineering" },
+  { title: "Inventi Impact – Mechanical Engineering", type: "Journal", scope: "Mechanical Engineering" },
+  { title: "Inventi Impact – VLSI Design", type: "Journal", scope: "Electronics & Communication" },
+  { title: "Electronics For You", type: "Magazine", scope: "Electronics & Communication / ICT" },
+];
+
+const facilities = [
+  { label: "Library Computerized",       status: true  },
+  { label: "Internet Access",            status: true  },
+  { label: "Reading Room",               status: true  },
+  { label: "Photocopying Service",       status: true  },
+  { label: "Inter-Library Linkage",      status: false },
+  { label: "Digital Library Enrollment", status: false },
+];
+
+const progressItems = [
+  { label: "Technical Titles",     value: 4197,  max: 5000, display: "4,197 / ~5,000 target" },
+  { label: "Volumes",              value: 23009, max: 25000, display: "23,009 volumes" },
+  { label: "Last Year Additions",  value: 138,   max: 200,  display: "138 books added in 2024–25" },
+];
+---
+
+<Layout title="Library Catalog | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Library Catalog</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Academic Library · Computerized
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">GPP Library Catalog</h1>
+          <p class="text-emerald-100 text-lg max-w-xl">
+            Comprehensive collection of 23,009 volumes across 4,197 titles spanning all engineering disciplines, supported by 6 peer-reviewed journal subscriptions and an active reading room.
+          </p>
+          <a href="/library" class="mt-6 inline-flex items-center gap-2 bg-white text-emerald-700 font-semibold px-5 py-2.5 rounded-xl hover:bg-emerald-50 transition-colors text-sm">
+            Library Services & Timings
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <!-- Hero stats -->
+        <div class="grid grid-cols-2 gap-3 shrink-0">
+          {[
+            { v: "4,197",   l: "Titles" },
+            { v: "23,009",  l: "Volumes" },
+            { v: "6",       l: "Journals" },
+            { v: "₹27.4L",  l: "Investment" },
+          ].map(s => (
+            <div class="bg-white/10 backdrop-blur rounded-2xl px-6 py-4 text-center">
+              <div class="text-3xl font-bold">{s.v}</div>
+              <div class="text-emerald-100 text-sm">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <div class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl space-y-10">
+
+      <!-- Collection metrics grid -->
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-5">Collection Overview</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {collection.map(item => (
+            <div class="bg-white rounded-xl p-4 border border-gray-200 flex items-center gap-4 hover:shadow-sm transition-shadow">
+              <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon}/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xl font-bold text-gray-900">{item.value}</div>
+                <div class="text-sm text-gray-500">{item.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Collection progress bars -->
+      <section class="bg-white rounded-2xl border border-gray-200 p-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-5">Collection at a Glance</h2>
+        <div class="space-y-5">
+          {progressItems.map(p => (
+            <div>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium text-gray-700">{p.label}</span>
+                <span class="text-gray-500">{p.display}</span>
+              </div>
+              <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"
+                  style={`width: ${Math.min(100, Math.round(p.value / p.max * 100))}%`}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Journals & Magazines -->
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-5">Journals & Periodicals</h2>
+        <div class="overflow-hidden rounded-2xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-emerald-600 text-white">
+              <tr>
+                <th class="px-5 py-3 text-left font-semibold">#</th>
+                <th class="px-5 py-3 text-left font-semibold">Title</th>
+                <th class="px-5 py-3 text-left font-semibold hidden md:table-cell">Type</th>
+                <th class="px-5 py-3 text-left font-semibold hidden lg:table-cell">Relevant For</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              {journals.map((j, i) => (
+                <tr class="bg-white hover:bg-gray-50 transition-colors">
+                  <td class="px-5 py-3.5 text-gray-500">{i + 1}</td>
+                  <td class="px-5 py-3.5 font-medium text-gray-900">{j.title}</td>
+                  <td class="px-5 py-3.5 hidden md:table-cell">
+                    <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${j.type === 'Journal' ? 'bg-emerald-50 text-emerald-700' : 'bg-blue-50 text-blue-700'}`}>
+                      {j.type}
+                    </span>
+                  </td>
+                  <td class="px-5 py-3.5 text-gray-500 hidden lg:table-cell">{j.scope}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2-column: Facilities + Last Year -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Facilities checklist -->
+        <section class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h2 class="text-xl font-bold text-gray-900 mb-5">Library Facilities</h2>
+          <ul class="space-y-3">
+            {facilities.map(f => (
+              <li class="flex items-center gap-3">
+                <span class={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${f.status ? 'bg-emerald-100' : 'bg-red-50'}`}>
+                  {f.status
+                    ? <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    : <svg class="w-3.5 h-3.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+                  }
+                </span>
+                <span class={`text-sm ${f.status ? 'text-gray-800' : 'text-gray-400'}`}>{f.label}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Last year acquisitions -->
+        <section class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h2 class="text-xl font-bold text-gray-900 mb-5">Recent Acquisitions (2024–25)</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+              <span class="text-gray-600 text-sm">Books Purchased</span>
+              <span class="font-bold text-2xl text-emerald-700">138</span>
+            </div>
+            <div class="flex items-center justify-between pb-3 border-b border-gray-100">
+              <span class="text-gray-600 text-sm">Investment</span>
+              <span class="font-bold text-2xl text-emerald-700">₹1,10,635</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-gray-600 text-sm">Avg. cost per book</span>
+              <span class="font-bold text-2xl text-emerald-700">≈ ₹802</span>
+            </div>
+          </div>
+          <div class="mt-5 p-3 bg-emerald-50 rounded-xl text-xs text-emerald-800">
+            Total investment in technical books: <strong>₹27,43,693</strong> (cumulative).
+          </div>
+        </section>
+      </div>
+
+      <!-- Future plan -->
+      <section class="bg-teal-700 text-white rounded-2xl p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-1">Future Plans — Digitization &amp; Upgradation</h3>
+            <p class="text-teal-100 text-sm leading-relaxed">
+              GPP Palanpur has outlined a roadmap to digitize library operations, introduce an OPAC (Online Public Access Catalog) system, and register with national digital library networks. Plans include expanding digital resource access to cover e-books, open-access journals, and student-request-based acquisitions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Back link -->
+      <div class="text-center">
+        <a href="/library" class="inline-flex items-center gap-2 text-emerald-700 font-medium hover:underline text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back to Library Overview
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

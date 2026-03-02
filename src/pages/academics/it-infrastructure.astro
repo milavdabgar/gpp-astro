@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// IT & Computer Infrastructure data from GTU Affiliation Document 2026-27
+const computerStats = {
+  studentPCs:    233,
+  facultyPCs:     40,
+  adminPCs:       20,
+  libraryPCs:     10,
+  languageLabPCs: 20,
+  studentPrinters: 5,
+  systemSoftwareLicenses: 321,
+  appSoftwareLicenses: 12,
+  bandwidth: "4 Mbps",
+  contentionRatio: "4:1",
+};
+
+const pcDistribution = [
+  { label: "Student Labs",   count: computerStats.studentPCs,    pct: 63, color: "bg-primary", light: "text-primary bg-primary/10" },
+  { label: "Faculty",        count: computerStats.facultyPCs,    pct: 11, color: "bg-blue-500", light: "text-blue-700 bg-blue-50" },
+  { label: "Admin Office",   count: computerStats.adminPCs,      pct: 5,  color: "bg-slate-500", light: "text-slate-700 bg-slate-100" },
+  { label: "Language Lab",   count: computerStats.languageLabPCs,pct: 5,  color: "bg-purple-500", light: "text-purple-700 bg-purple-50" },
+  { label: "Library",        count: computerStats.libraryPCs,    pct: 3,  color: "bg-emerald-500", light: "text-emerald-700 bg-emerald-50" },
+];
+const totalPCs = pcDistribution.reduce((s, r) => s + r.count, 0);
+
+const software = [
+  { id: 1,  name: "Open Office",       category: "Productivity",           version: "Latest", type: "Application" },
+  { id: 2,  name: "AutoCAD",           category: "CAD / Design",           version: "Latest", type: "Application" },
+  { id: 3,  name: "Scilab",            category: "Scientific Computing",   version: "Latest", type: "Application" },
+  { id: 4,  name: "8085 GNUSIM",       category: "Microprocessor Sim.",    version: "Latest", type: "Application" },
+  { id: 5,  name: "ExpressPCB",        category: "PCB Design",             version: "Latest", type: "Application" },
+  { id: 6,  name: "CREO Parametric",   category: "3D CAD / Parametric",    version: "2018",   type: "Application" },
+  { id: 7,  name: "Revit",             category: "BIM / Architecture",     version: "2018",   type: "Application" },
+  { id: 8,  name: "STAAD Pro",         category: "Structural Analysis",    version: "2018",   type: "Application" },
+  { id: 9,  name: "Logisim",           category: "Digital Logic Sim.",     version: "2018",   type: "Application" },
+  { id: 10, name: "SAFE",              category: "Structural Engineering", version: "Latest", type: "Application" },
+  { id: 11, name: "WPL",              category: "Programming",            version: "Latest", type: "Application" },
+  { id: 12, name: "Tinkercad",         category: "3D Design / IoT Sim.",   version: "Latest", type: "Application" },
+  { id: 13, name: "PyCharm",           category: "Python IDE",             version: "Latest", type: "System / IDE" },
+  { id: 14, name: "Jupyter Notebook",  category: "Data Science / ML",      version: "Latest", type: "System / IDE" },
+];
+
+const examSetup = [
+  { check: "High-speed internet (min. 1 Mbps)",                          status: true },
+  { check: "High-end multi-copier machine (≥90 ppm)",                    status: true },
+  { check: "Printers/copiers for GTU question paper printing",           status: true, detail: "7 units" },
+  { check: "Generator / Inverter / UPS (6-hour battery backup)",         status: true },
+  { check: "IP-based CCTV cameras in control room and all classrooms",  status: true, detail: "Min. 2 at control room" },
+  { check: "Dedicated computer centre for e-assessment",                  status: true },
+];
+
+const eAssessment = {
+  sheetsIssued:    4503,
+  sheetsEvaluated: 4503,
+  observerFaculty: 6,
+};
+
+const catBadge: Record<string, string> = {
+  "Productivity":         "bg-green-100 text-green-700",
+  "CAD / Design":         "bg-blue-100 text-blue-700",
+  "Scientific Computing": "bg-purple-100 text-purple-700",
+  "Microprocessor Sim.":  "bg-orange-100 text-orange-700",
+  "PCB Design":           "bg-pink-100 text-pink-700",
+  "3D CAD / Parametric":  "bg-sky-100 text-sky-700",
+  "BIM / Architecture":   "bg-amber-100 text-amber-700",
+  "Structural Analysis":  "bg-red-100 text-red-700",
+  "Digital Logic Sim.":   "bg-indigo-100 text-indigo-700",
+  "Structural Engineering":"bg-teal-100 text-teal-700",
+  "Programming":          "bg-gray-100 text-gray-700",
+  "3D Design / IoT Sim.": "bg-lime-100 text-lime-700",
+  "Python IDE":           "bg-yellow-100 text-yellow-700",
+  "Data Science / ML":    "bg-orange-100 text-orange-700",
+};
+---
+
+<Layout title="IT Infrastructure | Academics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span>Academics</span>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">IT Infrastructure</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-slate-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+        GTU Affiliation 2026-27 — Verified Data
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">IT Infrastructure</h1>
+      <p class="text-gray-600 text-lg">
+        GPP Palanpur maintains <strong>{totalPCs}</strong> computer terminals across campus with 4 Mbps internet connectivity, 14 open-source software platforms, and fully equipped examination infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick stats -->
+  <section class="bg-white border-b border-gray-200 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary">{totalPCs}</div>
+          <div class="text-xs font-semibold text-gray-700">Total PCs</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{computerStats.studentPCs}</div>
+          <div class="text-xs font-semibold text-gray-700">Student PCs</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{software.length}</div>
+          <div class="text-xs font-semibold text-gray-700">Software Titles</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{computerStats.bandwidth}</div>
+          <div class="text-xs font-semibold text-gray-700">Internet</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary">{computerStats.systemSoftwareLicenses}</div>
+          <div class="text-xs font-semibold text-gray-700">OS Licenses</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PC Distribution -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Computer Distribution</h2>
+      <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <!-- Bar chart -->
+        <div class="space-y-4 mb-6">
+          {pcDistribution.map(r => (
+            <div class="flex items-center gap-3">
+              <div class="w-28 text-right text-xs font-semibold text-gray-600 shrink-0">{r.label}</div>
+              <div class="flex-1 bg-gray-100 rounded-full h-7 relative overflow-hidden">
+                <div class={`${r.color} h-7 rounded-full flex items-center justify-end px-2.5 min-w-[2.5rem] transition-all`}
+                     style={`width:max(${Math.round(r.count / totalPCs * 100)}%, 3rem)`}>
+                  <span class="text-white text-xs font-bold">{r.count}</span>
+                </div>
+              </div>
+              <div class="w-24 text-xs text-gray-500 shrink-0">
+                {Math.round(r.count / totalPCs * 100)}% of total
+              </div>
+            </div>
+          ))}
+        </div>
+        <!-- Grid summary -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 border-t border-gray-100 pt-5">
+          {pcDistribution.map(r => (
+            <div class={`text-center px-3 py-2 rounded-xl ${r.light}`}>
+              <div class="text-2xl font-bold">{r.count}</div>
+              <div class="text-xs font-medium">{r.label}</div>
+            </div>
+          ))}
+        </div>
+        <!-- Internet + printer row -->
+        <div class="grid md:grid-cols-3 gap-4 mt-5 border-t border-gray-100 pt-5 text-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">{computerStats.bandwidth} Internet</div>
+              <div class="text-gray-500 text-xs">Contention ratio {computerStats.contentionRatio}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">{computerStats.studentPrinters} Student Printers</div>
+              <div class="text-gray-500 text-xs">Available to students</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">{computerStats.systemSoftwareLicenses} Licenses</div>
+              <div class="text-gray-500 text-xs">Legal system software</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Software -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Software Available</h2>
+      <p class="text-gray-500 text-sm mb-6">All {software.length} software programs are open-source / free to use, ensuring accessibility for all students.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {software.map(sw => (
+          <div class="flex items-start gap-3 border border-gray-200 rounded-xl p-4 bg-gray-50/50 hover:bg-gray-50 transition-colors">
+            <div class="font-mono text-xs text-gray-400 mt-0.5 w-5 shrink-0">{sw.id.toString().padStart(2,'0')}</div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold text-gray-900 text-sm">{sw.name}</div>
+              <div class="flex flex-wrap gap-1 mt-1">
+                <span class={`text-xs px-1.5 py-0.5 rounded-md font-medium ${catBadge[sw.category] ?? 'bg-gray-100 text-gray-600'}`}>
+                  {sw.category}
+                </span>
+                <span class="text-xs px-1.5 py-0.5 rounded-md bg-gray-100 text-gray-500">
+                  v{sw.version}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-gray-400 mt-4">Source: GTU Affiliation Application 2026-27 — Software Facilities section. All listed software are open-source (license cost: ₹0).</p>
+    </div>
+  </section>
+
+  <!-- Exam Infrastructure -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Examination Infrastructure</h2>
+      <p class="text-gray-500 text-sm mb-6">As per GTU affiliation norms, GPP maintains all compulsory examination infrastructure requirements.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Checklist -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-5">
+          <h3 class="font-semibold text-gray-800 mb-4">GTU Exam Setup Compliance</h3>
+          <ul class="space-y-3">
+            {examSetup.map(item => (
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 shrink-0">
+                  {item.status
+                    ? <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    : <svg class="w-5 h-5 text-red-500"    fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  }
+                </span>
+                <div>
+                  <div class="text-sm text-gray-700">{item.check}</div>
+                  {item.detail && <div class="text-xs text-gray-500">{item.detail}</div>}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <!-- e-Assessment stats -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-5">
+          <h3 class="font-semibold text-gray-800 mb-4">GTU e-Assessment (Last Year)</h3>
+          <div class="grid grid-cols-3 gap-3 mb-4">
+            <div class="text-center bg-primary/5 rounded-xl py-4">
+              <div class="text-2xl font-bold text-primary">{eAssessment.sheetsIssued.toLocaleString('en-IN')}</div>
+              <div class="text-xs text-gray-600 mt-1">Answer Sheets<br/>Issued by GTU</div>
+            </div>
+            <div class="text-center bg-emerald-50 rounded-xl py-4">
+              <div class="text-2xl font-bold text-emerald-700">{eAssessment.sheetsEvaluated.toLocaleString('en-IN')}</div>
+              <div class="text-xs text-gray-600 mt-1">Sheets<br/>Evaluated</div>
+            </div>
+            <div class="text-center bg-blue-50 rounded-xl py-4">
+              <div class="text-2xl font-bold text-blue-700">{eAssessment.observerFaculty}</div>
+              <div class="text-xs text-gray-600 mt-1">Faculty on<br/>Observer Duty</div>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Dedicated computer centre available for e-assessment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Resources provided to faculty for after-hours e-assessment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Sufficient resources available for e-assessment activities
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
