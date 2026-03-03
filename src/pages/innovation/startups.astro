@@ -5,19 +5,57 @@ import Footer from '../../components/Footer.astro';
 import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
 
 const startups = [
-  { name: "TechFarm Solutions", founder: "CE Batch 2022", domain: "AgriTech / IoT", status: "Active", year: "2023" },
-  { name: "SolarKraft", founder: "EE Batch 2021", domain: "Renewable Energy", status: "Active", year: "2022" },
-  { name: "BuildSmart", founder: "CE Batch 2023", domain: "Construction Tech", status: "Pre-revenue", year: "2024" },
-  { name: "CodeNest", founder: "CO Batch 2022", domain: "SaaS / EdTech", status: "Active", year: "2023" },
+  {
+    name: "Prahantam Pvt. Ltd.",
+    founder: "Dhaval Nai",
+    domain: "Manufacturing",
+    status: "Active",
+    desc: "Ahmedabad-based manufacturer of automated tea cup washing machines for hygiene-conscious tea vendors and hospitality businesses."
+  },
+  {
+    name: "Zephyr Digisteth",
+    founder: "Dr. Vipul Tank",
+    domain: "Healthcare & MedTech",
+    status: "Active",
+    desc: "Compact AI-powered medical device integrating auscultation, ECG, temperature and blood sugar monitoring with modular attachments. Supports tele-consultations and remote care."
+  },
+  {
+    name: "BeeRobokids Innovations Pvt. Ltd.",
+    founder: "Rishabh Prajapati",
+    domain: "STEM Education",
+    status: "Active",
+    desc: "Empowering kids and young innovators through hands-on Robotics, IoT, and emerging technology learning kits. Nurtures creativity and problem-solving for the next generation."
+  },
+  {
+    name: "Innovate 3D",
+    founder: "Deepak Chaudhary",
+    domain: "Tech / Manufacturing",
+    status: "Active",
+    desc: "Advancing 3D design, printing and rapid prototyping. Develops cost-effective 3D printers, STEM education kits, and offers prototyping support for startups and industries."
+  },
+  {
+    name: "Sky Print Startup",
+    founder: "Yuvraj Rajput",
+    domain: "Drone Technology",
+    status: "Active",
+    desc: "Custom drone solutions for diverse industries — FPV, surveillance, flower-dropping event drones. Offers drone services, training, and ready-to-fly models."
+  },
+  {
+    name: "Sky Craft",
+    founder: "Bharat Mali",
+    domain: "STEM Education",
+    status: "Active",
+    desc: "Low-cost robotics and IoT kits making future technologies accessible. Activity-based learning modules for rural schools along with teacher training programs."
+  },
 ];
 
 const services = [
-  { icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3", title: "Seed Funding", desc: "SSIP provides up to ₹2 lakh seed funding for student-led projects with innovation potential." },
-  { icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5", title: "Infrastructure Support", desc: "Access to Design Lab, prototyping tools, and computing resources in the Innovation Cell." },
-  { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", title: "Mentorship", desc: "Expert mentors from industry and academia guide students from concept to MVP." },
-  { icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Market Connect", desc: "Linkages with GIDC industries and startup ecosystems in Banaskantha and North Gujarat." },
-  { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "IPR Assistance", desc: "Support for patent filing through the Innovation Cell — learn more under Patents." },
-  { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z", title: "Startup Events", desc: "Pitch competitions, demo days, and startup bootcamps conducted at and beyond campus." },
+  { icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3", title: "POC Funding", desc: "SSIP cell has funded 32 POC projects (2022–2026) totalling ₹4.80 lakh, supporting student-led proof-of-concept innovations." },
+  { icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5", title: "Infrastructure Support", desc: "Access to the SSIP facility equipped with modern instruments, computers, and internet connectivity for prototype development." },
+  { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", title: "Mentorship", desc: "Expert mentors from industry and academia guide students from concept to MVP under the coordination of the SSIP faculty team." },
+  { icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Startup Conclave Access", desc: "Students participate in state-level events like Startup Conclave Gandhinagar, gaining exposure to the broader Gujarat startup ecosystem." },
+  { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "IPR Assistance", desc: "SSIP has supported 4 patent filings (2 granted, 2 under examination), funding IPR costs through the Innovation Cell." },
+  { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z", title: "Startup Events", desc: "41+ events organised since 2022 — bootcamps, sensitization programs, New Palanpur for New India, and Startup Conclave participation." },
 ];
 ---
 
@@ -65,24 +103,28 @@ const services = [
     </div>
   </section>
 
-  <!-- Alumni Startups -->
+  <!-- GPP-Supported Startups -->
   <section class="py-14 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8">GPP-Born Startups</h2>
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">GPP-Supported Startups</h2>
+      <p class="text-gray-500 mb-8">SSIP-incubated student and alumni ventures (as of 2025–26)</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         {startups.map(s => (
-          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-5">
-            <div class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-              {s.name.charAt(0)}
-            </div>
-            <div>
-              <h3 class="font-bold text-gray-900">{s.name}</h3>
-              <div class="text-sm text-gray-500 mb-2">{s.domain} · Est. {s.year}</div>
-              <div class="flex gap-2">
-                <span class="text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5">{s.founder}</span>
-                <span class={`text-xs rounded-full px-2 py-0.5 ${s.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>{s.status}</span>
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                {s.name.charAt(0)}
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900">{s.name}</h3>
+                <div class="flex flex-wrap gap-2 mt-1">
+                  <span class="text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5">{s.domain}</span>
+                  <span class="text-xs bg-green-100 text-green-800 rounded-full px-2 py-0.5">{s.status}</span>
+                </div>
               </div>
             </div>
+            <p class="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+            <p class="text-xs text-gray-400 mt-2">Founder: {s.founder}</p>
           </div>
         ))}
       </div>

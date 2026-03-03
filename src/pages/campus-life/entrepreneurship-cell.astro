@@ -5,86 +5,19 @@ import Footer from '../../components/Footer.astro';
 import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
 
 const activities = [
-  {
-    srNo: 1,
-    date: "Feb 2023",
-    activity: "Entrepreneurship Awareness Camp",
-    expertLocation: "SSIP Cell, GPP Campus",
-    beneficiaries: 120,
-    remark: "Students from all departments",
-  },
-  {
-    srNo: 2,
-    date: "Jul 2023",
-    activity: "CED Gandhinagar Visit & FDP",
-    expertLocation: "Centre for Entrepreneurship Development (CED), Gandhinagar",
-    beneficiaries: 8,
-    remark: "Faculty members attended FDP",
-  },
-  {
-    srNo: 3,
-    date: "Sep 2023",
-    activity: "SSIP Awareness Session — All Departments",
-    expertLocation: "SSIP Coordinator, GPP",
-    beneficiaries: 250,
-    remark: "For students of all departments",
-  },
-  {
-    srNo: 4,
-    date: "Nov 2023",
-    activity: "Successful Entrepreneur Talk",
-    expertLocation: "Mr. Darshit Patel, Tech Startup Founder",
-    beneficiaries: 60,
-    remark: "Startup ideas and mentorship",
-  },
-  {
-    srNo: 5,
-    date: "Jan 2024",
-    activity: "IPR & Patent Awareness Workshop",
-    expertLocation: "Prof. SSIP Coordinator, GPP",
-    beneficiaries: 80,
-    remark: "Focused on IP rights for student projects",
-  },
-  {
-    srNo: 6,
-    date: "Mar 2024",
-    activity: "Career Options After Diploma — Guidance Session",
-    expertLocation: "Industry expert, Palanpur",
-    beneficiaries: 130,
-    remark: "For final-year students",
-  },
-  {
-    srNo: 7,
-    date: "Sep 2024",
-    activity: "Internal Hackathon for Smart India Hackathon (SIH 2024)",
-    expertLocation: "SSIP Cell & Departments, GPP",
-    beneficiaries: 180,
-    remark: "Shortlisted teams sent for SIH",
-  },
-  {
-    srNo: 8,
-    date: "Jan 2025",
-    activity: "SSIP Project Showcase & Exhibition",
-    expertLocation: "GPP Campus",
-    beneficiaries: 300,
-    remark: "Display of student innovation projects",
-  },
-  {
-    srNo: 9,
-    date: "Mar 2025",
-    activity: "EDI Gandhinagar Campus Visit",
-    expertLocation: "Entrepreneurship Development Institute of India (EDI), Gandhinagar",
-    beneficiaries: 40,
-    remark: "Industrial & startup exposure tour",
-  },
-  {
-    srNo: 10,
-    date: "Feb 2026",
-    activity: "Startup Pitch Day — SSIP 2.0",
-    expertLocation: "SSIP Expert Panel, GPP",
-    beneficiaries: 90,
-    remark: "Students pitched startup ideas for SSIP funding",
-  },
+  { srNo: 1,  date: "20/09/2022", activity: "Group Discussion for First & Final Year Students", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 100, remark: "Students from all departments" },
+  { srNo: 2,  date: "10/02/2023", activity: "Motivational Speech for Entrepreneurship", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 90, remark: "Seminar" },
+  { srNo: 3,  date: "19/07/2023", activity: "Sensitization Program", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 210, remark: "Innovation & startup awareness" },
+  { srNo: 4,  date: "10/08/2023", activity: "Students Innovation Fest 2023", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 190, remark: "Expert talk" },
+  { srNo: 5,  date: "07–09/08/2023", activity: "Expert Lecture on Entrepreneurship Development", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 30, remark: "By RUSHA & SSIP Cell" },
+  { srNo: 6,  date: "21/08/2023", activity: "World Entrepreneur Day — Entrepreneurship as a Career", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 180, remark: "Seminar" },
+  { srNo: 7,  date: "14/09/2023", activity: "Innovation and Startup Sensitization Workshop", expertLocation: "Seminar Hall, GP Palanpur", beneficiaries: 250, remark: "Workshop" },
+  { srNo: 8,  date: "05–10/12/2023", activity: "Startup Conclave 2023 — Institute Stall & Student Visit", expertLocation: "Gandhinagar",  beneficiaries: 55, remark: "3 at stall + 52 students" },
+  { srNo: 9,  date: "16/04/2024", activity: "New Palanpur for New India", expertLocation: "GP Palanpur", beneficiaries: 140, remark: "Event" },
+  { srNo: 10, date: "21/01/2025", activity: "One Day Workshop", expertLocation: "GP Palanpur", beneficiaries: 20, remark: "Hands-on workshop" },
+  { srNo: 11, date: "25/03/2025", activity: "Opening Ceremony of Innovative Idea & One Day Seminar", expertLocation: "GP Palanpur", beneficiaries: 120, remark: "One day seminar" },
+  { srNo: 12, date: "09/04/2025", activity: "New Palanpur for New India 3.0", expertLocation: "GP Palanpur", beneficiaries: 250, remark: "Real-life problems tackled with tech-powered solutions" },
+  { srNo: 13, date: "10/09/2025", activity: "AI Tools Workshop", expertLocation: "GP Palanpur", beneficiaries: 72, remark: "One day workshop" },
 ];
 ---
 
@@ -122,10 +55,10 @@ const activities = [
   <section class="bg-orange-600 py-10">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
-        <div><div class="text-3xl font-extrabold">10+</div><div class="text-orange-200 text-sm mt-1">Activities Conducted</div></div>
-        <div><div class="text-3xl font-extrabold">1300+</div><div class="text-orange-200 text-sm mt-1">Students Benefitted</div></div>
-        <div><div class="text-3xl font-extrabold">5+</div><div class="text-orange-200 text-sm mt-1">Funded SSIP Projects</div></div>
-        <div><div class="text-3xl font-extrabold">2</div><div class="text-orange-200 text-sm mt-1">SIH Teams Qualified</div></div>
+        <div><div class="text-3xl font-extrabold">41+</div><div class="text-orange-200 text-sm mt-1">Events Organised</div></div>
+        <div><div class="text-3xl font-extrabold">6</div><div class="text-orange-200 text-sm mt-1">Startups Supported</div></div>
+        <div><div class="text-3xl font-extrabold">32</div><div class="text-orange-200 text-sm mt-1">POC Projects Funded</div></div>
+        <div><div class="text-3xl font-extrabold">4</div><div class="text-orange-200 text-sm mt-1">Patents Filed</div></div>
       </div>
     </div>
   </section>
@@ -135,13 +68,13 @@ const activities = [
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
       <h2 class="text-2xl font-bold text-gray-900 mb-4">About the Entrepreneurship Cell</h2>
       <p class="text-gray-600 leading-relaxed mb-4">
-        The Entrepreneurship Development (ED) Cell at Government Polytechnic Palanpur works in collaboration with Government of Gujarat's Student Startup and Innovation Policy (SSIP) Cell to foster an entrepreneurial spirit among students and faculty.
+        Government Polytechnic Palanpur launched its SSIP (Student Startup &amp; Innovation Policy) Cell in 2017 under the Government of Gujarat’s initiative to foster an innovation ecosystem in polytechnic education. The cell provides incubation facility equipped with modern instruments and computers for student innovators.
       </p>
       <p class="text-gray-600 leading-relaxed mb-4">
-        Our activities span from awareness programs, expert talks, and career guidance sessions to hands-on workshops on IPR (Intellectual Property Rights), startup ideation, and prototype development. The cell actively supports student participation in national events like Smart India Hackathon (SIH) and EDI Gandhinagar visits.
+        Since 2022, the SSIP Cell has organised 41+ events — sensitization programs, expert talks, hackathons, and the flagship <em>New Palanpur for New India</em> series — reaching thousands of students across GPP and schools in Palanpur region. Six student startups have been incubated and four patents have been filed.
       </p>
-      <p class="text-gray-600 leading-relaxed">
-        Students who develop innovative ideas are guided through the SSIP 2.0 funding process where promising projects receive government financial support to develop prototypes and launch startups.
+      <p class="text-gray-600 leading-relaxed mb-4">
+        The SSIP team is led by <strong>Mr. L.K. Patel (EC, SSIP Coordinator)</strong> along with members Mr. B.M. Patel (EE), Mr. M.J. Dabgar (EC), Mr. F.M. Mukhi (Civil), Mr. V.H. Suthar (Mech), and Mr. V.A. Chauhan (IC).
       </p>
 
       <!-- Key Focus Areas -->

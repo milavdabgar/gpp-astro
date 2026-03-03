@@ -5,18 +5,21 @@ import Footer from '../../components/Footer.astro';
 import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
 
 const incubatees = [
-  { name: "AgroBotix", sector: "AgriTech", stage: "Prototype", year: "2024", team: "CE + EC students" },
-  { name: "EcoKraft", sector: "Sustainability", stage: "MVP", year: "2023", team: "ME students" },
-  { name: "SmartPave", sector: "Civil Tech", stage: "Ideation", year: "2025", team: "Civil faculty + students" },
+  { name: "Prahantam Pvt. Ltd.", sector: "Manufacturing", stage: "Incorporated", founder: "Dhaval Nai", desc: "Automated tea cup washing machines for hygiene-conscious hospitality businesses." },
+  { name: "Zephyr Digisteth", sector: "Healthcare / MedTech", stage: "Patent Filed", founder: "Dr. Vipul Tank", desc: "AI-integrated compact medical device with ECG, temperature, blood sugar monitoring and tele-consultation support." },
+  { name: "BeeRobokids Innovations Pvt. Ltd.", sector: "STEM Education", stage: "Incorporated", founder: "Rishabh Prajapati", desc: "Robotics and IoT learning kits for school students, empowering the next generation of innovators." },
+  { name: "Innovate 3D", sector: "Tech / Manufacturing", stage: "Active", founder: "Deepak Chaudhary", desc: "3D design, printing, rapid prototyping, and STEM kits for students and industries." },
+  { name: "Sky Print Startup", sector: "Drone Technology", stage: "Active", founder: "Yuvraj Rajput", desc: "Custom FPV, surveillance, and event drones; drone services and training." },
+  { name: "Sky Craft", sector: "STEM Education", stage: "Active", founder: "Bharat Mali", desc: "Low-cost robotics and IoT kits with activity-based learning modules for rural schools." },
 ];
 
 const facilities = [
-  { icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Dedicated Workspaces", desc: "Hot-desks and dedicated seating for incubated teams to work on their ventures." },
-  { icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Design Lab Access", desc: "Priority access to 3D printers, laser cutters, and electronics workbenches." },
-  { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", title: "Expert Network", desc: "Access to a network of industry experts, investors, and startup mentors." },
-  { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Legal & IPR Support", desc: "Guidance on company registration, IP protection, and legal compliance." },
-  { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "Seed Funding", desc: "SSIP seed funding up to ₹2 lakh for selected incubated projects." },
-  { icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Industry Connect", desc: "Introductions to GIDC companies, MSMEs, and corporates for pilots and funding." },
+  { icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Dedicated Workspace", desc: "SSIP facility equipped with modern instruments, computers, and internet connectivity for prototype development, established 2017." },
+  { icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Design Lab Access", desc: "Priority access to computing resources and prototyping tools within the innovation cell." },
+  { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", title: "Expert Network", desc: "Faculty SSIP team and external mentors guide students from ideation to prototype and incorporation." },
+  { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "IPR Support", desc: "Guidance on patent filing; SSIP has funded 4 patents (2 granted) for student innovations." },
+  { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", title: "POC Funding", desc: "32 POC projects funded 2022–2026, with total utilisation of ₹4.80 lakh under SSIP grant." },
+  { icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", title: "Startup Conclave Access", desc: "Students participate in state-level events like Startup Conclave Gandhinagar for pitch experience and ecosystem exposure." },
 ];
 
 const applySteps = [
@@ -48,7 +51,7 @@ const applySteps = [
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
       <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Innovation Cell</div>
       <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Incubation Centre</h1>
-      <p class="text-lg text-gray-600 max-w-2xl">GPP's pre-incubation support for early-stage student and faculty innovations under the SSIP framework.</p>
+      <p class="text-lg text-gray-600 max-w-2xl">GPP launched its SSIP cell in 2017 to provide incubation support for student innovations — equipped with instruments, computers, and internet connectivity under the Student Startup &amp; Innovation Policy of Government of Gujarat.</p>
     </div>
   </section>
 
@@ -72,19 +75,21 @@ const applySteps = [
     </div>
   </section>
 
-  <!-- Current Incubatees -->
+  <!-- SSIP-Supported Startups -->
   <section class="py-14 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8">Current Incubatees</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">SSIP-Supported Startups</h2>
+      <p class="text-gray-500 mb-8">Student and alumni ventures nurtured through GPP’s SSIP cell (as of 2025–26)</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {incubatees.map(i => (
           <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
             <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4">{i.name.charAt(0)}</div>
             <h3 class="font-bold text-gray-900">{i.name}</h3>
-            <div class="text-sm text-gray-500 mb-3">{i.sector} · Est. {i.year}</div>
+            <div class="text-sm text-gray-500 mb-2">{i.sector}</div>
+            <p class="text-xs text-gray-600 mb-3 leading-relaxed">{i.desc}</p>
             <div class="flex gap-2 flex-wrap">
               <span class="text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5">{i.stage}</span>
-              <span class="text-xs bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">{i.team}</span>
+              <span class="text-xs bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">{i.founder}</span>
             </div>
           </div>
         ))}
