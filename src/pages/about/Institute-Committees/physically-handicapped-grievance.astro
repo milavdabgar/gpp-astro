@@ -1,0 +1,131 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur", department: "Administration" },
+  { role: "Coordinator", name: "Nominated Faculty", department: "Faculty" },
+  { role: "Member", name: "Administrative Staff", department: "Administration" },
+  { role: "Student Representative", name: "PwD Student Representative (if applicable)", department: "Student Body" },
+];
+
+const provisions = [
+  { title: "Barrier-Free Access", desc: "Ramps, wide doorways, and accessible pathways on campus to ensure mobility for wheelchair users and students with physical disabilities." },
+  { title: "Accessible Washrooms", desc: "Specially designed washroom facilities accessible to students with physical disabilities." },
+  { title: "Exam Provisions", desc: "Extra time, scribe assistance, and special seating arrangements for students with disabilities during examinations, as per GTU and AICTE norms." },
+  { title: "Priority Seating", desc: "Front-row seating in classrooms and labs available for students with visual or hearing impairments." },
+  { title: "Grievance Mechanism", desc: "A dedicated and confidential channel for PwD students to raise concerns about access, treatment, or academic support." },
+  { title: "Scholarship Guidance", desc: "Assistance with scholarship applications specifically available for students with disabilities from state and central government schemes." },
+];
+
+const rights = [
+  "Right to equal access to education and facilities",
+  "Right to reasonable accommodation and academic support",
+  "Right to accessible examination provisions",
+  "Right to confidentiality of disability status",
+  "Right to redress for discrimination or denial of facilities",
+  "Right to apply for PwD-specific scholarships and reservations",
+];
+---
+
+<Layout title="Physically Handicapped Grievance Cell | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">PH Grievance Cell</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Inclusive Education</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Physically Handicapped Grievance Cell</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Ensuring equal access, dignity, and academic support for students with physical disabilities at GPP.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Cell</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        The Physically Handicapped (PH) Grievance Cell at GPP is constituted to safeguard the rights of students with disabilities and ensure they receive appropriate academic, infrastructural, and administrative support. The cell operates in compliance with the Rights of Persons with Disabilities Act, 2016 and guidelines from AICTE.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed">
+        GPP is committed to creating an inclusive campus where students with physical disabilities can pursue their diploma education without barriers.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Provisions & Support</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {provisions.map(p => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-gray-900 mb-2">{p.title}</h3>
+            <p class="text-gray-600 text-sm">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Rights of PwD Students</h2>
+      <ul class="space-y-3">
+        {rights.map(r => (
+          <li class="flex items-start gap-3 text-gray-700">
+            <div class="w-5 h-5 bg-primary/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            {r}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Cell Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-6 bg-primary/5 rounded-xl p-5 border border-primary/20">
+        <p class="text-gray-700 text-sm">PwD students needing support or wishing to raise a grievance may contact the Cell Coordinator or the Principal's office directly and in confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

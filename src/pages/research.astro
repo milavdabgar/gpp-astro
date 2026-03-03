@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const researchAreas = [
+  {
+    title: "Sustainable Energy & Green Technology",
+    description: "Research on solar energy optimization, wind energy, energy-efficient systems, and sustainable construction materials.",
+    topics: ["Solar PV Optimization", "Energy Efficient Buildings", "Green Roofing Systems", "Biomass Energy"],
+    color: "green",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+  },
+  {
+    title: "Water Resources & Environmental Engineering",
+    description: "Projects focused on water treatment, rainwater harvesting, wastewater management, and environmental monitoring systems.",
+    topics: ["Water Quality Analysis", "Rainwater Harvesting", "Wastewater Treatment", "Air Quality Monitoring"],
+    color: "blue",
+    icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+  },
+  {
+    title: "Embedded Systems & IoT",
+    description: "Student and faculty research in microcontroller-based systems, Arduino/ESP32 applications, and smart IoT solutions for agriculture and industry.",
+    topics: ["Smart Agriculture", "IoT-based Monitoring", "Industrial Automation", "Wireless Sensor Networks"],
+    color: "orange",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2",
+  },
+  {
+    title: "Structural Engineering & Infrastructure",
+    description: "Research on modern construction materials, seismic behaviour of structures, and infrastructure design for rural and semi-urban areas.",
+    topics: ["Concrete Mix Design", "Seismic Analysis", "Low-Cost Housing", "Road Construction Research"],
+    color: "gray",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  },
+  {
+    title: "Computer Engineering & Artificial Intelligence",
+    description: "Faculty and student research in machine learning applications, image processing, data analysis, and software development.",
+    topics: ["Machine Learning Applications", "Image Processing", "Data Analytics", "Web & Mobile Applications"],
+    color: "purple",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2",
+  },
+  {
+    title: "Manufacturing & Industrial Engineering",
+    description: "Research in advanced manufacturing processes, CNC machining, quality control, and lean manufacturing adapted for small industries.",
+    topics: ["CNC Process Optimization", "Quality Control", "Lean Manufacturing", "Workshop Technology"],
+    color: "red",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+];
+
+const publications = [
+  { title: "Research Papers 2023–24", period: "2023-24", desc: "Collection of research papers published by GPP faculty and students during the academic year 2023-24." },
+  { title: "Research Papers 2022–23", period: "2022-23", desc: "Research papers in civil, electrical, mechanical, and computer engineering branches." },
+  { title: "Research Papers 2021–22", period: "2021-22", desc: "Research papers focusing on energy, environment, and IoT applications." },
+];
+
+const colorMap: Record<string, string> = {
+  green:  "bg-green-50 text-green-600 border-green-200",
+  blue:   "bg-blue-50 text-blue-600 border-blue-200",
+  orange: "bg-orange-50 text-orange-600 border-orange-200",
+  gray:   "bg-gray-100 text-gray-600 border-gray-200",
+  purple: "bg-purple-50 text-purple-600 border-purple-200",
+  red:    "bg-red-50 text-red-600 border-red-200",
+};
+---
+
+<Layout title="Research | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Research</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Research at GPP</h1>
+      <p class="text-lg text-gray-600">Advancing knowledge and fostering academic excellence in engineering and technology through faculty and student-driven research.</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-primary py-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { label: "Research Papers Published", value: "30+" },
+          { label: "Faculty with PhD", value: "6" },
+          { label: "Faculty with Masters", value: "41" },
+          { label: "Research Areas", value: "6" },
+        ].map((s) => (
+          <div>
+            <div class="text-3xl font-extrabold text-white">{s.value}</div>
+            <div class="text-blue-200 text-sm mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Research Activities at GPP</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Government Polytechnic Palanpur actively promotes a culture of research and innovation among its faculty and students. With 6 PhD holders and 41 post-graduate faculty members, the institute has a strong foundation for academic research and applied engineering investigations.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Research at GPP spans several engineering disciplines with a focus on practical, region-relevant challenges — from water resources in North Gujarat, to sustainable building materials, smart agriculture using IoT, and energy efficiency in industrial and residential settings.
+      </p>
+    </div>
+  </section>
+
+  <!-- Research Areas -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Research Areas</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {researchAreas.map((area) => {
+          const c = colorMap[area.color] || colorMap.gray;
+          return (
+            <div class={`bg-white rounded-xl border ${c.split(' ').pop()} shadow-sm p-6 flex flex-col`}>
+              <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${c}`}>
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={area.icon}/>
+                </svg>
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">{area.title}</h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-1">{area.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {area.topics.map((topic) => (
+                  <span class="text-xs bg-gray-100 text-gray-600 rounded px-2 py-1">{topic}</span>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Publications -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Research Publications</h2>
+      <div class="space-y-4">
+        {publications.map((pub) => (
+          <div class="flex items-center justify-between border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">{pub.title}</p>
+                <p class="text-xs text-gray-500">{pub.desc}</p>
+              </div>
+            </div>
+            <span class="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded px-2 py-1 ml-4 flex-shrink-0">Uploading soon</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SSIP + Innovation link -->
+  <section class="py-14 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Student Innovation & Research</h2>
+      <p class="text-gray-600 mb-6">
+        Students can participate in research and innovation activities through the SSIP Cell. Funded projects, prototype development, and patent filing support are available for innovative student ideas.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/ssip" class="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors">SSIP Cell</a>
+        <a href="/innovation" class="border border-primary text-primary px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Innovation Cell</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const facilities = [
+  {
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5",
+    title: "Placement Lab",
+    desc: "Dedicated computer lab for pre-placement aptitude tests, mock interviews, and online assessments.",
+    capacity: "50 seats",
+  },
+  {
+    icon: "M15 10a3 3 0 11-6 0 3 3 0 016 0z M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804",
+    title: "Interview Rooms",
+    desc: "Dedicated rooms for personal interviews and group discussions during campus drives.",
+    capacity: "4 rooms",
+  },
+  {
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    title: "Presentation Hall",
+    desc: "Seminar hall used for pre-placement talks, company presentations, and orientation.",
+    capacity: "150 pax",
+  },
+  {
+    icon: "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+    title: "Resume & Soft Skills Zone",
+    desc: "Resource area for resume building, communication skills, and personality development training.",
+    capacity: "Flexible",
+  },
+];
+
+const companies = [
+  { name: "L&T Construction", sector: "Infrastructure" },
+  { name: "Torrent Power", sector: "Power / Utilities" },
+  { name: "Adani Group", sector: "Conglomerate" },
+  { name: "GSRTC", sector: "Transport" },
+  { name: "Gujarat Gas", sector: "Energy" },
+  { name: "Suzlon Energy", sector: "Renewable Energy" },
+  { name: "BCM Computers", sector: "IT" },
+  { name: "Tata Projects", sector: "Infrastructure" },
+];
+
+const stats2024 = [
+  { label: "Companies Visited", value: "30+" },
+  { label: "Students Placed", value: "150+" },
+  { label: "Highest Package", value: "₹4.5 LPA" },
+  { label: "Avg Package", value: "₹2.8 LPA" },
+];
+---
+
+<Layout title="Placement Drive Facilities | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/placement" class="hover:text-primary transition-colors">Placements</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Placement Drive Facilities</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Placement Drive Facilities</h1>
+      <p class="text-lg text-gray-600">State-of-the-art facilities to host on-campus recruitment drives at Government Polytechnic Palanpur</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-primary py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {stats2024.map(s => (
+          <div class="text-center">
+            <div class="text-3xl font-bold text-white">{s.value}</div>
+            <div class="text-sm mt-1 text-white/80">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facilities -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Available Facilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {facilities.map(f => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={f.icon}/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">{f.title}</h3>
+                <p class="text-gray-600 text-sm mb-2">{f.desc}</p>
+                <span class="text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5">Capacity: {f.capacity}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Companies -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Companies Who Have Visited GPP</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {companies.map(c => (
+          <div class="bg-white rounded-xl p-4 border border-gray-100 text-center hover:border-primary/30 transition-colors">
+            <div class="font-semibold text-gray-900 text-sm">{c.name}</div>
+            <div class="text-xs text-gray-500 mt-1">{c.sector}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Invite -->
+  <section class="py-14 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Conduct a Drive at GPP</h2>
+      <p class="text-gray-600 mb-4">Our TPO team ensures seamless end-to-end management of your campus recruitment drive — from invitations and registrations to interview coordination and offer letter facilitation.</p>
+      <p class="text-gray-700 font-medium mb-6">Contact: <a href="mailto:tpo@gpp.edu.in" class="text-primary underline">tpo@gpp.edu.in</a> | +91-XXXX-XXXXXX</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/tpo" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">TPO Office</a>
+        <a href="/campus-drive" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">View Upcoming Drives</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

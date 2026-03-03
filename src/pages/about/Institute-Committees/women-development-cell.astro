@@ -1,0 +1,97 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur", department: "Administration" },
+  { role: "Coordinator", name: "Senior Woman Faculty (nominated)", department: "Faculty" },
+  { role: "Member", name: "Woman Faculty Member", department: "Faculty" },
+  { role: "Member", name: "Woman Faculty Member", department: "Faculty" },
+  { role: "Student Representative", name: "Woman Student Representative", department: "Student Body" },
+];
+
+const activities = [
+  { title: "Gender Sensitisation Workshops", desc: "Awareness sessions for all students and staff on gender equality, respect, and safe campus environment." },
+  { title: "Career Guidance for Women", desc: "Dedicated sessions on career opportunities, higher education, and employment pathways for women diploma graduates." },
+  { title: "Self-Defence Training", desc: "Periodic self-defence training workshops organised in collaboration with local trainers." },
+  { title: "Women's Day Celebration", desc: "Annual celebration of International Women's Day with talks, cultural events, and recognition of achievers." },
+  { title: "Mental Health Support", desc: "Coordination with counsellors for mental health support especially for women students facing stress or pressure." },
+  { title: "Safe Campus Initiatives", desc: "Recommendations to administration on campus safety measures including lighting, transport, and security." },
+];
+---
+
+<Layout title="Women Development Cell | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Women Development Cell</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-pink-100 text-pink-800 text-sm font-semibold px-4 py-1 rounded-full mb-4">Student Welfare</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Women Development Cell</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Empowering women students and staff at GPP by creating a safe, equitable, and supportive campus environment.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the WDC</h2>
+      <p class="text-gray-700 text-lg leading-relaxed">The Women Development Cell (WDC) at Government Polytechnic Palanpur works to promote the welfare, safety, and professional growth of women students and staff. The cell organises awareness programmes, support activities, and advocates for policies that make GPP an equitable and safe place for all.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Activities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {activities.map(a => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-gray-900 mb-2">{a.title}</h3>
+            <p class="text-gray-600 text-sm">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Cell Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

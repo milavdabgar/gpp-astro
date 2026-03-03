@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const tools = [
+  { name: "3D Printers (FDM)", count: 2, dept: "Mechanical / SSIP" },
+  { name: "Laser Cutter", count: 1, dept: "Central" },
+  { name: "CNC Mini Router", count: 1, dept: "Mechanical" },
+  { name: "PCB Prototyping Station", count: 1, dept: "EC / EE" },
+  { name: "IoT Development Kits", count: 10, dept: "EC / CE" },
+  { name: "Arduino & Raspberry Pi Kits", count: 20, dept: "EC / CE / IT" },
+  { name: "Soldering & Electronics Workbenches", count: 6, dept: "EC" },
+  { name: "Oscilloscopes & Function Generators", count: 8, dept: "EE / EC" },
+];
+
+const projects = [
+  { title: "Smart Irrigation System", team: "CE + EC", year: "2025" },
+  { title: "Solar-Powered Water Purifier", team: "EE + ME", year: "2025" },
+  { title: "Automated Traffic Signal Controller", team: "EC + CE", year: "2024" },
+  { title: "Portable ECG Device", team: "EC", year: "2024" },
+  { title: "Plastic Waste Shredder & Extruder", team: "ME", year: "2024" },
+  { title: "Earthquake Early Warning System", team: "EC + CE", year: "2023" },
+];
+---
+
+<Layout title="Design Lab | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/innovation" class="hover:text-primary transition-colors">Innovation Cell</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Design Lab</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Innovation Cell</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Design Lab</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">A hands-on fabrication and prototyping space where GPP students turn ideas into working models using modern tools and equipment.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Design Lab</h2>
+      <p class="text-gray-700 leading-relaxed text-lg">
+        The Design Lab at GPP is a dedicated innovation and fabrication space that provides students with access to modern prototyping tools, electronic workbenches, and IoT development kits. Established under the SSIP initiative, the lab encourages cross-department collaboration and supports student-led project development from ideation to working prototype.
+      </p>
+    </div>
+  </section>
+
+  <!-- Equipment -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Available Equipment</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {tools.map(t => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+            <div class="text-2xl font-bold text-primary mb-1">{t.count}</div>
+            <div class="font-semibold text-gray-900 text-sm mb-1">{t.name}</div>
+            <div class="text-xs text-gray-500">{t.dept}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Projects -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Student Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {projects.map(p => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-primary/30 transition-colors">
+            <div class="text-xs text-primary font-semibold mb-2">{p.year} · {p.team}</div>
+            <h3 class="font-bold text-gray-900">{p.title}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Use the Design Lab</h2>
+      <p class="text-gray-600 mb-6">GPP students can book slots and access lab equipment for SSIP projects, final-year work, or independent innovations. Contact the Innovation Cell coordinator.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/ssip" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">SSIP at GPP</a>
+        <a href="/contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Contact Innovation Cell</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

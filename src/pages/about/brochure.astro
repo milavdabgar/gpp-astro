@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const brochures = [
+  {
+    title: "College Prospectus 2024–25",
+    description: "Comprehensive information about Government Polytechnic Palanpur — programs offered, admission procedure, fee structure, facilities, faculty, and campus life.",
+    category: "Prospectus",
+    year: "2024–25",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    color: "blue",
+    file: null,
+  },
+  {
+    title: "Training & Placement Cell Brochure",
+    description: "Information about GPP's Training & Placement Cell (TPO), placement statistics, recruited companies, and how to recruit from GPP.",
+    category: "Placement",
+    year: "2024–25",
+    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    color: "green",
+    file: null,
+  },
+  {
+    title: "SSIP & Innovation Brochure",
+    description: "Overview of GPP's SSIP (Student Startup & Innovation Policy) initiatives, prototype lab, funded projects, and how students can apply for SSIP grants.",
+    category: "Innovation",
+    year: "2024–25",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+    color: "yellow",
+    file: null,
+  },
+  {
+    title: "NBA Accreditation Report",
+    description: "Self-Assessment Report (SAR) and accreditation details for NBA-accredited programs: Civil, Electrical, and Mechanical Engineering (2024–2027).",
+    category: "Accreditation",
+    year: "2024–27",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+    color: "purple",
+    file: null,
+  },
+];
+
+const colorMap: Record<string, string> = {
+  blue:   "bg-blue-50 border-blue-200 text-blue-600",
+  green:  "bg-green-50 border-green-200 text-green-600",
+  yellow: "bg-yellow-50 border-yellow-200 text-yellow-600",
+  purple: "bg-purple-50 border-purple-200 text-purple-600",
+};
+---
+
+<Layout title="Brochures & Downloads | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Brochures & Downloads</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Brochures & Downloads</h1>
+      <p class="text-lg text-gray-600">Download official brochures, prospectus, and information documents about Government Polytechnic Palanpur</p>
+    </div>
+  </section>
+
+  <!-- Brochures Grid -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid md:grid-cols-2 gap-8">
+        {brochures.map(b => (
+          <div class={`rounded-xl border-2 p-6 ${colorMap[b.color]} flex flex-col`}>
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                <svg class="w-6 h-6" style={`color: var(--color-${b.color}-600)`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={b.icon}/>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold uppercase tracking-wide opacity-70">{b.category} · {b.year}</span>
+                <h3 class="font-bold text-gray-900 text-lg mt-1">{b.title}</h3>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed flex-1">{b.description}</p>
+            <div class="mt-6 flex gap-3">
+              {b.file ? (
+                <>
+                  <a href={b.file} target="_blank" class="flex-1 text-center bg-white border border-current rounded-lg py-2.5 text-sm font-semibold hover:bg-gray-50 transition-colors">
+                    View Online
+                  </a>
+                  <a href={b.file} download class="flex-1 text-center bg-gray-900 text-white rounded-lg py-2.5 text-sm font-semibold hover:bg-gray-700 transition-colors">
+                    Download PDF
+                  </a>
+                </>
+              ) : (
+                <span class="text-sm italic text-gray-500 py-2.5">PDF coming soon — contact the office for a physical copy</span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact for Hard Copy -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Need a Hard Copy?</h2>
+      <p class="text-gray-600 mb-8">
+        Physical copies of the prospectus and other brochures are available at the institute office during working hours. You can also request a copy to be mailed.
+      </p>
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-left max-w-md mx-auto">
+        <h3 class="font-semibold text-gray-900 mb-3">Contact</h3>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            Outside Malan Gate, Ambaji Road, Palanpur-385001
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            02742-262115 / 9099063226
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            gp-palanpur-dte@gujarat.gov.in
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

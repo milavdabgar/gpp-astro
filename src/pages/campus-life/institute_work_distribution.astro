@@ -1,0 +1,216 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const departments = [
+  {
+    name: "Civil Engineering",
+    hod: "Prof. (Name)",
+    workAreas: [
+      "Instruction in theory and practical classes",
+      "Laboratory supervision and equipment maintenance",
+      "Student mentoring and academic counseling",
+      "Research and project guidance",
+      "Examination duty – internal and external",
+    ],
+  },
+  {
+    name: "Electrical Engineering",
+    hod: "Prof. (Name)",
+    workAreas: [
+      "Theory lectures and practical demonstrations",
+      "Electrical lab setup and safety compliance",
+      "Industry interaction and expert lecture coordination",
+      "Project work supervision",
+      "Exam and evaluation duties",
+    ],
+  },
+  {
+    name: "Mechanical Engineering",
+    hod: "Prof. (Name)",
+    workAreas: [
+      "Workshop and lab classes",
+      "CAD/CAM lab supervision",
+      "Industrial visit coordination",
+      "Student skills development programs",
+      "Examination invigilation and assessment",
+    ],
+  },
+  {
+    name: "Electronics & Communication Engineering",
+    hod: "Prof. (Name)",
+    workAreas: [
+      "Electronics lab teaching and equipment maintenance",
+      "ISA/ISHRAE student chapter coordination",
+      "Mini-project and final-year project guidance",
+      "Seminars and guest lecture organization",
+      "Result analysis and student performance tracking",
+    ],
+  },
+  {
+    name: "Computer Engineering",
+    hod: "Prof. (Name)",
+    workAreas: [
+      "Programming and software lab instruction",
+      "Networking lab maintenance",
+      "Hackathon and coding competition organization",
+      "SSIP project mentoring",
+      "Industry training coordination",
+    ],
+  },
+  {
+    name: "Information Technology",
+    hod: "Prof. (Name)",
+    workAreas: [
+      "Database and web development labs",
+      "Cybersecurity awareness workshops",
+      "Soft skills and communication sessions",
+      "Placement preparation support",
+      "Alumni interaction coordination",
+    ],
+  },
+];
+
+const adminDivisions = [
+  {
+    division: "Academic Section",
+    responsibilities: [
+      "GTU exam enrollment and form submission",
+      "Timetable and hall allocation",
+      "Mark sheet and certificate distribution",
+      "Academic calendar coordination",
+    ],
+  },
+  {
+    division: "Accounts Section",
+    responsibilities: [
+      "Fee collection and scholarships disbursement",
+      "Budget preparation and financial reporting",
+      "Salary processing for staff",
+      "Audit and compliance documentation",
+    ],
+  },
+  {
+    division: "Establishment Section",
+    responsibilities: [
+      "Staff recruitment, attendance, and service records",
+      "Leave management and transfers",
+      "Correspondence with DTE Gujarat",
+      "RTI matters",
+    ],
+  },
+  {
+    division: "Stores & Purchase",
+    responsibilities: [
+      "Procurement of lab equipment and consumables",
+      "Tender processing and vendor coordination",
+      "Asset register maintenance",
+      "Stock verification",
+    ],
+  },
+];
+---
+
+<Layout title="Work Distribution | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Work Distribution</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Institute Work Distribution</h1>
+      <p class="text-lg text-gray-600">Roles and responsibilities across academic departments and administrative divisions at GPP</p>
+    </div>
+  </section>
+
+  <!-- Academic Departments -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Academic Departments — Key Responsibilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {departments.map(dept => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900">{dept.name}</h3>
+                <p class="text-xs text-gray-500">HoD: {dept.hod}</p>
+              </div>
+            </div>
+            <ul class="space-y-2">
+              {dept.workAreas.map(w => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {w}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Sections -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Administrative Divisions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {adminDivisions.map(div => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+              <div class="w-2 h-6 bg-primary rounded-full"></div>
+              {div.division}
+            </h3>
+            <ul class="space-y-2">
+              {div.responsibilities.map(r => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Full chart link -->
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <p class="text-gray-600 mb-5">For the complete official work distribution chart with individual faculty assignments, refer to the Admin Chart document.</p>
+      <a href="/about/organization-chart" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">View Organization Chart</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

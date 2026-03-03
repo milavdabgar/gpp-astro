@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const helplines = [
+  {
+    label: "UGC Anti-Ragging Helpline",
+    number: "1800-180-5522",
+    type: "National Toll-Free",
+    available: "24 × 7",
+    icon: "📞",
+  },
+  {
+    label: "GPP Anti-Ragging Committee",
+    number: "02742-252600",
+    type: "Institute",
+    available: "9 AM – 5 PM (Working Days)",
+    icon: "🏫",
+  },
+  {
+    label: "Principal's Office",
+    number: "02742-252600",
+    type: "Institute",
+    available: "9 AM – 5 PM (Working Days)",
+    icon: "👨‍💼",
+  },
+  {
+    label: "Police Control Room",
+    number: "100",
+    type: "Emergency",
+    available: "24 × 7",
+    icon: "🚔",
+  },
+];
+
+const whatIsRagging = [
+  "Compelling a fresher to do any act against their will",
+  "Physical or verbal abuse, eve-teasing, or causing distress",
+  "Forcing a student to perform menial tasks or acts of indecency",
+  "Sending offensive messages, calls, or social media posts",
+  "Humiliating a student based on gender, region, language, or background",
+  "Creating psychological fear or causing mental harassment",
+];
+
+const consequences = [
+  { action: "Suspension from college", severity: "Severe" },
+  { action: "Expulsion and debarment from admission", severity: "Severe" },
+  { action: "Withholding of scholarships", severity: "Moderate" },
+  { action: "FIR and criminal prosecution", severity: "Severe" },
+  { action: "Cancellation of exam results", severity: "Moderate" },
+  { action: "Public service disqualification", severity: "Severe" },
+];
+
+const committeeMembers = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur" },
+  { role: "Anti-Ragging Officer", name: "Senior Faculty (Nominated)" },
+  { role: "Squad Member", name: "Faculty Representative — CE/EE" },
+  { role: "Squad Member", name: "Faculty Representative — ME/EC" },
+  { role: "Administrative Member", name: "Head Clerk / Administrative Officer" },
+  { role: "Student Representative", name: "Student Council President" },
+];
+---
+
+<Layout title="Anti-Ragging Helpline | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Anti-Ragging Helpline</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero — red accent to signal urgency -->
+  <section class="bg-gradient-to-br from-red-50 to-orange-50 border-b border-red-100 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">Zero Tolerance</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Anti-Ragging Helpline</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Ragging is a criminal offence. GPP Palanpur maintains a strict zero-tolerance policy. Report immediately — all complaints are treated confidentially.</p>
+    </div>
+  </section>
+
+  <!-- Emergency Helpline Numbers -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Helpline Numbers</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {helplines.map(h => (
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-5 text-center">
+            <div class="text-3xl mb-3">{h.icon}</div>
+            <p class="text-xs text-gray-500 mb-1 font-medium uppercase tracking-wider">{h.type}</p>
+            <p class="text-sm font-semibold text-gray-800 mb-2">{h.label}</p>
+            <a href={`tel:${h.number.replace(/[^0-9]/g, '')}`} class="block text-2xl font-bold text-red-700 hover:text-red-800 mb-2">{h.number}</a>
+            <p class="text-xs text-gray-500">{h.available}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Ragging -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">What Constitutes Ragging?</h2>
+      <ul class="space-y-3">
+        {whatIsRagging.map(item => (
+          <li class="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100 text-sm text-gray-700">
+            <div class="w-5 h-5 bg-red-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Consequences -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Consequences of Ragging</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-red-600 text-white text-left">
+              <th class="px-5 py-3 font-semibold">Punitive Action</th>
+              <th class="px-5 py-3 font-semibold">Severity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {consequences.map((c, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 text-gray-800">{c.action}</td>
+                <td class="px-5 py-3">
+                  <span class={`text-xs font-medium px-2.5 py-1 rounded-full ${c.severity === 'Severe' ? 'bg-red-100 text-red-700' : 'bg-orange-100 text-orange-700'}`}>
+                    {c.severity}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committee -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Anti-Ragging Committee</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-900 text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Member</th>
+            </tr>
+          </thead>
+          <tbody>
+            {committeeMembers.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-xs text-gray-500">For the full committee with names and contact information, please visit the Anti-Ragging Committee page or the college notice board.</p>
+      <div class="mt-4">
+        <a href="/about/Institute-Committees/anti-ragging" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+          View Full Committee Details →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Report -->
+  <section class="py-10 bg-red-600">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <h2 class="text-2xl font-bold text-white mb-3">Witnessed or Experienced Ragging?</h2>
+      <p class="text-white/90 mb-6 text-sm">Report immediately. Your identity will be kept strictly confidential. No student should suffer in silence.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:18001805522" class="inline-flex items-center justify-center gap-2 bg-white text-red-600 font-bold px-6 py-3 rounded-xl hover:bg-white/90 transition-colors">
+          📞 Call 1800-180-5522
+        </a>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-medium px-6 py-3 rounded-xl hover:bg-white/10 transition-colors">
+          Online Complaint
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

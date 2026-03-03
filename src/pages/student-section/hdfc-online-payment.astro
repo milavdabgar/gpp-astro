@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+---
+
+<Layout title="Online Fee Payment | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/student-section" class="hover:text-primary transition-colors">Student Section</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Online Fee Payment</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
+        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Online Fee Payment</h1>
+      <p class="text-lg text-gray-600">Official portal for fee payment for Diploma programs (1st, 2nd, 3rd year) and exam fees at Government Polytechnic Palanpur.</p>
+    </div>
+  </section>
+
+  <!-- Alert -->
+  <section class="bg-amber-50 border-b border-amber-200 py-4">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm text-amber-800 text-center font-medium">
+        📢 Important: All students must go through the instructions carefully before making payment online. Do not pay after the deadline without permission.
+      </p>
+    </div>
+  </section>
+
+  <!-- Instructions -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="bg-green-600 px-6 py-4">
+          <h2 class="text-white font-bold text-xl">Student Fee Payment — Online</h2>
+          <p class="text-green-100 text-sm mt-1">For Diploma (D.E.), Direct-to-Diploma (D2D), PDDC, and Examination Fees</p>
+        </div>
+
+        <div class="p-6 space-y-8">
+          <!-- Instructions -->
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-4">Instructions for Online Fee Payment</h3>
+            <div class="space-y-3">
+              {[
+                "Read all instructions carefully before proceeding to make payment.",
+                "Fill in all relevant details correctly after opening the fee payment form.",
+                "Generate both the fee receipt AND the payment acknowledgement slip after payment.",
+                "Keep a physical copy of both documents for your records.",
+                "Do not pay fees after the last date without prior permission from the administration.",
+                "Payments made on unofficial portals will not be accepted.",
+                "In case of a failed transaction, do not repeat payment—wait 24–48 hours for auto-reversal.",
+                "Contact the student section immediately if you face any payment issues.",
+              ].map((item, i) => (
+                <div class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-700 text-xs font-bold flex items-center justify-center mt-0.5">{i + 1}</span>
+                  <p class="text-gray-700 text-sm">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Fee Types -->
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-4">Applicable Fee Categories</h3>
+            <div class="overflow-x-auto rounded-lg border border-gray-200">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="bg-gray-50 text-left">
+                    <th class="px-4 py-2.5 font-semibold text-gray-700">Fee Type</th>
+                    <th class="px-4 py-2.5 font-semibold text-gray-700">Applicable To</th>
+                    <th class="px-4 py-2.5 font-semibold text-gray-700">Frequency</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                  {[
+                    { type: "Tuition Fee", for: "All Diploma students (CE, EE, EC, ME, CO, IF)", freq: "Semester-wise" },
+                    { type: "Exam Fee", for: "All students appearing for GTU exams", freq: "Each semester" },
+                    { type: "Activity / Development Fee", for: "All enrolled students", freq: "Annual" },
+                    { type: "Late Fee", for: "Students paying after deadline", freq: "As applicable" },
+                  ].map(row => (
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-4 py-2.5 font-medium text-gray-800">{row.type}</td>
+                      <td class="px-4 py-2.5 text-gray-600">{row.for}</td>
+                      <td class="px-4 py-2.5 text-gray-500">{row.freq}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Payment Portal Link -->
+          <div class="bg-green-50 border border-green-200 rounded-lg p-5">
+            <h3 class="font-bold text-gray-900 text-lg mb-3">Fee Payment Portal</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              The fee payment link is activated before each semester and exam registration deadline. Please check the Notice Board or contact the Student Section for the current payment link.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="/student-section/notice-board"
+                class="inline-flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm"
+              >
+                Check Notice Board
+              </a>
+              <a
+                href="/admissions/fee-structure"
+                class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/5 transition-colors text-sm"
+              >
+                Fee Structure
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scholarship Note -->
+  <section class="py-8 bg-blue-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="flex items-start gap-4">
+        <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <div>
+          <h3 class="font-bold text-blue-900 mb-1">Scholarship Students</h3>
+          <p class="text-blue-800 text-sm">
+            SC/ST/OBC students and scholarship holders under MYSY / NSP may have different fee payment obligations. Please consult the Student Section for fee waiver or scholarship-linked fee payment procedures.
+          </p>
+          <a href="/admissions/scholarship" class="text-primary text-sm font-semibold mt-2 inline-block hover:underline">View Scholarship Information →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-lg font-bold text-gray-900 mb-3">Need Help with Fee Payment?</h2>
+      <p class="text-gray-600 text-sm mb-4">Contact the Student Section at GPP during working hours.</p>
+      <div class="bg-gray-50 rounded-xl p-4 text-sm text-gray-700 text-left max-w-sm mx-auto">
+        <p><strong>Phone:</strong> 02742-262115 / 9099063226</p>
+        <p class="mt-1"><strong>Email:</strong> gp-palanpur-dte@gujarat.gov.in</p>
+        <p class="mt-1"><strong>Office Hours:</strong> Mon–Sat, 10:30 AM – 5:30 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

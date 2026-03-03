@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const activities = [
+  {
+    title: "Instrumentation Workshop",
+    desc: "Hands-on workshop on sensors, transducers, and signal conditioning circuits for diploma students.",
+    date: "Feb 2026",
+  },
+  {
+    title: "Industrial Visit – Process Plant",
+    desc: "Visit to a chemical/process plant to observe real-world instrumentation and control systems.",
+    date: "Jan 2026",
+  },
+  {
+    title: "Technical Quiz – ISA Day",
+    desc: "Annual technical quiz competition covering instrumentation standards and industrial automation.",
+    date: "Oct 2025",
+  },
+  {
+    title: "Guest Lecture – PLC & SCADA",
+    desc: "Expert lecture on Programmable Logic Controllers and SCADA systems by industry professional.",
+    date: "Sep 2025",
+  },
+  {
+    title: "Project Expo",
+    desc: "Student project exhibition showcasing innovative instrumentation and automation projects.",
+    date: "Mar 2025",
+  },
+];
+
+const benefits = [
+  "Access to ISA publications, journals, and technical standards",
+  "Networking with industry professionals and ISA members",
+  "Participation in ISA national competitions and events",
+  "Workshops on latest instrumentation technologies",
+  "Career guidance and internship opportunities",
+  "Certificate of participation for all events",
+];
+---
+
+<Layout title="ISA Student Chapter | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">ISA Student Chapter</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Student Chapter</div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">ISA Student Chapter</h1>
+          <p class="text-lg text-gray-600 mb-6">International Society of Automation — Student Chapter at Government Polytechnic Palanpur. Bridging the gap between classroom learning and industrial automation practice.</p>
+          <div class="flex gap-3">
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-center">
+              <div class="text-2xl font-bold text-primary">50+</div>
+              <div class="text-xs text-gray-500">Active Members</div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-center">
+              <div class="text-2xl font-bold text-primary">10+</div>
+              <div class="text-xs text-gray-500">Events/Year</div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-center">
+              <div class="text-2xl font-bold text-primary">2019</div>
+              <div class="text-xs text-gray-500">Established</div>
+            </div>
+          </div>
+        </div>
+        <div class="w-40 h-40 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-20 h-20 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About ISA -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About ISA</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
+        <p>
+          The International Society of Automation (ISA) is a globally recognized non-profit technical society founded in 1945. ISA sets the standard for automation and control by publishing widely adopted technical standards, certifying industry professionals, providing education and training, and producing industry conferences and exhibitions.
+        </p>
+        <p>
+          The ISA Student Chapter at GPP was established to connect diploma students with global automation practices and to complement classroom learning with hands-on experience in instrumentation, control systems, and industrial automation — skills highly valued by employers in Gujarat's industrial sector.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Recent Activities</h2>
+      <div class="space-y-4">
+        {activities.map(a => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex gap-6">
+            <div class="flex-shrink-0 text-center">
+              <span class="text-xs text-gray-500 bg-gray-100 rounded-lg px-3 py-2 block">{a.date}</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{a.title}</h3>
+              <p class="text-gray-600 text-sm">{a.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Member Benefits</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {benefits.map(b => (
+          <div class="flex items-start gap-3 bg-primary/5 rounded-xl p-4">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <p class="text-gray-700 text-sm">{b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="py-14 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Join the ISA Student Chapter</h2>
+      <p class="text-gray-600 mb-6">Open to all diploma students at GPP. Contact the Electronics & Communication Engineering department or the chapter faculty coordinator to register.</p>
+      <a href="/contact" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

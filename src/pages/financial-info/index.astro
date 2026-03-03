@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const sections = [
+  {
+    title: "Financial Statements",
+    href: "/financial-info/statements",
+    description: "Annual audited financial statements for 2020-21 through 2024-25. CAG-audited accounts certified by the Government of Gujarat.",
+    icon: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z",
+    color: "blue",
+    badge: "5 Years",
+    highlights: ["FY 2024-25 Available", "CAG Audited", "Govt. of Gujarat Certified"],
+  },
+  {
+    title: "Tender Notices",
+    href: "/financial-info/tender-notice",
+    description: "Official procurement tender documents and bid notices published as per Government of Gujarat guidelines.",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    color: "amber",
+    badge: "Procurement",
+    highlights: ["Published per GoG guidelines", "All departments", "Open bidding"],
+  },
+  {
+    title: "TEQIP Documentation",
+    href: "/financial-info/teqip",
+    description: "Technical Education Quality Improvement Programme (TEQIP) financial utilization reports and fund management documents.",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5",
+    color: "green",
+    badge: "TEQIP",
+    highlights: ["Fund utilization", "Quality improvement", "World Bank funded"],
+  },
+];
+
+const colorMap: Record<string, { bg: string; text: string; badge: string; border: string }> = {
+  blue:  { bg: "bg-blue-50",   text: "text-blue-700",  badge: "bg-blue-100 text-blue-700",  border: "border-blue-200" },
+  amber: { bg: "bg-amber-50",  text: "text-amber-700", badge: "bg-amber-100 text-amber-700", border: "border-amber-200" },
+  green: { bg: "bg-green-50",  text: "text-green-700", badge: "bg-green-100 text-green-700", border: "border-green-200" },
+};
+---
+
+<Layout title="Financial Information | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Financial Information</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Financial Information</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Government Polytechnic Palanpur is committed to full financial transparency. Access audited statements, procurement documents, and fund utilization reports below.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid md:grid-cols-3 gap-6">
+        {sections.map(s => {
+          const c = colorMap[s.color];
+          return (
+            <a
+              href={s.href}
+              class={`group border ${c.border} rounded-xl overflow-hidden hover:shadow-lg transition-all block`}
+            >
+              <div class={`${c.bg} px-6 py-5`}>
+                <div class="flex items-center justify-between mb-3">
+                  <svg class={`w-8 h-8 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/>
+                  </svg>
+                  <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${c.badge}`}>{s.badge}</span>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">{s.title}</h2>
+              </div>
+              <div class="px-6 py-5">
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">{s.description}</p>
+                <ul class="space-y-1.5 mb-5">
+                  {s.highlights.map(h => (
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+                <span class={`inline-flex items-center gap-1 text-sm font-semibold ${c.text} group-hover:underline`}>
+                  View Documents →
+                </span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparency notice -->
+  <section class="py-12 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="bg-white border border-gray-200 rounded-xl p-6 flex flex-col sm:flex-row items-start gap-4">
+        <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">Financial Transparency &amp; RTI</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            All financial records are maintained as per Government of Gujarat norms and are available for inspection under the Right to Information Act, 2005.
+            For RTI enquiries, contact the Public Information Officer at GPP Palanpur.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-3">
+            <a href="/legal/right-to-info-act" class="text-sm text-primary font-medium hover:underline">Right to Information →</a>
+            <a href="/about/mandatory-disclosure" class="text-sm text-primary font-medium hover:underline">Mandatory Disclosure →</a>
+            <a href="/contact" class="text-sm text-primary font-medium hover:underline">Contact Office →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

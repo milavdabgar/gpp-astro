@@ -1,0 +1,110 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur", department: "Administration" },
+  { role: "EDC Coordinator", name: "Faculty with entrepreneurship background", department: "Faculty" },
+  { role: "Member", name: "Nominated Faculty", department: "Faculty" },
+  { role: "Industry Expert", name: "MSME / Industry Representative", department: "External" },
+  { role: "Alumni Entrepreneur", name: "GPP Alumni Entrepreneur", department: "External" },
+  { role: "Student Representative", name: "Student nominee", department: "Student Body" },
+];
+
+const programs = [
+  { title: "Entrepreneurship Awareness Camp (EAC)", desc: "Short-term awareness camps for students to understand the basics of starting a business." },
+  { title: "Entrepreneurship Development Programme (EDP)", desc: "Intensive training covering business ideation, planning, legal aspects, and financing." },
+  { title: "Industry Visits", desc: "Visits to local industries and MSMEs to expose students to real business environments." },
+  { title: "Guest Lectures", desc: "Sessions by successful entrepreneurs, industry leaders, and startup founders." },
+  { title: "Business Plan Competitions", desc: "Annual competition for students to pitch business ideas and win seed funding support." },
+  { title: "SSIP Integration", desc: "EDC works closely with the SSIP Committee to convert ideas into funded projects." },
+];
+---
+
+<Layout title="Entrepreneurship Development Cell | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Entrepreneurship Development Cell</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Innovation & Enterprise</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Entrepreneurship Development Cell</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Nurturing the entrepreneurial mindset of GPP diploma graduates and preparing them to become job creators, not just job seekers.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the EDC</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">The Entrepreneurship Development Cell (EDC) at GPP is established as per AICTE guidelines to promote entrepreneurship among diploma students. It aims to build entrepreneurial skills, connect students with the startup ecosystem, and support those who wish to start their own ventures after completing their diploma.</p>
+      <p class="text-gray-700 text-lg leading-relaxed">The EDC works in close coordination with the SSIP Committee, Innovation Cell, and industry partners to create a complete ecosystem for student entrepreneurs at GPP.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Programmes & Activities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {programs.map(p => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-gray-900 mb-2">{p.title}</h3>
+            <p class="text-gray-600 text-sm">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Cell Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Want to Start Your Own Venture?</h2>
+      <p class="text-gray-600 mb-6">The EDC is here to guide you. Connect with us to explore startup ideas, business planning, and SSIP funding opportunities.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/ssip" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">SSIP Funding</a>
+        <a href="/contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Contact EDC</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

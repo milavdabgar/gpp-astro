@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const activities = [
+  {
+    title: "HVAC System Design Workshop",
+    desc: "Practical workshop on designing heating, ventilation, and air conditioning systems for commercial buildings.",
+    date: "Feb 2026",
+  },
+  {
+    title: "Industrial Visit – Blue Star Facility",
+    desc: "Visit to Blue Star's manufacturing facility to understand HVAC production and quality standards.",
+    date: "Jan 2026",
+  },
+  {
+    title: "Energy Efficiency Seminar",
+    desc: "Seminar on energy-efficient HVAC design and green building practices as per ASHRAE standards.",
+    date: "Nov 2025",
+  },
+  {
+    title: "Technical Competition – Cooling Load Calculation",
+    desc: "Inter-college competition on carrying out cooling load calculations and equipment selection.",
+    date: "Oct 2025",
+  },
+  {
+    title: "Guest Lecture – Refrigeration & Cold Chain",
+    desc: "Expert talk on cold chain management and commercial refrigeration systems by industry veteran.",
+    date: "Aug 2025",
+  },
+];
+
+const focus = [
+  {
+    icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+    title: "HVAC Systems",
+    desc: "Heating, Ventilation, and Air Conditioning design and operation.",
+  },
+  {
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+    title: "Refrigeration",
+    desc: "Industrial and commercial refrigeration principles and applications.",
+  },
+  {
+    icon: "M12 3v1m0 16v1M4.22 4.22l.707.707m12.727 12.727l.707.707M1 12h1m20 0h1M4.22 19.778l.707-.707M18.95 5.05l.707-.707",
+    title: "Energy Efficiency",
+    desc: "Sustainable cooling solutions and green building principles.",
+  },
+  {
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5",
+    title: "Building Services",
+    desc: "MEP services, ducting, piping, and building management systems.",
+  },
+];
+---
+
+<Layout title="ISHRAE Student Chapter | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">ISHRAE Student Chapter</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Student Chapter</div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">ISHRAE Student Chapter</h1>
+          <p class="text-lg text-gray-600 mb-6">Indian Society of Heating, Refrigerating and Air Conditioning Engineers — Student Chapter at Government Polytechnic Palanpur. Promoting excellence in HVAC&R education and practice.</p>
+          <div class="flex gap-3">
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-center">
+              <div class="text-2xl font-bold text-primary">40+</div>
+              <div class="text-xs text-gray-500">Active Members</div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-center">
+              <div class="text-2xl font-bold text-primary">8+</div>
+              <div class="text-xs text-gray-500">Events/Year</div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-center">
+              <div class="text-2xl font-bold text-primary">2020</div>
+              <div class="text-xs text-gray-500">Established</div>
+            </div>
+          </div>
+        </div>
+        <div class="w-40 h-40 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-20 h-20 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About ISHRAE -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About ISHRAE</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
+        <p>
+          The Indian Society of Heating, Refrigerating and Air Conditioning Engineers (ISHRAE) is a professional body in India dedicated to advancing the science and practice of HVAC&R (Heating, Ventilating, Air Conditioning and Refrigerating) technology. Founded in 1981, ISHRAE is affiliated with ASHRAE (American Society of Heating, Refrigerating and Air-Conditioning Engineers).
+        </p>
+        <p>
+          The ISHRAE Student Chapter at GPP provides mechanical and electrical engineering diploma students with exposure to cutting-edge HVAC&R technologies, energy-efficient building design, and refrigeration systems — skills in high demand in Gujarat's growing construction and manufacturing sectors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Focus Areas -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Focus Areas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {focus.map(f => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={f.icon}/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{f.title}</h3>
+            <p class="text-gray-600 text-sm">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Recent Activities</h2>
+      <div class="space-y-4">
+        {activities.map(a => (
+          <div class="flex gap-6 items-start bg-gray-50 rounded-xl p-5 border border-gray-100">
+            <div class="flex-shrink-0">
+              <span class="text-xs text-gray-500 bg-white border border-gray-200 rounded-lg px-3 py-2 block text-center">{a.date}</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{a.title}</h3>
+              <p class="text-gray-600 text-sm">{a.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="py-14 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Join the ISHRAE Student Chapter</h2>
+      <p class="text-gray-600 mb-6">Open to all diploma students at GPP, especially those from Mechanical Engineering and Electrical Engineering. Contact the Mechanical Engineering department or the chapter faculty coordinator.</p>
+      <a href="/contact" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

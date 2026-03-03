@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const clubs = [
+  {
+    name: "NSS Unit",
+    fullName: "National Service Scheme",
+    description: "Government Polytechnic Palanpur's NSS unit actively engages students in community service, social awareness campaigns, and national development activities.",
+    activities: [
+      "Blood donation drives",
+      "Tree plantation programs",
+      "Village adoption & cleanliness drives",
+      "Road safety awareness",
+      "COVID-19 awareness campaigns",
+      "Adult literacy programs",
+    ],
+    link: "/student-section/nss",
+    color: "red",
+    badge: "Social Service",
+    icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+  },
+  {
+    name: "Cultural Club",
+    fullName: "Cultural & Arts Club",
+    description: "A platform for students passionate about arts, music, dance, drama, and cultural activities. Organizes events during national festivals and college fests.",
+    activities: [
+      "Annual cultural festival",
+      "Republic Day & Independence Day programs",
+      "Drama & street play performances",
+      "Music & dance competitions",
+      "Art exhibitions",
+      "Inter-college cultural competitions",
+    ],
+    color: "purple",
+    badge: "Culture & Arts",
+    icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
+  },
+  {
+    name: "Technical Club",
+    fullName: "Technical & Innovation Club",
+    description: "Fosters technical knowledge and innovation among students through workshops, seminars, project competitions, and industry interactions.",
+    activities: [
+      "Technical paper presentations",
+      "Project competitions",
+      "Guest lectures by industry experts",
+      "Hackathons and coding contests",
+      "SSIP project support",
+      "Industrial visit organization",
+    ],
+    link: "/ssip",
+    color: "blue",
+    badge: "Technical",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    name: "Sports Club",
+    fullName: "Sports & Athletics Club",
+    description: "Manages all sports activities at GPP, including team formations, practice schedules, and participation in GTU inter-polytechnic tournaments.",
+    activities: [
+      "Cricket team management",
+      "Volleyball team training",
+      "Annual sports day organization",
+      "GTU tournament participation",
+      "Fitness & wellness programs",
+      "Yoga sessions",
+    ],
+    link: "/sports",
+    color: "green",
+    badge: "Sports",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+  },
+  {
+    name: "Entrepreneurship Cell",
+    fullName: "Entrepreneurship Development Cell",
+    description: "Promotes entrepreneurial thinking and skill development among students. Works closely with the SSIP cell to support startup ideas and business planning.",
+    activities: [
+      "Entrepreneurship awareness workshops",
+      "Startup mentoring sessions",
+      "Business plan competitions",
+      "Industry mentor networking",
+      "SSIP project guidance",
+      "EDP programs",
+    ],
+    link: "/ssip",
+    color: "orange",
+    badge: "Entrepreneurship",
+    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  },
+  {
+    name: "Green Club",
+    fullName: "Environmental Awareness Club",
+    description: "Promotes environmental consciousness and sustainability on campus through green initiatives, awareness drives, and eco-friendly practices.",
+    activities: [
+      "Tree plantation drives",
+      "Solar energy awareness",
+      "Plastic-free campus initiatives",
+      "Environment Day celebrations",
+      "Rainwater harvesting awareness",
+      "Swachh Bharat Abhiyan",
+    ],
+    color: "teal",
+    badge: "Environment",
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+];
+
+const colorCard: Record<string, string> = {
+  red: "border-red-200 hover:border-red-400",
+  purple: "border-purple-200 hover:border-purple-400",
+  blue: "border-blue-200 hover:border-blue-400",
+  green: "border-green-200 hover:border-green-400",
+  orange: "border-orange-200 hover:border-orange-400",
+  teal: "border-teal-200 hover:border-teal-400",
+};
+const colorBadge: Record<string, string> = {
+  red: "bg-red-100 text-red-700",
+  purple: "bg-purple-100 text-purple-700",
+  blue: "bg-blue-100 text-blue-700",
+  green: "bg-green-100 text-green-700",
+  orange: "bg-orange-100 text-orange-700",
+  teal: "bg-teal-100 text-teal-700",
+};
+const colorIcon: Record<string, string> = {
+  red: "bg-red-50 text-red-600", purple: "bg-purple-50 text-purple-600",
+  blue: "bg-blue-50 text-blue-600", green: "bg-green-50 text-green-600",
+  orange: "bg-orange-50 text-orange-600", teal: "bg-teal-50 text-teal-600",
+};
+---
+
+<Layout title="Clubs & Activities | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">Student Activities</span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-200 text-gray-700">Campus Life</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Clubs & Activities</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Beyond the classroom — explore student clubs, social service initiatives, sports teams, and cultural activities
+        that make campus life at Government Polytechnic Palanpur enriching and vibrant.
+      </p>
+    </div>
+  </section>
+
+  <!-- Clubs Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {clubs.map((club) => (
+          <div class={`bg-white rounded-xl border-2 ${colorCard[club.color]} shadow-sm hover:shadow-md transition-all duration-200 flex flex-col`}>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-start justify-between mb-4">
+                <div class={`p-2.5 rounded-xl ${colorIcon[club.color]} flex-shrink-0`}>
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={club.icon}/>
+                  </svg>
+                </div>
+                <span class={`px-2.5 py-0.5 rounded-full text-xs font-medium ${colorBadge[club.color]}`}>{club.badge}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-1">{club.name}</h3>
+              <p class="text-sm text-gray-500 mb-3">{club.fullName}</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{club.description}</p>
+              <div class="mb-4">
+                <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Key Activities</h4>
+                <ul class="space-y-1">
+                  {club.activities.slice(0, 4).map((activity) => (
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <div class="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0"></div>
+                      {activity}
+                    </li>
+                  ))}
+                  {club.activities.length > 4 && (
+                    <li class="text-xs text-gray-400">+{club.activities.length - 4} more activities</li>
+                  )}
+                </ul>
+              </div>
+              {club.link && (
+                <a
+                  href={club.link}
+                  class="inline-flex items-center justify-center gap-2 w-full px-4 py-2 text-sm font-medium text-primary border border-primary rounded-lg hover:bg-primary/5 transition-colors mt-auto"
+                >
+                  Learn More
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Join a Club CTA -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Get Involved</h2>
+        <p class="text-gray-600 mb-8 leading-relaxed">
+          Joining a club at GPP is more than an extracurricular activity — it's an opportunity to develop skills,
+          build friendships, and make a positive impact. New students are encouraged to join at the start of the academic year.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            Contact Student Section
+          </a>
+          <a href="/campus-life" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary/5 transition-colors">
+            Campus Life
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

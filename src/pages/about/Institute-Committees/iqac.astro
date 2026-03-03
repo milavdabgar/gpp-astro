@@ -1,0 +1,101 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur", department: "Administration" },
+  { role: "IQAC Coordinator", name: "Senior Faculty (nominated)", department: "Faculty" },
+  { role: "Member", name: "HoD, Civil Engineering", department: "Civil Engineering" },
+  { role: "Member", name: "HoD, Electrical Engineering", department: "Electrical Engineering" },
+  { role: "Member", name: "HoD, Mechanical Engineering", department: "Mechanical Engineering" },
+  { role: "Member", name: "HoD, EC Engineering", department: "EC Engineering" },
+  { role: "Industry Expert", name: "Representative from Industry", department: "External" },
+  { role: "Alumni Representative", name: "Distinguished Alumni", department: "External" },
+];
+
+const activities = [
+  { title: "Academic Audit", desc: "Regular review of curriculum delivery, faculty attendance, and student performance across all departments." },
+  { title: "NBA Accreditation Support", desc: "Coordinating NBA accreditation processes for CE, EE, and ME programmes (accredited July 2024–June 2027)." },
+  { title: "Faculty Development", desc: "Organizing FDPs, workshops, and training programmes to enhance teaching quality." },
+  { title: "Feedback Mechanism", desc: "Collecting and analyzing feedback from students, alumni, and employers to improve academic programmes." },
+  { title: "Annual Quality Report", desc: "Preparing and submitting Annual Quality Assurance Reports (AQAR)." },
+  { title: "Best Practices", desc: "Documenting and sharing best practices in teaching, training, and institutional governance." },
+];
+---
+
+<Layout title="IQAC | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">IQAC</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Quality Assurance</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Internal Quality Assurance Cell</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">IQAC at GPP drives continuous improvement in academic processes, teaching quality, and institutional governance.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About IQAC</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">The Internal Quality Assurance Cell (IQAC) at Government Polytechnic Palanpur is responsible for initiating, planning, and supervising various activities that are necessary to increase the quality of education and administration. It serves as a nodal agency for all quality-related matters.</p>
+      <p class="text-gray-700 text-lg leading-relaxed">IQAC also coordinates GPP's NBA accreditation processes — currently CE, EE, and ME are accredited by NBA for July 2024 to June 2027.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Key Activities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {activities.map(a => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-gray-900 mb-2">{a.title}</h3>
+            <p class="text-gray-600 text-sm">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

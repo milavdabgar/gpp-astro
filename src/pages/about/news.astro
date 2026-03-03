@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const newsItems = [
+  {
+    date: "March 2026",
+    title: "NBA Re-Accreditation Successfully Renewed",
+    body: "Government Polytechnic Palanpur has successfully renewed NBA accreditation for three programs — Civil Engineering, Electrical Engineering, and Mechanical Engineering. Accreditation is valid from July 2024 to June 2027.",
+    tag: "Accreditation",
+    tagColor: "green",
+  },
+  {
+    date: "February 2026",
+    title: "Students Excel in GTU Examination Results",
+    body: "Exceptional performance recorded in the latest GTU semester examinations. Several students from Computer Engineering and Civil Engineering scored above 90%.",
+    tag: "Academics",
+    tagColor: "blue",
+  },
+  {
+    date: "January 2026",
+    title: "SSIP 2.0 Funding Received for Student Projects",
+    body: "Multiple student projects received funding under SSIP 2.0 (Student Startup and Innovation Policy) by the Government of Gujarat. Projects include IoT-based water monitoring and smart agriculture solutions.",
+    tag: "SSIP",
+    tagColor: "orange",
+  },
+  {
+    date: "December 2025",
+    title: "Campus Recruitment Drive — 50+ Students Placed",
+    body: "The Training & Placement Cell successfully organized campus recruitment drives with leading companies from the manufacturing and IT sectors. Over 50 students received placement offers.",
+    tag: "Placements",
+    tagColor: "purple",
+  },
+  {
+    date: "November 2025",
+    title: "National Level Technical Fest Participation",
+    body: "Students from multiple departments participated in national-level technical competitions and fests, bringing recognition to the institute with winners in robotics and software design categories.",
+    tag: "Events",
+    tagColor: "blue",
+  },
+  {
+    date: "October 2025",
+    title: "Expert Lecture Series on Emerging Technologies",
+    body: "A series of expert lectures on Artificial Intelligence, Electric Vehicles, and Green Energy was organized for final-year students, conducted by industry professionals from leading companies.",
+    tag: "Academics",
+    tagColor: "blue",
+  },
+  {
+    date: "September 2025",
+    title: "Independence Day Celebration & Cultural Program",
+    body: "GPP celebrated Independence Day with great enthusiasm. The event featured speeches, cultural programs, and recognition of top-performing students across all departments.",
+    tag: "Events",
+    tagColor: "teal",
+  },
+  {
+    date: "August 2025",
+    title: "New Academic Year 2025–26 Begins",
+    body: "The new academic year 2025–26 commenced with a student orientation program. First-year students were welcomed and briefed about institute facilities, programs, and academic expectations.",
+    tag: "General",
+    tagColor: "gray",
+  },
+];
+
+const tagColors: Record<string, string> = {
+  green:  "bg-green-100 text-green-700",
+  blue:   "bg-blue-100 text-blue-700",
+  orange: "bg-orange-100 text-orange-700",
+  purple: "bg-purple-100 text-purple-700",
+  teal:   "bg-teal-100 text-teal-700",
+  gray:   "bg-gray-100 text-gray-600",
+};
+---
+
+<Layout title="News & Updates | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">News & Updates</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">News & Updates</h1>
+      <p class="text-lg text-gray-600">Stay updated with the latest happenings, achievements, and announcements at Government Polytechnic Palanpur.</p>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="bg-white border-b border-gray-100 py-4">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-3 justify-center">
+        {["All", "Academics", "Placements", "SSIP", "Events", "Accreditation"].map((tag) => (
+          <span class="px-4 py-1.5 rounded-full text-sm font-medium border border-gray-200 text-gray-600 hover:border-primary hover:text-primary cursor-pointer transition-colors">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- News Items -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="space-y-8">
+        {newsItems.map((n) => (
+          <article class="border-l-4 border-primary/30 pl-6 pb-8 border-b border-gray-100 last:border-b-0">
+            <div class="flex flex-wrap items-center gap-3 mb-2">
+              <span class={`text-xs font-semibold rounded-full px-3 py-1 ${tagColors[n.tagColor] || tagColors.gray}`}>{n.tag}</span>
+              <span class="text-xs text-gray-400">{n.date}</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{n.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{n.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Links -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">More Updates</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/announcements" class="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Announcements</a>
+        <a href="/newsletters" class="border border-primary text-primary px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/5 transition-colors">E-Newsletters</a>
+        <a href="/achievements" class="border border-gray-300 text-gray-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Achievements</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

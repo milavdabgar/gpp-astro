@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const statements = [
+  {
+    year: "2024–25",
+    label: "Financial Statement 2024-25",
+    file: "/docs/Financial_Statement_24-25.pdf",
+    size: "PDF",
+    status: "Latest",
+  },
+  {
+    year: "2023–24",
+    label: "Financial Statement 2023-24",
+    file: "/docs/Financial_Statement_23-24.pdf",
+    size: "PDF",
+    status: "",
+  },
+  {
+    year: "2022–23",
+    label: "Financial Statement 2022-23",
+    file: "/docs/Financial_Statement_22-23.pdf",
+    size: "PDF",
+    status: "",
+  },
+  {
+    year: "2021–22",
+    label: "Financial Statement 2021-22",
+    file: "/docs/Financial_Statement_21-22.pdf",
+    size: "PDF",
+    status: "",
+  },
+  {
+    year: "2020–21",
+    label: "Financial Statement 2020-21",
+    file: "/docs/Financial_Statement_20-21.pdf",
+    size: "PDF",
+    status: "",
+  },
+];
+
+const highlights = [
+  { label: "Audit Status", value: "CAG Audited", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+  { label: "Fund Source", value: "State Government Grant", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5" },
+  { label: "Transparency", value: "Public Disclosure", icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" },
+  { label: "Reporting", value: "Annual Basis", icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" },
+];
+---
+
+<Layout title="Financial Statements | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Financial Statements</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Financial Transparency</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Financial Statements</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Annual audited financial statements of Government Polytechnic Palanpur, published in the interest of transparency and public accountability.</p>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="py-10 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {highlights.map(h => (
+          <div class="flex items-center gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+            <div class="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={h.icon}/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-gray-500">{h.label}</div>
+              <div class="text-sm font-semibold text-gray-900">{h.value}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Statements Table -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Annual Statements</h2>
+      <div class="space-y-3">
+        {statements.map((s, i) => (
+          <div class={`flex items-center justify-between gap-4 bg-white rounded-xl border p-5 ${i === 0 ? 'border-primary/30 shadow-sm' : 'border-gray-100'}`}>
+            <div class="flex items-center gap-4">
+              <div class={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${i === 0 ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500'}`}>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-semibold text-gray-900 text-sm">{s.label}</span>
+                  {s.status && <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">{s.status}</span>}
+                </div>
+                <div class="text-xs text-gray-400 mt-0.5">Financial Year {s.year} · {s.size}</div>
+              </div>
+            </div>
+            <a
+              href={s.file}
+              target="_blank"
+              rel="noopener"
+              class="flex-shrink-0 inline-flex items-center gap-2 text-sm font-medium text-primary bg-primary/5 hover:bg-primary/10 border border-primary/20 px-4 py-2 rounded-lg transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Download
+            </a>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 bg-blue-50 rounded-xl p-4 border border-blue-200 text-sm text-gray-600">
+        <strong class="text-gray-900">Note:</strong> All financial statements are prepared and audited as per Government of Gujarat norms. For queries related to financial information, contact the Accounts Section at GPP Palanpur.
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

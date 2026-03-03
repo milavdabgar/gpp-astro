@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const circulars = [
+  {
+    id: "C-2026-03",
+    date: "10 Mar 2026",
+    title: "Revised Academic Calendar — Semester 6 (Even Sem 2025–26)",
+    issuedBy: "Principal's Office",
+    category: "Academic",
+    pdfPath: null,
+  },
+  {
+    id: "C-2026-02",
+    date: "18 Feb 2026",
+    title: "Anti-Ragging Undertaking — Mandatory Submission by All Students",
+    issuedBy: "Student Section",
+    category: "Student Affairs",
+    pdfPath: null,
+  },
+  {
+    id: "C-2026-01",
+    date: "03 Jan 2026",
+    title: "Re-Opening After Winter Vacation — All Staff & Students",
+    issuedBy: "Principal's Office",
+    category: "General",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-08",
+    date: "15 Nov 2025",
+    title: "GTU Examination Form Submission — Odd Semester 2025",
+    issuedBy: "Examination Section",
+    category: "Examination",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-07",
+    date: "01 Oct 2025",
+    title: "SSIP 2.0 Project Submission Guidelines — Phase 5",
+    issuedBy: "SSIP Cell",
+    category: "SSIP",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-06",
+    date: "22 Aug 2025",
+    title: "Orientation Program for First Year Students 2025–26",
+    issuedBy: "Student Section",
+    category: "Student Affairs",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-05",
+    date: "10 Jul 2025",
+    title: "Fee Payment Deadline — August 2025 (All Semesters)",
+    issuedBy: "Account Section",
+    category: "Finance",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-04",
+    date: "20 May 2025",
+    title: "Summer Internship Participation — Guidelines for Final Year Students",
+    issuedBy: "TPO Cell",
+    category: "Placement",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-03",
+    date: "14 Apr 2025",
+    title: "Internal Assessment Schedule — Even Semester 2024–25",
+    issuedBy: "Examination Section",
+    category: "Examination",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-02",
+    date: "03 Mar 2025",
+    title: "Faculty Development Program — Online Mode Participation Circular",
+    issuedBy: "Principal's Office",
+    category: "Faculty",
+    pdfPath: null,
+  },
+  {
+    id: "C-2025-01",
+    date: "02 Jan 2025",
+    title: "Attendance Requirement — Minimum 75% for GTU Term Grant",
+    issuedBy: "Academic Section",
+    category: "Academic",
+    pdfPath: null,
+  },
+];
+
+const categoryColors: Record<string, string> = {
+  Academic:      "bg-blue-100 text-blue-700",
+  Examination:   "bg-purple-100 text-purple-700",
+  "Student Affairs": "bg-teal-100 text-teal-700",
+  General:       "bg-gray-100 text-gray-600",
+  SSIP:          "bg-orange-100 text-orange-700",
+  Finance:       "bg-green-100 text-green-700",
+  Placement:     "bg-indigo-100 text-indigo-700",
+  Faculty:       "bg-yellow-100 text-yellow-700",
+};
+---
+
+<Layout title="Circulars | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">Circulars</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Circulars</h1>
+      <p class="text-lg text-gray-600">Official circulars and notices issued by Government Polytechnic Palanpur for students, staff, and faculty.</p>
+    </div>
+  </section>
+
+  <!-- Note -->
+  <section class="bg-amber-50 border-b border-amber-200 py-4">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm text-amber-800 text-center">
+        📌 All students and staff are required to read and comply with the circulars. For physical copies, contact the relevant office.
+      </p>
+    </div>
+  </section>
+
+  <!-- Circular Table -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="overflow-x-auto rounded-xl border border-gray-100 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary/5 text-left">
+              <th class="px-5 py-3 font-semibold text-gray-700">Circular No.</th>
+              <th class="px-5 py-3 font-semibold text-gray-700">Date</th>
+              <th class="px-5 py-3 font-semibold text-gray-700">Title</th>
+              <th class="px-5 py-3 font-semibold text-gray-700">Issued By</th>
+              <th class="px-5 py-3 font-semibold text-gray-700">Category</th>
+              <th class="px-5 py-3 font-semibold text-gray-700">Download</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {circulars.map((c) => (
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-5 py-3 text-primary font-mono font-semibold whitespace-nowrap">{c.id}</td>
+                <td class="px-5 py-3 text-gray-500 whitespace-nowrap">{c.date}</td>
+                <td class="px-5 py-3 text-gray-800 font-medium">{c.title}</td>
+                <td class="px-5 py-3 text-gray-600 whitespace-nowrap">{c.issuedBy}</td>
+                <td class="px-5 py-3">
+                  <span class={`text-xs font-semibold rounded-full px-2 py-1 ${categoryColors[c.category] || 'bg-gray-100 text-gray-600'}`}>{c.category}</span>
+                </td>
+                <td class="px-5 py-3">
+                  {c.pdfPath ? (
+                    <a href={c.pdfPath} target="_blank" class="text-primary hover:underline font-medium flex items-center gap-1">
+                      <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      PDF
+                    </a>
+                  ) : (
+                    <span class="text-gray-400 text-xs">Uploading…</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 text-center">Showing {circulars.length} circulars. Older circulars are available at the institute office.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-xl font-bold text-gray-900 mb-3">Looking for a Specific Circular?</h2>
+      <p class="text-gray-600 mb-5 text-sm">
+        For older circulars or any specific departmental notices, please contact the relevant department office or the Principal's office.
+      </p>
+      <a href="/contact" class="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Contact Us</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

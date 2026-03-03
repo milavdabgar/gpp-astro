@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const patents = [
+  { title: "IoT-Based Smart Water Meter for Rural Distribution", inventors: "Prof. [A], Prof. [B]", filedYear: "2024", status: "Filed", appNo: "202421XXXXXX" },
+  { title: "Low-Cost Soil Moisture Monitoring Device for Agriculture", inventors: "Prof. [C], Student Team CE-2022", filedYear: "2023", status: "Published", appNo: "202321XXXXXX" },
+  { title: "Energy-Efficient LED Street Light Controller", inventors: "Prof. [D], Prof. [E]", filedYear: "2023", status: "Published", appNo: "202321XXXXXX" },
+  { title: "Portable Solar Water Pump Controller for Small Farmers", inventors: "Prof. [F]", filedYear: "2022", status: "Granted", appNo: "202221XXXXXX" },
+];
+
+const steps = [
+  { step: "1", title: "Idea Disclosure", desc: "Faculty or student submits an Invention Disclosure Form (IDF) to the Innovation Cell." },
+  { step: "2", title: "Prior Art Search", desc: "Innovation Cell coordinates a patent search to check for existing patents or publications." },
+  { step: "3", title: "Drafting", desc: "Patent agent or in-house faculty prepares the patent draft with claims and drawings." },
+  { step: "4", title: "Filing", desc: "Application filed with the Indian Patent Office (IPO) with the institute as applicant." },
+  { step: "5", title: "Examination", desc: "IPO examines the application; responses to office actions may be needed." },
+  { step: "6", title: "Grant", desc: "If accepted, the patent is granted and published in the Patent Office Journal." },
+];
+---
+
+<Layout title="Patents | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/innovation" class="hover:text-primary transition-colors">Innovation Cell</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Patents</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Innovation Cell</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Patents & IPR</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">GPP encourages faculty and students to protect their innovations through patents and intellectual property rights.</p>
+      <div class="flex gap-4 mt-6">
+        <div class="bg-white border border-gray-200 rounded-xl px-5 py-3 text-center">
+          <div class="text-2xl font-bold text-primary">4+</div>
+          <div class="text-xs text-gray-500">Patents Filed</div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl px-5 py-3 text-center">
+          <div class="text-2xl font-bold text-primary">1</div>
+          <div class="text-xs text-gray-500">Patent Granted</div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl px-5 py-3 text-center">
+          <div class="text-2xl font-bold text-primary">2</div>
+          <div class="text-xs text-gray-500">Published</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patent List -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Patent Portfolio</h2>
+      <div class="space-y-4">
+        {patents.map(p => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-3">
+              <h3 class="font-bold text-gray-900 text-base max-w-xl">{p.title}</h3>
+              <span class={`text-xs font-semibold px-3 py-1 rounded-full flex-shrink-0 ${p.status === 'Granted' ? 'bg-green-100 text-green-800' : p.status === 'Published' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'}`}>
+                {p.status}
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-600">
+              <span><span class="font-medium text-gray-800">Inventors:</span> {p.inventors}</span>
+              <span><span class="font-medium text-gray-800">Filed:</span> {p.filedYear}</span>
+              <span><span class="font-medium text-gray-800">App No:</span> {p.appNo}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">How to File a Patent at GPP</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {steps.map(s => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">{s.step}</div>
+            <h3 class="font-bold text-gray-900 mb-2">{s.title}</h3>
+            <p class="text-gray-600 text-sm">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">File Your Patent</h2>
+      <p class="text-gray-600 mb-6">Faculty and students with patentable innovations can reach out to the Innovation Cell for guidance on filing with the Indian Patent Office.</p>
+      <a href="/contact" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Contact Innovation Cell</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

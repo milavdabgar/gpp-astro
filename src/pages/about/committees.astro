@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const committees = [
+  {
+    id: "anti-ragging",
+    name: "Anti-Ragging Committee & Squad",
+    description: "Ensures a ragging-free campus environment as per UGC/AICTE regulations. Any student experiencing ragging can approach this committee for immediate action.",
+    mandate: "Prevention, prohibition and punishment of ragging in technical institutions.",
+    color: "red",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    link: "/about/Institute-Committees/anti-ragging",
+  },
+  {
+    id: "grievance",
+    name: "Student Grievance Redressal Committee",
+    description: "Provides a fair and impartial mechanism for students to address academic and non-academic grievances. Complaints are reviewed confidentially.",
+    mandate: "Quick redressal of student complaints about academics, administration, and student welfare.",
+    color: "blue",
+    icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4v-4z",
+    link: "/about/Institute-Committees/grievance-cell",
+  },
+  {
+    id: "internal-complaint",
+    name: "Internal Complaints Committee (ICC)",
+    description: "Handles complaints of sexual harassment in the workplace as per the POSH Act 2013. Ensures a safe and respectful environment for all staff and students.",
+    mandate: "Prevention of sexual harassment and prompt redressal of complaints under POSH Act.",
+    color: "purple",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+    link: "/about/Institute-Committees/internal-complaint",
+  },
+  {
+    id: "women-development",
+    name: "Women Development Cell",
+    description: "Works for the welfare, empowerment, and development of female students and staff. Organizes awareness programs, workshops, and skill-building activities.",
+    mandate: "Promoting gender equality, safety, and overall development of women on campus.",
+    color: "pink",
+    icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+    link: "/about/Institute-Committees/women-development-cell",
+  },
+  {
+    id: "girls-hostel",
+    name: "Girls Hostel Committee",
+    description: "Manages safe, comfortable residential facilities for women students. Oversees hostel administration, welfare, and student grievances within the hostel.",
+    mandate: "Providing safe accommodation and welfare support for women students residing on campus.",
+    color: "rose",
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+    link: "/about/Institute-Committees/girls-hostel",
+  },
+  {
+    id: "sc-st-cell",
+    name: "SC/ST Cell",
+    description: "Dedicated to addressing the concerns and welfare of students belonging to Scheduled Castes and Scheduled Tribes. Ensures equitable access to opportunities.",
+    mandate: "Safeguarding the interests and academic welfare of SC/ST students and staff.",
+    color: "orange",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    link: "/about/Institute-Committees/sc-st-cell",
+  },
+  {
+    id: "ph-grievance",
+    name: "PH / Divyang Grievance Cell",
+    description: "Safeguards the rights of students with physical disabilities. Ensures barrier-free access, academic accommodations, and exam provisions as per RpwD Act 2016.",
+    mandate: "Equal access to education and facilities for students with physical disabilities.",
+    color: "sky",
+    icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
+    link: "/about/Institute-Committees/physically-handicapped-grievance",
+  },
+  {
+    id: "iqac",
+    name: "Internal Quality Assurance Cell (IQAC)",
+    description: "Ensures continuous improvement of academic quality and institutional efficiency. Coordinates quality initiatives, prepares AQARs, and supports accreditation efforts.",
+    mandate: "Developing quality benchmarks and coordinating quality-related activities.",
+    color: "teal",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+    link: "/about/iqac",
+  },
+  {
+    id: "ssip",
+    name: "SSIP Committee",
+    description: "Oversees the Student Startup and Innovation Policy (SSIP) initiatives at GPP. Facilitates idea funding, prototype development, patent support, and startup incubation.",
+    mandate: "Promoting student innovation, entrepreneurship, and startup culture under SSIP.",
+    color: "indigo",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    link: "/about/Institute-Committees/ssip-committee",
+  },
+  {
+    id: "edc",
+    name: "Entrepreneurship Development Cell",
+    description: "Promotes entrepreneurship awareness and skill-building among students. Conducts workshops, seminars, and connects students with startup ecosystems and mentors.",
+    mandate: "Nurturing entrepreneurial mindset and supporting student business ventures.",
+    color: "violet",
+    icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+    link: "/about/Institute-Committees/entrepreneurship-development-cell",
+  },
+  {
+    id: "rti",
+    name: "RTI Committee",
+    description: "Manages transparency and information requests under the Right to Information Act, 2005. Designated Public Information Officers assist citizens seeking institutional information.",
+    mandate: "Ensuring transparency and accountability through RTI compliance.",
+    color: "cyan",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
+    link: "/about/Institute-Committees/rti-committee",
+  },
+  {
+    id: "work-distribution",
+    name: "Work Distribution Committee",
+    description: "Manages equitable distribution of academic and administrative responsibilities among faculty and staff. Ensures smooth running of college operations.",
+    mandate: "Fair allocation of work to faculty for academic, administrative and co-curricular activities.",
+    color: "green",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
+    link: "/about/Institute-Committees/work-distribution",
+  },
+  {
+    id: "purchase",
+    name: "Purchase & Tender Committee",
+    description: "Oversees procurement of equipment, materials, and services in a transparent manner as per government purchase rules. Ensures value for public money.",
+    mandate: "Transparent procurement and inventory management for all departments.",
+    color: "yellow",
+    icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    id: "exam",
+    name: "Examination Committee",
+    description: "Coordinates all examination-related activities including scheduling, invigilation, result processing, and ensuring integrity of the examination process.",
+    mandate: "Fair and efficient conduct of examinations in compliance with GTU guidelines.",
+    color: "lime",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+  },
+  {
+    id: "library",
+    name: "Library Advisory Committee",
+    description: "Advises on library acquisitions, policies, and services to ensure the library meets academic needs of students and faculty effectively.",
+    mandate: "Maintaining and enhancing library resources and services for academic excellence.",
+    color: "amber",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  },
+];
+
+const colorMap: Record<string, { bg: string; text: string; border: string; badge: string }> = {
+  red:    { bg: "bg-red-50",    text: "text-red-600",    border: "border-red-200",    badge: "bg-red-100 text-red-700" },
+  blue:   { bg: "bg-blue-50",   text: "text-blue-600",   border: "border-blue-200",   badge: "bg-blue-100 text-blue-700" },
+  purple: { bg: "bg-purple-50", text: "text-purple-600", border: "border-purple-200", badge: "bg-purple-100 text-purple-700" },
+  pink:   { bg: "bg-pink-50",   text: "text-pink-600",   border: "border-pink-200",   badge: "bg-pink-100 text-pink-700" },
+  orange: { bg: "bg-orange-50", text: "text-orange-600", border: "border-orange-200", badge: "bg-orange-100 text-orange-700" },
+  teal:   { bg: "bg-teal-50",   text: "text-teal-600",   border: "border-teal-200",   badge: "bg-teal-100 text-teal-700" },
+  indigo: { bg: "bg-indigo-50", text: "text-indigo-600", border: "border-indigo-200", badge: "bg-indigo-100 text-indigo-700" },
+  cyan:   { bg: "bg-cyan-50",   text: "text-cyan-600",   border: "border-cyan-200",   badge: "bg-cyan-100 text-cyan-700" },
+  green:  { bg: "bg-green-50",  text: "text-green-600",  border: "border-green-200",  badge: "bg-green-100 text-green-700" },
+  yellow: { bg: "bg-yellow-50", text: "text-yellow-600", border: "border-yellow-200", badge: "bg-yellow-100 text-yellow-700" },
+  lime:   { bg: "bg-lime-50",   text: "text-lime-600",   border: "border-lime-200",   badge: "bg-lime-100 text-lime-700" },
+  amber:  { bg: "bg-amber-50",  text: "text-amber-600",  border: "border-amber-200",  badge: "bg-amber-100 text-amber-700" },
+  rose:   { bg: "bg-rose-50",   text: "text-rose-600",   border: "border-rose-200",   badge: "bg-rose-100 text-rose-700" },
+  sky:    { bg: "bg-sky-50",    text: "text-sky-600",    border: "border-sky-200",    badge: "bg-sky-100 text-sky-700" },
+  violet: { bg: "bg-violet-50", text: "text-violet-600", border: "border-violet-200", badge: "bg-violet-100 text-violet-700" },
+};
+---
+
+<Layout title="Institute Committees | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">Governance</span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-200 text-gray-700">Committees</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Institute Committees</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Government Polytechnic Palanpur is governed by various statutory and non-statutory committees ensuring quality education, student welfare, and institutional governance.
+      </p>
+    </div>
+  </section>
+
+  <!-- Info Box -->
+  <section class="py-8 bg-white border-b">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">About Institute Committees</h3>
+            <p class="text-gray-700 text-sm leading-relaxed">
+              The Institute Committees at Government Polytechnic Palanpur are constituted as per AICTE/GTU regulations
+              and Government of Gujarat directives. These committees ensure smooth functioning of academic, administrative,
+              and student welfare activities, maintaining the highest standards of quality and transparency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committees Grid -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {committees.map((committee) => {
+          const c = colorMap[committee.color] || colorMap.blue;
+          return (
+            <div class={`bg-white rounded-xl border ${c.border} shadow-sm hover:shadow-md transition-all duration-200 flex flex-col`}>
+              <div class={`p-5 border-b ${c.border}`}>
+                <div class="flex items-start gap-3">
+                  <div class={`p-2 rounded-lg ${c.bg} flex-shrink-0`}>
+                    <svg class={`w-5 h-5 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={committee.icon}/>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-gray-900 text-sm leading-snug">{committee.name}</h3>
+                </div>
+              </div>
+              <div class="p-5 flex flex-col flex-grow">
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{committee.description}</p>
+                <div class={`rounded-lg p-3 ${c.bg} mb-4`}>
+                  <p class={`text-xs font-medium ${c.text}`}>
+                    <span class="font-semibold">Mandate: </span>{committee.mandate}
+                  </p>
+                </div>
+                {committee.link && (
+                  <a
+                    href={committee.link}
+                    class={`inline-flex items-center justify-center gap-2 text-sm font-medium ${c.text} hover:underline`}
+                  >
+                    View Details
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Need to Contact a Committee?</h2>
+      <p class="text-gray-600 mb-6">
+        For committee-related queries or to submit complaints, please visit the college office or contact us directly.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Contact Office
+        </a>
+        <a href="/about" class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary/5 transition-colors">
+          About GPP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

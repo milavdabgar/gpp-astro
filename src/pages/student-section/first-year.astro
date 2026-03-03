@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const firstYearPrograms = [
+  { name: "Civil Engineering", code: "CE", intake: 60 },
+  { name: "Electrical Engineering", code: "EE", intake: 60 },
+  { name: "Electronics & Communication Engg.", code: "EC", intake: 60 },
+  { name: "Mechanical Engineering", code: "ME", intake: 60 },
+  { name: "Computer Engineering", code: "CO", intake: 60 },
+  { name: "Information Technology", code: "IF", intake: 30 },
+];
+
+const importantDocs = [
+  { name: "SSC Marksheet (Original + 2 copies)", mandatory: true },
+  { name: "Birth Certificate", mandatory: true },
+  { name: "School Leaving Certificate", mandatory: true },
+  { name: "Caste Certificate (SC/ST/OBC if applicable)", mandatory: false },
+  { name: "Income Certificate", mandatory: false },
+  { name: "Anti-Ragging Undertaking (Student + Parent)", mandatory: true },
+  { name: "Medical Fitness Certificate", mandatory: true },
+  { name: "4 Passport Size Photographs", mandatory: true },
+  { name: "Aadhar Card (Original + copy)", mandatory: true },
+  { name: "ACPDC Allotment Letter", mandatory: true },
+  { name: "Bank Account Details (for scholarship)", mandatory: false },
+];
+
+const firstYearTimeline = [
+  { event: "Online Application (ACPDC)", time: "June–July", desc: "Register at ACPDC portal and fill preferences." },
+  { event: "Merit list & Allotment", time: "July–August", desc: "Allotment based on SSC merit and category." },
+  { event: "Reporting to Institute", time: "August", desc: "Submit documents and confirm admission at GPP." },
+  { event: "Orientation Program", time: "First Week", desc: "Introduction to programs, faculty, campus, and rules." },
+  { event: "Classes Begin", time: "August–September", desc: "Semester 1 lectures, lab practicals begin." },
+  { event: "Mid-Semester Exam", time: "October–November", desc: "Internal examinations as per GTU schedule." },
+  { event: "End-Semester Exam", time: "November–December", desc: "GTU-conducted semester-end examination." },
+];
+
+const usefulLinks = [
+  { name: "ACPDC Admission Portal", href: "https://acpdc.in/", desc: "Apply for diploma admissions through ACPDC." },
+  { name: "GTU Official Website", href: "https://www.gtu.ac.in/", desc: "Academic calendar, exam results, curriculum." },
+  { name: "Fee Structure", href: "/admissions/fee-structure", desc: "View annual fees and scholarship relief." },
+  { name: "Scholarship Schemes", href: "/admissions/scholarship", desc: "State and central scholarship information." },
+  { name: "Programs Offered", href: "/programs", desc: "Detailed information on all 6 diploma programs." },
+  { name: "Contact Us", href: "/contact", desc: "Reach out to the administrative office." },
+];
+---
+
+<Layout title="First Year Information | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+      <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700 border border-blue-200">
+        Welcome to GPP — Batch 2025
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">First Year Information</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Everything new students need to know about joining Government Polytechnic Palanpur — admissions,
+        documents, programs, orientation, and campus life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Welcome Message -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="bg-blue-50 rounded-2xl border border-blue-100 p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Welcome to Government Polytechnic Palanpur!</h2>
+        <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          Established in 1984, GPP has been a centre of polytechnic education in Banaskantha district for over four decades.
+          As a first-year student, you're joining a family of 330+ students, 64 faculty members, and thousands of successful alumni.
+          We wish you a fulfilling journey of learning and growth.
+        </p>
+        <p class="text-gray-500 text-sm mt-4 italic">— Principal, Government Polytechnic Palanpur</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Programs for First Year Admission</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {firstYearPrograms.map((p) => (
+          <a href={`/programs`} class="bg-white rounded-xl border border-gray-200 p-5 hover:border-primary hover:shadow-md transition-all group">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary">{p.code}</span>
+              <span class="text-xs text-gray-500">Intake: {p.intake}</span>
+            </div>
+            <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors text-sm leading-snug">{p.name}</h3>
+            <p class="text-xs text-gray-500 mt-1">3-Year Diploma Program (6 Semesters)</p>
+          </a>
+        ))}
+      </div>
+      <p class="text-sm text-gray-500 mt-4 text-center">
+        All programs are affiliated to <strong>GTU</strong> and approved by <strong>AICTE</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Admission Timeline -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Admission & First Year Timeline</h2>
+      <div class="relative">
+        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+        <div class="space-y-6">
+          {firstYearTimeline.map((item, i) => (
+            <div class="flex gap-4 pl-14 relative">
+              <div class="absolute left-0 w-12 flex items-center justify-center">
+                <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold z-10">{i + 1}</span>
+              </div>
+              <div class="bg-gray-50 rounded-xl border border-gray-200 p-4 w-full">
+                <div class="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                  <h3 class="font-bold text-gray-900 text-sm">{item.event}</h3>
+                  <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">{item.time}</span>
+                </div>
+                <p class="text-sm text-gray-600">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Required Documents -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Documents Required at Admission</h2>
+      <div class="grid md:grid-cols-2 gap-3">
+        {importantDocs.map((doc) => (
+          <div class={`flex items-center gap-3 p-3.5 rounded-xl border ${doc.mandatory ? 'border-blue-200 bg-blue-50' : 'border-gray-200 bg-white'}`}>
+            <svg class={`w-5 h-5 flex-shrink-0 ${doc.mandatory ? 'text-blue-500' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span class={`text-sm ${doc.mandatory ? 'text-blue-900 font-medium' : 'text-gray-600'}`}>{doc.name}</span>
+            {doc.mandatory && <span class="ml-auto text-xs bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-semibold flex-shrink-0">Required</span>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Useful Links -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Useful Links for New Students</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {usefulLinks.map((link) => (
+          <a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined} class="bg-gray-50 rounded-xl border border-gray-200 p-4 hover:border-primary hover:shadow-sm transition-all group">
+            <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-1 text-sm flex items-center gap-1">
+              {link.name}
+              {link.href.startsWith('http') && (
+                <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              )}
+            </h3>
+            <p class="text-xs text-gray-500 leading-relaxed">{link.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

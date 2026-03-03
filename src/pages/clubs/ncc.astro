@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const activities = [
+  { title: "Annual NCC Camp", desc: "10-day combined annual training camp with discipline, drill, and leadership exercises.", period: "Nov–Dec" },
+  { title: "Republic Day Parade", desc: "Selected cadets participate in district-level Republic Day parade representing GPP.", period: "Jan" },
+  { title: "Independence Day Parade", desc: "NCC contingent participates in the Independence Day celebration at Palanpur.", period: "Aug" },
+  { title: "Trekking & Adventure", desc: "Mountaineering, trekking, and adventure activities to build physical fitness and teamwork.", period: "Oct" },
+  { title: "Blood Donation Camp", desc: "Annual blood donation camp organized by NCC cadets in collaboration with local hospitals.", period: "Yearly" },
+  { title: "Disaster Management Training", desc: "Training in first aid, disaster relief, and rescue operations for community service.", period: "Yearly" },
+];
+
+const benefits = [
+  "Development of discipline, leadership, and teamwork skills",
+  "Preference in government job applications (NCC B/C certificate)",
+  "Opportunity to participate in national-level camps and parades",
+  "Adventure activities including trekking and rock-climbing",
+  "Community service and social responsibility exposure",
+  "Special quota in certain state and central government recruitments",
+];
+
+const certificates = [
+  { cert: "A Certificate", requirement: "Completion of 2-year NCC training (Junior Division)", benefit: "Age relaxation in recruitment" },
+  { cert: "B Certificate", requirement: "Satisfactory attendance + written & practical exam", benefit: "Preference in PSU/government jobs" },
+  { cert: "C Certificate", requirement: "Satisfactory attendance + camp + exam (Senior Division)", benefit: "Direct entry to officer posts; 5–10% quota in services" },
+];
+---
+
+<Layout title="NCC | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/clubs" class="hover:text-primary transition-colors">Clubs & Activities</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">NCC</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <div class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full mb-4">Cadet Corps</div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">National Cadet Corps</h1>
+          <p class="text-xl font-semibold text-primary mb-3">"Unity and Discipline"</p>
+          <p class="text-lg text-gray-600">NCC at GPP trains young diploma students to become disciplined, responsible citizens and future leaders of India.</p>
+        </div>
+        <div class="w-40 h-40 bg-green-50 border-2 border-green-200 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-16 h-16 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About NCC -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About NCC at GPP</h2>
+      <div class="text-gray-700 space-y-4 leading-relaxed">
+        <p>
+          The National Cadet Corps (NCC) is India's largest uniformed youth organization. At Government Polytechnic Palanpur, NCC provides diploma students an opportunity to develop character, comradeship, discipline, secular outlook, and the spirit of adventure through structured training and activities.
+        </p>
+        <p>
+          GPP's NCC unit is affiliated with the Gujarat Directorate of the NCC. Cadets undergo training in arm-drills, physical fitness, map reading, disaster management, and community service. The unit participates actively in Republic Day and Independence Day parades at the district level.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NCC Certificates -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">NCC Certificates</h2>
+      <div class="space-y-4">
+        {certificates.map((c, i) => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class={`w-16 h-16 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0 ${i === 0 ? 'bg-gray-500' : i === 1 ? 'bg-primary' : 'bg-amber-600'}`}>
+                {c.cert.charAt(0)}
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-1">{c.cert}</h3>
+                <p class="text-sm text-gray-600 mb-2"><span class="font-medium">Requirement:</span> {c.requirement}</p>
+                <p class="text-sm text-green-700 font-medium"><span class="text-gray-700">Benefit:</span> {c.benefit}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Activities & Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {activities.map(a => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+            <div class="text-xs font-semibold text-primary bg-primary/10 rounded-full px-3 py-1 inline-block mb-3">{a.period}</div>
+            <h3 class="font-bold text-gray-900 mb-2">{a.title}</h3>
+            <p class="text-gray-600 text-sm">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Why Join NCC?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {benefits.map(b => (
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">
+            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <p class="text-gray-700 text-sm">{b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Join CTA -->
+  <section class="py-14 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Enroll in NCC</h2>
+      <p class="text-gray-600 mb-6">First-year diploma students at GPP can enroll in NCC at the beginning of the academic year. Contact the NCC faculty officer or the student section for enrollment details.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/student-section" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Student Section</a>
+        <a href="/contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

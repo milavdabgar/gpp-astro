@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const siteMap = [
+  {
+    section: "Home",
+    color: "blue",
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+    links: [{ label: "Home Page", href: "/" }],
+  },
+  {
+    section: "About",
+    color: "purple",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5",
+    links: [
+      { label: "About GPP", href: "/about" },
+      { label: "Vision & Mission", href: "/about/vision-mission" },
+      { label: "Principal's Message", href: "/about/principal" },
+      { label: "Organization Chart", href: "/about/organization-chart" },
+      { label: "Student Strength", href: "/about/student-strength" },
+      { label: "NBA Accreditation", href: "/about/nba-accreditation" },
+      { label: "IQAC", href: "/about/iqac" },
+      { label: "Mandatory Disclosure", href: "/about/mandatory-disclosure" },
+      { label: "History", href: "/about/history" },
+      { label: "Brochure & Prospectus", href: "/about/brochure" },
+      { label: "News & Updates", href: "/about/news" },
+      { label: "Circulars", href: "/about/circular" },
+      { label: "MOU & Collaborations", href: "/about/mou" },
+      { label: "All Achievements", href: "/about/allAchievements" },
+      { label: "Anti-Ragging Helpline", href: "/about/anti-ragging-helpline" },
+      { label: "Alumni", href: "/alumni" },
+      { label: "Industry Sponsored Labs", href: "/about/industry-sponsored-labs" },
+      { label: "Bee-Robokids Robotics Lab", href: "/about/bee-robokids-lab" },
+    ],
+  },
+  {
+    section: "Institute Committees",
+    color: "violet",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+    links: [
+      { label: "All Committees", href: "/about/committees" },
+      { label: "Anti-Ragging Committee", href: "/about/Institute-Committees/anti-ragging" },
+      { label: "Grievance Committee", href: "/about/Institute-Committees/grievance" },
+      { label: "Women Grievance Cell", href: "/about/Institute-Committees/women-grievance" },
+      { label: "Prevention of SC/ST Atrocities", href: "/about/Institute-Committees/sc-st-atrocities" },
+      { label: "Internal Complaint Committee", href: "/about/Institute-Committees/internal-complaint" },
+      { label: "Alumni Committee", href: "/about/Institute-Committees/alumni" },
+      { label: "Girls Hostel Committee", href: "/about/Institute-Committees/girls-hostel" },
+      { label: "Physically Handicapped Grievance", href: "/about/Institute-Committees/physically-handicapped-grievance" },
+      { label: "Work Distribution Committee", href: "/about/Institute-Committees/work-distribution" },
+      { label: "Academic Calendar Committee", href: "/about/Institute-Committees/academic-calendar" },
+    ],
+  },
+  {
+    section: "Academics",
+    color: "green",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+    links: [
+      { label: "Programs", href: "/programs" },
+      { label: "Departments", href: "/departments" },
+      { label: "Expert Lectures", href: "/academics/expert-lectures" },
+      { label: "Industrial Visits", href: "/academics/industrial-visits" },
+      { label: "Faculty Development", href: "/academics/faculty-development" },
+      { label: "Notice Board", href: "/academics/notice-board" },
+      { label: "Exam Results", href: "/academics/results" },
+      { label: "Grievance", href: "/academics/grievance" },
+      { label: "NSS", href: "/academics/nss" },
+      { label: "Library", href: "/library" },
+    ],
+  },
+  {
+    section: "Admissions",
+    color: "orange",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+    links: [
+      { label: "Admissions Overview", href: "/admissions" },
+      { label: "AICTE Extension of Approval", href: "/admissions/aicte-eoa" },
+      { label: "GTU Affiliation", href: "/admissions/gtu-affiliation" },
+      { label: "Accreditation Status", href: "/admissions/accreditation-status" },
+      { label: "Fee Structure", href: "/admissions/fee-structure" },
+      { label: "Scholarship Schemes", href: "/admissions/scholarship" },
+      { label: "Academic Calendar", href: "/admissions/calendar" },
+      { label: "Achievements", href: "/achievements" },
+    ],
+  },
+  {
+    section: "Student Corner",
+    color: "teal",
+    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+    links: [
+      { label: "Student Section", href: "/student-section" },
+      { label: "First Year Info", href: "/student-section/first-year" },
+      { label: "Notice Board", href: "/student-section/notice-board" },
+      { label: "Results", href: "/student-section/results" },
+      { label: "NSS", href: "/student-section/nss" },
+      { label: "Grievance", href: "/student-section/grievance" },
+      { label: "Various Forms", href: "/student-section/various-forms" },
+    ],
+  },
+  {
+    section: "Campus Life",
+    color: "red",
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    links: [
+      { label: "Campus Life", href: "/campus-life" },
+      { label: "Sports", href: "/sports" },
+      { label: "Clubs & Activities", href: "/clubs" },
+      { label: "Events", href: "/events" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Placements", href: "/placement" },
+      { label: "Newsletters", href: "/newsletters" },
+    ],
+  },
+  {
+    section: "Innovation & TPO",
+    color: "amber",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    links: [
+      { label: "Innovation", href: "/innovation" },
+      { label: "Design Lab", href: "/innovation/designlab" },
+      { label: "Incubation", href: "/innovation/incubation" },
+      { label: "Patents & IPR", href: "/innovation/patents" },
+      { label: "Research Grants", href: "/innovation/research-grants" },
+      { label: "Startups", href: "/innovation/startups" },
+      { label: "SSIP", href: "/ssip" },
+      { label: "Training & Placement", href: "/tpo" },
+    ],
+  },
+  {
+    section: "College Info",
+    color: "indigo",
+    icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+    links: [
+      { label: "NIRF Ranking", href: "/college/nirf" },
+      { label: "ARIIA Ranking", href: "/college/ariia" },
+      { label: "Facilities", href: "/facilities" },
+      { label: "Infrastructure", href: "/infrastructure" },
+      { label: "Establishment", href: "/establishment" },
+      { label: "Research", href: "/research" },
+    ],
+  },
+  {
+    section: "Legal & Financial",
+    color: "gray",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    links: [
+      { label: "Right to Information Act", href: "/legal/right-to-info-act" },
+      { label: "Disclaimer", href: "/legal/disclaimer" },
+      { label: "Financial Information", href: "/financial-info" },
+      { label: "Financial Statements", href: "/financial-info/statements" },
+      { label: "Tender Notices", href: "/financial-info/tender-notice" },
+      { label: "TEQIP", href: "/financial-info/teqip" },
+    ],
+  },
+  {
+    section: "Contact",
+    color: "pink",
+    icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
+    links: [
+      { label: "Contact Us", href: "/contact" },
+      { label: "Sitemap", href: "/info/sitemap" },
+    ],
+  },
+];
+
+const colorHead: Record<string, string> = {
+  blue: "bg-blue-100 text-blue-700",
+  purple: "bg-purple-100 text-purple-700",
+  violet: "bg-violet-100 text-violet-700",
+  green: "bg-green-100 text-green-700",
+  orange: "bg-orange-100 text-orange-700",
+  teal: "bg-teal-100 text-teal-700",
+  red: "bg-red-100 text-red-700",
+  amber: "bg-amber-100 text-amber-700",
+  indigo: "bg-indigo-100 text-indigo-700",
+  gray: "bg-gray-200 text-gray-700",
+  pink: "bg-pink-100 text-pink-700",
+};
+const colorIcon: Record<string, string> = {
+  blue: "text-blue-500", purple: "text-purple-500", violet: "text-violet-500", green: "text-green-500",
+  orange: "text-orange-500", teal: "text-teal-500", red: "text-red-500",
+  amber: "text-amber-500", indigo: "text-indigo-500", gray: "text-gray-500", pink: "text-pink-500",
+};
+
+const totalLinks = siteMap.reduce((acc, s) => acc + s.links.length, 0);
+---
+
+<Layout title="Sitemap | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Sitemap</h1>
+      <p class="text-xl text-gray-600 max-w-xl mx-auto">
+        A complete overview of all pages on the Government Polytechnic Palanpur website.
+        <span class="block mt-1 text-base text-gray-500">{siteMap.length} sections · {totalLinks} pages</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Sitemap Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {siteMap.map((section) => (
+          <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div class={`px-5 py-3 flex items-center gap-2.5 ${colorHead[section.color]}`}>
+              <svg class={`w-4 h-4 ${colorIcon[section.color]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={section.icon}/>
+              </svg>
+              <span class="font-bold text-sm">{section.section}</span>
+              <span class="ml-auto text-xs opacity-70">{section.links.length} pages</span>
+            </div>
+            <ul class="p-3 space-y-0.5">
+              {section.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors group"
+                  >
+                    <svg class="w-3.5 h-3.5 text-gray-300 group-hover:text-primary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

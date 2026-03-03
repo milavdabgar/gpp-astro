@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+interface Form {
+  name: string;
+  description: string;
+  category: string;
+  doc?: string | null;
+  note?: string;
+}
+
+const forms: Form[] = [
+  // Academic
+  { name: "Leave Application Form", description: "Apply for leave during the semester. Submit to your class teacher/department.", category: "Academic", doc: null },
+  { name: "Late Admission Application", description: "Application for seeking late admission when joining after regular admission period.", category: "Academic", doc: null },
+  { name: "Subject Change Request", description: "Form to request change of elective subject at the start of semester.", category: "Academic", doc: null },
+  { name: "TC / Migration Certificate Request", description: "Apply for Transfer Certificate or Migration Certificate after passing out or leaving the institute.", category: "Academic", doc: null },
+  { name: "Duplicate Marksheet / Certificate Request", description: "Form to apply for duplicate or certified copy of marksheet or certificate.", category: "Academic", doc: null },
+
+  // Financial
+  { name: "Fee Concession / Scholarship Application", description: "Application for fee concession, tuition fee waiver, or state scholarship.", category: "Financial", link: "/admissions/scholarship", doc: null },
+  { name: "Free Studentship Application", description: "Apply for free studentship benefit for eligible SC/ST/OBC and economically weaker students.", category: "Financial", doc: null },
+  { name: "NSP (National Scholarship Portal) Registration", description: "Guide and form for applying on NSP for central/state scholarship schemes.", category: "Financial", doc: null },
+
+  // Student Affairs
+  { name: "Anti-Ragging Undertaking", description: "Mandatory anti-ragging declaration to be signed by student and parents at the time of admission.", category: "Student Affairs", doc: null, note: "Mandatory at admission" },
+  { name: "Students' Council Nomination Form", description: "Form for nominating candidates for student body elections as per GTU norms.", category: "Student Affairs", doc: null },
+  { name: "Industry Visit / Field Trip Permission Form", description: "Application for permission to attend industrial visit or educational trip.", category: "Student Affairs", doc: null },
+  { name: "Event Participation Permission Form", description: "Form to obtain permission to represent the college in external events, competitions.", category: "Student Affairs", doc: null },
+
+  // Grievance
+  { name: "Grievance Redressal Form", description: "Submit academic or non-academic grievances through the official grievance committee.", category: "Grievance", link: "/academics/grievance", doc: null },
+  { name: "Anti-Ragging Complaint Form", description: "Submit a complaint regarding ragging incidents to the Anti-Ragging Committee.", category: "Grievance", doc: null },
+
+  // Hostel
+  { name: "Hostel Admission Form (Girls)", description: "Application for admission to the girls' hostel on campus.", category: "Hostel", doc: null },
+  { name: "Hostel Temporary Exit Permission", description: "Form for hostel students to seek permission e for temporary exits/outings.", category: "Hostel", doc: null },
+];
+
+const categories = [...new Set(forms.map((f) => f.category))];
+
+const catColors: Record<string, string> = {
+  Academic: "bg-blue-100 text-blue-700",
+  Financial: "bg-green-100 text-green-700",
+  "Student Affairs": "bg-purple-100 text-purple-700",
+  Grievance: "bg-red-100 text-red-700",
+  Hostel: "bg-orange-100 text-orange-700",
+};
+const catBg: Record<string, string> = {
+  Academic: "border-blue-200 bg-blue-50",
+  Financial: "border-green-200 bg-green-50",
+  "Student Affairs": "border-purple-200 bg-purple-50",
+  Grievance: "border-red-200 bg-red-50",
+  Hostel: "border-orange-200 bg-orange-50",
+};
+---
+
+<Layout title="Various Forms | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+      <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 border border-gray-200">
+        Student Forms & Documents
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Various Forms</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Find and download all forms required for academic activities, scholarships, grievances, hostel, and student affairs at Government Polytechnic Palanpur.
+      </p>
+    </div>
+  </section>
+
+  <!-- Info Banner -->
+  <section class="py-4 bg-yellow-50 border-y border-yellow-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-start gap-3 max-w-3xl mx-auto">
+        <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-sm text-yellow-800">
+          Forms marked as "available at office" can be collected from the administrative office or student section. Digitally downloadable forms will be linked when available.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forms by Category -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      {categories.map((cat) => (
+        <div class="mb-12 last:mb-0">
+          <div class="flex items-center gap-3 mb-5">
+            <span class={`px-3 py-1 rounded-full text-sm font-semibold ${catColors[cat]}`}>{cat}</span>
+            <div class="flex-grow h-px bg-gray-200"></div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            {forms.filter((f) => f.category === cat).map((form) => (
+              <div class={`rounded-xl border p-4 ${catBg[cat]} hover:shadow-sm transition-shadow`}>
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex-grow">
+                    <div class="flex items-center gap-2 flex-wrap mb-1.5">
+                      <h3 class="font-semibold text-gray-900 text-sm">{form.name}</h3>
+                      {form.note && (
+                        <span class="px-1.5 py-0.5 rounded text-xs bg-yellow-100 text-yellow-700 font-medium">{form.note}</span>
+                      )}
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed">{form.description}</p>
+                  </div>
+                  {form.doc ? (
+                    <a href={form.doc} class="flex-shrink-0 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                      </svg>
+                      Download
+                    </a>
+                  ) : (
+                    <span class="flex-shrink-0 text-xs text-gray-400 italic whitespace-nowrap">At office</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact for Forms -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Need Help with a Form?</h2>
+      <p class="text-gray-600 mb-6">For physical copies of any form or assistance with filling them out, visit the Student Section office or contact us.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">Contact Us</a>
+        <a href="/student-section/grievance" class="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary/5 transition-colors">Submit Grievance</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

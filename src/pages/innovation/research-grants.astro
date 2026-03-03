@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const grants = [
+  { scheme: "SSIP (Student Startup & Innovation Policy)", agency: "Government of Gujarat", amount: "Up to ₹2 Lakh/project", type: "Student Project Grant", status: "Active" },
+  { scheme: "AICTE – Research Promotion Scheme (RPS)", agency: "AICTE, New Delhi", amount: "Varies (₹5–20 Lakh)", type: "Faculty Research Grant", status: "Open" },
+  { scheme: "DST – INSPIRE", agency: "Dept. of Science & Technology", amount: "₹80,000/year (scholarship)", type: "Student Scholarship", status: "Open" },
+  { scheme: "GUJCOST Research Project", agency: "Gujarat Council on S&T", amount: "Up to ₹5 Lakh", type: "Minor Research Project", status: "Active" },
+  { scheme: "GTU Innovation Council", agency: "Gujarat Technological University", amount: "Up to ₹1 Lakh", type: "Innovation Project", status: "Active" },
+];
+
+const eligibility = [
+  { who: "Students", schemes: "SSIP, DST INSPIRE, GTU Innovation", requirement: "Enrolled at GPP, with valid project proposal" },
+  { who: "Faculty", schemes: "AICTE RPS, GUJCOST, DST Fast-Track", requirement: "Full-time faculty with research proposal and co-PI if required" },
+  { who: "Faculty + Students", schemes: "SSIP, GTU Innovation Council", requirement: "Joint proposals combining faculty guidance with student work" },
+];
+
+const process = [
+  { step: "1", title: "Identify Scheme", desc: "Review available grants and identify the most suitable one for your research area." },
+  { step: "2", title: "Prepare Proposal", desc: "Draft research proposal: objectives, methodology, expected outcomes, budget." },
+  { step: "3", title: "Internal Review", desc: "Submit proposal to Innovation Cell / Principal for internal approval and forwarding." },
+  { step: "4", title: "Submit Application", desc: "Apply via the funding agency's portal (e.g., AICTE OMS, SSIP portal, GUJCOST)." },
+  { step: "5", title: "Project Execution", desc: "Carry out the research; maintain progress reports and utilization certificates." },
+  { step: "6", title: "Reporting", desc: "Submit final report, accounts, and publications to the funding agency." },
+];
+---
+
+<Layout title="Research Grants | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/innovation" class="hover:text-primary transition-colors">Innovation Cell</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Research Grants</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Innovation Cell</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Research Grants</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Funding opportunities available to GPP faculty and students for research, innovation, and student startup projects.</p>
+    </div>
+  </section>
+
+  <!-- Available Grants -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Available Funding Schemes</h2>
+      <div class="space-y-4">
+        {grants.map(g => (
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-gray-900 text-base">{g.scheme}</h3>
+              <span class="text-xs font-semibold bg-green-100 text-green-800 rounded-full px-3 py-1">{g.status}</span>
+            </div>
+            <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-600">
+              <span><span class="font-medium text-gray-800">Agency:</span> {g.agency}</span>
+              <span><span class="font-medium text-gray-800">Amount:</span> {g.amount}</span>
+              <span><span class="font-medium text-gray-800">Type:</span> {g.type}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Eligibility</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Applicant</th>
+              <th class="px-5 py-3 font-semibold">Applicable Schemes</th>
+              <th class="px-5 py-3 font-semibold">Key Requirement</th>
+            </tr>
+          </thead>
+          <tbody>
+            {eligibility.map((e, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{e.who}</td>
+                <td class="px-5 py-3 text-gray-700">{e.schemes}</td>
+                <td class="px-5 py-3 text-gray-700">{e.requirement}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Application Process</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {process.map(p => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">{p.step}</div>
+            <h3 class="font-bold text-gray-900 mb-2">{p.title}</h3>
+            <p class="text-gray-600 text-sm">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Apply for a Research Grant</h2>
+      <p class="text-gray-600 mb-6">Contact the Innovation Cell or Principal's office for guidance on identifying the right grant and preparing a competitive proposal.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/ssip" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">SSIP Grants</a>
+        <a href="/contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Contact Innovation Cell</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

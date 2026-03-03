@@ -1,0 +1,123 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur", department: "Administration" },
+  { role: "Member Secretary", name: "Senior Faculty (nominated)", department: "Dept. Faculty" },
+  { role: "Faculty Member", name: "Nominated Faculty", department: "Civil Engineering" },
+  { role: "Faculty Member", name: "Nominated Faculty", department: "Mechanical Engineering" },
+  { role: "Student Representative", name: "Student nominated by Principal", department: "Student Body" },
+];
+
+const process = [
+  { step: "1", title: "Submit Grievance", desc: "Submit a written or online grievance to the Grievance Cell or Principal's office." },
+  { step: "2", title: "Acknowledgement", desc: "The committee acknowledges receipt within 3 working days." },
+  { step: "3", title: "Inquiry", desc: "A fact-finding inquiry is conducted by the committee members." },
+  { step: "4", title: "Resolution", desc: "Decision communicated to the complainant within 30 days." },
+  { step: "5", title: "Appeal", desc: "If unsatisfied, student may appeal to the Ombudsman or higher authority." },
+];
+
+const types = [
+  "Academic issues (examination, results, attendance)",
+  "Behaviour of faculty or administrative staff",
+  "Facilities and infrastructure complaints",
+  "Fee-related disputes",
+  "Library or hostel complaints",
+  "Any unfair treatment or discrimination",
+];
+---
+
+<Layout title="Grievance Cell | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Grievance Cell</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Student Welfare</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Grievance Cell</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">A confidential and impartial mechanism for students to raise academic and non-academic grievances at GPP.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Grievance Cell</h2>
+      <p class="text-gray-700 text-lg leading-relaxed">The Grievance Cell at GPP is constituted in compliance with AICTE norms to address student grievances in a fair, transparent, and timely manner. Any student facing issues related to academics, administration, or campus life can approach the Grievance Cell without fear of victimisation.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Types of Grievances Handled</h3>
+      <ul class="space-y-2">
+        {types.map(t => (
+          <li class="flex items-start gap-3 text-gray-700">
+            <div class="w-5 h-5 bg-primary/10 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            {t}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Redressal Process</h2>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        {process.map(p => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100 text-center">
+            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mx-auto mb-3">{p.step}</div>
+            <h3 class="font-bold text-gray-900 text-sm mb-2">{p.title}</h3>
+            <p class="text-gray-600 text-xs">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-6 bg-primary/5 rounded-xl p-5 border border-primary/20">
+        <p class="text-gray-700 text-sm"><span class="font-semibold">To submit a grievance:</span> Approach the Principal's office or submit a written complaint addressed to the Member Secretary, Grievance Cell, GPP Palanpur.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

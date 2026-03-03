@@ -1,0 +1,112 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Presiding Officer", name: "Senior Woman Faculty (nominated by Principal)", department: "Faculty" },
+  { role: "Member", name: "Woman Faculty Member", department: "Faculty" },
+  { role: "Member", name: "Woman Faculty Member", department: "Faculty" },
+  { role: "External Member", name: "NGO Representative (familiar with women's issues)", department: "External" },
+  { role: "Member", name: "Administrative Staff (Woman)", department: "Administration" },
+];
+
+const whatIs = [
+  "The Internal Complaints Committee (ICC) is constituted under the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013.",
+  "It provides a safe and confidential mechanism for women students and staff to report sexual harassment.",
+  "The committee inquires into complaints and recommends appropriate action within 90 days.",
+];
+
+const prohibited = [
+  "Physical contact and advances",
+  "Demand or request for sexual favours",
+  "Making sexually coloured remarks",
+  "Showing pornography",
+  "Any other unwelcome physical, verbal or non-verbal conduct of a sexual nature",
+];
+---
+
+<Layout title="Internal Complaints Committee (ICC) | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Internal Complaints Committee</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-4 py-1 rounded-full mb-4">POSH Act 2013</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Internal Complaints Committee</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Ensuring a safe, respectful, and harassment-free environment for all women students and staff at GPP.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the ICC</h2>
+      <div class="space-y-4">
+        {whatIs.map(w => (
+          <div class="flex items-start gap-3 text-gray-700 text-base">
+            <div class="w-5 h-5 bg-primary/10 rounded flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            {w}
+          </div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-10 mb-4">What Constitutes Sexual Harassment</h3>
+      <ul class="space-y-2">
+        {prohibited.map(p => (
+          <li class="flex items-start gap-3 text-gray-700">
+            <div class="w-2 h-2 bg-red-500 rounded-full flex-shrink-0 mt-2"></div>
+            {p}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-6 bg-purple-50 rounded-xl p-5 border border-purple-200">
+        <p class="text-purple-900 text-sm font-medium">Complaints are strictly confidential. Complainants are protected from retaliation. Submit written complaints to the Presiding Officer, ICC, GPP Palanpur.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const equipment = [
+  { name: "Educational Robot Kits", qty: "20 sets", use: "Hands-on robotics programming and assembly" },
+  { name: "Arduino Microcontroller Boards", qty: "30 units", use: "Embedded systems and IoT prototyping" },
+  { name: "Raspberry Pi Units", qty: "15 units", use: "Linux-based projects and computer vision" },
+  { name: "Sensor & Actuator Module Sets", qty: "20 sets", use: "Input/output interfacing for automation" },
+  { name: "3D Printed Robot Parts", qty: "As needed", use: "Custom chassis and mechanism fabrication" },
+  { name: "Motor Driver & Servo Kits", qty: "25 units", use: "Motion control in robotic systems" },
+];
+
+const activities = [
+  { title: "Robotics Workshops", desc: "Hands-on workshops on building and programming autonomous robots for EC, CE, IT, and ME students." },
+  { title: "Line Follower & Obstacle Avoider Projects", desc: "Entry-level robotics projects for first and second year students to develop practical skills." },
+  { title: "SSIP Project Support", desc: "Students working on SSIP-funded automation and robotics projects get priority access to the lab." },
+  { title: "Robocon Participation Prep", desc: "Lab is used to prepare and test robot designs for inter-college robotics competitions." },
+  { title: "Industry Problem-Solving", desc: "Sponsored project briefs from Bee-Robokids Pvt Ltd for diploma students to solve real automation challenges." },
+  { title: "IoT Mini-Projects", desc: "Students build smart devices integrating sensors, actuators, and wireless communication." },
+];
+---
+
+<Layout title="Bee-Robokids Industry Sponsored Lab | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Bee-Robokids Industry Sponsored Lab</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="flex flex-col md:flex-row items-start gap-8">
+        <div class="flex-1">
+          <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Industry Sponsored Lab</div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Bee-Robokids<br/>Robotics & Automation Lab</h1>
+          <p class="text-lg text-gray-600 max-w-xl">A dedicated robotics and automation lab at GPP, sponsored by Bee-Robokids Pvt Ltd, providing students with hands-on experience in robotics, embedded systems, and automation.</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 w-full md:w-64 flex-shrink-0">
+          <h3 class="font-bold text-gray-900 mb-4">Lab Info</h3>
+          <div class="space-y-3 text-sm">
+            <div>
+              <div class="text-gray-500 text-xs mb-0.5">Sponsored By</div>
+              <div class="font-semibold text-gray-900">Bee-Robokids Pvt Ltd</div>
+            </div>
+            <div>
+              <div class="text-gray-500 text-xs mb-0.5">Focus Area</div>
+              <div class="font-semibold text-gray-900">Robotics & Automation</div>
+            </div>
+            <div>
+              <div class="text-gray-500 text-xs mb-0.5">Departments</div>
+              <div class="font-semibold text-gray-900">EC, CE, IT, ME</div>
+            </div>
+            <div>
+              <div class="text-gray-500 text-xs mb-0.5">Location</div>
+              <div class="font-semibold text-gray-900">GPP Campus, Palanpur</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Lab</h2>
+      <p class="text-gray-700 leading-relaxed text-lg mb-4">
+        The Bee-Robokids Industry Sponsored Robotics & Automation Lab at Government Polytechnic Palanpur is a result of a collaboration between GPP and Bee-Robokids Pvt Ltd — a company specializing in educational robotics and automation solutions.
+      </p>
+      <p class="text-gray-700 leading-relaxed text-lg">
+        This lab bridges the gap between classroom theory and practical skills in electronics, programming, and automation. Students across multiple departments use this lab for project work, SSIP initiatives, and robotics competition preparation. The industry sponsorship ensures the lab stays equipped with current technology and that students work on real-world problem statements from the industry.
+      </p>
+    </div>
+  </section>
+
+  <!-- Equipment -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Lab Equipment</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Equipment</th>
+              <th class="px-5 py-3 font-semibold">Quantity</th>
+              <th class="px-5 py-3 font-semibold">Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            {equipment.map((e, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{e.name}</td>
+                <td class="px-5 py-3 text-gray-700">{e.qty}</td>
+                <td class="px-5 py-3 text-gray-600">{e.use}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Lab Activities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {activities.map(a => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-primary/30 transition-colors">
+            <h3 class="font-bold text-gray-900 mb-2">{a.title}</h3>
+            <p class="text-gray-600 text-sm">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Access the Robotics Lab</h2>
+      <p class="text-gray-600 mb-6">GPP students can use the Bee-Robokids lab for project work, SSIP proposals, and robotics competitions. Contact the lab in-charge for booking and access.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/ssip" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">SSIP at GPP</a>
+        <a href="/contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

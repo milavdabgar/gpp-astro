@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const leadership = [
+  {
+    name: "Shri Sureshkumar Dalabhai Dabhi",
+    role: "Principal",
+    qualification: "M.E. (Civil Engineering)",
+    department: "Administration",
+    experience: "25+ years",
+  },
+];
+
+const departments = [
+  {
+    name: "Civil Engineering",
+    hod: "Prof. [Name]",
+    faculty: 10,
+    labs: 5,
+  },
+  {
+    name: "Electrical Engineering",
+    hod: "Prof. [Name]",
+    faculty: 10,
+    labs: 4,
+  },
+  {
+    name: "Mechanical Engineering",
+    hod: "Prof. [Name]",
+    faculty: 10,
+    labs: 6,
+  },
+  {
+    name: "Electronics & Communication Engineering",
+    hod: "Prof. [Name]",
+    faculty: 8,
+    labs: 5,
+  },
+  {
+    name: "Computer Engineering",
+    hod: "Prof. [Name]",
+    faculty: 8,
+    labs: 4,
+  },
+  {
+    name: "Information Technology",
+    hod: "Prof. [Name]",
+    faculty: 6,
+    labs: 3,
+  },
+];
+
+const adminStaff = [
+  { role: "Office Superintendent", count: 1 },
+  { role: "Senior Clerk", count: 2 },
+  { role: "Junior Clerk", count: 3 },
+  { role: "Lab Assistant / Technician", count: 18 },
+  { role: "Peon / Class IV", count: 8 },
+];
+
+const stats = [
+  { label: "Total Faculty", value: "64" },
+  { label: "PhD Holders", value: "6" },
+  { label: "PG Qualified", value: "41" },
+  { label: "Admin Staff", value: "30+" },
+];
+---
+
+<Layout title="Our Team | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Our Team</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Team</h1>
+      <p class="text-lg text-gray-600">Dedicated faculty and staff committed to nurturing the next generation of diploma engineers</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-primary py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {stats.map(s => (
+          <div class="text-center">
+            <div class="text-3xl font-bold text-white">{s.value}</div>
+            <div class="text-sm mt-1 text-white/80">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Leadership</h2>
+      {leadership.map(l => (
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 bg-primary/5 rounded-2xl p-8 border border-primary/20">
+          <div class="w-28 h-28 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900">{l.name}</h3>
+            <p class="text-primary font-semibold text-lg mt-1">{l.role}</p>
+            <div class="mt-3 flex flex-wrap gap-3 text-sm text-gray-600">
+              <span class="bg-white border border-gray-200 rounded-full px-3 py-1">{l.qualification}</span>
+              <span class="bg-white border border-gray-200 rounded-full px-3 py-1">{l.experience} Experience</span>
+            </div>
+            <a href="/about/principal" class="inline-block mt-4 text-primary font-medium hover:underline text-sm">
+              Read Principal's Message &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Department-wise Faculty -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Faculty by Department</h2>
+      <p class="text-gray-600 mb-8">GPP has 64 faculty members across 6 diploma engineering departments, including 6 PhD holders and 41 post-graduates.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {departments.map(dept => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:border-primary/30 transition-colors">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-3">{dept.name}</h3>
+            <div class="space-y-1 text-sm text-gray-600">
+              <div class="flex justify-between">
+                <span>Faculty Strength</span>
+                <span class="font-semibold text-gray-800">{dept.faculty}</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Laboratories</span>
+                <span class="font-semibold text-gray-800">{dept.labs}</span>
+              </div>
+            </div>
+            <a href={`/departments/${dept.name.toLowerCase().replace(/[\s&]+/g, '-').replace(/[()]/g, '')}`} class="inline-block mt-4 text-primary text-sm font-medium hover:underline">
+              View Department &rarr;
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Administrative Staff -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Administrative Staff</h2>
+      <div class="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold text-right">Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {adminStaff.map((s, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 text-gray-700">{s.role}</td>
+                <td class="px-5 py-3 text-gray-900 font-semibold text-right">{s.count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Join Our Team</h2>
+      <p class="text-gray-600 mb-6">Government Polytechnic Palanpur recruits faculty and staff through the Government of Gujarat recruitment process. Check the official tender and recruitment notices for vacancies.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/financial-info/tender-notice" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Tender Notices</a>
+        <a href="/contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

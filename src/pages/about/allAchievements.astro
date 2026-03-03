@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const categories = [
+  {
+    title: "Academic Excellence",
+    color: "blue",
+    items: [
+      { year: "2024", title: "GTU Topper — Computer Engineering", student: "Student of CO Dept.", detail: "Secured rank in GTU diploma examinations" },
+      { year: "2024", title: "Best Diploma Project — SSIP Zonal", student: "EC Department Team", detail: "IoT-based smart irrigation system" },
+      { year: "2023", title: "100% Result — IT Department", student: "IT Department", detail: "All enrolled students passed GTU semester exams" },
+      { year: "2023", title: "GTU Rank Holder — Civil Engineering", student: "CE Department Student", detail: "Among top performers in GTU diploma" },
+      { year: "2022", title: "Best Project Award — GTU Convocation", student: "Mechanical Dept. Team", detail: "Innovative automation project" },
+    ],
+  },
+  {
+    title: "Sports",
+    color: "green",
+    items: [
+      { year: "2025", title: "State-Level Cricket Champions", student: "GPP Cricket Team", detail: "Won the Gujarat Polytechnic Sports Tournament" },
+      { year: "2024", title: "District Volleyball Champions", student: "GPP Volleyball Team", detail: "Banaskantha District inter-polytechnic tournament" },
+      { year: "2024", title: "Kabaddi — State Runners-Up", student: "Kabaddi Team", detail: "Second place at GTU polytechnic games" },
+      { year: "2023", title: "Athletics — 400m Gold Medal", student: "Individual Student", detail: "Inter-polytechnic athletics championship" },
+      { year: "2023", title: "Best Sports Polytechnic Award", student: "Institution", detail: "Recognised by ACPDC for sports achievements" },
+    ],
+  },
+  {
+    title: "Innovation & SSIP",
+    color: "indigo",
+    items: [
+      { year: "2025", title: "SSIP Grant — ₹50,000", student: "EC Dept. Team (3 students)", detail: "Smart water quality monitoring system" },
+      { year: "2024", title: "SSIP Grant — ₹30,000", student: "CO Dept. Team", detail: "AI-based attendance system using facial recognition" },
+      { year: "2024", title: "Patent Filed", student: "ME Dept. Faculty & Students", detail: "Novel jig fixture for small parts machining" },
+      { year: "2023", title: "SSIP Statewide Expo Participation", student: "Multiple Teams", detail: "6 GPP teams selected for state-level SSIP expo" },
+      { year: "2023", title: "Best Innovation Award — GTU", student: "IT Department Team", detail: "Low-cost IoT based agricultural automation" },
+    ],
+  },
+  {
+    title: "Cultural & Co-Curricular",
+    color: "orange",
+    items: [
+      { year: "2025", title: "Best Stall — Technical Exhibition", student: "Multiple Departments", detail: "GPP stall won best display at Palanpur Science Fair" },
+      { year: "2024", title: "1st Place — Technical Quiz (GTU)", student: "CO Dept. Team", detail: "Inter-polytechnic online technical quiz" },
+      { year: "2024", title: "Best NSS Volunteer Award", student: "NSS Unit, GPP", detail: "Recognised for community service activities" },
+      { year: "2023", title: "Rangoli Competition — District 1st", student: "Students' Council", detail: "Inter-college rangoli competition, Banaskantha" },
+      { year: "2023", title: "Street Play (Nukkad Natak) — 1st", student: "NSS & Drama Group", detail: "Social awareness theme, district-level event" },
+    ],
+  },
+  {
+    title: "Placements & Career",
+    color: "teal",
+    items: [
+      { year: "2025", title: "100% Placement Drive Participation", student: "Final Year Students", detail: "All eligible students participated in campus drives" },
+      { year: "2024", title: "Highest Package — ₹3.2 LPA", student: "CO Department Graduate", detail: "Placed at leading IT firm through campus drive" },
+      { year: "2024", title: "Mass Recruitment — Adani Group", student: "CE/ME/EE Students", detail: "25+ students selected in single campus drive" },
+      { year: "2023", title: "Best Placement Institute Award", student: "Institution", detail: "Recognised by ACPDC placement cell" },
+      { year: "2023", title: "Government Jobs — 12 Students", student: "Various Departments", detail: "Students cleared GPSSB/OJAS technical exams" },
+    ],
+  },
+  {
+    title: "NBA & Accreditation",
+    color: "purple",
+    items: [
+      { year: "2024", title: "NBA Accreditation — 3 Programs", student: "Institution", detail: "CE, EE, and ME accredited for 3 years (Jul 2024–Jun 2027)" },
+      { year: "2022", title: "ISO 9001:2015 Compliance", student: "Institution", detail: "Quality management systems aligned with ISO norms" },
+      { year: "2021", title: "AICTE Approval Renewed", student: "Institution", detail: "All 6 diploma programmes approved for continued intake" },
+      { year: "2020", title: "NBA Accreditation — CE & EE", student: "Institution", detail: "First NBA accreditation cycle for Civil and Electrical" },
+    ],
+  },
+];
+
+const colorMap: Record<string, { badge: string; dot: string; header: string }> = {
+  blue:   { badge: "bg-blue-100 text-blue-700",   dot: "bg-blue-500",   header: "bg-blue-50 border-blue-200 text-blue-800" },
+  green:  { badge: "bg-green-100 text-green-700",  dot: "bg-green-500",  header: "bg-green-50 border-green-200 text-green-800" },
+  indigo: { badge: "bg-indigo-100 text-indigo-700",dot: "bg-indigo-500", header: "bg-indigo-50 border-indigo-200 text-indigo-800" },
+  orange: { badge: "bg-orange-100 text-orange-700",dot: "bg-orange-500", header: "bg-orange-50 border-orange-200 text-orange-800" },
+  teal:   { badge: "bg-teal-100 text-teal-700",    dot: "bg-teal-500",   header: "bg-teal-50 border-teal-200 text-teal-800" },
+  purple: { badge: "bg-purple-100 text-purple-700",dot: "bg-purple-500", header: "bg-purple-50 border-purple-200 text-purple-800" },
+};
+
+const totalAchievements = categories.reduce((sum, c) => sum + c.items.length, 0);
+---
+
+<Layout title="All Achievements | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>&rsaquo;</span>
+        <a href="/achievements" class="hover:text-primary transition-colors">Achievements</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">All Achievements</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Complete Record</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">All Achievements</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">A comprehensive record of academic, sports, innovation, cultural, and institutional achievements at GPP Palanpur.</p>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="bg-primary py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-white">{totalAchievements}+</div>
+          <div class="text-sm text-white/80 mt-1">Total Achievements</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white">{categories.length}</div>
+          <div class="text-sm text-white/80 mt-1">Categories</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white">5</div>
+          <div class="text-sm text-white/80 mt-1">Years Covered</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white">3</div>
+          <div class="text-sm text-white/80 mt-1">NBA Accredited Programs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievement Categories -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="space-y-12">
+        {categories.map(cat => {
+          const c = colorMap[cat.color] || colorMap.blue;
+          return (
+            <div>
+              <div class={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-bold mb-5 ${c.header}`}>
+                <div class={`w-2 h-2 rounded-full ${c.dot}`}></div>
+                {cat.title}
+              </div>
+              <div class="overflow-x-auto rounded-xl border border-gray-200">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="bg-gray-50 text-gray-600 text-left text-xs uppercase tracking-wider">
+                      <th class="px-5 py-3 font-semibold w-16">Year</th>
+                      <th class="px-5 py-3 font-semibold">Achievement</th>
+                      <th class="px-5 py-3 font-semibold hidden md:table-cell">Achiever</th>
+                      <th class="px-5 py-3 font-semibold hidden lg:table-cell">Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cat.items.map((item, i) => (
+                      <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                        <td class="px-5 py-3">
+                          <span class={`text-xs font-bold px-2 py-1 rounded-full ${c.badge}`}>{item.year}</span>
+                        </td>
+                        <td class="px-5 py-3 font-medium text-gray-900">{item.title}</td>
+                        <td class="px-5 py-3 text-gray-600 hidden md:table-cell">{item.student}</td>
+                        <td class="px-5 py-3 text-gray-500 hidden lg:table-cell text-xs">{item.detail}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

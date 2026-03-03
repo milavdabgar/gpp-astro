@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const links = [
+  { label: "Notice Board", href: "/student-section/notice-board", icon: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9", desc: "Important notices and announcements" },
+  { label: "Academic Results", href: "/student-section/results", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z", desc: "GTU exam results and grade sheets" },
+  { label: "Grievance Cell", href: "/student-section/grievance", icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4v-4z", desc: "Register academic/non-academic grievances" },
+  { label: "NSS", href: "/student-section/nss", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z", desc: "National Service Scheme activities" },
+  { label: "First Year Info", href: "/student-section/first-year", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253", desc: "Welcome guide for first-year students" },
+  { label: "Various Forms", href: "/student-section/various-forms", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2", desc: "Download official application forms" },
+  { label: "GTU Convocation Payment", href: "/student-section/gtu-convocation-sbi-online-payment", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", desc: "GTU convocation fee via SBI Collect" },
+  { label: "Online Fee Payment", href: "/student-section/hdfc-online-payment", icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z", desc: "Pay semester fees online via HDFC" },
+];
+
+const quickFacts = [
+  { label: "Current Enrollment", value: "~1,000" },
+  { label: "Programs", value: "6 Diploma" },
+  { label: "Semesters", value: "6 (3 Years)" },
+  { label: "University", value: "GTU" },
+];
+---
+
+<Layout title="Student Section | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Student Section</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Student Section</h1>
+      <p class="text-lg text-gray-600">Your central hub for academic, administrative, and extracurricular resources at GPP</p>
+    </div>
+  </section>
+
+  <!-- Quick Facts -->
+  <section class="bg-primary py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {quickFacts.map(f => (
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">{f.value}</div>
+            <div class="text-sm mt-1 text-white/80">{f.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Student Resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {links.map(l => (
+          <a href={l.href} class="group bg-gray-50 hover:bg-primary/5 border border-gray-100 hover:border-primary/30 rounded-xl p-5 transition-all">
+            <div class="w-10 h-10 bg-primary/10 group-hover:bg-primary rounded-lg flex items-center justify-center mb-3 transition-colors">
+              <svg class="w-5 h-5 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={l.icon}/>
+              </svg>
+            </div>
+            <div class="font-semibold text-gray-900 text-sm mb-1">{l.label}</div>
+            <div class="text-xs text-gray-500">{l.desc}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Info -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Academic Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <h3 class="font-bold text-gray-900 text-lg mb-4">GTU Examinations</h3>
+          <p class="text-gray-700 text-sm leading-relaxed mb-3">
+            GPP is affiliated with Gujarat Technological University (GTU), Ahmedabad. All semester examinations, result declarations, and grade cards are managed through GTU's portal.
+          </p>
+          <a href="https://gtudiploma.ac.in" target="_blank" rel="noopener noreferrer" class="text-primary text-sm font-medium hover:underline">
+            GTU Diploma Portal &rarr;
+          </a>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <h3 class="font-bold text-gray-900 text-lg mb-4">Academic Calendar</h3>
+          <p class="text-gray-700 text-sm leading-relaxed mb-3">
+            The academic year consists of two semesters (odd and even). GTU announces the academic calendar including exam schedules at the start of each semester.
+          </p>
+          <a href="/admissions/calendar" class="text-primary text-sm font-medium hover:underline">
+            View Calendar &rarr;
+          </a>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <h3 class="font-bold text-gray-900 text-lg mb-4">Scholarships & Financial Aid</h3>
+          <p class="text-gray-700 text-sm leading-relaxed mb-3">
+            Students from economically weaker sections, SC/ST/OBC categories, and girls are eligible for state and central government scholarships.
+          </p>
+          <a href="/admissions/scholarship" class="text-primary text-sm font-medium hover:underline">
+            Scholarship Info &rarr;
+          </a>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <h3 class="font-bold text-gray-900 text-lg mb-4">SSIP & Innovation</h3>
+          <p class="text-gray-700 text-sm leading-relaxed mb-3">
+            The Student Startup and Innovation Policy (SSIP) at GPP supports student-led projects, prototypes, and startups with seed funding and mentorship.
+          </p>
+          <a href="/ssip" class="text-primary text-sm font-medium hover:underline">
+            SSIP at GPP &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Admin -->
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Need Help?</h2>
+      <p class="text-gray-600 mb-5">For any academic or administrative assistance, visit the Student Section office (Room No. 101, Admin Block) during working hours (Mon–Sat, 10 AM – 5 PM).</p>
+      <a href="/contact" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Contact GPP</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

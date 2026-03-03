@@ -1,0 +1,207 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const departments = [
+  {
+    name: "Civil Engineering",
+    head: "HoD, Civil Engineering",
+    responsibilities: [
+      "Academic delivery and lab management for CE diploma",
+      "Industry interaction and site visits for CE students",
+      "Maintenance of Civil Engineering laboratories",
+      "NBA documentation and accreditation compliance for CE",
+      "Final year project guidance and evaluation",
+    ],
+  },
+  {
+    name: "Electrical Engineering",
+    head: "HoD, Electrical Engineering",
+    responsibilities: [
+      "Academic delivery and lab management for EE diploma",
+      "Power lab and electrical workshop maintenance",
+      "NBA accreditation compliance for EE",
+      "Industry visits and guest lecture arrangements",
+      "Student project guidance for EE and SSIP",
+    ],
+  },
+  {
+    name: "Mechanical Engineering",
+    head: "HoD, Mechanical Engineering",
+    responsibilities: [
+      "Academic delivery for ME diploma programme",
+      "Workshop and manufacturing lab upkeep",
+      "NBA accreditation compliance for ME",
+      "Coordination of industrial training for ME students",
+      "Student project and SSIP support",
+    ],
+  },
+  {
+    name: "EC Engineering",
+    head: "HoD, EC Engineering",
+    responsibilities: [
+      "Academic delivery for EC diploma",
+      "Electronics and communication lab management",
+      "IoT and embedded systems project supervision",
+      "Industry linkages and expert lecture coordination",
+      "Student chapter coordination (ISA, ISHRAE)",
+    ],
+  },
+  {
+    name: "Computer / IT Engineering",
+    head: "HoD, Computer/IT",
+    responsibilities: [
+      "Academic delivery for CO and IT diploma programmes",
+      "Computer lab and network infrastructure maintenance",
+      "SSIP and innovation project supervision",
+      "Cybersecurity awareness and software project guidance",
+      "Campus placement preparation for IT/CO students",
+    ],
+  },
+];
+
+const adminDivisions = [
+  {
+    name: "Principal's Office",
+    responsibilities: [
+      "Overall administration and academic leadership",
+      "Government liaison — ACPDC, GTU, AICTE, DTE",
+      "Approval of budgets, policies, and staff actions",
+      "Chairing institute committees and governing body",
+    ],
+  },
+  {
+    name: "Accounts & Finance",
+    responsibilities: [
+      "Budget preparation and fund management",
+      "Salary disbursement and audit compliance",
+      "Fee collection, financial statements, and PFMS",
+      "Procurement approvals and tender management",
+    ],
+  },
+  {
+    name: "Examination Cell",
+    responsibilities: [
+      "GTU examination coordination — seating, invigilation",
+      "Internal assessment records and result processing",
+      "Hall ticket distribution and admit card management",
+      "Grievance handling for examination-related issues",
+    ],
+  },
+  {
+    name: "Admission Office",
+    responsibilities: [
+      "Co-ordinating with ACPDC for diploma admissions",
+      "Document verification and enrolment",
+      "Scholarship and fee concession form processing",
+      "Maintaining student enrolment records",
+    ],
+  },
+  {
+    name: "Establishment Section",
+    responsibilities: [
+      "Recruitment, appointments, and service records",
+      "Leave management and attendance records",
+      "Employee welfare and HR compliance",
+      "Training and faculty development coordination",
+    ],
+  },
+  {
+    name: "Library",
+    responsibilities: [
+      "Procurement and cataloguing of books and journals",
+      "Digital library and NPTEL access management",
+      "Issue/return tracking and student membership",
+      "Reading room and reference services",
+    ],
+  },
+];
+---
+
+<Layout title="Work Distribution | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Work Distribution</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Organisation</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Work Distribution</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Responsibilities and functional areas of academic departments and administrative divisions at Government Polytechnic Palanpur.</p>
+    </div>
+  </section>
+
+  <!-- Department Responsibilities -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Academic Departments</h2>
+      <p class="text-gray-500 mb-8">Each department is headed by a Head of Department (HoD) appointed by the Principal.</p>
+      <div class="space-y-5">
+        {departments.map(d => (
+          <div class="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+            <div class="bg-primary/10 px-6 py-4 flex items-center gap-3">
+              <div class="w-2 h-8 bg-primary rounded-full"></div>
+              <div>
+                <h3 class="font-bold text-gray-900">{d.name}</h3>
+                <p class="text-sm text-gray-500">{d.head}</p>
+              </div>
+            </div>
+            <ul class="px-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+              {d.responsibilities.map(r => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <div class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Divisions -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Administrative Divisions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {adminDivisions.map(a => (
+          <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm">
+            <div class="bg-primary px-5 py-3">
+              <h3 class="font-bold text-white">{a.name}</h3>
+            </div>
+            <ul class="px-5 py-4 space-y-2">
+              {a.responsibilities.map(r => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <div class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0 mt-2"></div>
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <p class="text-gray-600 text-sm">For the institute organisation chart and reporting structure, refer to the <a href="/about/organization-chart" class="text-primary font-semibold underline">Organisation Chart</a>.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

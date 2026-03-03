@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const nirfData = {
+  instituteName: "Government Polytechnic Palanpur",
+  nirfId: "IR-P-P-XXX",
+  category: "Polytechnic",
+  submittingEntity: "Institute",
+  state: "Gujarat",
+  city: "Palanpur",
+  district: "Banaskantha",
+  pinCode: "385001",
+  address: "Outside Malan Gate, Ambaji Road, Palanpur-385001, Banaskantha, Gujarat",
+  phone: "02742-262115",
+  email: "gp-palanpur-dte@gujarat.gov.in",
+};
+
+const nirfParameters = [
+  {
+    name: "Teaching, Learning & Resources (TLR)",
+    weight: "30%",
+    desc: "Faculty strength, qualifications, expenditure on academic and research, and infrastructure.",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  },
+  {
+    name: "Research and Professional Practice (RP)",
+    weight: "30%",
+    desc: "Research publications, patents, collaborative projects, and professional recognition.",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+  },
+  {
+    name: "Graduation Outcomes (GO)",
+    weight: "20%",
+    desc: "Ph.D. scholars per faculty, number of graduates, success rates, and median salary.",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+  },
+  {
+    name: "Outreach and Inclusivity (OI)",
+    weight: "10%",
+    desc: "Percentage of women, SC/ST/OBC students and faculty, economic diversity.",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    name: "Perception (PR)",
+    weight: "10%",
+    desc: "Academic peer perception, employer perception, and public recognition.",
+    icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+  },
+];
+
+const nirfReportYears = [
+  { year: "2024", status: "submitted", doc: null },
+  { year: "2023", status: "submitted", doc: null },
+  { year: "2022", status: "submitted", doc: null },
+];
+---
+
+<Layout title="NIRF Ranking | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+      <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700 border border-blue-200">
+        National Institutional Ranking Framework
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">NIRF Ranking</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Government Polytechnic Palanpur participates in the National Institutional Ranking Framework (NIRF),
+        a methodology adopted by the Ministry of Education, Government of India to rank engineering and polytechnic institutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- About NIRF -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">About NIRF</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            The National Institutional Ranking Framework (NIRF) was approved by the Ministry of Education (MoE)
+            in September 2015 and was implemented from 2016. The framework outlines a methodology to rank
+            institutions across India.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Rankings are based on five broad parameters encompassing various key performance areas that cover
+            teaching, research, diversity, and outcomes.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Participation in NIRF promotes institutional transparency, accountability, and comparative improvement.
+          </p>
+          <a
+            href="https://www.nirfindia.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm"
+          >
+            Visit NIRF India Portal
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+        <div class="bg-blue-50 rounded-2xl border border-blue-100 p-6">
+          <h3 class="font-bold text-gray-900 mb-4">Institution Information</h3>
+          <dl class="space-y-3">
+            {[
+              ["Institution", nirfData.instituteName],
+              ["Category", nirfData.category],
+              ["State", nirfData.state],
+              ["City", nirfData.city],
+              ["Contact", nirfData.phone],
+              ["Email", nirfData.email],
+            ].map(([k, v]) => (
+              <div class="flex justify-between items-start gap-4 text-sm pb-2 border-b border-blue-100 last:border-0">
+                <span class="text-gray-500 font-medium">{k}</span>
+                <span class="text-gray-800 font-semibold text-right">{v}</span>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIRF Parameters -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">NIRF Evaluation Parameters</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {nirfParameters.map((param) => (
+          <div class="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="p-2 rounded-lg bg-primary/10 flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={param.icon}/>
+                </svg>
+              </div>
+              <span class="text-lg font-bold text-primary">{param.weight}</span>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2 text-sm leading-snug">{param.name}</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">{param.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NIRF Submission History -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">NIRF Submission History</h2>
+      <div class="space-y-3">
+        {nirfReportYears.map((r) => (
+          <div class="flex items-center justify-between p-4 rounded-xl border border-gray-200 bg-gray-50 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              <span class="font-semibold text-gray-800">NIRF {r.year}</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">Submitted</span>
+              <span class="text-xs text-gray-400 italic">Available on NIRF portal</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 text-center text-sm text-gray-500">
+        For the latest NIRF data and rankings, visit the official
+        <a href="https://www.nirfindia.org/" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:text-primary/80">NIRF India portal</a>.
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

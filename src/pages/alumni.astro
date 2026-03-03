@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AnnouncementTicker from '../components/AnnouncementTicker.astro';
+
+const notableAlumni = [
+  {
+    name: "Er. Rajesh Patel",
+    batch: "CE, 2005",
+    current: "Senior Civil Engineer, NHAI",
+    achievement: "Led highway construction projects across North Gujarat",
+    avatar: "RP",
+  },
+  {
+    name: "Er. Priya Shah",
+    batch: "EE, 2010",
+    current: "Assistant Engineer, PGVCL",
+    achievement: "Managing substation operations in Banaskantha district",
+    avatar: "PS",
+  },
+  {
+    name: "Er. Mohit Joshi",
+    batch: "ME, 2008",
+    current: "Production Supervisor, Tata Motors",
+    achievement: "10+ years in automotive manufacturing at Pune facility",
+    avatar: "MJ",
+  },
+  {
+    name: "Er. Ankit Trivedi",
+    batch: "CO, 2015",
+    current: "Software Engineer, TCS",
+    achievement: "Full-Stack developer working on financial systems projects",
+    avatar: "AT",
+  },
+  {
+    name: "Er. Kiran Desai",
+    batch: "EC, 2012",
+    current: "Junior Engineer, BSNL Gujarat",
+    achievement: "Telecom infrastructure maintenance across North Gujarat",
+    avatar: "KD",
+  },
+  {
+    name: "Smt. Reema Solanki",
+    batch: "IT, 2018",
+    current: "Entrepreneur — TechStart Palanpur",
+    achievement: "Founded a local IT services company employing 15+ people",
+    avatar: "RS",
+  },
+];
+
+const stats = [
+  { value: "40+", label: "Years of Alumni" },
+  { value: "10,000+", label: "Graduated Alumni" },
+  { value: "6", label: "Diploma Branches" },
+  { value: "Pan India", label: "Alumni Presence" },
+];
+
+const sectors = [
+  { name: "Government / PSU", pct: 35, color: "bg-blue-500" },
+  { name: "Private Industry", pct: 40, color: "bg-green-500" },
+  { name: "Self-Employed / Entrepreneur", pct: 15, color: "bg-orange-500" },
+  { name: "Higher Education", pct: 10, color: "bg-purple-500" },
+];
+---
+
+<Layout title="Alumni | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Alumni</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Our Community</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">GPP Alumni</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Government Polytechnic Palanpur has been shaping technical talent since 1984. Our graduates work across government, industry, and entrepreneurship throughout India.</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-primary py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {stats.map(s => (
+          <div>
+            <div class="text-3xl font-bold text-white">{s.value}</div>
+            <div class="text-sm text-white/80 mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Notable Alumni -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Notable Alumni</h2>
+      <p class="text-gray-500 mb-8 text-sm">Selected alumni who have made an impact in their fields.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {notableAlumni.map(a => (
+          <div class="bg-gray-50 rounded-2xl border border-gray-100 p-5 hover:border-primary/30 hover:shadow-sm transition-all">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-bold text-sm">{a.avatar}</span>
+              </div>
+              <div class="min-w-0">
+                <p class="font-bold text-gray-900 text-sm">{a.name}</p>
+                <p class="text-xs text-primary font-medium mb-1">{a.batch}</p>
+                <p class="text-xs text-gray-600 mb-2">{a.current}</p>
+                <p class="text-xs text-gray-500 italic">{a.achievement}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Where Our Alumni Work</h2>
+      <div class="space-y-4">
+        {sectors.map(s => (
+          <div class="bg-white rounded-xl border border-gray-100 p-5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-medium text-gray-800 text-sm">{s.name}</span>
+              <span class="text-sm font-bold text-gray-600">{s.pct}%</span>
+            </div>
+            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div class={`h-full ${s.color} rounded-full`} style={`width: ${s.pct}%`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration CTA -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="bg-gradient-to-br from-primary/5 to-blue-50 rounded-2xl border border-primary/20 p-8 text-center">
+        <div class="text-5xl mb-4">🤝</div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">Are You a GPP Alumnus?</h2>
+        <p class="text-gray-600 mb-6 text-sm max-w-lg mx-auto">We are building an alumni network to connect graduates with current students, share job opportunities, and celebrate GPP's journey together.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors">
+            Register as Alumni
+          </a>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 border border-primary text-primary font-medium px-6 py-3 rounded-xl hover:bg-primary/5 transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

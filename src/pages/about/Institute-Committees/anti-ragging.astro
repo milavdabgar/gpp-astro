@@ -1,0 +1,114 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Chairperson", name: "Principal, GPP Palanpur", department: "Administration" },
+  { role: "Member Secretary", name: "Vice Principal / Senior Faculty", department: "Administration" },
+  { role: "Faculty Member", name: "Nominated Faculty", department: "Civil Engineering" },
+  { role: "Faculty Member", name: "Nominated Faculty", department: "Electrical Engineering" },
+  { role: "Student Representative", name: "Senior Student (nominated)", department: "Student Body" },
+  { role: "Non-Teaching Member", name: "Administrative Staff", department: "Administration" },
+];
+
+const penalties = [
+  { offence: "Abetment of ragging", action: "Expulsion from institute" },
+  { offence: "Physical assault or threat", action: "Suspension + police complaint" },
+  { offence: "Verbal abuse or humiliation", action: "Suspension from hostel / institute" },
+  { offence: "Psychological harassment", action: "Disciplinary action + counselling" },
+  { offence: "Online/cyber ragging", action: "Suspension + FIR" },
+];
+---
+
+<Layout title="Anti-Ragging Committee | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Anti-Ragging Committee</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">Zero Tolerance Policy</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Anti-Ragging Committee</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">GPP maintains a strict zero-tolerance policy against ragging in compliance with UGC/AICTE regulations and the Hon'ble Supreme Court's directions.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Committee</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">The Anti-Ragging Committee at GPP is constituted as per the AICTE/UGC Anti-Ragging Regulations and the Supreme Court's directives in SLP No. 24295 of 2006. The committee is responsible for preventing ragging on campus, in hostels, and during transit, and for taking swift action against any reported incidents.</p>
+      <div class="bg-red-50 border border-red-200 rounded-xl p-5 mt-6">
+        <p class="text-red-800 font-semibold">Ragging Helpline: <a href="tel:1800-180-5522" class="underline">1800-180-5522</a> (AICTE Toll-Free)</p>
+        <p class="text-red-700 text-sm mt-1">You can also report incidents to the Principal's office or committee members directly.</p>
+        <a href="/about/anti-ragging-helpline" class="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-red-700 hover:underline">
+          View Full Helpline &amp; Policy Page →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Penalties for Ragging</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-red-700 text-white text-left">
+              <th class="px-5 py-3 font-semibold">Offence</th>
+              <th class="px-5 py-3 font-semibold">Action Taken</th>
+            </tr>
+          </thead>
+          <tbody>
+            {penalties.map((p, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-red-50"}>
+                <td class="px-5 py-3 text-gray-900">{p.offence}</td>
+                <td class="px-5 py-3 text-red-800 font-medium">{p.action}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

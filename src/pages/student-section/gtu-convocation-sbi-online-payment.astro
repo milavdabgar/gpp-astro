@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+---
+
+<Layout title="GTU Convocation Payment | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/student-section" class="hover:text-primary transition-colors">Student Section</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">GTU Convocation Payment</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">GTU Convocation Payment</h1>
+      <p class="text-lg text-gray-600">Online payment portal for GTU Convocation Degree/Diploma fee for alumni and ex-students.</p>
+    </div>
+  </section>
+
+  <!-- Important Notice -->
+  <section class="bg-amber-50 border-b border-amber-200 py-4">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm text-amber-800 text-center font-medium">
+        📢 Dear Alumni / Ex-Students: Please read all payment instructions carefully before making payment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <!-- Section header -->
+        <div class="bg-primary px-6 py-4">
+          <h2 class="text-white font-bold text-xl">GTU Convocation Degree / Diploma Fee Payment</h2>
+        </div>
+
+        <div class="p-6 space-y-8">
+          <!-- About GTU Convocation -->
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-3">About GTU Convocation</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              The Gujarat Technological University (GTU) Convocation is a formal ceremony where degrees and diplomas are conferred upon graduating students. Alumni and ex-students can participate in the convocation ceremony by paying the required fee through the official SBI online payment portal.
+            </p>
+          </div>
+
+          <!-- Payment Instructions -->
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-4">Important Payment Instructions</h3>
+            <div class="space-y-3">
+              {[
+                "All students to go through this notice carefully before making online payment.",
+                { step: "State", value: "Gujarat" },
+                { step: "Category", value: "Educational Institute" },
+                { step: "Institution", value: "Gujarat Technological University (GTU)" },
+                "Select Gujarat Technological University from the list on the SBI portal.",
+                "The logo of GTU must be visible on your payment receipt. Otherwise, your payment will not be considered valid.",
+                "Do not pay on any unofficial portal or third-party website.",
+                "Keep a copy of the payment receipt and the payment acknowledgement slip.",
+                "Kindly inform all your friends/batch-mates regarding this payment process.",
+              ].map((item, i) => (
+                typeof item === "string" ? (
+                  <div class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center mt-0.5">{i + 1}</span>
+                    <p class="text-gray-700 text-sm">{item}</p>
+                  </div>
+                ) : (
+                  <div class="flex items-start gap-3 ml-9">
+                    <span class="text-gray-500 text-sm">→ Select <strong>{item.step}:</strong> <span class="text-primary font-semibold">{item.value}</span></span>
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+
+          <!-- Verification Requirement -->
+          <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+            <h4 class="font-bold text-red-800 mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+              </svg>
+              Verification Requirement
+            </h4>
+            <p class="text-red-700 text-sm">
+              The GTU logo <strong>must</strong> appear on your payment receipt. Payments made without proper GTU verification will not be accepted as valid.
+            </p>
+          </div>
+
+          <!-- Payment Link -->
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-5">
+            <h3 class="font-bold text-gray-900 text-lg mb-3">SBI Collect Payment Portal</h3>
+            <p class="text-gray-600 text-sm mb-4">Use the official SBI Collect portal to make the GTU Convocation fee payment:</p>
+            <a
+              href="https://www.onlinesbi.sbi/sbicollect/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              SBI Collect Portal
+            </a>
+            <p class="text-xs text-gray-500 mt-3">You will be redirected to the official State Bank of India portal. Select GTU from the list of institutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4 text-center">Contact — Student Section</h2>
+      <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-sm text-gray-700 space-y-2">
+        <p><strong>Institution:</strong> Government Polytechnic Palanpur</p>
+        <p><strong>Address:</strong> Outside Malan Gate, Ambaji Road, Palanpur-385001, Banaskantha, Gujarat</p>
+        <p><strong>Phone:</strong> 02742-262115 / 9099063226</p>
+        <p><strong>Email:</strong> gp-palanpur-dte@gujarat.gov.in</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

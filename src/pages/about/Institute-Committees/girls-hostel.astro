@@ -1,0 +1,115 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Superintendent / Warden", name: "Woman Faculty (nominated by Principal)", department: "Faculty" },
+  { role: "Deputy Warden", name: "Woman Faculty Member", department: "Faculty" },
+  { role: "Member", name: "Administrative Staff", department: "Administration" },
+  { role: "Student Representative", name: "Senior Woman Student", department: "Student Body" },
+];
+
+const facilities = [
+  { title: "Accommodation", desc: "Rooms provided with beds, storage, and study tables for women students coming from distant locations." },
+  { title: "Mess Facility", desc: "In-house mess with nutritious vegetarian meals. Menu rotated weekly. Special dietary needs addressed." },
+  { title: "Common Room", desc: "Recreation and rest area for hostel residents with TV, indoor games, and seating." },
+  { title: "Security", desc: "24×7 security at hostel gates. CCTV surveillance. Visitor entry only with prior permission." },
+  { title: "Medical Aid", desc: "First aid available at hostel. Sick bay for temporary medical rest. Tie-up with nearby clinic." },
+  { title: "Study Room", desc: "Dedicated quiet study room available in the evening for exam preparation." },
+];
+
+const rules = [
+  "Residents must follow hostel timing and sign in/out register",
+  "Guests (including family) allowed in common area with warden permission only",
+  "Mobile phones permitted but must not disturb other residents during quiet hours (10 PM – 6 AM)",
+  "Cooking in rooms is not permitted",
+  "Ragging, substance abuse, or anti-social behaviour will result in immediate expulsion",
+  "Room inspections are conducted periodically by the warden",
+];
+---
+
+<Layout title="Girls Hostel Committee | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Girls Hostel Committee</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Student Welfare</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Girls Hostel Committee</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Managing safe, comfortable, and supportive residential facilities for women students at Government Polytechnic Palanpur.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Hostel Facilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {facilities.map(f => (
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 shadow-sm">
+            <h3 class="font-bold text-gray-900 mb-2">{f.title}</h3>
+            <p class="text-gray-600 text-sm">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Hostel Rules</h2>
+      <ul class="space-y-3">
+        {rules.map((r, i) => (
+          <li class="flex items-start gap-4 bg-white rounded-xl p-4 border border-gray-100">
+            <div class="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs flex-shrink-0">{i + 1}</div>
+            <p class="text-gray-700 text-sm pt-0.5">{r}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-6 bg-primary/5 rounded-xl p-5 border border-primary/20">
+        <p class="text-gray-700 text-sm">For hostel admission, fee payment, or any hostel-related concerns, contact the Hostel Warden or visit the Principal's office.</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

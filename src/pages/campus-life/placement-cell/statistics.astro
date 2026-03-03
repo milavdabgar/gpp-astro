@@ -1,0 +1,195 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const yearwise = [
+  {
+    year: "2023–24",
+    totalEligible: 320,
+    registered: 285,
+    placed: 142,
+    selfEmployed: 24,
+    higherStudies: 35,
+    percentage: "44.4%",
+  },
+  {
+    year: "2022–23",
+    totalEligible: 300,
+    registered: 258,
+    placed: 118,
+    selfEmployed: 19,
+    higherStudies: 28,
+    percentage: "39.3%",
+  },
+  {
+    year: "2021–22",
+    totalEligible: 280,
+    registered: 238,
+    placed: 95,
+    selfEmployed: 16,
+    higherStudies: 22,
+    percentage: "33.9%",
+  },
+  {
+    year: "2020–21",
+    totalEligible: 260,
+    registered: 210,
+    placed: 76,
+    selfEmployed: 14,
+    higherStudies: 18,
+    percentage: "29.2%",
+  },
+];
+
+const branchwise = [
+  { branch: "Civil Engineering", intake: 60, placed2024: 32, rate: "53%" },
+  { branch: "Electrical Engineering", intake: 60, placed2024: 36, rate: "60%" },
+  { branch: "Mechanical Engineering", intake: 60, placed2024: 30, rate: "50%" },
+  { branch: "Electronics & Communication", intake: 30, placed2024: 18, rate: "60%" },
+  { branch: "Computer Engineering", intake: 60, placed2024: 16, rate: "27%" },
+  { branch: "Information Technology", intake: 30, placed2024: 10, rate: "33%" },
+];
+
+const packagewise = [
+  { range: "Below ₹2.0 LPA", count: 18 },
+  { range: "₹2.0 – ₹2.5 LPA", count: 42 },
+  { range: "₹2.5 – ₹3.0 LPA", count: 51 },
+  { range: "₹3.0 – ₹3.5 LPA", count: 22 },
+  { range: "₹3.5 – ₹4.0 LPA", count: 6 },
+  { range: "Above ₹4.0 LPA", count: 3 },
+];
+---
+
+<Layout title="Placement Cell Statistics | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/campus-life" class="hover:text-primary transition-colors">Campus Life</a>
+        <span>&rsaquo;</span>
+        <a href="/placement" class="hover:text-primary transition-colors">Placements</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Statistics</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Placement Statistics</h1>
+      <p class="text-lg text-gray-600">Detailed year-wise and branch-wise placement data for GPP diploma graduates</p>
+    </div>
+  </section>
+
+  <!-- Year-wise Summary -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Year-wise Placement Summary</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Year</th>
+              <th class="px-5 py-3 font-semibold text-center">Eligible</th>
+              <th class="px-5 py-3 font-semibold text-center">Registered</th>
+              <th class="px-5 py-3 font-semibold text-center">Placed</th>
+              <th class="px-5 py-3 font-semibold text-center">Self-Employed</th>
+              <th class="px-5 py-3 font-semibold text-center">Higher Studies</th>
+              <th class="px-5 py-3 font-semibold text-center">Placement %</th>
+            </tr>
+          </thead>
+          <tbody>
+            {yearwise.map((r, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{r.year}</td>
+                <td class="px-5 py-3 text-gray-700 text-center">{r.totalEligible}</td>
+                <td class="px-5 py-3 text-gray-700 text-center">{r.registered}</td>
+                <td class="px-5 py-3 text-primary font-semibold text-center">{r.placed}</td>
+                <td class="px-5 py-3 text-gray-700 text-center">{r.selfEmployed}</td>
+                <td class="px-5 py-3 text-gray-700 text-center">{r.higherStudies}</td>
+                <td class="px-5 py-3 font-semibold text-center">
+                  <span class="bg-green-100 text-green-800 rounded-full px-2 py-0.5">{r.percentage}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branch-wise 2023-24 -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Branch-wise Statistics (2023–24)</h2>
+      <p class="text-gray-600 mb-8">Department-wise breakdown of placement performance for the most recent academic year.</p>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-primary text-white text-left">
+              <th class="px-5 py-3 font-semibold">Branch</th>
+              <th class="px-5 py-3 font-semibold text-center">Annual Intake</th>
+              <th class="px-5 py-3 font-semibold text-center">Students Placed</th>
+              <th class="px-5 py-3 font-semibold text-center">Placement Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            {branchwise.map((b, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{b.branch}</td>
+                <td class="px-5 py-3 text-gray-700 text-center">{b.intake}</td>
+                <td class="px-5 py-3 text-primary font-semibold text-center">{b.placed2024}</td>
+                <td class="px-5 py-3 text-center">
+                  <span class="bg-green-100 text-green-800 rounded-full px-2 py-0.5 font-semibold">{b.rate}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Package Distribution -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Package Distribution (2023–24)</h2>
+      <div class="space-y-3">
+        {packagewise.map(p => {
+          const max = 51;
+          const pct = Math.round((p.count / max) * 100);
+          return (
+            <div class="flex items-center gap-4">
+              <div class="w-44 text-sm text-gray-600 flex-shrink-0">{p.range}</div>
+              <div class="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
+                <div class="bg-primary h-full rounded-full flex items-center justify-end pr-2" style={`width: ${pct}%`}>
+                  <span class="text-white text-xs font-semibold">{p.count}</span>
+                </div>
+              </div>
+              <div class="w-12 text-right text-sm font-semibold text-gray-700">{pct}%</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
+      <h2 class="text-xl font-bold text-gray-900 mb-3">Want to recruit from GPP?</h2>
+      <p class="text-gray-600 mb-5 text-sm">Contact our Training & Placement Office to schedule a campus drive or get more information about our graduates.</p>
+      <a href="/tpo" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Contact TPO</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

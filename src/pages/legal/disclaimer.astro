@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const lastUpdated = "March 2026";
+---
+
+<Layout title="Disclaimer | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Disclaimer</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-gray-50 to-blue-50 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="inline-block bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">Last Updated: {lastUpdated}</div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-3">Disclaimer</h1>
+      <p class="text-gray-500 text-sm">Please read this disclaimer carefully before using this website.</p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="prose prose-gray max-w-none space-y-8 text-gray-700 text-sm leading-relaxed">
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">General Information</h2>
+          <p>The information on this website is published by Government Polytechnic Palanpur (GPP), an institution established under the Government of Gujarat, for general informational purposes only. While every effort is made to ensure the accuracy, completeness, and currency of the information, GPP makes no warranties or representations of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information on this website.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">Accuracy of Information</h2>
+          <p>The information provided on this website is subject to change without notice. GPP endeavours to ensure that the content is up to date; however, users are advised to verify any critical information — particularly regarding admissions, fees, results, examination schedules, and statutory requirements — directly from the relevant official sources such as ACPDC, GTU, AICTE, or the institute office.</p>
+          <p class="mt-3">Information related to dates, eligibility criteria, and fee structures is indicative only and may be updated by the respective regulatory bodies. GPP shall not be held responsible for any loss, inconvenience, or action taken based on information sourced from this website.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">External Links</h2>
+          <p>This website may contain links to external websites maintained by third parties such as GTU, ACPDC, AICTE, the Government of Gujarat, and others. These links are provided for convenience and information only. GPP does not control, endorse, or take responsibility for the content, privacy practices, or availability of these external sites. Accessing these linked sites is at your own risk.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">Downloadable Documents</h2>
+          <p>Documents and PDF files available for download on this website (including fee schedules, financial statements, brochures, and notices) are provided in good faith. GPP does not guarantee that these files are free from errors or that they will be compatible with all devices or software. Users are responsible for ensuring their systems are adequately protected when downloading files.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">Student & Admission Data</h2>
+          <p>Data relating to student strength, placement statistics, and achievements published on this website is based on institutional records available at the time of publication. Past performance in placements or rankings does not guarantee or imply similar future outcomes for any individual student.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">Intellectual Property</h2>
+          <p>All content on this website, including text, images, logos, and documents, is the property of Government Polytechnic Palanpur or its respective owners. Reproduction or redistribution of any content from this website for commercial purposes is not permitted without prior written consent from GPP.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">Contact</h2>
+          <p>For any queries about the accuracy of information published on this website, please contact the institute office:</p>
+          <div class="mt-3 space-y-1 text-sm">
+            <p><strong>Government Polytechnic Palanpur</strong></p>
+            <p>Ambaji Road, Palanpur — 385001, Banaskantha, Gujarat</p>
+            <p>Email: principal-gpp-pal@gujarat.gov.in</p>
+            <p>Phone: 02742-252600</p>
+          </div>
+          <div class="mt-4">
+            <a href="/contact" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+              Visit the Contact Page →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-6 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+        <a href="/legal/right-to-info-act" class="hover:text-primary transition-colors">Right to Information</a>
+        <span>·</span>
+        <a href="/about/mandatory-disclosure" class="hover:text-primary transition-colors">Mandatory Disclosure</a>
+        <span>·</span>
+        <a href="/contact" class="hover:text-primary transition-colors">Contact Us</a>
+        <span>·</span>
+        <a href="/info/sitemap" class="hover:text-primary transition-colors">Sitemap</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
