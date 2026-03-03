@@ -4,294 +4,231 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
 
-// Staff data from GTU Affiliation Document 2026-27
-const teachingStaffSummary = {
-  permanent: 63,
-  proTerm: 1,
-  total: 64,
-  permanentPct: 98.44,
+const PHOTO_BASE = {
+  civil:       '/images/NEW%20WEBSITE%20DATA/CIVIL/FACULTY%20PHOTOS/',
+  ec:          '/images/NEW%20WEBSITE%20DATA/EC/FACULTY%20PHOTOS/',
+  electrical:  '/images/NEW%20WEBSITE%20DATA/ELECTRICAL/FACULTY%20PHOTOS/',
+  science:     '/images/NEW%20WEBSITE%20DATA/SCIENCE%20AND%20HUMANITIES%20DEPARTMENT/FACULTY%20PHOTOS/',
 };
 
-const vacancyHistory = [
-  { role: "Director / Principal",  sanctioned: 1,  vacant2122: 1, vacant2223: 1, vacant2324: 1 },
-  { role: "Head Of Department",    sanctioned: 6,  vacant2122: 2, vacant2223: 3, vacant2324: 3 },
-  { role: "Lecturer",              sanctioned: 76, vacant2122: 34, vacant2223: 34, vacant2324: 14 },
-];
-
-const nonTeachingTechnical = [
-  { id: 1, name: "Prakashji Navghanji Thakor",    designation: "Instructor Grade B", category: "SEBC", dateJoined: "4 Sep 2025",   type: "Regular" },
-  { id: 2, name: "Acharya Minal Devendrkumar",     designation: "Lab Assistant",      category: "GEN",  dateJoined: "11 Aug 1998",  type: "Regular" },
-  { id: 3, name: "Kathrotiya Rameshbhai Bhemjibhai",designation: "Lab Assistant",     category: "SEBC", dateJoined: "13 Dec 2013",  type: "Regular" },
-  { id: 4, name: "Nehal Prafulbhai Jethva",        designation: "Lab Assistant",      category: "SEBC", dateJoined: "13 Dec 2013",  type: "Regular" },
-  { id: 5, name: "Vasimkhan Sikanderkhan Sama",    designation: "Lab Assistant",      category: "GEN",  dateJoined: "12 Jan 2015",  type: "Regular" },
-];
-
-const nonTeachingSupporting = [
-  { id: 1,  name: "Chauhan Lallubhai Rupabhai",          designation: "Peon / Hamal",  category: "ST",   dateJoined: "24 Apr 1990",  type: "Regular" },
-  { id: 2,  name: "Goswami Dattagiri Bhanugiri",         designation: "Peon / Hamal",  category: "SEBC", dateJoined: "11 Aug 1997",  type: "Regular" },
-  { id: 3,  name: "Kharodiya Ibrahimbhai Pirabhbhai",    designation: "Store Keeper",  category: "GEN",  dateJoined: "8 May 1995",   type: "Regular" },
-  { id: 4,  name: "Vishnuprasad Amolbhai Trivedi",       designation: "Gardener",      category: "GEN",  dateJoined: "7 Jun 1991",   type: "Regular" },
-  { id: 5,  name: "Chauhan Nirav Mafatlal",              designation: "Sr. Clerk",     category: "SEBC", dateJoined: "22 May 2017",  type: "Regular" },
-  { id: 6,  name: "Raval Bhaveshkumar Natvarlal",        designation: "Librarian",     category: "SEBC", dateJoined: "14 Jul 2017",  type: "Regular" },
-  { id: 7,  name: "Kailashben Bhagvanbhai Desai",        designation: "Sr. Clerk",     category: "SEBC", dateJoined: "16 May 2017",  type: "Regular" },
-  { id: 8,  name: "Maheshkumar Bhavanbhai Valagot",      designation: "Head Clerk",    category: "SEBC", dateJoined: "27 Aug 2013",  type: "Regular" },
-  { id: 9,  name: "Parmar Chimanbhai Ramjibhai",         designation: "Peon",          category: "SC",   dateJoined: "1 Jun 1967",   type: "Regular" },
-  { id: 10, name: "Varshaben Premjibhai Patel",          designation: "Sr. Clerk",     category: "GEN",  dateJoined: "30 Jun 2026",  type: "Regular" },
-];
-
-const studentTeacherRatio = { students: 689, teachers: 64, ratio: 10, supportTeachers: 15, supportRatio: 46 };
-
-const aiCertificate = { completed: 10, total: 64, remaining: 54, deadline: "31 December 2026" };
-
-const catBadge: Record<string, string> = {
-  GEN:  "bg-gray-100 text-gray-700",
-  SEBC: "bg-blue-100 text-blue-700",
-  ST:   "bg-amber-100 text-amber-700",
-  SC:   "bg-purple-100 text-purple-700",
+type Faculty = {
+  id: number;
+  name: string;
+  designation: string;
+  jobType: string;
+  mobile: string;
+  email: string;
+  photo?: string;
 };
+
+type Department = {
+  name: string;
+  shortName: string;
+  color: string;
+  faculty: Faculty[];
+};
+
+const departments: Department[] = [
+  {
+    name: 'Civil Engineering',
+    shortName: 'Civil',
+    color: 'bg-orange-100 text-orange-800',
+    faculty: [
+      { id: 6811,   name: 'D. N. Sheth',       designation: 'HOD',      jobType: 'Regular', mobile: '8511152511', email: 'devendra_civil@yahoo.com',       photo: PHOTO_BASE.civil + 'D.N.SHETH.jpg' },
+      { id: 71396,  name: 'N. N. Rajgor',       designation: 'Lecturer', jobType: 'Regular', mobile: '9909253651', email: 'narendrarajgor@yahoo.com' },
+      { id: 53256,  name: 'Y. T. Rana',         designation: 'Lecturer', jobType: 'Regular', mobile: '9624201434', email: 'ranayagnik@gmail.com',            photo: PHOTO_BASE.civil + 'Y.T.RANA.jpg' },
+      { id: 10749,  name: 'V. P. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9824303674', email: 'rvp_1679@rediffmail.com',         photo: PHOTO_BASE.civil + 'V.P.PATEL.jpg' },
+      { id: 8331,   name: 'A. N. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9998732095', email: 'arvindpatel3110@gmail.com',       photo: PHOTO_BASE.civil + 'A.N.PATEL.jpg' },
+      { id: 76309,  name: 'N. V. Prajapati',    designation: 'Lecturer', jobType: 'Regular', mobile: '8460616245', email: 'niharprajapati1992@gmail.com',    photo: PHOTO_BASE.civil + 'N.V.PRAJAPATI.jpg' },
+      { id: 9648,   name: 'F. M. Patel',        designation: 'Lecturer', jobType: 'Adhoc',   mobile: '9638415131', email: 'falgunipatel_civil@yahoo.com',    photo: PHOTO_BASE.civil + 'SMT%20F.M.PATEL.jpg' },
+      { id: 58265,  name: 'A. R. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9998515817', email: 'arvindpatel19@gmail.com',         photo: PHOTO_BASE.civil + 'A.R.PATEL.jpg' },
+      { id: 49954,  name: 'P. D. Sheth',        designation: 'Lecturer', jobType: 'Regular', mobile: '9909805882', email: 'poonam.civil.er@gmail.com',       photo: PHOTO_BASE.civil + 'SMT%20P.D.SHETH.jpg' },
+      { id: 58367,  name: 'F. A. Mukhi',        designation: 'Lecturer', jobType: 'Regular', mobile: '9510461462', email: 'fananmukhi@gmail.com',            photo: PHOTO_BASE.civil + 'F.A.MUKHI.jpg' },
+      { id: 59271,  name: 'H. P. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9429762152', email: 'phardik5192@gmail.com',           photo: PHOTO_BASE.civil + 'H.P.PATEL.jpg' },
+    ],
+  },
+  {
+    name: 'Mechanical Engineering',
+    shortName: 'Mech',
+    color: 'bg-blue-100 text-blue-800',
+    faculty: [
+      { id: 46621,  name: 'S. D. Dabhi',        designation: 'HOD',      jobType: 'Regular', mobile: '9825697278', email: 'sdd1968@rediffmail.com' },
+      { id: 55641,  name: 'P. G. Chauhan',      designation: 'Lecturer', jobType: 'Regular', mobile: '9925208029', email: 'payal_chauhan001@yahoo.com' },
+      { id: 100251, name: 'N. N. Chaudhary',    designation: 'Lecturer', jobType: 'Regular', mobile: '9662488303', email: 'nnc2805@gmail.com' },
+      { id: 13290,  name: 'J. B. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9913025242', email: 'shrey2152006@gmail.com' },
+      { id: 27955,  name: 'V. H. Suthar',       designation: 'Lecturer', jobType: 'Regular', mobile: '9429055798', email: 'gppmech2012@gmail.com' },
+      { id: 61571,  name: 'D. P. Judal',        designation: 'Lecturer', jobType: 'Regular', mobile: '8140034930', email: 'dpjudal1988@gmail.com' },
+      { id: 62490,  name: 'N. H. Oza',          designation: 'Lecturer', jobType: 'Regular', mobile: '9998936847', email: 'nitinme1981@gmail.com' },
+      { id: 10005,  name: 'S. P. Mahant',       designation: 'Lecturer', jobType: 'Regular', mobile: '9428827841', email: 'sandipmahant86@gmail.com' },
+      { id: 27178,  name: 'S. N. Chauhan',      designation: 'Lecturer', jobType: 'Regular', mobile: '9712130005', email: 'someshvar.chauhan@gmail.com' },
+      { id: 27177,  name: 'T. D. Modi',         designation: 'Lecturer', jobType: 'Regular', mobile: '8905122630', email: 'tarunmodi1989@gmail.com' },
+      { id: 62642,  name: 'M. R. Zala',         designation: 'Lecturer', jobType: 'Regular', mobile: '9638061089', email: 'zalamukesh006@gmail.com' },
+      { id: 61883,  name: 'V. G. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9408587170', email: 'viralkdp@gmail.com' },
+      { id: 84338,  name: 'N. V. Oza',          designation: 'Lecturer', jobType: 'Regular', mobile: '9067737576', email: 'ozanigam91@gmail.com' },
+      { id: 73737,  name: 'B. N. Prajapati',    designation: 'Lecturer', jobType: 'Regular', mobile: '9824745445', email: 'bharat_bvm@yahoo.co.in' },
+      { id: 55524,  name: 'D. D. Prajapati',    designation: 'Lecturer', jobType: 'Regular', mobile: '9429890717', email: 'ddprajapati68@yahoo.com' },
+      { id: 62493,  name: 'V. M. Prajapati',    designation: 'Lecturer', jobType: 'Regular', mobile: '9904426970', email: 'vipul154@gmail.com' },
+      { id: 62489,  name: 'D. H. Desai',        designation: 'Lecturer', jobType: 'Regular', mobile: '9714626509', email: 'dhruvindesai27@gmail.com' },
+      { id: 62474,  name: 'R. L. Chaudhari',    designation: 'Lecturer', jobType: 'Regular', mobile: '9099072871', email: 'rajuldmech@gmail.com' },
+      { id: 62466,  name: 'M. K. Prajapati',    designation: 'Lecturer', jobType: 'Regular', mobile: '9624828130', email: 'er.mp1161992@gmail.com' },
+      { id: 62494,  name: 'C. M. Amin',         designation: 'Lecturer', jobType: 'Regular', mobile: '9725015176', email: 'mr.chiragamin@gmail.com' },
+      { id: 100253, name: 'N. A. Modi',         designation: 'Lecturer', jobType: 'Regular', mobile: '8511106791', email: 'namodi87@gmail.com' },
+      { id: 62482,  name: 'V. B. Chaudhari',    designation: 'Lecturer', jobType: 'Regular', mobile: '7600024264', email: 'vikram.chaudhari16@gmail.com' },
+      { id: 82282,  name: 'Y. D. Chaudhari',    designation: 'Lecturer', jobType: 'Regular', mobile: '9909665392', email: 'yogendra2789@gmail.com' },
+    ],
+  },
+  {
+    name: 'Electrical Engineering',
+    shortName: 'Elec',
+    color: 'bg-yellow-100 text-yellow-800',
+    faculty: [
+      { id: 64652,  name: 'A. D. Shah',         designation: 'HOD',      jobType: 'Regular', mobile: '9664983258', email: 'shah_alkesh@gtu.edu.in',          photo: PHOTO_BASE.electrical + 'ADSHAH.jpeg' },
+      { id: 62580,  name: 'P. K. Bhavsar',      designation: 'Lecturer', jobType: 'Regular', mobile: '9879966293', email: 'bhavsarprashant139@gmail.com',    photo: PHOTO_BASE.electrical + 'PKBHAVSAR.jpeg' },
+      { id: 62569,  name: 'B. M. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9726246059', email: 'bmpgp1412@gmail.com',             photo: PHOTO_BASE.electrical + 'BMPATEL.jpeg' },
+      { id: 6997,   name: 'A. R. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9904148358', email: 'ashok07_patel@yahoo.in',          photo: PHOTO_BASE.electrical + 'ARPATEL.jpeg' },
+      { id: 62577,  name: 'A. M. Qureshi',      designation: 'Lecturer', jobType: 'Regular', mobile: '9979530239', email: 'amqelectrical@gmail.com',         photo: PHOTO_BASE.electrical + 'AMQURESHI.jpeg' },
+      { id: 70497,  name: 'T. P. Purohit',      designation: 'Lecturer', jobType: 'Regular', mobile: '9662190806', email: 'tejpal0688@gmail.com',            photo: PHOTO_BASE.electrical + 'TPPUROHIT.jpeg' },
+      { id: 61510,  name: 'R. M. Prajapati',    designation: 'Lecturer', jobType: 'Regular', mobile: '7698734984', email: 'rohit24292@gmail.com',            photo: PHOTO_BASE.electrical + 'RMPRAJAPATI.jpeg' },
+      { id: 62629,  name: 'A. V. Gajjar',       designation: 'Lecturer', jobType: 'Regular', mobile: '9974941789', email: 'erankit28@gmail.com',             photo: PHOTO_BASE.electrical + 'AVGAJJAR.jpeg' },
+      { id: 63080,  name: 'I. D. Chaudhary',    designation: 'Lecturer', jobType: 'Regular', mobile: '9426588882', email: 'ish0007@gmail.com',               photo: PHOTO_BASE.electrical + 'IDCHAUDHARY.jpeg' },
+      { id: 70390,  name: 'R. P. Chavda',       designation: 'Lecturer', jobType: 'Regular', mobile: '9924363986', email: 'chavda.ravindra@gmail.com',       photo: PHOTO_BASE.electrical + 'RPCHAVDA.jpeg' },
+    ],
+  },
+  {
+    name: 'Electronics & Communication Engineering',
+    shortName: 'EC',
+    color: 'bg-green-100 text-green-800',
+    faculty: [
+      { id: 69764,  name: 'S. J. Chauhan',      designation: 'HOD',      jobType: 'Regular', mobile: '9427026618', email: 'sjcssc@yahoo.co.in',              photo: PHOTO_BASE.ec + 'S.J.CHAUHAN.jpg' },
+      { id: 8712,   name: 'S. P. Joshiara',     designation: 'Lecturer', jobType: 'Regular', mobile: '9825838570', email: 'snehil.ssec2006@gmail.com',       photo: PHOTO_BASE.ec + 'S.P.JOSHIARA.JPG' },
+      { id: 54466,  name: 'M. K. Pedhadiya',    designation: 'Lecturer', jobType: 'Regular', mobile: '7600438523', email: 'mittaldec@yahoo.com',             photo: PHOTO_BASE.ec + 'mkp.JPG' },
+      { id: 12335,  name: 'L. K. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9428662932', email: 'laukiksky@gmail.com',             photo: PHOTO_BASE.ec + 'DR.%20L.K.PATEL.jpeg' },
+      { id: 62530,  name: 'R. C. Parmar',       designation: 'Lecturer', jobType: 'Regular', mobile: '9974338709', email: 'rhl.gp2016@gmail.com',            photo: PHOTO_BASE.ec + 'R.C.PARMAR.jpeg' },
+      { id: 68608,  name: 'R. N. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9909468966', email: 'ratansing.patel@gmail.com',       photo: PHOTO_BASE.ec + 'DR.%20R.N%2C.PATEL.jpeg' },
+      { id: 66898,  name: 'N. J. Chauhan',      designation: 'Lecturer', jobType: 'Regular', mobile: '9974308107', email: 'niravjchauhan.ec@gmail.com',      photo: PHOTO_BASE.ec + 'Nirav%20Latest.jpg' },
+      { id: 62283,  name: 'M. J. Dabgar',       designation: 'Lecturer', jobType: 'Regular', mobile: '8128576285', email: 'milav.dabgar@gmail.com',          photo: PHOTO_BASE.ec + 'M.J.DABGAR.jpeg' },
+    ],
+  },
+  {
+    name: 'Instrumentation & Control Engineering',
+    shortName: 'IC',
+    color: 'bg-purple-100 text-purple-800',
+    faculty: [
+      { id: 47866,  name: 'M. J. Vadhavaniya',  designation: 'Lecturer', jobType: 'Regular', mobile: '9426221460', email: 'profmjv@yahoo.com' },
+      { id: 54107,  name: 'J. V. Kureshi',      designation: 'Lecturer', jobType: 'Regular', mobile: '9979222102', email: 'jvkureshi@gmail.com' },
+      { id: 54078,  name: 'D. J. Modi',         designation: 'Lecturer', jobType: 'Regular', mobile: '8866464719', email: 'modidevarsh@gmail.com' },
+      { id: 47018,  name: 'M. M. Shah',         designation: 'Lecturer', jobType: 'Regular', mobile: '9824349392', email: 'meghanahathi@gmail.com' },
+      { id: 7986,   name: 'K. A. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9428505262', email: 'kinjalashokpatel@gmail.com' },
+      { id: 54114,  name: 'V. A. Chauhan',      designation: 'Lecturer', jobType: 'Regular', mobile: '7405196169', email: 'gpp.vismay@gmail.com' },
+    ],
+  },
+  {
+    name: 'Science & Humanities',
+    shortName: 'Science',
+    color: 'bg-rose-100 text-rose-800',
+    faculty: [
+      { id: 5595,   name: 'Dr. M. F. Tank',     designation: 'Lecturer', jobType: 'Regular', mobile: '9328951125', email: 'maheshftank@gmail.com',           photo: PHOTO_BASE.science + 'DR.%20M%20F%20TANK%20%20PHOTO.jpeg' },
+      { id: 12725,  name: 'Dr. C. S. Pandya',   designation: 'Lecturer', jobType: 'Regular', mobile: '9998089654', email: 'chiragpandya23@gmail.com',         photo: PHOTO_BASE.science + 'DR%20C%20S%20PANDYA%20PHOTO.jpeg' },
+      { id: 19612,  name: 'Dr. B. B. Mor',      designation: 'Lecturer', jobType: 'Regular', mobile: '9427043230', email: 'bhupendra_mor@yahoo.com',          photo: PHOTO_BASE.science + 'DR.%20B%20B%20MOR%20PHOTO.jpeg' },
+      { id: 45174,  name: 'Dr. J. D. Modi',     designation: 'Lecturer', jobType: 'Regular', mobile: '9426397353', email: 'modyjigna@gmail.com',              photo: PHOTO_BASE.science + 'DR.%20J%20D%20MODY%20photo.jpg' },
+      { id: 50131,  name: 'C. P. Gelot',        designation: 'Lecturer', jobType: 'Regular', mobile: '9033378716', email: 'chetangelot@yahoo.com',            photo: PHOTO_BASE.science + 'CP%20GELOT%20PHOTO.jpeg' },
+    ],
+  },
+  {
+    name: 'Applied Mechanics',
+    shortName: 'AM',
+    color: 'bg-teal-100 text-teal-800',
+    faculty: [
+      { id: 12729,  name: 'R. J. Patel',        designation: 'Lecturer', jobType: 'Regular', mobile: '9998616519', email: 'rjp26180@gmail.com' },
+      { id: 56129,  name: 'J. N. Chaudhary',    designation: 'Lecturer', jobType: 'Regular', mobile: '9409270317', email: 'jigneshcivil52@gmail.com' },
+    ],
+  },
+];
+
+const totalFaculty = departments.reduce((s, d) => s + d.faculty.length, 0);
+const withPhoto    = departments.reduce((s, d) => s + d.faculty.filter(f => f.photo).length, 0);
 ---
 
-<Layout title="Staff Details | About | Government Polytechnic Palanpur">
+<Layout title="Faculty & Staff | Government Polytechnic Palanpur">
   <Nav />
   <AnnouncementTicker />
 
-  <!-- Breadcrumb -->
-  <div class="bg-gray-50 border-b border-gray-200 py-3">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <nav class="text-sm text-gray-500 flex items-center gap-2">
-        <a href="/" class="hover:text-primary transition-colors">Home</a>
-        <span>›</span>
-        <span>About</span>
-        <span>›</span>
-        <span class="text-gray-900 font-medium">Staff Details</span>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-3">Faculty & Staff</h1>
+      <p class="text-xl text-gray-600 mb-10">Meet the dedicated educators shaping careers at Government Polytechnic Palanpur</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div><div class="text-3xl font-bold text-primary">{totalFaculty}</div><div class="text-sm text-gray-600">Teaching Faculty</div></div>
+        <div><div class="text-3xl font-bold text-primary">{departments.length}</div><div class="text-sm text-gray-600">Departments</div></div>
+        <div><div class="text-3xl font-bold text-primary">98%</div><div class="text-sm text-gray-600">Permanent Staff</div></div>
+        <div><div class="text-3xl font-bold text-primary">1961</div><div class="text-sm text-gray-600">Established</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dept Quick-Nav -->
+  <section class="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+      <nav class="flex gap-1 py-2 min-w-max">
+        {departments.map(d => (
+          <a href={`#dept-${d.shortName}`}
+             class={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors hover:opacity-90 ${d.color}`}>
+            {d.shortName}
+          </a>
+        ))}
       </nav>
     </div>
+  </section>
+
+  <!-- Faculty by Department -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+    {departments.map(dept => (
+      <section id={`dept-${dept.shortName}`}>
+        <div class="flex items-center gap-4 mb-8">
+          <span class={`px-3 py-1 rounded-full text-sm font-bold ${dept.color}`}>{dept.shortName}</span>
+          <h2 class="text-2xl font-bold text-gray-900">{dept.name}</h2>
+          <span class="ml-auto text-sm text-gray-500">{dept.faculty.length} faculty</span>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+          {dept.faculty.map(f => (
+            <div class={`bg-white rounded-xl border ${f.designation === 'HOD' ? 'border-primary/40 shadow-md ring-1 ring-primary/20' : 'border-gray-100 shadow-sm'} overflow-hidden hover:shadow-md transition-shadow`}>
+              <div class="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                {f.photo ? (
+                  <img src={f.photo} alt={f.name}
+                       class="w-full h-full object-cover object-top" loading="lazy"
+                       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                ) : null}
+                <div class={`${f.photo ? 'hidden' : 'flex'} w-full h-full items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200`}>
+                  <svg class="w-14 h-14 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                  </svg>
+                </div>
+                {f.designation === 'HOD' && (
+                  <div class="absolute top-2 right-2 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">HOD</div>
+                )}
+              </div>
+              <div class="p-3">
+                <div class="font-semibold text-gray-900 text-sm leading-tight">{f.name}</div>
+                <div class="text-xs text-gray-500 mt-0.5">{f.designation}</div>
+                {f.jobType === 'Adhoc' && (
+                  <div class="mt-1"><span class="text-[10px] bg-amber-100 text-amber-700 font-semibold px-1.5 py-0.5 rounded">Adhoc</span></div>
+                )}
+                <a href={`mailto:${f.email}`} class="mt-2 flex items-center gap-1 text-[11px] text-primary hover:underline truncate" title={f.email}>
+                  <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  <span class="truncate">{f.email}</span>
+                </a>
+                <a href={`tel:${f.mobile}`} class="mt-1 flex items-center gap-1 text-[11px] text-gray-500">
+                  <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  {f.mobile}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
   </div>
-
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-primary/5 to-slate-50 py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-      <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
-        GTU Affiliation 2026-27 — Verified Data
-      </div>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Staff Details</h1>
-      <p class="text-gray-600 text-lg">
-        GPP Palanpur is staffed by {teachingStaffSummary.total} qualified teaching faculty and {nonTeachingTechnical.length + nonTeachingSupporting.length} support staff, maintaining a {studentTeacherRatio.ratio}:1 student-teacher ratio.
-      </p>
-    </div>
-  </section>
-
-  <!-- Quick stats -->
-  <section class="bg-white border-b border-gray-200 py-8">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-center">
-        <div>
-          <div class="text-3xl font-bold text-primary">{teachingStaffSummary.total}</div>
-          <div class="text-sm font-semibold text-gray-900">Teaching Faculty</div>
-          <div class="text-xs text-gray-500">{teachingStaffSummary.permanentPct}% permanent</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-primary">{nonTeachingTechnical.length}</div>
-          <div class="text-sm font-semibold text-gray-900">Technical Staff</div>
-          <div class="text-xs text-gray-500">Lab assistants + instructor</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-primary">{nonTeachingSupporting.length}</div>
-          <div class="text-sm font-semibold text-gray-900">Support Staff</div>
-          <div class="text-xs text-gray-500">Clerks, peons, others</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-primary">{studentTeacherRatio.ratio}:1</div>
-          <div class="text-sm font-semibold text-gray-900">Student:Teacher</div>
-          <div class="text-xs text-gray-500">{studentTeacherRatio.students} students</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Teaching Staff Summary -->
-  <section class="py-10 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-2xl font-bold text-gray-900 mb-5">Teaching Staff Summary</h2>
-      <div class="grid md:grid-cols-2 gap-5">
-        <!-- Composition card -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-4">Staff Composition</h3>
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-700">Permanent Faculty</span>
-              <div class="flex items-center gap-2">
-                <div class="w-32 bg-gray-100 rounded-full h-2">
-                  <div class="bg-primary rounded-full h-2" style={`width:${teachingStaffSummary.permanentPct}%`}></div>
-                </div>
-                <span class="text-sm font-bold text-primary w-8">{teachingStaffSummary.permanent}</span>
-              </div>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-700">Pro-term Faculty</span>
-              <div class="flex items-center gap-2">
-                <div class="w-32 bg-gray-100 rounded-full h-2">
-                  <div class="bg-orange-400 rounded-full h-2" style="width:1.56%"></div>
-                </div>
-                <span class="text-sm font-bold text-orange-500 w-8">{teachingStaffSummary.proTerm}</span>
-              </div>
-            </div>
-            <div class="border-t border-gray-100 pt-3 flex justify-between">
-              <span class="font-semibold text-gray-900">Total</span>
-              <span class="font-bold text-primary">{teachingStaffSummary.total}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- S:T Ratio card -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6">
-          <h3 class="font-semibold text-gray-800 mb-4">Students–Teachers Ratio</h3>
-          <div class="space-y-4">
-            <div class="bg-primary/5 border border-primary/20 rounded-xl p-4">
-              <div class="text-xs text-gray-500 font-medium mb-1">Teaching Staff Ratio</div>
-              <div class="text-3xl font-bold text-primary">{studentTeacherRatio.ratio}:1</div>
-              <div class="text-xs text-gray-500 mt-1">{studentTeacherRatio.students} students ÷ {studentTeacherRatio.teachers} faculty</div>
-            </div>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
-              <div class="text-xs text-gray-500 font-medium mb-1">Supporting Staff Ratio</div>
-              <div class="text-3xl font-bold text-gray-700">{studentTeacherRatio.supportRatio}:1</div>
-              <div class="text-xs text-gray-500 mt-1">{studentTeacherRatio.students} students ÷ {studentTeacherRatio.supportTeachers} support staff</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vacancy History -->
-  <section class="py-10 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-2xl font-bold text-gray-900 mb-5">Faculty Position History</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm border-collapse">
-          <thead>
-            <tr class="bg-gray-50 border border-gray-200">
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Category</th>
-              <th class="text-right px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Sanctioned</th>
-              <th class="text-right px-4 py-3 font-semibold text-amber-700 border-r border-gray-200">Vacant 2021-22</th>
-              <th class="text-right px-4 py-3 font-semibold text-amber-700 border-r border-gray-200">Vacant 2022-23</th>
-              <th class="text-right px-4 py-3 font-semibold text-emerald-700">Vacant 2023-24</th>
-            </tr>
-          </thead>
-          <tbody>
-            {vacancyHistory.map((r, i) => (
-              <tr class={`border border-gray-200 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-                <td class="px-4 py-3 border-r border-gray-200 font-medium text-gray-900">{r.role}</td>
-                <td class="px-4 py-3 border-r border-gray-200 text-right font-mono">{r.sanctioned}</td>
-                <td class="px-4 py-3 border-r border-gray-200 text-right text-amber-700 font-semibold">{r.vacant2122}</td>
-                <td class="px-4 py-3 border-r border-gray-200 text-right text-amber-700 font-semibold">{r.vacant2223}</td>
-                <td class={`px-4 py-3 text-right font-semibold ${r.vacant2324 <= r.vacant2223 ? 'text-emerald-700' : 'text-red-600'}`}>{r.vacant2324}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p class="text-xs text-gray-400 mt-2">Source: GTU Affiliation Application 2026-27 — Lecturer vacancies reduced from 34 to 14 between 2021-22 and 2023-24.</p>
-    </div>
-  </section>
-
-  <!-- Non-Teaching Technical Staff -->
-  <section class="py-10 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-2xl font-bold text-gray-900 mb-5">Non-Teaching Technical Staff</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm border-collapse">
-          <thead>
-            <tr class="bg-gray-50 border border-gray-200">
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">#</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Name</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Designation</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Category</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700">Date of Joining</th>
-            </tr>
-          </thead>
-          <tbody>
-            {nonTeachingTechnical.map((s, i) => (
-              <tr class={`border border-gray-200 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-                <td class="px-4 py-3 border-r border-gray-200 text-gray-400 font-mono text-xs">{s.id}</td>
-                <td class="px-4 py-3 border-r border-gray-200 font-medium text-gray-900">{s.name}</td>
-                <td class="px-4 py-3 border-r border-gray-200 text-gray-600">{s.designation}</td>
-                <td class="px-4 py-3 border-r border-gray-200">
-                  <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${catBadge[s.category]}`}>{s.category}</span>
-                </td>
-                <td class="px-4 py-3 text-gray-500">{s.dateJoined}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Supporting Staff -->
-  <section class="py-10 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-2xl font-bold text-gray-900 mb-5">Non-Teaching Supporting Staff</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm border-collapse">
-          <thead>
-            <tr class="bg-gray-50 border border-gray-200">
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">#</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Name</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Designation</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700 border-r border-gray-200">Category</th>
-              <th class="text-left px-4 py-3 font-semibold text-gray-700">Date of Joining</th>
-            </tr>
-          </thead>
-          <tbody>
-            {nonTeachingSupporting.map((s, i) => (
-              <tr class={`border border-gray-200 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-                <td class="px-4 py-3 border-r border-gray-200 text-gray-400 font-mono text-xs">{s.id}</td>
-                <td class="px-4 py-3 border-r border-gray-200 font-medium text-gray-900">{s.name}</td>
-                <td class="px-4 py-3 border-r border-gray-200 text-gray-600">{s.designation}</td>
-                <td class="px-4 py-3 border-r border-gray-200">
-                  <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${catBadge[s.category]}`}>{s.category}</span>
-                </td>
-                <td class="px-4 py-3 text-gray-500">{s.dateJoined}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI Certificate Compliance -->
-  <section class="py-8 bg-amber-50 border-t border-amber-100">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <div class="flex flex-col md:flex-row items-start md:items-center gap-5">
-        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center shrink-0">
-          <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-          </svg>
-        </div>
-        <div class="flex-1">
-          <h3 class="font-bold text-amber-900 text-lg mb-1">AI Certificate Course Compliance</h3>
-          <p class="text-sm text-amber-800">As per GTU Circular no. GTU/Academic/AI-Certification/2025/7889 (dated 13 Oct 2025), all regular faculty must complete the mandatory Artificial Intelligence Certificate Course.</p>
-          <div class="flex flex-wrap gap-4 mt-3">
-            <div class="bg-emerald-100 border border-emerald-200 rounded-lg px-3 py-2 text-center">
-              <div class="text-xl font-bold text-emerald-700">{aiCertificate.completed}</div>
-              <div class="text-xs text-emerald-600">Completed</div>
-            </div>
-            <div class="bg-amber-100 border border-amber-200 rounded-lg px-3 py-2 text-center">
-              <div class="text-xl font-bold text-amber-700">{aiCertificate.remaining}</div>
-              <div class="text-xs text-amber-600">Remaining</div>
-            </div>
-            <div class="bg-white border border-amber-200 rounded-lg px-3 py-2 text-center">
-              <div class="text-xl font-bold text-gray-700">{aiCertificate.total}</div>
-              <div class="text-xs text-gray-500">Total Faculty</div>
-            </div>
-          </div>
-          <p class="text-xs text-amber-700 mt-2">Deadline for remaining {aiCertificate.remaining} faculty: <strong>{aiCertificate.deadline}</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <Footer />
 </Layout>
