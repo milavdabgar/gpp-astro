@@ -5,13 +5,16 @@ import Footer from '../components/Footer.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
 import collegeInfo from '../data/college-info.json';
 
+// Updated to GTU Affiliation 2026-27 official figures (§4e Library)
+// GTU: 23,009 volumes / 4,197 titles  |  138 books added in 2024-25 (₹1,10,635)
 const bookCollection = [
   { category: "General Books",       volumes: 14010, titles: 3474 },
   { category: "Book Service Center", volumes: 1354,  titles: 83   },
   { category: "MHRD Grant Books",    volumes: 1474,  titles: 346  },
   { category: "RUSA Grant Books",    volumes: 1194,  titles: 246  },
   { category: "SSIP Books",          volumes: 10,    titles: 10   },
-  { category: "Total",               volumes: 22828, titles: 4152 },
+  { category: "Other / Additional",  volumes: 967,   titles: 38   },
+  { category: "Total",               volumes: 23009, titles: 4197 },
 ];
 
 const otherCollection = [

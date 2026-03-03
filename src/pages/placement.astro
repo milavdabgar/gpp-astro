@@ -5,10 +5,10 @@ import Footer from '../components/Footer.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
 
 const stats = [
-  { label: "Companies Visited (2024)", value: "30+" },
-  { label: "Students Placed (2024)", value: "150+" },
-  { label: "Highest Package", value: "₹4.5 LPA" },
-  { label: "Average Package", value: "₹2.8 LPA" },
+  { label: "Final-Year Students (2025-26)", value: "65" },
+  { label: "Placed in Industry (2025-26)", value: "9" },
+  { label: "Pursuing Higher Studies", value: "55" },
+  { label: "Placement Officer", value: "N.V. Oza" },
 ];
 
 const topRecruiters = [
@@ -59,12 +59,24 @@ const placementProcess = [
   },
 ];
 
-const yearwiseData = [
-  { year: "2023–24", companies: 28, placed: 142, highest: "₹4.5 LPA", avg: "₹2.8 LPA" },
-  { year: "2022–23", companies: 22, placed: 118, highest: "₹4.0 LPA", avg: "₹2.5 LPA" },
-  { year: "2021–22", companies: 18, placed: 95, highest: "₹3.6 LPA", avg: "₹2.2 LPA" },
-  { year: "2020–21", companies: 14, placed: 76, highest: "₹3.2 LPA", avg: "₹2.0 LPA" },
+// Placement data from GTU Affiliation Report 2026-27 (§9 Examination/Training/Placement)
+const placementData2526 = [
+  { branch: "Civil Engineering",                        code: "CE",  inBranch: 21, industry: 0,  higherStudy: 21, entrepreneur: 0 },
+  { branch: "Electrical Engineering",                   code: "EE",  inBranch: 25, industry: 5,  higherStudy: 20, entrepreneur: 0 },
+  { branch: "Mechanical Engineering",                   code: "ME",  inBranch: 13, industry: 4,  higherStudy: 9,  entrepreneur: 0 },
+  { branch: "Electronics & Communication Engineering",  code: "EC",  inBranch: 3,  industry: 0,  higherStudy: 2,  entrepreneur: 0 },
+  { branch: "Information & Communication Technology",   code: "ICT", inBranch: 3,  industry: 0,  higherStudy: 3,  entrepreneur: 0 },
 ];
+const totalInBranch   = placementData2526.reduce((s, r) => s + r.inBranch, 0);
+const totalIndustry   = placementData2526.reduce((s, r) => s + r.industry, 0);
+const totalHigher     = placementData2526.reduce((s, r) => s + r.higherStudy, 0);
+
+const tpo = {
+  name:  "Shri N.V. Oza",
+  email: "gpptpo@gmail.com",
+  phone: "02742 262115",
+  mobile: "9067737576",
+};
 ---
 
 <Layout title="Placements | Government Polytechnic Palanpur">
@@ -109,34 +121,52 @@ const yearwiseData = [
     </div>
   </section>
 
-  <!-- Year-wise Data -->
+  <!-- 2025-26 Placement Data -->
   <section class="py-14 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8">Year-wise Placement Statistics</h2>
-      <div class="overflow-x-auto rounded-xl border border-gray-200">
+      <div class="mb-6">
+        <h2 class="text-3xl font-bold text-gray-900 mb-1">Branch-wise Placement Outcomes — AY 2025-26</h2>
+        <p class="text-gray-500 text-sm">Source: GTU Affiliation Application 2026-27 (§9 Training & Placement). Covers final-year (Sem 6) graduating batch.</p>
+      </div>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
         <table class="w-full text-sm">
           <thead>
             <tr class="bg-primary text-white text-left">
-              <th class="px-5 py-3 font-semibold">Academic Year</th>
-              <th class="px-5 py-3 font-semibold text-center">Companies</th>
-              <th class="px-5 py-3 font-semibold text-center">Students Placed</th>
-              <th class="px-5 py-3 font-semibold text-center">Highest Package</th>
-              <th class="px-5 py-3 font-semibold text-center">Average Package</th>
+              <th class="px-5 py-3 font-semibold">Branch</th>
+              <th class="px-5 py-3 font-semibold text-center">In Branch</th>
+              <th class="px-5 py-3 font-semibold text-center">Placed (Industry)</th>
+              <th class="px-5 py-3 font-semibold text-center">Higher Studies</th>
+              <th class="px-5 py-3 font-semibold text-center">Entrepreneur</th>
             </tr>
           </thead>
           <tbody>
-            {yearwiseData.map((row, i) => (
+            {placementData2526.map((row, i) => (
               <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                <td class="px-5 py-3 font-medium text-gray-900">{row.year}</td>
-                <td class="px-5 py-3 text-gray-700 text-center">{row.companies}</td>
-                <td class="px-5 py-3 text-gray-700 text-center">{row.placed}</td>
-                <td class="px-5 py-3 text-green-700 font-semibold text-center">{row.highest}</td>
-                <td class="px-5 py-3 text-gray-700 text-center">{row.avg}</td>
+                <td class="px-5 py-3 font-medium text-gray-900">
+                  <span class="text-xs bg-gray-100 text-gray-600 font-semibold rounded px-1.5 py-0.5 mr-1.5">{row.code}</span>
+                  {row.branch}
+                </td>
+                <td class="px-5 py-3 text-gray-700 text-center font-semibold">{row.inBranch}</td>
+                <td class="px-5 py-3 text-center">
+                  <span class={`font-bold ${row.industry > 0 ? 'text-green-600' : 'text-gray-400'}`}>{row.industry}</span>
+                </td>
+                <td class="px-5 py-3 text-center">
+                  <span class={`font-bold ${row.higherStudy > 0 ? 'text-blue-600' : 'text-gray-400'}`}>{row.higherStudy}</span>
+                </td>
+                <td class="px-5 py-3 text-gray-400 text-center">{row.entrepreneur}</td>
               </tr>
             ))}
+            <tr class="bg-primary/5 border-t-2 border-primary/20 font-bold">
+              <td class="px-5 py-3 text-gray-900">Total</td>
+              <td class="px-5 py-3 text-center text-gray-900">{totalInBranch}</td>
+              <td class="px-5 py-3 text-center text-green-700">{totalIndustry}</td>
+              <td class="px-5 py-3 text-center text-blue-700">{totalHigher}</td>
+              <td class="px-5 py-3 text-center text-gray-400">0</td>
+            </tr>
           </tbody>
         </table>
       </div>
+      <p class="mt-3 text-xs text-gray-400">Note: IT department graduates (2025-26) are completing their 3rd year; placement data will be available in the next cycle. IT dept started 2023-24.</p>
     </div>
   </section>
 
@@ -182,13 +212,36 @@ const yearwiseData = [
 
   <!-- CTA -->
   <section class="py-14 bg-primary/5">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Recruit from GPP</h2>
-      <p class="text-gray-600 mb-6">Interested in recruiting diploma engineers from Government Polytechnic Palanpur? Contact our Training & Placement Office to schedule a campus drive.</p>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Recruit from GPP</h2>
+        <p class="text-gray-600">Interested in recruiting diploma engineers from Government Polytechnic Palanpur? Contact our Training & Placement Officer directly.</p>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-6">
+        <h3 class="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide text-primary">Training & Placement Officer</h3>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Name</div>
+            <div class="font-semibold text-gray-900">{tpo.name}</div>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Email</div>
+            <a href={`mailto:${tpo.email}`} class="text-primary hover:underline">{tpo.email}</a>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Phone</div>
+            <a href={`tel:${tpo.phone}`} class="text-gray-700">{tpo.phone}</a>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Mobile</div>
+            <a href={`tel:${tpo.mobile}`} class="text-gray-700">{tpo.mobile}</a>
+          </div>
+        </div>
+      </div>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/tpo" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Contact TPO</a>
+        <a href="/tpo" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">TPO Page</a>
         <a href="/campus-life/campus-drive" class="border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-colors">View Campus Drives</a>
-        <a href="/about/allAchievements" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Dept-wise Results</a>
+        <a href="/student-section/results" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Academic Results</a>
       </div>
     </div>
   </section>
