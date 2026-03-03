@@ -261,6 +261,24 @@ const { program, department } = Astro.props as any;
         </div>
       )}
 
+      <!-- Program Specific Outcomes -->
+      {program.psos && program.psos.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Program Specific Outcomes (PSOs)</h2>
+          <div class="bg-gradient-to-br from-teal-50 to-white rounded-xl p-6 border border-teal-100 shadow-sm">
+            <p class="text-sm text-gray-600 mb-4">On completion of the program, students will be able to:</p>
+            <ul class="space-y-3">
+              {program.psos.map((pso: any, idx: any) => (
+                <li class="flex items-start gap-3 text-sm text-gray-700">
+                  <div class="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">{idx + 1}</div>
+                  {pso}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
       <div class="grid lg:grid-cols-3 gap-8" id="curriculum">
         <!-- Specializations -->
         {program.specializations && program.specializations.length > 0 && (

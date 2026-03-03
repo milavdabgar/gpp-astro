@@ -13,18 +13,23 @@
     "nba_valid_until": "2027",
     "affiliation": "Gujarat Technological University",
     "overview": "The Diploma in Civil Engineering focuses on structural design, construction techniques, and infrastructure development. Students gain practical skills in structural analysis, material science, transportation engineering, water resource management, and soil mechanics. With NBA accreditation and modern laboratories, this program meets industry standards and prepares students for successful careers in construction and infrastructure sectors.",
-    "vision": "The program envisions to create professionals in emerging field of civil engineering to meet aspirations of the society by transforming students to be technically skilled entrepreneurs, ethical and environmentally sensible civil engineers.",
+    "vision": "The department envisions to achieve professionals in emerging field of civil engineering to meet aspirations of the society, by transforming students to be technically skilled, managers, ethical, entrepreneurs leaders, environmentally sensible civil engineers.",
     "mission": [
-      "To impart quality technical education in the field of civil engineering",
-      "Establish industry collaboration through internship and interaction with professional society through experts and workshops",
-      "Promote leadership, management and entrepreneurship skills in students through various projects, co-curriculum and extra-curriculum events",
-      "Develop environmental awareness and social responsibility"
+      "To impart civil engineering skill to enhance their employability in the industries.",
+      "Establish industry collaboration through internship and interaction with professional society through experts, workshops.",
+      "Promote leadership, management, entrepreneurship skills in a student through various projects, co-curriculum, extra-curriculum events.",
+      "Impart social, environment awareness and responsibility in students to serve society and industry to promote sustainable growth."
     ],
     "peos": [
-      "Exhibit technical and leadership capabilities for providing sustainable solutions to various Civil Engineering problems with professional ethics",
-      "Inculcate state of the art technology for efficient implementation of Civil Engineering projects",
-      "Enhance social and economical commitment by entrepreneurial spirit as job creators",
-      "Pursue higher education and improve learning spirit in the context of technological changes"
+      "Exhibit technical and leadership capabilities for providing sustainable solutions to various Civil Engineering problems with professional ethics.",
+      "Inculcate state of the art technology for efficient implementation of Civil Engineering projects.",
+      "Enhance social and economical commitment by entrepreneurial spirit as job creators.",
+      "Pursue higher education and improve learning spirit in the context of technological changes."
+    ],
+    "psos": [
+      "Select and use of appropriate advanced methods, materials and equipment in construction industry.",
+      "Suggest relevant and safe demolition/ dismantling techniques for masonry / concrete building structure.",
+      "Evaluate damaged structure and suggest appropriate repair / retrofit and maintenance methods / techniques."
     ],
     "program_outcomes": [
       "Basic and Discipline specific knowledge",
@@ -67,18 +72,23 @@
     "nba_valid_until": "2027",
     "affiliation": "Gujarat Technological University",
     "overview": "The Diploma in Electrical Engineering focuses on electricity, power systems, and control mechanisms. Students learn about power generation, electrical motors, transmission systems, and renewable energy technologies through comprehensive theoretical and practical training. The program prepares graduates for diverse careers in power, manufacturing, and renewable energy sectors.",
-    "vision": "To develop competent electrical engineering professionals with strong technical skills, entrepreneurial mindset and ethical values to serve industry and society.",
+    "vision": "To provide quality education in the field of Electrical Engineering to produce competent engineers that meet industry requirements with societal and environmental concern.",
     "mission": [
-      "Prepare the students with strong fundamental concepts and problem solving skills to enhance their employability in the industries",
-      "To provide them a platform for developing new products that can help industry and society as a whole",
-      "Promote leadership and entrepreneurship skills in students through various projects, co-curriculum and extra-curriculum events",
-      "Imbibe social awareness and responsibility in students to serve the society and protect environment"
+      "Prepare the students with strong fundamental concepts and problem solving skills to enhance their employability in the industries.",
+      "To provide them a platform for developing new products that can help industry and society as a whole.",
+      "Promote leadership and entrepreneurship skills in students through various projects, co-curricular, extra-curricular events.",
+      "Imbibe social awareness and responsibility in students to serve the society and protect environment."
     ],
     "peos": [
-      "Apply the knowledge of electrical engineering to solve problems of industrial and social relevance",
-      "Pursue higher education and adopt to changing professional needs and engage in lifelong learning",
-      "Be professional with leadership qualities, ethics, moral values and work efficiently in a team",
-      "Fulfill social and economical commitments by entrepreneurial spirit"
+      "Apply the knowledge of electrical engineering to solve problems of industrial and social relevance.",
+      "Pursue higher education and adopt to changing professional needs and engage in lifelong learning.",
+      "Be professional with leadership qualities, ethics, moral values and work efficiently in a team.",
+      "Fulfill social and economical commitments by entrepreneurial spirit."
+    ],
+    "psos": [
+      "Maintain various types of electrical machines.",
+      "Maintain the operation of power system.",
+      "Undertake the electrification of commercial and multi storied buildings."
     ],
     "program_outcomes": [
       "Basic and Discipline specific knowledge",
@@ -122,17 +132,21 @@
     "nba_valid_until": "2027",
     "affiliation": "Gujarat Technological University",
     "overview": "The Diploma in Mechanical Engineering focuses on industrial production, machinery, and manufacturing processes. Students study mechanical system design, thermal engineering, production planning, and maintenance procedures. The comprehensive curriculum combines theoretical knowledge with extensive hands-on training to prepare industry-ready mechanical engineers.",
-    "vision": "To create competent diploma mechanical engineers with humanities, leadership and entrepreneurship qualities.",
+    "vision": "To create competent Diploma Mechanical Engineers with humanities, leadership and entrepreneurship qualities.",
     "mission": [
-      "To impart quality technical education with hands-on training in manufacturing and industrial processes",
-      "Develop state-of-art laboratories and infrastructure for practical learning",
-      "Foster industry-institute interaction through internships and collaborative projects",
-      "Promote innovation, entrepreneurship and lifelong learning among students"
+      "To impart quality education through excellent teaching learning methodology.",
+      "To increase technical skills and employability through industrial interaction.",
+      "To create entrepreneur by empowering innovative minds with proper counseling & motivation.",
+      "To develop team work, leadership qualities and ethical values through co-curricular activities & extra-curricular activities."
     ],
     "peos": [
-      "Successfully apply the principle of mechanical engineering in the industry",
-      "Pursue continued life long learning through professional practice and higher studies",
-      "Established as a successful entrepreneur"
+      "Successfully apply the principles of Mechanical Engineering in the industry.",
+      "Pursue continued life long learning through professional practice and higher studies.",
+      "Established as a successful entrepreneur."
+    ],
+    "psos": [
+      "Diploma Mechanical Engineer will be able to supervise various processes and parameters in industries.",
+      "Diploma Mechanical Engineer will be able to maintain industrial machinery."
     ],
     "program_outcomes": [
       "Basic and Discipline specific knowledge",
@@ -178,15 +192,19 @@
     "overview": "The Diploma in Electronics & Communication Engineering focuses on computer, communication, and navigation electronics. Students explore IoT, Embedded Systems, VLSI, Integrated Circuits, and Medical Electronics through well-structured theoretical and practical training. The program prepares graduates for careers in telecommunications, electronics manufacturing, and emerging technologies.",
     "vision": "To prepare competent diploma level electronics and communication engineers, catering the needs of industries and society as an excellent employees, innovator and entrepreneur with moral values.",
     "mission": [
-      "Provide quality education in the field of EC engineering",
-      "Develop state of art laboratories, classrooms and up gradation of faculties",
-      "Strengthen industrial liaison by offering mutual beneficiaries services"
+      "Provide quality education in the field of EC engineering.",
+      "Develop state of art laboratories, classrooms and up gradation of faculties.",
+      "Strengthen industrial liaison by offering mutual beneficiaries services."
     ],
     "peos": [
-      "Successfully pursue professional Electronics and Communication engineering career working in multidisciplinary areas, focusing on innovation and entrepreneurship",
-      "Pursue higher education",
-      "Demonstrate societal and ethical responsibility in every domain of life",
-      "Adapt technological changes with focus on societal and environmental issues"
+      "Successfully pursue professional Electronics and Communication engineering career working in multidisciplinary areas, focusing on innovation and entrepreneurship.",
+      "Pursue higher education.",
+      "Demonstrate societal and ethical responsibility in every domain of life.",
+      "Adapt technological changes with focus on societal and environmental issues."
+    ],
+    "psos": [
+      "Demonstrate proficiency in installation and problem solving of electronics and communication equipment.",
+      "Proficiency in specialized software packages and coding useful for the analysis of electronics engineering systems and PCB design."
     ],
     "program_outcomes": [
       "Basic and Discipline specific knowledge",
