@@ -1,0 +1,109 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Convener", name: "B N Prajapati", department: "Administration" },
+  { role: "Co-Convener", name: "V P Patel", department: "Administration" },
+  { role: "Co-Convener", name: "P K Bhavsar", department: "Administration" },
+  { role: "Department Coordinator", name: "Nominated Faculty – Civil", department: "Civil Engineering" },
+  { role: "Department Coordinator", name: "Nominated Faculty – Electrical", department: "Electrical Engineering" },
+  { role: "Department Coordinator", name: "Nominated Faculty – Mechanical", department: "Mechanical Engineering" },
+  { role: "Department Coordinator", name: "Nominated Faculty – EC", department: "Electronics & Communication" },
+  { role: "Department Coordinator", name: "Nominated Faculty – IT", department: "Information Technology" },
+];
+
+const responsibilities = [
+  { task: "Examination Scheduling", detail: "Prepare and publish academic and GTU examination timetables in coordination with all departments." },
+  { task: "Invigilation Duty", detail: "Assign invigilation duties to faculty members ensuring fair and orderly conduct of all exams." },
+  { task: "Result Processing", detail: "Coordinate submission of internal marks and facilitate GTU result declaration procedures." },
+  { task: "Examination Integrity", detail: "Enforce GTU code of conduct for examinations; address malpractice cases as per prescribed procedures." },
+  { task: "Remedial / Back Exams", detail: "Organise and schedule back-log and improvement examinations as per GTU academic calendar." },
+  { task: "Record Maintenance", detail: "Maintain all examination-related records, answer books, and student mark sheets for the prescribed period." },
+];
+---
+
+<Layout title="Examination Committee | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Examination Committee</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-lime-50 to-green-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-lime-100 text-lime-800 text-sm font-semibold px-4 py-1 rounded-full mb-4">GTU Compliant</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Examination Committee</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Coordinates all examination activities — scheduling, invigilation, result processing — ensuring integrity and compliance with Gujarat Technological University norms.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Committee</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        The Examination Committee at GPP is constituted to ensure comprehensive, fair, and efficient management of all examination-related activities. The committee operates in close coordination with the Gujarat Technological University (GTU) and adheres strictly to GTU's academic regulations and the institute's internal assessment policies.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        From scheduling term exams and GTU semester exams to managing invigilation rosters and processing results, the committee ensures that every examination is conducted with full integrity and procedural compliance.
+      </p>
+      <div class="bg-lime-50 border border-lime-200 rounded-xl p-5 mt-6">
+        <p class="text-lime-900 font-semibold">Mandate</p>
+        <p class="text-lime-800 mt-1">Fair and efficient conduct of examinations in compliance with GTU guidelines, maintaining the highest standards of academic integrity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-lime-700 text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Key Responsibilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {responsibilities.map((r) => (
+          <div class="bg-lime-50 border border-lime-100 rounded-xl p-5">
+            <h3 class="font-bold text-gray-900 text-lg mb-2">{r.task}</h3>
+            <p class="text-gray-700 text-sm leading-relaxed">{r.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,146 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Convener", name: "M J Dabgar", department: "Information Technology" },
+  { role: "Co-Convener", name: "J V Kureshi", department: "Information Technology" },
+  { role: "Network Administrator", name: "Nominated Staff", department: "IT / Admin" },
+  { role: "CCTV In-charge", name: "Nominated Faculty", department: "Electronics & Communication" },
+  { role: "Member", name: "Nominated Faculty", department: "Civil Engineering" },
+];
+
+const infrastructure = [
+  {
+    title: "CWAN (Campus-Wide Area Network)",
+    description: "Structured LAN covering all academic blocks, administrative offices, library, and hostel. Connects all departments with a central switch infrastructure.",
+    badge: "Active",
+  },
+  {
+    title: "Internet Connectivity",
+    description: "200 Mbps BSNL FTTH leased line + 200 Mbps KCG fibre leased line providing redundant, high-speed internet access across campus.",
+    badge: "200 + 200 Mbps",
+  },
+  {
+    title: "CCTV Surveillance",
+    description: "45 cameras deployed across entrances, corridors, laboratories, library, canteen, and hostel premises for 24×7 campus security monitoring.",
+    badge: "45 Cameras",
+  },
+  {
+    title: "NAMO Wi-Fi Hotspots",
+    description: "NAMO Wi-Fi hotspot nodes installed across campus to provide wireless internet access to students and faculty.",
+    badge: "Active",
+  },
+];
+
+const responsibilities = [
+  { task: "Network Maintenance", detail: "Maintain and upgrade the campus LAN/CWAN infrastructure, switches, routers, and cabling." },
+  { task: "Internet Uptime", detail: "Monitor and ensure maximum uptime of both BSNL and KCG internet links; coordinate with ISPs for fault resolution." },
+  { task: "CCTV Monitoring", detail: "Oversee the installation, maintenance, and recording systems of all 45 CCTV cameras on campus." },
+  { task: "Wi-Fi Management", detail: "Manage NAMO Wi-Fi hotspot infrastructure, access credentials, and bandwidth allocation." },
+  { task: "IT Security", detail: "Implement basic network security measures including firewall rules, access controls, and regular audits." },
+  { task: "User Support", detail: "Provide IT support to faculty, students, and administrative staff for network and connectivity issues." },
+];
+---
+
+<Layout title="CWAN / IT Committee | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">CWAN / Internet / CCTV / NAMO Wi-Fi</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-slate-50 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-slate-100 text-slate-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">IT Infrastructure</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">CWAN / Internet / CCTV / NAMO Wi-Fi</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Manages campus-wide network, dual internet connectivity (400 Mbps total), 45-camera CCTV surveillance, and NAMO Wi-Fi hotspot infrastructure.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Committee</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        The CWAN / IT Committee at GPP is responsible for all aspects of campus IT infrastructure — from the physical network backbone to internet connectivity, surveillance, and wireless access. The committee ensures that students, faculty, and staff have reliable, high-speed connectivity and that the campus is secured through modern surveillance systems.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        GPP currently has dual internet connectivity — 200 Mbps BSNL FTTH and 200 Mbps KCG fibre — providing a combined 400 Mbps of redundant bandwidth. The CCTV system comprises 45 cameras covering all key areas of the campus.
+      </p>
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mt-6">
+        <p class="text-slate-900 font-semibold">Mandate</p>
+        <p class="text-slate-700 mt-1">Ensuring reliable IT infrastructure, network connectivity, and campus security systems for academic and administrative operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Campus IT Infrastructure</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {infrastructure.map((item) => (
+          <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between mb-3">
+              <h3 class="font-bold text-gray-900 text-lg">{item.title}</h3>
+              <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-1 rounded-full ml-3 whitespace-nowrap">{item.badge}</span>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-slate-700 text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Key Responsibilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {responsibilities.map((r) => (
+          <div class="bg-slate-50 border border-slate-100 rounded-xl p-5">
+            <h3 class="font-bold text-gray-900 text-lg mb-2">{r.task}</h3>
+            <p class="text-gray-700 text-sm leading-relaxed">{r.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

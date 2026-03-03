@@ -1,0 +1,107 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import AnnouncementTicker from '../../../components/AnnouncementTicker.astro';
+
+const members = [
+  { role: "Convener", name: "A D Shah", department: "Administration" },
+  { role: "Co-Convener", name: "T P Purohit", department: "Administration" },
+  { role: "Co-Convener", name: "Y D Chaudhary", department: "Administration" },
+  { role: "Store In-charge", name: "Nominated Faculty / Staff", department: "Administration" },
+  { role: "Member", name: "Head of Department (Civil)", department: "Civil Engineering" },
+  { role: "Member", name: "Head of Department (Electrical)", department: "Electrical Engineering" },
+];
+
+const responsibilities = [
+  { task: "GeM Procurement", detail: "Facilitate purchases through the Government e-Marketplace (GeM) portal as mandated by GoG/GoI guidelines." },
+  { task: "CSS Tendering", detail: "Manage centralized store system (CSS) tendering process for bulk or high-value procurements." },
+  { task: "Local Purchases", detail: "Approve and document local/emergency purchases within delegated financial powers." },
+  { task: "Physical Verification", detail: "Conduct annual and periodic physical verification of stores and assets across all departments." },
+  { task: "Write-Off & Condemnation", detail: "Process write-off proposals for unserviceable or obsolete equipment as per GFR norms." },
+  { task: "Inventory Management", detail: "Maintain accurate stock registers and ensure proper accounting of all procured items." },
+];
+---
+
+<Layout title="Purchase & Store Committee | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <a href="/about/committees" class="hover:text-primary transition-colors">Institute Committees</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Purchase &amp; Store Committee</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-gradient-to-br from-yellow-50 to-amber-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-4 py-1 rounded-full mb-4">Procurement &amp; Inventory</div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Purchase &amp; Store Committee</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">Oversees all procurement activities including GeM purchases, CSS tendering, and physical verification of institutional assets and stores.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Committee</h2>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        The Purchase &amp; Store Committee at GPP is responsible for ensuring transparent, rule-compliant procurement of goods and services for the institution. All purchases are governed by the Gujarat Financial Rules (GFR), Government e-Marketplace (GeM) mandates, and the General Financial Rules of the Government of India.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed mb-4">
+        The committee ensures that every procurement — from laboratory equipment to stationery — follows a documented, competitive, and accountable process. Proper store management and periodic physical verification safeguard institutional assets.
+      </p>
+      <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5 mt-6">
+        <p class="text-yellow-900 font-semibold">Mandate</p>
+        <p class="text-yellow-800 mt-1">Transparent procurement and inventory management for all departments in compliance with government purchase rules.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Committee Members</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-yellow-600 text-white text-left">
+              <th class="px-5 py-3 font-semibold">Role</th>
+              <th class="px-5 py-3 font-semibold">Name / Designation</th>
+              <th class="px-5 py-3 font-semibold">Department</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((m, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 font-medium text-gray-900">{m.role}</td>
+                <td class="px-5 py-3 text-gray-700">{m.name}</td>
+                <td class="px-5 py-3 text-gray-600">{m.department}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Key Responsibilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {responsibilities.map((r) => (
+          <div class="bg-yellow-50 border border-yellow-100 rounded-xl p-5">
+            <h3 class="font-bold text-gray-900 text-lg mb-2">{r.task}</h3>
+            <p class="text-gray-700 text-sm leading-relaxed">{r.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
