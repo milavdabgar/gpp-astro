@@ -5,22 +5,143 @@ import Footer from '../components/Footer.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
 import collegeInfo from '../data/college-info.json';
 
-const eResources = [
-  { name: "E-Journals (Open Access)", desc: "Access to academic journals and research papers", cat: "Academic" },
-  { name: "E-Books", desc: "Digital collection of technical and reference books", cat: "Books" },
-  { name: "E-Magazines", desc: "Technical and general interest magazines", cat: "Periodicals" },
-  { name: "E-Newspapers", desc: "Daily newspapers and current affairs", cat: "News" },
-  { name: "Online Journals", desc: "Subscription-based research journals", cat: "Research" },
-  { name: "Useful Links", desc: "Curated educational and technical resources", cat: "Resources" },
+const bookCollection = [
+  { category: "General Books",       volumes: 14010, titles: 3474 },
+  { category: "Book Service Center", volumes: 1354,  titles: 83   },
+  { category: "MHRD Grant Books",    volumes: 1474,  titles: 346  },
+  { category: "RUSA Grant Books",    volumes: 1194,  titles: 246  },
+  { category: "SSIP Books",          volumes: 10,    titles: 10   },
+  { category: "Total",               volumes: 18042, titles: 4159 },
+];
+
+const otherCollection = [
+  { item: "Gift Books",            count: 310  },
+  { item: "E-Books (PDF)",         count: 371  },
+  { item: "DLM Course Materials",  count: 4829 },
+  { item: "Periodicals",           count: 13   },
+  { item: "News Papers",           count: 4    },
 ];
 
 const services = [
-  { title: "Book Lending Service", desc: "Borrow books for academic and personal reading with flexible lending periods", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
-  { title: "Digital Resources Access", desc: "Access to online databases, e-books, and digital journals", icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
-  { title: "Reading Halls", desc: "Quiet study spaces for individual and group study sessions", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
-  { title: "Reference Service", desc: "Research assistance and information guidance from library staff", icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
-  { title: "Internet & Computer Access", desc: "High-speed internet and computer terminals for research", icon: "M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" },
-  { title: "Document Services", desc: "Printing, scanning, and photocopying facilities", icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" },
+  "Reading Facility",
+  "Circulation",
+  "Reference Service",
+  "New Arrivals Display",
+  "Inter-Library Loan (Department)",
+  "Library Orientation",
+  "Internet Access",
+  "Old Question Papers",
+  "Current Awareness Service",
+  "Book Exhibition",
+];
+
+const openAccessResources = [
+  { name: "National Digital Library of India", url: "https://ndl.iitkgp.ac.in/",         desc: "Millions of academic resources for students & faculty" },
+  { name: "Directory of Open Access Journals", url: "https://doaj.org/",                  desc: "Thousands of peer-reviewed open access journals" },
+  { name: "NPTEL",                             url: "https://nptel.ac.in/",               desc: "Video lectures by IIT & IISc professors" },
+  { name: "SWAYAM",                            url: "https://swayam.gov.in/",             desc: "National online education platform (MOOCs)" },
+  { name: "E-PG Pathshala (INFLIBNET)",        url: "https://epgp.inflibnet.ac.in/",      desc: "Postgraduate e-content by INFLIBNET" },
+  { name: "Virtual Labs",                      url: "https://www.vlab.co.in/",            desc: "Remote-access virtual laboratory experiments" },
+  { name: "YOUTH4WORK Talent Tests",           url: "https://www.youth4work.com/onlinetalenttest", desc: "Online talent assessment platform" },
+  { name: "Spoken Tutorial",                   url: "https://spoken-tutorial.org/",       desc: "Audio-video tutorials on FOSS tools" },
+  { name: "Video Lectures",                    url: "http://videolectures.net/",           desc: "Academic and research video lectures" },
+];
+
+const eBooksLinks = [
+  { name: "Project Gutenberg",                 url: "https://www.gutenberg.org/",       desc: "60,000+ free classic e-books" },
+  { name: "Rare Book Room",                    url: "http://www.rarebookroom.org/",      desc: "Historic and rare books digitised for education" },
+  { name: "Free-E-Books.net",                  url: "https://www.free-ebooks.net/",      desc: "Free novels, short stories and more" },
+  { name: "Directory of Open Access Books",    url: "https://doabooks.org/",             desc: "Peer-reviewed open access books" },
+  { name: "OAPEN",                             url: "https://www.oapen.org/home",        desc: "Open access academic and scholarly books" },
+  { name: "Manybooks.net",                     url: "https://manybooks.net/",            desc: "50,000+ free e-books" },
+  { name: "OpenLibrary",                       url: "https://openlibrary.org/",          desc: "Lending library of millions of books" },
+];
+
+const openAccessJournals = [
+  { name: "International Journal of Advances in Applied Sciences",              url: "https://ijaas.iaescore.com/index.php/IJAAS" },
+  { name: "International Journal of Electronic and Telecommunications",         url: "http://ijet.pl/index.php/ijet" },
+  { name: "Advances in Electrical and Electronic Engineering",                  url: "http://advances.utc.sk/index.php/AEEE" },
+  { name: "Journal of Civil and Environmental Engineering",                     url: "https://www.hilarispublisher.com/civil-environmental-engineering.html" },
+  { name: "Advances in Automobile Engineering",                                 url: "https://www.longdom.org/advances-in-automobile-engineering.html" },
+  { name: "Journal of Information Technology and Software Engineering",         url: "https://www.longdom.org/information-technology-software-engineering.html" },
+  { name: "Journal of Applied Mechanical Engineering",                          url: "https://www.longdom.org/applied-mechanical-engineering.html" },
+  { name: "Advances in Civil Engineering",                                      url: "https://www.hindawi.com/journals/ace/" },
+  { name: "EURASIP Journal on Wireless Communication and Networking",           url: "https://jwcn-eurasipjournals.springeropen.com/" },
+  { name: "Electronic Journal of Structural Engineering",                       url: "http://www.ejse.org/" },
+  { name: "International Journal of Engineering Research and Applications",     url: "http://www.ijera.com/" },
+  { name: "Modern Mechanical Engineering (SCIRP)",                              url: "https://www.scirp.org/journal/mme/" },
+  { name: "Materials Sciences and Applications (SCIRP)",                        url: "https://www.scirp.org/journal/msa/" },
+  { name: "Global Journal of Technology and Optimization",                      url: "https://www.hilarispublisher.com/global-journal-technology-optimization.html" },
+  { name: "Industrial Engineering and Management",                              url: "https://www.hilarispublisher.com/industrial-engineering-management.html" },
+  { name: "Advances in Robotics and Automation",                                url: "https://www.hilarispublisher.com/advances-in-robotics-automation.html" },
+  { name: "Research and Reviews: Journal of Engineering and Technology",        url: "https://www.rroij.com/engineering-and-technology.php" },
+  { name: "Journal of Steel Structures and Construction",                       url: "https://www.hilarispublisher.com/steel-structures-construction.html" },
+  { name: "American Journal of Engineering and Applied Sciences",               url: "https://thescipub.com/ajeas.toc" },
+  { name: "International Journal of Advancements in Technology",                url: "https://www.longdom.org/international-journal-of-advancements-in-technology.html" },
+];
+
+const inventiJournals = [
+  { name: "Inventi Impact: Antennas and Propagation",  url: "https://www.inventi.in/journal/impact/72/InventiImpactAntennasAndPropagation" },
+  { name: "Inventi Impact: Artificial Intelligence",   url: "https://www.inventi.in/journal/impact/73/InventiImpactArtificialIntelligence" },
+  { name: "Inventi Impact: Civil Structures",          url: "https://www.inventi.in/journal/impact/125/InventiImpactCivilStructures" },
+  { name: "Inventi Impact: Electrical Engineering",    url: "https://www.inventi.in/journal/impact/122/InventiImpactElectricalEngineering" },
+  { name: "Inventi Impact: Mechanical Engineering",    url: "https://www.inventi.in/journal/impact/94/InventiImpactMechanicalEngineering" },
+  { name: "Inventi Impact: VLSI",                      url: "https://www.inventi.in/journal/impact/13/InventiImpactVLSI" },
+];
+
+const eMagazines = [
+  { name: "EFY (Electronics For You)", url: "https://efymag.com/express/" },
+  { name: "Business India",            url: "https://businessindia.co/emagazine/" },
+  { name: "Harshal Publications",      url: "https://www.harshalpublications.in/gujarati-edition/" },
+  { name: "Chitralekha",              url: "https://chitralekha.com/" },
+  { name: "Feelings Multimedia",       url: "https://www.feelingsmultimedia.com/" },
+  { name: "Sadhana Weekly",            url: "https://epaper.sadhanaweekly.com/" },
+  { name: "Abhiyaan Magazine",         url: "https://abhiyaanmagazine.com/" },
+  { name: "Outlook India",            url: "https://www.outlookindia.com/" },
+  { name: "India Today",              url: "https://www.indiatoday.in/" },
+  { name: "Gujarat Darpan",           url: "https://gujaratdarpan.com/" },
+];
+
+const eNewsPapers = [
+  { name: "Sandesh",           url: "https://sandesh.com/" },
+  { name: "Bombay Samachar",   url: "https://www.bombaysamachar.com/" },
+  { name: "Times of India",    url: "https://timesofindia.indiatimes.com/" },
+  { name: "Indian Express",    url: "https://indianexpress.com/" },
+  { name: "Nav Gujarat Samay", url: "https://epaper.navgujaratsamay.com/" },
+  { name: "BK News Today",     url: "https://www.bknewstoday.com/Epaper" },
+];
+
+const usefulLinks = [
+  { name: "Government Polytechnic Palanpur",  url: "http://www.gppp.cteguj.in/" },
+  { name: "Gujarat Technological University", url: "https://www.gtu.ac.in/" },
+  { name: "Employment News (E-version)",      url: "https://eneversion.nic.in/" },
+  { name: "GTU Old Question Papers",          url: "http://old.gtu.ac.in/Qpaper.html" },
+];
+
+const staff = [
+  { no: 1, name: "Smt. K. A. Patel",   designation: "Library In Charge",    qualification: "B.E. (IC)",      mobile: "9428505262" },
+  { no: 2, name: "Shri S. N. Chauhan", designation: "Co Library In Charge", qualification: "B.E.",           mobile: "9712130005" },
+  { no: 3, name: "Shri B. N. Raval",   designation: "Librarian",            qualification: "BA, BLIS, MLIS", mobile: "9714119551" },
+  { no: 4, name: "Mr. C. R. Parmar",   designation: "Peon",                 qualification: "9th Pass",       mobile: "9924658770" },
+];
+
+const objectives = [
+  "Cultivate reading habits among students and teaching staff.",
+  "Provide accessibility to information in a well-organised and coherent manner.",
+  "Supply students with necessary skills to enhance their employability and meet future challenges.",
+  "Provide facilities and services for the teaching community and students to discover needed information.",
+];
+
+const policies = [
+  "Silence should be strictly maintained in the library premises.",
+  "Faculty may borrow up to 5 books for 1 month; students may borrow up to 2 books for 14 days.",
+  "Books are issued against Library Tickets provided to students.",
+  "A fine of Rs. 1.00 per day is levied for books kept beyond the due date.",
+  "Books must be checked for missing pages or damage before issue; users are responsible for any damage found later.",
+  "Reference books, periodicals, and bound volumes are for use within the library premises only.",
+  "Mobile phones must be switched off inside the library.",
+  "Users must present identification if requested by library staff.",
+  "Persistent violation of library rules may result in suspension of borrowing/access rights.",
 ];
 ---
 
@@ -31,157 +152,364 @@ const services = [
   <!-- Hero -->
   <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-16">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-      <div class="flex justify-center gap-2 mb-6">
-        <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Central Library</span>
+      <div class="flex justify-center flex-wrap gap-2 mb-6">
+        <span class="text-xs font-semibold bg-secondary text-secondary-foreground rounded-full px-3 py-1">Est. 1984</span>
         <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Digital Resources</span>
         <span class="text-xs font-semibold border border-gray-300 rounded-full px-3 py-1">Research Support</span>
       </div>
       <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">GP Palanpur Library</h1>
       <p class="text-xl text-gray-600 mb-8">
-        Your gateway to knowledge with over {collegeInfo.infrastructure.library_books.toLocaleString('en-IN')} books, digital resources, and comprehensive research facilities supporting academic excellence.
+        Your gateway to knowledge with over 18,000 books, open-access journals, digital e-resources, and a dedicated reading hall supporting academic excellence since 1984.
       </p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center"><div class="text-3xl font-bold text-primary">{collegeInfo.infrastructure.library_books.toLocaleString('en-IN')}</div><div class="text-sm text-gray-600">Books Collection</div></div>
-        <div class="text-center"><div class="text-3xl font-bold text-primary">6</div><div class="text-sm text-gray-600">Digital Resources</div></div>
-        <div class="text-center"><div class="text-3xl font-bold text-primary">12</div><div class="text-sm text-gray-600">Hours Daily</div></div>
-        <div class="text-center"><div class="text-3xl font-bold text-primary">200+</div><div class="text-sm text-gray-600">Seating Capacity</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">18,042</div><div class="text-sm text-gray-600">Book Volumes</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">4,159</div><div class="text-sm text-gray-600">Unique Titles</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">50+</div><div class="text-sm text-gray-600">Seating Capacity</div></div>
+        <div class="text-center"><div class="text-3xl font-bold text-primary">1984</div><div class="text-sm text-gray-600">Established</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Overview + Blog Link -->
+  <!-- About + Vision -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">Supporting Academic Excellence</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Library</h2>
           <div class="space-y-4 text-gray-600 leading-relaxed">
             <p>
-              The Central Library at Government Polytechnic Palanpur serves as the heart of academic and research activities. With a vast collection of over {collegeInfo.infrastructure.library_books.toLocaleString('en-IN')} books, digital resources, and modern facilities, our library supports the educational mission of creating competent diploma engineers.
+              Former President of India, Dr. S. Radhakrishnan once said, <em>"Library is the heart of an institution."</em> The Library at Government Polytechnic Palanpur has been serving students and faculty since <strong>1984</strong>.
             </p>
             <p>
-              Our library is designed to foster an excellent teaching and learning environment, providing students and faculty with access to both traditional and digital resources essential for technical education and research.
+              The library has a reading hall with a seating capacity of <strong>50 students</strong> and a very rich collection of books covering engineering, science, technology, humanities, competitive examinations, and motivational literature. Newly acquired books are placed on the <strong>New Arrivals display</strong> before being released for loan.
+            </p>
+            <p>
+              An <strong>E-Library section</strong> is also available, providing internet-enabled access to a wide range of digital resources including e-books, e-journals, and national portals.
             </p>
           </div>
-          <div class="mt-8 p-6 bg-primary/5 rounded-xl border border-primary/20">
-            <h3 class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              Visit Library Website
-            </h3>
-            <p class="text-gray-600 text-sm mb-4">Access our comprehensive online resources, e-resources, and latest additions to our collection.</p>
-            <a href="https://gpplibrary.blogspot.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors text-sm">
-              GP Palanpur Library Portal
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          <div class="mt-6 p-5 bg-primary/5 rounded-xl border border-primary/20">
+            <div class="font-semibold text-gray-900 mb-1 flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Library Portal (Blogspot)
+            </div>
+            <p class="text-gray-500 text-xs mb-3">Maintained by our librarian with full e-resource listings, collection details, and updates.</p>
+            <a href="https://gpplibrary.blogspot.com/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors text-xs">
+              Visit Library Portal
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-primary/5 rounded-xl p-6 text-center">
-            <div class="text-3xl font-bold text-primary mb-1">{collegeInfo.infrastructure.library_books.toLocaleString('en-IN')}</div>
-            <div class="text-sm text-gray-600">Books & Periodicals</div>
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Vision</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">To serve as a <strong>knowledge hub</strong> of the college by providing information services to rural youths, shaping a better future and enriching knowledge to create a better world for themselves.</p>
           </div>
-          <div class="bg-blue-50 rounded-xl p-6 text-center">
-            <div class="text-3xl font-bold text-blue-600 mb-1">200+</div>
-            <div class="text-sm text-gray-600">Seating Capacity</div>
-          </div>
-          <div class="bg-green-50 rounded-xl p-6 text-center">
-            <div class="text-3xl font-bold text-green-600 mb-1">6 AM–6 PM</div>
-            <div class="text-sm text-gray-600">Working Hours</div>
-          </div>
-          <div class="bg-purple-50 rounded-xl p-6 text-center">
-            <div class="text-3xl font-bold text-purple-600 mb-1">NDL</div>
-            <div class="text-sm text-gray-600">National Digital Library</div>
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Aims and Objectives</h3>
+            <ul class="space-y-1.5">
+              {objectives.map(obj => (
+                <li class="flex items-start gap-2 text-gray-600 text-sm">
+                  <svg class="w-3.5 h-3.5 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  {obj}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Vision & Mission -->
+  <!-- Collection -->
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-gray-900 mb-3">Library Vision & Mission</h2>
-        <p class="text-gray-600">Guiding principles that drive our commitment to information services</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Library Collection</h2>
+        <p class="text-gray-600">A rich and growing collection covering all branches of engineering and beyond</p>
       </div>
-      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="bg-primary/5 px-5 py-3 border-b border-gray-100">
+            <h3 class="font-bold text-gray-900">Books</h3>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Vision</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">To be a premier knowledge centre that empowers students and faculty with access to information resources, fostering a culture of lifelong learning and research excellence.</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-gray-50 border-b border-gray-100">
+                  <th class="text-left px-5 py-3 font-semibold text-gray-700">Category</th>
+                  <th class="text-right px-5 py-3 font-semibold text-gray-700">Volumes</th>
+                  <th class="text-right px-5 py-3 font-semibold text-gray-700">Titles</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bookCollection.map((row, i) => (
+                  <tr class={`border-b border-gray-50 ${row.category === 'Total' ? 'bg-primary/5 font-bold' : i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                    <td class="px-5 py-3 text-gray-800">{row.category}</td>
+                    <td class="px-5 py-3 text-right text-gray-800">{row.volumes.toLocaleString('en-IN')}</td>
+                    <td class="px-5 py-3 text-right text-gray-800">{row.titles.toLocaleString('en-IN')}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="bg-primary/5 px-5 py-3 border-b border-gray-100">
+            <h3 class="font-bold text-gray-900">Other Resources</h3>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Mission</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">To provide excellent teaching and learning environment by creating, maintaining, and facilitating access to information resources that effectively support the academic and research requirements of the institution.</p>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-100">
+                <th class="text-left px-5 py-3 font-semibold text-gray-700">Item</th>
+                <th class="text-right px-5 py-3 font-semibold text-gray-700">Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {otherCollection.map((row, i) => (
+                <tr class={`border-b border-gray-50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                  <td class="px-5 py-3 text-gray-800">{row.item}</td>
+                  <td class="px-5 py-3 text-right text-gray-800">{row.count.toLocaleString('en-IN')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- E-Resources -->
+  <!-- Services -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-gray-900 mb-3">Digital E-Resources</h2>
-        <p class="text-gray-600">Explore our comprehensive online resources available to all students and faculty</p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {eResources.map(r => (
-          <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
-            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 text-sm">{r.name}</h3>
-              <p class="text-gray-500 text-xs mt-0.5">{r.desc}</p>
-              <span class="inline-block mt-1.5 text-[10px] font-medium bg-primary/5 text-primary rounded px-1.5 py-0.5">{r.cat}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Library Services -->
-  <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-bold text-gray-900 mb-3">Library Services</h2>
         <p class="text-gray-600">Comprehensive services designed to support your academic journey</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
         {services.map(s => (
-          <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
-            <div class="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/></svg>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-900 text-sm">{s.title}</h3>
-              <p class="text-gray-500 text-xs mt-1 leading-relaxed">{s.desc}</p>
-            </div>
+          <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+            <svg class="w-4 h-4 mt-0.5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-gray-800 text-sm font-medium">{s}</span>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- NDL + CTA -->
+  <!-- Open Access E-Resources -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Open Access E-Resources</h2>
+        <p class="text-gray-600">Free national and international digital learning platforms accessible to all</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {openAccessResources.map(r => (
+          <a href={r.url} target="_blank" rel="noopener noreferrer"
+             class="flex items-start gap-4 bg-white rounded-xl p-4 border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all group">
+            <div class="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900 text-sm group-hover:text-primary transition-colors">{r.name}</div>
+              <div class="text-gray-500 text-xs mt-0.5">{r.desc}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Books -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-      <div class="bg-primary/5 border border-primary/20 rounded-xl p-8 text-center">
-        <h2 class="text-2xl font-bold text-gray-900 mb-3">National Digital Library of India</h2>
-        <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-          GP Palanpur is registered with the National Digital Library of India (NDL), giving students and faculty access to a vast repository of academic resources, research papers, and study materials.
-        </p>
-        <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors text-sm">
-          Access NDL India
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">E-Books</h2>
+        <p class="text-gray-600">Free digital book repositories for students and readers</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+        {eBooksLinks.map(b => (
+          <a href={b.url} target="_blank" rel="noopener noreferrer"
+             class="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all group">
+            <div class="font-semibold text-gray-900 text-sm group-hover:text-primary transition-colors mb-1">{b.name}</div>
+            <div class="text-gray-500 text-xs">{b.desc}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Journals Open Access -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">E-Journals (Open Access)</h2>
+        <p class="text-gray-600">Peer-reviewed open access journals relevant to engineering and technology</p>
+      </div>
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-3 max-w-6xl mx-auto">
+        {openAccessJournals.map(j => (
+          <a href={j.url} target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2 bg-white rounded-lg px-4 py-2.5 border border-gray-100 mb-2 hover:border-primary/30 hover:text-primary transition-all group break-inside-avoid text-sm text-gray-800 font-medium">
+            <svg class="w-3 h-3 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            {j.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Journals Subscription -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Online Journals (Subscription)</h2>
+        <p class="text-gray-600">Inventi Impact journals available via institutional login</p>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8 flex flex-wrap items-center gap-6">
+          <svg class="w-8 h-8 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <div class="flex-1">
+            <div class="font-semibold text-blue-900 mb-0.5 text-sm">Institutional Login Credentials</div>
+            <p class="text-blue-700 text-xs">Use these credentials on the Inventi journal portal to access subscriber-only content.</p>
+          </div>
+          <div class="flex gap-6 flex-wrap">
+            <div><div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Username</div><div class="font-mono font-bold text-blue-900 text-sm">gppl</div></div>
+            <div><div class="text-xs text-blue-600 font-medium uppercase tracking-wide">Password</div><div class="font-mono font-bold text-blue-900 text-sm">gppl@23</div></div>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {inventiJournals.map(j => (
+            <a href={j.url} target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-3 bg-gray-50 rounded-lg px-4 py-3 border border-gray-100 hover:border-primary/30 hover:text-primary transition-all text-sm font-medium text-gray-800">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              {j.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Magazines and E-Newspapers -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">E-Magazines and E-Newspapers</h2>
+        <p class="text-gray-600">Stay informed with digital publications available in the library</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div>
+          <h3 class="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+            E-Magazines
+          </h3>
+          <div class="space-y-2">
+            {eMagazines.map(m => (
+              <a href={m.url} target="_blank" rel="noopener noreferrer"
+                 class="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-gray-100 hover:border-primary/30 hover:text-primary transition-all text-sm font-medium text-gray-800">
+                <svg class="w-3 h-3 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                {m.name}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+            E-Newspapers
+          </h3>
+          <div class="space-y-2">
+            {eNewsPapers.map(n => (
+              <a href={n.url} target="_blank" rel="noopener noreferrer"
+                 class="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-gray-100 hover:border-primary/30 hover:text-primary transition-all text-sm font-medium text-gray-800">
+                <svg class="w-3 h-3 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                {n.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies and Guidelines -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Policies and Guidelines</h2>
+        <p class="text-gray-600">Rules to keep the library environment pleasant and productive for everyone</p>
+      </div>
+      <div class="max-w-3xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-6">
+        <ul class="space-y-3">
+          {policies.map(p => (
+            <li class="flex items-start gap-3 text-gray-700 text-sm">
+              <svg class="w-4 h-4 mt-0.5 text-amber-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Useful Links -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Useful Links</h2>
+        <p class="text-gray-600">Quick access to important academic and institutional websites</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+        {usefulLinks.map(l => (
+          <a href={l.url} target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-5 py-3 text-sm font-medium text-gray-800 hover:border-primary/40 hover:text-primary transition-all shadow-sm">
+            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            {l.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Library Staff -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Library Staff</h2>
+        <p class="text-gray-600">Meet the dedicated team managing your library</p>
+      </div>
+      <div class="max-w-3xl mx-auto bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-primary/5 border-b border-gray-100">
+                <th class="text-center px-4 py-3 font-semibold text-gray-700">Sr.</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Name</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Designation</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Qualification</th>
+                <th class="text-left px-4 py-3 font-semibold text-gray-700">Mobile</th>
+              </tr>
+            </thead>
+            <tbody>
+              {staff.map((s, i) => (
+                <tr class={`border-b border-gray-50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                  <td class="px-4 py-3 text-center text-gray-600">{s.no}</td>
+                  <td class="px-4 py-3 font-medium text-gray-900">{s.name}</td>
+                  <td class="px-4 py-3 text-gray-700">{s.designation}</td>
+                  <td class="px-4 py-3 text-gray-600">{s.qualification}</td>
+                  <td class="px-4 py-3 text-gray-600 font-mono text-xs">{s.mobile}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
