@@ -221,6 +221,54 @@ const { dept, programs: deptPrograms, newsletters } = Astro.props as any;
     </section>
   )}
 
+  <!-- Sub-Departments (e.g. Civil + Applied Mechanics) -->
+  {dept.sub_departments && dept.sub_departments.length > 0 && (
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-900 mb-3">Constituent Departments</h2>
+            <p class="text-gray-600">Two departments jointly deliver the Diploma in Civil Engineering programme</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            {dept.sub_departments.map((sub: any) => (
+              <div class="bg-white rounded-2xl p-8 border-2 border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-5">
+                  <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900">{sub.name}</h3>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold">{sub.head.designation}</p>
+                      <p class="text-sm font-semibold text-gray-800">{sub.head.name}</p>
+                    </div>
+                  </div>
+                  {sub.staff && sub.staff.map((member: any) => (
+                    <div class="flex items-start gap-3">
+                      <div class="w-8 h-8 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                      </div>
+                      <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold">{member.designation}</p>
+                        <p class="text-sm font-semibold text-gray-800">{member.name}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Vision & Mission -->
   {deptPrograms.length > 0 && deptPrograms[0].vision && (
     <section class="py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-white">

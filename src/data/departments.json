@@ -5,15 +5,38 @@
     "short_name": "Civil & Applied Mechanics",
     "slug": "civil-applied-mechanics",
     "established": 1984,
+    "website": "https://gppcivil06.wixsite.com/civil",
     "head_of_department": {
       "name": "Mr. D.N. Sheth",
-      "designation": "Head of Department",
+      "designation": "Head of Department (Civil)",
       "email": "devendra_civil@yahoo.com",
       "phone": "8511152511"
     },
     "faculty_count": 13,
     "programs_offered": ["civil"],
-    "overview": "The Civil & Applied Mechanics Department is one of the pioneering departments at GP Palanpur, established in 1984. With a dedicated team of 13 faculty members, the department offers the Diploma in Civil Engineering program. The department is equipped with state-of-the-art laboratories and provides comprehensive education in structural design, construction techniques, and infrastructure development.",
+    "overview": "The Civil Engineering program at GP Palanpur is jointly run by two distinct departments — the Civil Department and the Applied Mechanics Department — both established in 1984. Together they form one of the college's pioneering technical streams, training students in structural design, surveying, construction technology, and applied mechanics. The Civil Department is led by Mr. D.N. Sheth, while the Applied Mechanics Department is headed by Mr. R.J. Patel.",
+    "sub_departments": [
+      {
+        "name": "Civil Department",
+        "head": {
+          "name": "Mr. D.N. Sheth",
+          "designation": "Head of Department"
+        }
+      },
+      {
+        "name": "Applied Mechanics Department",
+        "head": {
+          "name": "Mr. R.J. Patel",
+          "designation": "Head of Department"
+        },
+        "staff": [
+          {
+            "name": "Mr. Jignesh N. Chaudhary",
+            "designation": "Lecturer"
+          }
+        ]
+      }
+    ],
     "laboratories": [
       {
         "name": "Concrete Technology Lab",
