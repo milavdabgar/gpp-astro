@@ -1,0 +1,340 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+const notices = [
+  { title: "NOTICE – Digital Gujarat Scholarship (SEBC/SC) Remaining Year 2024-25", link: "https://drive.google.com/file/d/1mxFw9s1148JYSVa93NO_Pd83NgWCFxeH/view?usp=drive_link" },
+  { title: "NOTICE – Digital Gujarat Scholarship (ST) Remaining Year 2024-25", link: "https://drive.google.com/file/d/1XPQvW1fGoMEAya8qyevMuy7tms694xvP/view?usp=sharing" },
+  { title: "NOTICE – Reopen Digital Gujarat Scholarship (SC) Year 2022-23 & 2023-24", link: "https://drive.google.com/file/d/1bYylg7KSNk1fbsS7xD8eM0CgrSMjltVX/view?usp=sharing" },
+  { title: "NOTICE – Digital Gujarat Scholarship 2024-25", link: "https://drive.google.com/file/d/1altZ6JGgWwNR3GMrFgr7E-Ly4oVr9Zp_/view?usp=sharing" },
+  { title: "NOTICE – AICTE Swanath Scholarship 2024-25", link: "https://drive.google.com/file/d/1WXrzccfvTXaiMMzlF2KOilmREzh_ndOs/view?usp=sharing" },
+  { title: "NOTICE – AICTE Saksham Scholarship 2024-25", link: "https://drive.google.com/file/d/1UelxXIthYqzHXExnZfwpivhgP6-YxihO/view?usp=sharing" },
+  { title: "NOTICE – AICTE Pragati Scholarship 2024-25", link: "https://drive.google.com/file/d/1pGI8_K9BPww25NZA2uSS9gntLI_btGNk/view?usp=sharing" },
+  { title: "FEE COLLECTION NOTICE – Summer 2024", link: "https://drive.google.com/file/d/1OUjAAyBJBjTXm7kr0_-GGe0oCpnAKeGU/view?usp=sharing" },
+];
+
+const services = [
+  {
+    title: "Registration for New Admission",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
+    color: "blue",
+    items: [
+      { label: "Registration Form (First Year / C2D Students)", link: "https://forms.gle/JmYT5GzpsvEEqtEt7", type: "form" },
+    ],
+    note: "Submit copies of: Information letter, Admission slip, Bank challan, 10th marksheet/ITI marksheet, School Leaving Certificate, Income & Caste certificates, Aadhaar card.",
+  },
+  {
+    title: "Admission Cancellation",
+    icon: "M6 18L18 6M6 6l12 12",
+    color: "red",
+    items: [
+      { label: "GTU Circular for Admission Cancellation", link: "https://drive.google.com/file/d/1lzV4pqeApTIRHFpGqPihvsZlZnbN2RSy/view?usp=sharing" },
+      { label: "NOC for Admission Cancellation", link: "https://drive.google.com/file/d/1jBfuVjQarA-Sg-bMEfdjBXaYg0p1sBlO/view?usp=sharing" },
+      { label: "Form for Admission Cancellation", link: "https://drive.google.com/file/d/18FeAEK82RQMTed43FFqcokaFJB5Xcdn-/view?usp=sharing" },
+    ],
+  },
+  {
+    title: "Fees Payment",
+    icon: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z",
+    color: "green",
+    items: [
+      { label: "GP Palanpur Online Fees Payment", link: "https://www.eduqfix.com/PayDirect/#/student/pay/T+UXk6Ps00A4wRF7ONmEmOM+AYwDcJ1AUvyWwVbMdDjQhH+5T4mWmHpGmYz+AdEo/1881", type: "external" },
+      { label: "Application for Refund of Fees", link: "https://drive.google.com/file/d/18I_xAmQCIiUmghTvDMnzEwN0XhiWWG1V/view?usp=sharing" },
+      { label: "Student Fee Payment Request – Semester Fee", link: "https://drive.google.com/file/d/1OzfrwNpK9sfywHletyKFl1sPmjhL-oyA/view?usp=sharing" },
+    ],
+  },
+  {
+    title: "Scholarship",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    color: "yellow",
+    items: [
+      { label: "Notice – Digital Gujarat Scholarship 2025-26", link: "https://drive.google.com/file/d/1cOiiDuK1zzd4q4y-FFGZVuN-btJxpfGw/view?usp=sharing" },
+      { label: "Guideline for Scholarship Form Filling on Digital Gujarat", link: "https://drive.google.com/file/d/1WsBC1m8CnkoDwy7ij4oQ4ivQl2YNw1C-/view?usp=sharing" },
+      { label: "Guideline for Scholarship – SEBC Students 2025-26", link: "https://drive.google.com/file/d/1EuE5L4O7McAbSRN_tbu4n_k5tlx02UiN/view?usp=sharing" },
+      { label: "Self Declaration for Scholarship", link: "https://drive.google.com/file/d/1y6inVtSQ5a0qo-CFD0ly5L_evuO0m0et/view?usp=sharing" },
+    ],
+    more: "/admissions/scholarship",
+  },
+  {
+    title: "Bonafide / Character Certificate",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    color: "indigo",
+    items: [
+      { label: "Application Form for Bonafide / Character Certificate", link: "https://drive.google.com/file/d/1wmReIlQpy-_VSQNz5S0XyMHTRImbKl8A/view?usp=sharing" },
+    ],
+    note: "Steps: (1) Download & fill form → (2) Attach self-attested proofs → (3) Submit to Student Section. Ready in 2 working days. Required docs: Dept. head counter-signature, college I-card copy, term fee receipt, last marksheet.",
+  },
+  {
+    title: "Institute Transfer",
+    icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
+    color: "purple",
+    items: [
+      { label: "Form for Institute Transfer (Namnoo 1)", link: "https://drive.google.com/file/d/1pFiZureFQvbuLQXut9399cdF7eCx_qaD/view?usp=sharing" },
+      { label: "G to G Institute Transfer Manual", link: "https://drive.google.com/file/d/1pCvY8BMt30vXGw4lBkFN7Mw8REsC1cO1/view?usp=sharing" },
+    ],
+    note: "Transfer is permitted in 3 situations: (1) Death of parent after 1st year admission, (2) Medical board recommendation for change of place, (3) Mutual transfer between same branch/semester students in two govt. colleges. Apply: 1 Aug – 15 Sept.",
+  },
+  {
+    title: "I-Card",
+    icon: "M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2",
+    color: "teal",
+    items: [
+      { label: "Application for Duplicate I-Card", link: "https://drive.google.com/file/d/1krQFWKkTlUd7cs8xD272ZpR14ux-nCD9/view?usp=sharing" },
+      { label: "Student I-Card Format", link: "https://drive.google.com/file/d/16G81LGy9scuWYhzFxcibcEl9Z64Mhy2i/view?usp=sharing" },
+      { label: "Faculty / Staff I-Card Format", link: "https://drive.google.com/file/d/1jfHaOxz1kkrls-qfOG2_ceOSjIqTOrKU/view?usp=sharing" },
+    ],
+  },
+  {
+    title: "Transcript",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    color: "gray",
+    items: [
+      { label: "GTU Student Portal (transcript application)", link: "https://www.student.gtu.ac.in/Login.aspx", type: "external" },
+      { label: "TEB Registration for Documents", link: "http://www.teb.cteguj.in/", type: "external" },
+      { label: "TEB Student Information", link: "https://teb.gujarat.gov.in/student-information", type: "external" },
+      { label: "Guideline to Get Academic Documents from TEB", link: "https://drive.google.com/file/d/17IwhhdVGqmq-6tXVYdDQ4U9PCWS3B7V1/view?usp=sharing" },
+      { label: "TEB Instruction Sheet", link: "https://drive.google.com/file/d/1LLR59vgkg8uQzA1aAxag-3eEhJa2zTHC/view?usp=sharing" },
+    ],
+    note: "GTU students: apply on GTU portal (non-passout students need bonafide cert first). TEB students: register on teb.cteguj.in.",
+  },
+];
+
+const gtuLinks = [
+  { label: "GTU Student Corner", link: "https://www.gtu.ac.in/StudentCorner.aspx" },
+  { label: "GTU Student Grade History", link: "https://www.students.gtu.ac.in/Default.aspx" },
+  { label: "GTU Student Result", link: "https://www.gtu.ac.in/result.aspx" },
+  { label: "GTU Convocation", link: "https://www.gtu.ac.in/ConvocationLIst.aspx" },
+  { label: "GTU Diploma Syllabus", link: "https://www.gtu.ac.in/syllabus.aspx?STypeId=4&SType=Diploma+Engineering" },
+  { label: "GTU Procedure for Duplicate Marksheet / Certificate", link: "https://drive.google.com/file/d/1Bp80lBTTEvy6g2wk1saXhWc87khgflCi/view?usp=sharing" },
+];
+
+const colorMap: Record<string, { bg: string; icon: string; badge: string }> = {
+  blue:   { bg: "bg-blue-50 border-blue-200",   icon: "bg-blue-600",   badge: "bg-blue-100 text-blue-700" },
+  red:    { bg: "bg-red-50 border-red-200",     icon: "bg-red-600",    badge: "bg-red-100 text-red-700" },
+  green:  { bg: "bg-green-50 border-green-200", icon: "bg-green-600",  badge: "bg-green-100 text-green-700" },
+  yellow: { bg: "bg-amber-50 border-amber-200", icon: "bg-amber-500",  badge: "bg-amber-100 text-amber-700" },
+  indigo: { bg: "bg-indigo-50 border-indigo-200",icon: "bg-indigo-600",badge: "bg-indigo-100 text-indigo-700" },
+  purple: { bg: "bg-purple-50 border-purple-200",icon: "bg-purple-600",badge: "bg-purple-100 text-purple-700" },
+  teal:   { bg: "bg-teal-50 border-teal-200",   icon: "bg-teal-600",   badge: "bg-teal-100 text-teal-700" },
+  gray:   { bg: "bg-gray-50 border-gray-200",   icon: "bg-gray-600",   badge: "bg-gray-100 text-gray-700" },
+};
+---
+
+<Layout title="Student Section | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>&rsaquo;</span>
+        <span class="text-gray-900 font-medium">Student Section</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <div class="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-1 rounded-full mb-4">Administrative Services</div>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Student Section</h1>
+          <p class="text-lg text-gray-600 mb-6">
+            The Student Section assists students for all institute-related activities — admissions, fee payment, examinations, scholarships, anti-ragging, grievance redressal, and certification.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="/student-section/notice-board" class="bg-primary text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm">Notice Board</a>
+            <a href="/student-section/results" class="border border-primary text-primary px-5 py-2.5 rounded-lg font-semibold hover:bg-primary/5 transition-colors text-sm">Academic Results</a>
+            <a href="/student-section/grievance" class="border border-gray-300 text-gray-700 px-5 py-2.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm">Grievance</a>
+          </div>
+        </div>
+        <div class="w-40 h-40 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-20 h-20 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="py-12 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">What the Student Section Does</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {[
+          "Student admission and cancellation",
+          "Collection of semester / exam fees",
+          "Enrolment with GTU",
+          "Issuance of academic certificates and grade cards",
+          "Education document verification",
+          "Scholarship activities for OBC, SC & ST students",
+          "Issuance of Smart I-Cards to enrolled students",
+          "Certify public transport concessional pass forms",
+          "NAMO E-Tablet for first-year students",
+          "Student grievance review and student affairs",
+          "Student transfer related activities",
+        ].map(item => (
+          <div class="flex items-start gap-3 bg-gray-50 rounded-xl px-4 py-3">
+            <div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <p class="text-gray-700 text-sm">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Notices -->
+  <section class="py-14 bg-amber-50 border-b border-amber-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">Latest Notices</h2>
+        <a href="/student-section/notice-board" class="text-sm text-primary font-medium hover:underline">View all →</a>
+      </div>
+      <div class="space-y-2">
+        {notices.map((n, i) => (
+          <a href={n.link} target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-amber-100 hover:border-amber-300 hover:shadow-sm transition-all">
+            {i === 0 && <span class="text-xs font-bold bg-red-100 text-red-700 rounded-full px-2 py-0.5 flex-shrink-0">New</span>}
+            <svg class="w-4 h-4 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span class="text-sm text-gray-800 hover:text-primary">{n.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Forms -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Student Services & Forms</h2>
+      <p class="text-gray-500 mb-8 text-sm">Download forms and follow procedures for all student section services.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {services.map(svc => {
+          const c = colorMap[svc.color] || colorMap.gray;
+          return (
+            <div class={`rounded-2xl border p-6 ${c.bg}`}>
+              <div class="flex items-center gap-3 mb-4">
+                <div class={`w-10 h-10 ${c.icon} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svc.icon}/>
+                  </svg>
+                </div>
+                <h3 class="font-bold text-gray-900">{svc.title}</h3>
+              </div>
+              {svc.note && (
+                <p class="text-xs text-gray-600 bg-white/70 rounded-lg px-3 py-2 mb-3 leading-relaxed">{svc.note}</p>
+              )}
+              <ul class="space-y-2">
+                {svc.items.map(item => (
+                  <li>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 text-sm text-gray-700 hover:text-primary transition-colors">
+                      <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {item.type === 'external' ? (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        ) : item.type === 'form' ? (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        ) : (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        )}
+                      </svg>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              {svc.more && (
+                <a href={svc.more} class="inline-block mt-3 text-xs font-semibold text-primary hover:underline">View full scholarship info →</a>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- GTU Student Corner -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">GTU Student Corner</h2>
+      <p class="text-gray-500 text-sm mb-6">Quick access to GTU portals for results, syllabus, convocation, and more.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {gtuLinks.map(link => (
+          <a href={link.link} target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-gray-200 hover:border-primary hover:shadow-sm transition-all">
+            <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span class="text-sm font-medium text-gray-800">{link.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Calendar + Anti Ragging + NBA -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Academic Calendar -->
+        <div class="bg-sky-50 border border-sky-200 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-3">Academic Calendar & Time Table</h3>
+          <div class="space-y-2">
+            <a href="https://www.gtu.ac.in/AcademicCal.aspx" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-gray-700 hover:text-primary">
+              <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              GTU Academic Calendar
+            </a>
+            <a href="/admissions/calendar" class="flex items-center gap-2 text-sm text-gray-700 hover:text-primary">
+              <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Institute Academic Calendar
+            </a>
+          </div>
+        </div>
+
+        <!-- Anti Ragging -->
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-3">Anti-Ragging</h3>
+          <p class="text-xs text-gray-600 mb-3">Ragging in any form is a punishable offence. Report any incidents immediately.</p>
+          <a href="https://www.antiragging.in" target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2 text-sm font-semibold text-red-700 hover:underline">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            antiragging.in – Report Here
+          </a>
+        </div>
+
+        <!-- NBA / Accreditation -->
+        <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-3">NBA Accreditation</h3>
+          <div class="space-y-2">
+            <a href="https://drive.google.com/file/d/1LM8qOrY7ox7UbOVpcDdo_B9E0cgPqjy7/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-gray-700 hover:text-primary">
+              <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              GPP Accreditation 2021-22
+            </a>
+            <a href="https://drive.google.com/file/d/1hC4qpnJURjIFtTgOmHt6jOL8uwC3qd6C/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-gray-700 hover:text-primary">
+              <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              GPP Accreditation 2024-25
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

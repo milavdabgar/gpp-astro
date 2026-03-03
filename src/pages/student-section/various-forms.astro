@@ -9,6 +9,8 @@ interface Form {
   description: string;
   category: string;
   doc?: string | null;
+  link?: string;
+  linkLabel?: string;
   note?: string;
 }
 
@@ -18,26 +20,45 @@ const forms: Form[] = [
   { name: "Late Admission Application", description: "Application for seeking late admission when joining after regular admission period.", category: "Academic", doc: null },
   { name: "Subject Change Request", description: "Form to request change of elective subject at the start of semester.", category: "Academic", doc: null },
   { name: "TC / Migration Certificate Request", description: "Apply for Transfer Certificate or Migration Certificate after passing out or leaving the institute.", category: "Academic", doc: null },
-  { name: "Duplicate Marksheet / Certificate Request", description: "Form to apply for duplicate or certified copy of marksheet or certificate.", category: "Academic", doc: null },
+  { name: "Duplicate Marksheet / Certificate Request", description: "Apply for duplicate or certified copy of marksheet or certificate from GTU. See the official procedure PDF for step-by-step instructions.", category: "Academic", doc: "https://drive.google.com/file/d/1Bp80lBTTEvy6g2wk1saXhWc87khgflCi/view?usp=sharing" },
+  { name: "Bonafide / Character Certificate", description: "Download the application form for bonafide or character certificate from the student section.", category: "Academic", doc: "https://drive.google.com/file/d/1wmReIlQpy-_VSQNz5S0XyMHTRImbKl8A/view?usp=sharing" },
+  { name: "Self Declaration for Scholarship (Bonafide)", description: "Self-declaration form required along with bonafide certificate for scholarship applications.", category: "Academic", doc: "https://drive.google.com/file/d/1y6inVtSQ5a0qo-CFD0ly5L_evuO0m0et/view?usp=sharing" },
 
   // Financial
-  { name: "Fee Concession / Scholarship Application", description: "Application for fee concession, tuition fee waiver, or state scholarship.", category: "Financial", link: "/admissions/scholarship", doc: null },
+  { name: "Fee Concession / Scholarship Application", description: "Application for fee concession, tuition fee waiver, or state scholarship.", category: "Financial", link: "/admissions/scholarship", linkLabel: "View Scholarships" },
+  { name: "Digital Gujarat Scholarship Notice 2025-26", description: "Official notice and form-filling guideline for Digital Gujarat scholarship for 2025-26.", category: "Financial", doc: "https://drive.google.com/file/d/1cOiiDuK1zzd4q4y-FFGZVuN-btJxpfGw/view?usp=sharing" },
+  { name: "Scholarship Form-Filling Guideline", description: "Step-by-step guideline for filling in the Digital Gujarat scholarship application form.", category: "Financial", doc: "https://drive.google.com/file/d/1WsBC1m8CnkoDwy7ij4oQ4ivQl2YNw1C-/view?usp=sharing" },
+  { name: "SEBC Scholarship Guideline 2025-26", description: "Guideline document for SEBC category scholarship applicants for the year 2025-26.", category: "Financial", doc: "https://drive.google.com/file/d/1EuE5L4O7McAbSRN_tbu4n_k5tlx02UiN/view?usp=sharing" },
+  { name: "Fee Refund Application", description: "Apply for fee refund in case of admission cancellation or category change.", category: "Financial", doc: "https://drive.google.com/file/d/18I_xAmQCIiUmghTvDMnzEwN0XhiWWG1V/view?usp=sharing" },
+  { name: "Semester Fee Request Form", description: "Use this form to request a semester fee payment schedule or clarification.", category: "Financial", doc: "https://drive.google.com/file/d/1OzfrwNpK9sfywHletyKFl1sPmjhL-oyA/view?usp=sharing" },
   { name: "Free Studentship Application", description: "Apply for free studentship benefit for eligible SC/ST/OBC and economically weaker students.", category: "Financial", doc: null },
-  { name: "NSP (National Scholarship Portal) Registration", description: "Guide and form for applying on NSP for central/state scholarship schemes.", category: "Financial", doc: null },
+
+  // Admission
+  { name: "Admission Cancellation Application", description: "Form to apply for cancellation of admission. Also requires NOC from the institute.", category: "Admission", doc: "https://drive.google.com/file/d/18FeAEK82RQMTed43FFqcokaFJB5Xcdn-/view?usp=sharing" },
+  { name: "Admission Cancellation NOC Form", description: "No-Objection Certificate form required as part of admission cancellation process.", category: "Admission", doc: "https://drive.google.com/file/d/1jBfuVjQarA-Sg-bMEfdjBXaYg0p1sBlO/view?usp=sharing" },
+  { name: "GTU Circular — Admission Cancellation", description: "Official GTU circular describing the admission cancellation rules and procedure.", category: "Admission", doc: "https://drive.google.com/file/d/1lzV4pqeApTIRHFpGqPihvsZlZnbN2RSy/view?usp=sharing" },
+  { name: "Institute Transfer Form (Namnoo 1)", description: "Form for government-to-government (G to G) institute transfer. Apply between 1 Aug – 15 Sept.", category: "Admission", doc: "https://drive.google.com/file/d/1pFiZureFQvbuLQXut9399cdF7eCx_qaD/view?usp=sharing" },
+  { name: "G to G Transfer Manual", description: "Detailed manual explaining the government-to-government institute transfer procedure and eligibility.", category: "Admission", doc: "https://drive.google.com/file/d/1pCvY8BMt30vXGw4lBkFN7Mw8REsC1cO1/view?usp=sharing" },
+  { name: "New Admission Registration Form", description: "Google Form for registering documents at the time of new admission. Required docs: Info letter, Admission slip, Bank challan, Marksheet, SLC, Caste & Income cert, Aadhaar.", category: "Admission", link: "https://forms.gle/JmYT5GzpsvEEqtEt7", linkLabel: "Open Form" },
+
+  // I-Card
+  { name: "Duplicate I-Card Application", description: "Apply for a duplicate identity card if yours is lost, damaged, or expired.", category: "I-Card", doc: "https://drive.google.com/file/d/1krQFWKkTlUd7cs8xD272ZpR14ux-nCD9/view?usp=sharing" },
+  { name: "Student I-Card Format", description: "Standard format / template used for printing student identity cards.", category: "I-Card", doc: "https://drive.google.com/file/d/16G81LGy9scuWYhzFxcibcEl9Z64Mhy2i/view?usp=sharing" },
+  { name: "Faculty / Staff I-Card Format", description: "Standard format used for faculty and staff identity cards.", category: "I-Card", doc: "https://drive.google.com/file/d/1jfHaOxz1kkrls-qfOG2_ceOSjIqTOrKU/view?usp=sharing" },
 
   // Student Affairs
-  { name: "Anti-Ragging Undertaking", description: "Mandatory anti-ragging declaration to be signed by student and parents at the time of admission.", category: "Student Affairs", doc: null, note: "Mandatory at admission" },
+  { name: "Anti-Ragging Undertaking", description: "Mandatory anti-ragging declaration to be signed by student and parents at the time of admission. Available at www.antiragging.in.", category: "Student Affairs", link: "https://www.antiragging.in", linkLabel: "Visit Portal", note: "Mandatory at admission" },
   { name: "Students' Council Nomination Form", description: "Form for nominating candidates for student body elections as per GTU norms.", category: "Student Affairs", doc: null },
   { name: "Industry Visit / Field Trip Permission Form", description: "Application for permission to attend industrial visit or educational trip.", category: "Student Affairs", doc: null },
   { name: "Event Participation Permission Form", description: "Form to obtain permission to represent the college in external events, competitions.", category: "Student Affairs", doc: null },
 
   // Grievance
-  { name: "Grievance Redressal Form", description: "Submit academic or non-academic grievances through the official grievance committee.", category: "Grievance", link: "/student-section/grievance", doc: null },
-  { name: "Anti-Ragging Complaint Form", description: "Submit a complaint regarding ragging incidents to the Anti-Ragging Committee.", category: "Grievance", doc: null },
+  { name: "Grievance Redressal Form", description: "Submit academic or non-academic grievances through the official grievance committee.", category: "Grievance", link: "/student-section/grievance", linkLabel: "Submit Grievance" },
+  { name: "Anti-Ragging Complaint Form", description: "Submit a complaint regarding ragging incidents to the Anti-Ragging Committee.", category: "Grievance", link: "https://www.antiragging.in", linkLabel: "File Complaint" },
 
   // Hostel
   { name: "Hostel Admission Form (Girls)", description: "Application for admission to the girls' hostel on campus.", category: "Hostel", doc: null },
-  { name: "Hostel Temporary Exit Permission", description: "Form for hostel students to seek permission e for temporary exits/outings.", category: "Hostel", doc: null },
+  { name: "Hostel Temporary Exit Permission", description: "Form for hostel students to seek permission for temporary exits/outings.", category: "Hostel", doc: null },
 ];
 
 const categories = [...new Set(forms.map((f) => f.category))];
@@ -45,6 +66,8 @@ const categories = [...new Set(forms.map((f) => f.category))];
 const catColors: Record<string, string> = {
   Academic: "bg-blue-100 text-blue-700",
   Financial: "bg-green-100 text-green-700",
+  Admission: "bg-cyan-100 text-cyan-700",
+  "I-Card": "bg-indigo-100 text-indigo-700",
   "Student Affairs": "bg-purple-100 text-purple-700",
   Grievance: "bg-red-100 text-red-700",
   Hostel: "bg-orange-100 text-orange-700",
@@ -52,6 +75,8 @@ const catColors: Record<string, string> = {
 const catBg: Record<string, string> = {
   Academic: "border-blue-200 bg-blue-50",
   Financial: "border-green-200 bg-green-50",
+  Admission: "border-cyan-200 bg-cyan-50",
+  "I-Card": "border-indigo-200 bg-indigo-50",
   "Student Affairs": "border-purple-200 bg-purple-50",
   Grievance: "border-red-200 bg-red-50",
   Hostel: "border-orange-200 bg-orange-50",
@@ -112,11 +137,18 @@ const catBg: Record<string, string> = {
                     <p class="text-xs text-gray-600 leading-relaxed">{form.description}</p>
                   </div>
                   {form.doc ? (
-                    <a href={form.doc} class="flex-shrink-0 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline">
+                    <a href={form.doc} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                       </svg>
                       Download
+                    </a>
+                  ) : form.link ? (
+                    <a href={form.link} target={form.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" class="flex-shrink-0 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                      {form.linkLabel ?? "Open"}
                     </a>
                   ) : (
                     <span class="flex-shrink-0 text-xs text-gray-400 italic whitespace-nowrap">At office</span>
