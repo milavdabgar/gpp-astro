@@ -4,68 +4,85 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import AnnouncementTicker from '../components/AnnouncementTicker.astro';
 
+const buildings = [
+  { name: "Main Building",    area: "4,524 sqm", use: "Civil, Electrical departments — classrooms, labs, faculty offices, admin block" },
+  { name: "Workshop",         area: "1,479 sqm", use: "Mechanical workshop — Machine Lab-1 & 2, Smithy, Fitter, Carpentry" },
+  { name: "BADP Building",    area: "2,056 sqm", use: "EC, ICT, IT departments — Electronics Lab, Communication Lab, Computer Labs" },
+  { name: "LRUC Building",    area: "1,038 sqm", use: "Library, Reading Room, Common Rooms, Student facilities" },
+  { name: "Mechanical Block", area: "4,872 sqm", use: "Mechanical dept — Thermal, CAD/CAMD, Theory of Machines, ED&MD, Physics & General labs" },
+];
+
 const sections = [
   {
     title: "Academic Buildings",
     icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
     items: [
-      { name: "Main Academic Block", detail: "Classrooms and faculty offices for all 5 departments" },
-      { name: "Lecture Halls", detail: "60-seat and 90-seat air-cooled lecture rooms with projectors" },
-      { name: "Seminar Hall", detail: "392 sqm air-conditioned seminar hall for events, guest lectures, and placement drives" },
-      { name: "Administration Block", detail: "Principal's office, accounts, admission, and examination cells" },
+      { name: "Classrooms (22)",         detail: "22 classrooms totalling 1,223.75 sqm; all equipped with projectors and adequate seating" },
+      { name: "Drawing Halls (3)",        detail: "3 drawing halls totalling 275.45 sqm; spacious rooms for engineering graphics and design work" },
+      { name: "Seminar / AV Hall (1)",    detail: "Audio-visual seminar hall of 325 sqm for guest lectures, placement drives, and events" },
+      { name: "Administration Block",     detail: "1,132 sqm of administrative area: Principal's office, accounts, admissions, and examination cells" },
     ],
   },
   {
     title: "Laboratories",
     icon: "M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18",
     items: [
-      { name: "Civil Engineering Labs", detail: "Concrete, Soil Mechanics, Surveying, and Material Testing" },
-      { name: "Electrical Engineering Labs", detail: "Electrical Machines, Power Electronics, and Measurement labs" },
-      { name: "Mechanical Engineering Labs", detail: "Workshop, Fluid Mechanics, Thermodynamics, and CAD lab" },
-      { name: "EC Engineering Labs", detail: "Digital Electronics, Embedded Systems, and Communication labs" },
-      { name: "Computer/IT Labs", detail: "Networked computer labs with 231 student PCs, 200 Mbps internet access" },
-      { name: "Language Laboratory", detail: "76 sqm air-conditioned language lab with 20 PCs for communication skill development" },
+      { name: "Civil & Applied Mechanics (8 labs)", detail: "Material Testing, Concrete Technology, Soil Mechanics, Survey, Hydraulics, Transportation, Water Supply & Sanitary Engg., Computer Lab" },
+      { name: "Electrical Engineering (6 labs)",    detail: "Electrical Power Lab, Electrical Machine Lab-1 & 2, Electronics Lab, Computer Lab, Electrical Workshop & Project Lab" },
+      { name: "Mechanical Engineering (12 labs)",   detail: "Thermal Engg 1&2/BME, FMHM/M&I, CAD-CAMD, Machine Lab-1 & 2, Smithy, Fitter, Carpentry, Theory of Machines, ED&MD, Manufacturing Systems, Design of Mechanical Elements" },
+      { name: "EC / ICT / IT (10 labs)",            detail: "Electronics Lab, Workshop Lab, Communication Lab, Digital Lab, Computer Lab-1 & 2 (EC); Multimedia Lab, Electronics Lab, Computer Lab, Communication Lab (ICT/IT)" },
+      { name: "Science & General (3 labs)",          detail: "Physics Lab, Chemistry Lab, and Language Lab (76.56 sqm, 20 PCs, standalone)" },
+      { name: "Workshop (1)",                        detail: "Central workshop of 1,478 sqm — woodworking, welding, fitting, smithy, and manufacturing processes" },
     ],
   },
   {
     title: "Library & Learning Resources",
     icon: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
     items: [
-      { name: "Central Library", detail: "22,828 volumes across 4,152 titles — engineering, science, technology, humanities & competitive exams" },
-      { name: "NPTEL / e-Library", detail: "Online access to NPTEL video lectures, 619 e-book volumes (Diploma), and digital portals" },
-      { name: "Reading Room", detail: "150-seat reading room (336 sqm) open 10:30 AM – 6:10 PM; 10 multimedia PCs; NDLI member" },
-      { name: "Newspaper & Magazine Section", detail: "18 Indian journals and daily newspapers; reprographic facility available" },
+      { name: "Central Library",           detail: "22,828 volumes across 4,152 titles — engineering, science, technology, humanities & competitive exams; total cost Rs. 27.4 lakh" },
+      { name: "Reading Room (336 sqm)",    detail: "150-seat reading room open 10:30 AM – 6:10 PM; 10 multimedia PCs; NDLI member (INGJNCR47D4WSDV)" },
+      { name: "Journals & e-Resources",   detail: "7 subscribed journals incl. Inventi Impact series (Civil, Electrical, Mechanical, EC, AI, VLSI) + Electronics for You; 619 e-Books (Diploma)" },
+      { name: "Digital & NPTEL Access",   detail: "NPTEL/SWAYAM video lectures; photocopying facility; computerised library operations; internet access for all users" },
+    ],
+  },
+  {
+    title: "Computer Facilities",
+    icon: "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+    items: [
+      { name: "Student Computer Labs (3)",  detail: "233 PCs exclusively for students across 3 computer centres (total 226.71 sqm); 200 Mbps internet; 4:1 contention ratio" },
+      { name: "Language Lab",              detail: "Standalone language lab: 20 PCs; 76.56 sqm; air-conditioned; communication skills development" },
+      { name: "Library & Admin PCs",       detail: "10 PCs in library for student digital access; 20 PCs in administrative office; 40 PCs for faculty members; 5 student printers" },
+      { name: "Software (14 titles)",       detail: "AutoCAD, CREO Parametric 2018, Revit 2018, STAAD Pro, Scilab, Logisim, Tinkercad, PyCharm, Jupyter, Open Office, 8085GNUSIM, ExpressPCB, Safe, WPL — all open source" },
     ],
   },
   {
     title: "Sports & Recreation",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
     items: [
-      { name: "Cricket Ground", detail: "Full-size cricket ground for inter-department and district matches" },
-      { name: "Volleyball Court", detail: "Outdoor volleyball court for student and staff recreation" },
-      { name: "Badminton Court", detail: "Indoor badminton facility for students and staff" },
-      { name: "Outdoor Play Area", detail: "Multi-use outdoor space for kabaddi, athletics, and other sports" },
+      { name: "Sports Ground (13,950 sqm)", detail: "Full-size multi-sport ground for cricket, athletics, kabaddi, volleyball, and other outdoor sports" },
+      { name: "Volleyball Court",           detail: "Outdoor volleyball court for inter-department and recreational use" },
+      { name: "Badminton Court",            detail: "Indoor badminton facilities for students and staff" },
+      { name: "Common Rooms (2)",           detail: "2 common rooms (166 sqm total) including Girls' Common Room for relaxation and informal gatherings" },
     ],
   },
   {
     title: "Student Welfare",
     icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
     items: [
-      { name: "Boys Hostel (3 Blocks)", detail: "Residential accommodation for male students: 88 rooms across 3 blocks with total capacity of 350" },
-      { name: "Girls Hostel", detail: "Residential accommodation for women students: 16 rooms with capacity of 50" },
-      { name: "Canteen", detail: "Campus canteen providing snacks and meals at subsidised rates" },
-      { name: "Medical First Aid", detail: "First-aid centre on campus with basic medical assistance" },
-      { name: "Drinking Water", detail: "RO-purified drinking water stations across campus" },
+      { name: "Boys Hostel (3 blocks)",   detail: "3 hostel blocks covering 7,256 sqm; 264 sanctioned seats; 24-hr water, electricity, security, warden; gym/sports room" },
+      { name: "Girls Hostel",             detail: "Girls hostel of 1,055 sqm; 48 sanctioned seats; residential warden; fire safety measures; medical first aid on-site" },
+      { name: "Canteen (352 sqm)",        detail: "Campus canteen with nutritious food at subsidised rates; hygienic kitchen; seating for students and staff" },
+      { name: "Other Amenities",          detail: "18 toilet blocks (548 sqm); staff quarters; compound wall; RO/potable water; public address system; medical & counselling facility" },
     ],
   },
   {
-    title: "IT & Connectivity",
-    icon: "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+    title: "Power, Safety & Connectivity",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
     items: [
-      { name: "Internet Connectivity", detail: "200 Mbps dedicated internet; campus-wide Wi-Fi access across academic and hostel blocks" },
-      { name: "100 KW Solar Plant", detail: "Rooftop solar installation generating 91,458 units annually (2024-25); green & sustainable campus" },
-      { name: "CCTV Surveillance", detail: "CCTV cameras at entry points, corridors, and key campus areas" },
-      { name: "Biometric Attendance", detail: "Biometric attendance system for faculty and staff" },
+      { name: "100 KW Solar Plant",         detail: "Rooftop PV plant generating 91,458 units in 2024-25; ~73 tonnes CO₂ avoided annually; green campus initiative" },
+      { name: "Generator Backup (10 kVA)",  detail: "Diesel generator backup for uninterrupted power to labs, classrooms, and critical areas" },
+      { name: "Internet (200 Mbps)",        detail: "200 Mbps dedicated broadband; 4:1 contention ratio; campus-wide Wi-Fi across academic and hostel blocks" },
+      { name: "CCTV & Security",            detail: "CCTV surveillance across classrooms, store rooms, exam control room, library, and entry points; biometric attendance for staff" },
     ],
   },
 ];
@@ -102,17 +119,52 @@ const sections = [
           <div class="text-sm text-white/80 mt-1">Academic Buildings</div>
         </div>
         <div>
-          <div class="text-3xl font-bold text-white">25+</div>
+          <div class="text-3xl font-bold text-white">38</div>
           <div class="text-sm text-white/80 mt-1">Laboratories</div>
         </div>
         <div>
-          <div class="text-3xl font-bold text-white">22,828</div>
-          <div class="text-sm text-white/80 mt-1">Library Volumes</div>
+          <div class="text-3xl font-bold text-white">22,462 sqm</div>
+          <div class="text-sm text-white/80 mt-1">Built-up Area</div>
         </div>
         <div>
-          <div class="text-3xl font-bold text-white">20 acres</div>
+          <div class="text-3xl font-bold text-white">20.36 acres</div>
           <div class="text-sm text-white/80 mt-1">Campus Area</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buildings Table -->
+  <section class="py-10 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Campus Buildings</h2>
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead class="bg-primary/10">
+            <tr>
+              <th class="px-5 py-3 text-left font-semibold text-primary">#</th>
+              <th class="px-5 py-3 text-left font-semibold text-primary">Building</th>
+              <th class="px-5 py-3 text-left font-semibold text-primary">Built-up Area</th>
+              <th class="px-5 py-3 text-left font-semibold text-primary">Primary Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            {buildings.map((b, i) => (
+              <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td class="px-5 py-3 text-gray-400 font-medium">{i + 1}</td>
+                <td class="px-5 py-3 font-semibold text-gray-900">{b.name}</td>
+                <td class="px-5 py-3 text-gray-700 whitespace-nowrap">{b.area}</td>
+                <td class="px-5 py-3 text-gray-600">{b.use}</td>
+              </tr>
+            ))}
+            <tr class="bg-primary/5 border-t-2 border-primary/20">
+              <td class="px-5 py-3"></td>
+              <td class="px-5 py-3 font-bold text-gray-900">Total</td>
+              <td class="px-5 py-3 font-bold text-gray-900">22,462 sqm</td>
+              <td class="px-5 py-3 text-gray-500 text-xs">Total built-up area (Government land, 20.36 acres)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
