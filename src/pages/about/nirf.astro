@@ -1,0 +1,368 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AnnouncementTicker from '../../components/AnnouncementTicker.astro';
+
+// NIRF Ranking Framework for Polytechnic / Engineering
+// Five Parameters with sub-indicators
+
+const parameters = [
+  {
+    code: "TLR",
+    name: "Teaching, Learning & Resources",
+    weight: 30,
+    color: "blue",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+    indicators: [
+      { code: "SS",   name: "Student Strength",                  value: "1,380+ enrolled students across 6 diploma programs" },
+      { code: "FSR",  name: "Faculty-Student Ratio",             value: "1 : ~22 (64 faculty for ~1,380 students)" },
+      { code: "FQE",  name: "Faculty with PhD",                  value: "6 faculty with Ph.D.; 41 with P.G. (Masters) degree" },
+      { code: "FRU",  name: "Financial Resources & Utilisation", value: "100% Grant-in-Aid from Government of Gujarat; RUSA, SSIP, TEQIP funded projects" },
+    ],
+  },
+  {
+    code: "RPC",
+    name: "Research & Professional Practice",
+    weight: 30,
+    color: "purple",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
+    indicators: [
+      { code: "PU",  name: "Publications",             value: "Faculty publications in national/international journals; conference proceedings" },
+      { code: "QP",  name: "Quality of Publications",  value: "UGC-CARE listed journal papers by senior faculty" },
+      { code: "IPR", name: "IPR & Patents",             value: "Patents filed through SSIP cell; Innovation & Design Lab active" },
+      { code: "FPPP",name: "Industry Collaboration",   value: "MoUs with industry; Bosch Industry-Sponsored Lab; TEQIP industry linkages" },
+    ],
+  },
+  {
+    code: "GO",
+    name: "Graduation Outcomes",
+    weight: 20,
+    color: "green",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+    indicators: [
+      { code: "GPH", name: "Ph.D. Students Guidance",        value: "Faculty actively guiding research at affiliated universities" },
+      { code: "GUE", name: "University Examinations",        value: "Consistent GTU result performance; merit holders every semester" },
+      { code: "MS",  name: "Students Graduated Medal/Award", value: "Gold/Silver medalists at GTU Convocation every year" },
+      { code: "RD",  name: "Placement & Higher Education",   value: "171 job offers in 2024 via 14 companies; students pursuing higher studies (B.E./B.Tech)" },
+    ],
+  },
+  {
+    code: "OI",
+    name: "Outreach & Inclusivity",
+    weight: 10,
+    color: "orange",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    indicators: [
+      { code: "RD",  name: "Regional Diversity",      value: "Students from across Banaskantha and North Gujarat district; tribal, SC/ST admissions" },
+      { code: "WD",  name: "Women Diversity",         value: "Women's Hostel; Women Development Cell; Women's Grievance Cell; Women's Helpline 24×7" },
+      { code: "ESCS","name": "Economically Backward", value: "SC/ST/OBC scholarship recipients; NSP (National Scholarship Portal) beneficiaries; MYSY scholarship" },
+      { code: "PwD", name: "Persons with Disability", value: "Ramp access, PwD cell, admissions as per state government reservation policy" },
+    ],
+  },
+  {
+    code: "PR",
+    name: "Perception",
+    weight: 10,
+    color: "pink",
+    icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+    indicators: [
+      { code: "PR",  name: "Peer Perception",        value: "AICTE, GTU, and CTE-Gujarat recognized; consistently preferred polytechnic in North Gujarat" },
+      { code: "NBA", name: "Accreditation Outcomes",  value: "3 NBA-accredited programs (Civil, Electrical, Mechanical) valid 1 Jul 2024 – 30 Jun 2027" },
+    ],
+  },
+];
+
+const keyMetrics = [
+  { label: "Established",         value: "1984",    sub: "41+ years of excellence" },
+  { label: "Total Faculty",       value: "64",      sub: "All AICTE/GTU qualified" },
+  { label: "Faculty with Ph.D",   value: "6",       sub: "and 41 with Masters" },
+  { label: "Annual Intake",       value: "330",     sub: "across 6 programs" },
+  { label: "NBA Accredited",      value: "3",       sub: "programs (2024–2027)" },
+  { label: "Placements (2024)",   value: "171",     sub: "offers from 14 companies" },
+  { label: "Library Volumes",     value: "22,828",  sub: "books across 4,152 titles" },
+  { label: "Campus Area",         value: "20 acres","sub": "with 22,462 sqm built-up" },
+];
+
+const colorMap: Record<string, { bg: string; text: string; light: string; border: string }> = {
+  blue:   { bg: "bg-blue-600",   text: "text-blue-600",   light: "bg-blue-50",   border: "border-blue-200" },
+  purple: { bg: "bg-purple-600", text: "text-purple-600", light: "bg-purple-50", border: "border-purple-200" },
+  green:  { bg: "bg-green-600",  text: "text-green-600",  light: "bg-green-50",  border: "border-green-200" },
+  orange: { bg: "bg-orange-500", text: "text-orange-500", light: "bg-orange-50", border: "border-orange-200" },
+  pink:   { bg: "bg-pink-600",   text: "text-pink-600",   light: "bg-pink-50",   border: "border-pink-200" },
+};
+---
+
+<Layout title="NIRF | Government Polytechnic Palanpur">
+  <Nav />
+  <AnnouncementTicker />
+
+  <!-- Breadcrumb -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-500 flex items-center gap-2">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span>›</span>
+        <a href="/about" class="hover:text-primary transition-colors">About</a>
+        <span>›</span>
+        <span class="text-gray-900 font-medium">NIRF</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary/5 to-blue-50 py-14">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        National Institutional Ranking Framework
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">NIRF — Government Polytechnic Palanpur</h1>
+      <p class="text-gray-600 text-lg">
+        Institutional data submitted under the National Institutional Ranking Framework (NIRF) by the Ministry of Education, Government of India.
+      </p>
+      <p class="text-sm text-gray-500 mt-3">AICTE Permanent ID: 1-429478081 &nbsp;|&nbsp; AISHE Code: C-416 &nbsp;|&nbsp; GTU Institute Code: 626</p>
+    </div>
+  </section>
+
+  <!-- Key Metrics Bar -->
+  <section class="bg-primary py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
+        {keyMetrics.map(m => (
+          <div>
+            <div class="text-xl md:text-2xl font-bold text-white">{m.value}</div>
+            <div class="text-xs text-white/80 mt-0.5">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NIRF About -->
+  <section class="py-10 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <h2 class="text-lg font-bold text-blue-900 mb-2">What is NIRF?</h2>
+        <p class="text-blue-800 text-sm leading-relaxed">
+          The National Institutional Ranking Framework (NIRF) was approved by the Ministry of Education, Govt of India in 2015.
+          It ranks institutions across India based on five broad parameters: Teaching, Learning & Resources (TLR); Research & Professional Practice (RPC);
+          Graduation Outcomes (GO); Outreach & Inclusivity (OI); and Perception (PR). Government Polytechnic Palanpur participates in NIRF as part of
+          its commitment to transparency, quality assurance, and continuous improvement of technical education.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-3">
+          <a href="https://www.nirfindia.org" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 hover:text-blue-900 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            NIRF Official Portal
+          </a>
+          <a href="/about/mandatory-disclosure" class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 hover:text-blue-900 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Mandatory Disclosure
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIRF Parameters -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">NIRF Ranking Parameters</h2>
+      <p class="text-gray-500 text-center mb-10 text-sm">Our institutional data mapped to each of the five NIRF parameters</p>
+
+      <div class="space-y-8">
+        {parameters.map(param => {
+          const c = colorMap[param.color];
+          return (
+            <div class={`border ${c.border} rounded-xl overflow-hidden shadow-sm`}>
+              <!-- Parameter Header -->
+              <div class={`${c.light} ${c.border} border-b px-6 py-4 flex items-center gap-4`}>
+                <div class={`w-12 h-12 ${c.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={param.icon}/>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 flex-wrap">
+                    <span class={`text-xs font-bold ${c.text} bg-white px-2 py-0.5 rounded-full border ${c.border}`}>{param.code}</span>
+                    <h3 class="font-bold text-gray-900 text-lg">{param.name}</h3>
+                  </div>
+                  <p class="text-xs text-gray-500 mt-0.5">Weightage: {param.weight}%</p>
+                </div>
+              </div>
+              <!-- Indicators -->
+              <div class="bg-white divide-y divide-gray-100">
+                {param.indicators.map(ind => (
+                  <div class="px-6 py-4 flex items-start gap-4">
+                    <div class={`mt-0.5 w-8 h-8 ${c.light} rounded-lg flex items-center justify-center flex-shrink-0 text-xs font-bold ${c.text}`}>
+                      {ind.code}
+                    </div>
+                    <div>
+                      <p class="text-sm font-semibold text-gray-800">{ind.name}</p>
+                      <p class="text-sm text-gray-600 mt-0.5">{ind.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Data Tables -->
+  <section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Institutional Data — At a Glance</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Faculty Data -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-primary/10 px-5 py-3 border-b border-gray-200">
+            <h3 class="font-bold text-primary text-sm uppercase tracking-wide">Faculty & Staff</h3>
+          </div>
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ["Total Faculty",              "64"],
+                ["Faculty with Ph.D.",         "6"],
+                ["Faculty with Masters (P.G.)", "41"],
+                ["Faculty with B.E./B.Tech",   "17"],
+                ["Regular Faculty",            "As per sanctioned posts"],
+                ["Contract/Guest Faculty",     "Appointed as needed"],
+                ["Faculty Cadre",              "Lecturer (Polytechnic)"],
+                ["Pay Scale",                  "6th Pay Commission, Govt. Gujarat"],
+              ].map(([k, v], i) => (
+                <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <td class="px-4 py-2.5 text-gray-600 w-1/2 border-r border-gray-100">{k}</td>
+                  <td class="px-4 py-2.5 text-gray-900 font-medium">{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Student Data -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-primary/10 px-5 py-3 border-b border-gray-200">
+            <h3 class="font-bold text-primary text-sm uppercase tracking-wide">Student Enrollment</h3>
+          </div>
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ["Total Annual Intake",         "330"],
+                ["Civil Engineering",           "90 (since 1984)"],
+                ["Electrical Engineering",      "60 (since 1984)"],
+                ["Mechanical Engineering",      "60 (since 1988)"],
+                ["Electronics & Comm.",         "30 (since 1994)"],
+                ["ICT",                         "60 (since 2022)"],
+                ["Information Technology",      "30 (since 2023)"],
+                ["Reservation Policy",          "As per Gujarat Govt norms"],
+              ].map(([k, v], i) => (
+                <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <td class="px-4 py-2.5 text-gray-600 w-1/2 border-r border-gray-100">{k}</td>
+                  <td class="px-4 py-2.5 text-gray-900 font-medium">{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-primary/10 px-5 py-3 border-b border-gray-200">
+            <h3 class="font-bold text-primary text-sm uppercase tracking-wide">Infrastructure</h3>
+          </div>
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ["Campus Area",           "20 acres (Government land)"],
+                ["Built-up Area",         "22,462 sqm"],
+                ["Academic Buildings",    "5"],
+                ["Classrooms",            "22"],
+                ["Drawing Halls",         "3"],
+                ["Laboratories",          "25+ (across all departments)"],
+                ["Seminar Hall",          "1 (392 sqm, AC)"],
+                ["Computer Labs",         "3 (231 student PCs)"],
+                ["Boys Hostel",           "3 blocks, 350 capacity"],
+                ["Girls Hostel",          "1 block, 50 capacity"],
+                ["Solar Plant",           "100 KW rooftop"],
+                ["Internet",              "200 Mbps"],
+              ].map(([k, v], i) => (
+                <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <td class="px-4 py-2.5 text-gray-600 w-1/2 border-r border-gray-100">{k}</td>
+                  <td class="px-4 py-2.5 text-gray-900 font-medium">{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Outcomes & Accreditation -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-primary/10 px-5 py-3 border-b border-gray-200">
+            <h3 class="font-bold text-primary text-sm uppercase tracking-wide">Outcomes & Accreditation</h3>
+          </div>
+          <table class="w-full text-sm">
+            <tbody>
+              {[
+                ["NBA Accredited Programs",    "3 (Civil, Electrical, Mechanical)"],
+                ["NBA Validity",               "1 Jul 2024 – 30 Jun 2027"],
+                ["AICTE Approved Since",       "15 Feb 1994"],
+                ["GTU Affiliated Since",       "2008 (Code: 626)"],
+                ["Placement Offers (2024)",    "171 offers, 14 companies"],
+                ["Library Volumes",            "22,828 (4,152 titles)"],
+                ["e-Books",                    "619 (Diploma series)"],
+                ["NDLI Membership",            "INGJNCR47D4WSDV"],
+              ].map(([k, v], i) => (
+                <tr class={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <td class="px-4 py-2.5 text-gray-600 w-1/2 border-r border-gray-100">{k}</td>
+                  <td class="px-4 py-2.5 text-gray-900 font-medium">{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download / Portal Links -->
+  <section class="py-10 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-xl font-bold text-gray-900 mb-4 text-center">Related Documents & Links</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { label: "NIRF Official Portal",       href: "https://www.nirfindia.org",              ext: true  },
+          { label: "AICTE Portal",               href: "https://www.aicte-india.org",            ext: true  },
+          { label: "GTU Portal",                 href: "https://www.gtu.ac.in",                  ext: true  },
+          { label: "Mandatory Disclosure",        href: "/about/mandatory-disclosure",            ext: false },
+          { label: "NBA Accreditation",           href: "/about/nba-accreditation",              ext: false },
+          { label: "AICTE EoA Letters",           href: "/admissions/aicte-eoa",                 ext: false },
+        ].map(link => (
+          <a
+            href={link.href}
+            target={link.ext ? "_blank" : "_self"}
+            rel={link.ext ? "noopener" : ""}
+            class="flex items-center gap-3 p-4 border border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-colors group"
+          >
+            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {link.ext
+                  ? <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  : <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                }
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors">{link.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
