@@ -156,6 +156,60 @@ const colorMap: Record<string, string> = {
     </div>
   </section>
 
+  <!-- Approval Letters -->
+  <section class="py-12 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-2">NBA Approval Letters</h2>
+      <p class="text-gray-500 text-center text-sm mb-8">Official approval letters issued by the National Board of Accreditation</p>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          {
+            title: "NBA Approval Letter 2021–22",
+            desc: "Original NBA accreditation letter for Civil, Electrical, and Mechanical Engineering programmes.",
+            file: "/docs/nba/approval/GPP_NBA_2021-22.pdf",
+            year: "2021–22",
+            badge: "First Accreditation",
+            badgeColor: "bg-blue-100 text-blue-700",
+          },
+          {
+            title: "NBA Approval Letter 2024–25",
+            desc: "Re-accreditation letter valid from 1 July 2024 to 30 June 2027 for all three programmes.",
+            file: "/docs/nba/approval/GPP_NBA_2024-25.pdf",
+            year: "2024–25",
+            badge: "Current · Valid till Jun 2027",
+            badgeColor: "bg-green-100 text-green-700",
+          },
+        ].map(doc => (
+          <a
+            href={doc.file}
+            target="_blank"
+            rel="noopener"
+            class="group flex flex-col gap-4 border border-gray-200 rounded-xl p-6 hover:border-primary hover:shadow-md transition-all"
+          >
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-50 border border-red-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-red-100 transition-colors">
+                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <span class={`inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-2 ${doc.badgeColor}`}>{doc.badge}</span>
+                <h3 class="font-bold text-gray-900 text-sm group-hover:text-primary transition-colors">{doc.title}</h3>
+                <p class="text-xs text-gray-500 mt-1">{doc.desc}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-medium text-primary pt-2 border-t border-gray-100">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              View / Download PDF
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Benefits -->
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
